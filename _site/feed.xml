@@ -6,8 +6,8 @@
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 11 May 2015 23:32:24 +0800</pubDate>
-    <lastBuildDate>Mon, 11 May 2015 23:32:24 +0800</lastBuildDate>
+    <pubDate>Tue, 12 May 2015 12:27:42 +0800</pubDate>
+    <lastBuildDate>Tue, 12 May 2015 12:27:42 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -30,6 +30,323 @@
         <pubDate>Tue, 12 May 2015 06:49:45 +0800</pubDate>
         <link>http://www.hardenedlinux.org/jekyll/update/2015/05/12/welcome-to-jekyll.html</link>
         <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/05/12/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>PaX/Grsecurity for Nexus 7 2013</title>
+        <description>&lt;h1 id=&quot;armv7-nexus7-grsechttpsgithubcomhardenedlinuxarmv7-nexus7-grsec&quot;&gt;&lt;a href=&quot;https://github.com/hardenedlinux/armv7-nexus7-grsec&quot;&gt;armv7-nexus7-grsec&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;PaX/Grsecurity patch for Nexus7, which the original version is 3.4
+kernel based with a bunch of backport features and fixes. In some
+particular cases, TrustZone is useless if the Android kernel were
+compromised. I don't think we need another rootkit-friendly solution
+like SELinux always does. Get rid of one entire class of vulns in
+kernel would be an inevitable ways to make your device secure.&lt;/p&gt;
+
+&lt;h1 id=&quot;credit-for-paxgrsecurity&quot;&gt;Credit for PaX/Grsecurity&lt;/h1&gt;
+
+&lt;p&gt;PaX/Grsecurity is the most respected 0ld sch00l community and they
+have been creating the best defense-in-depth kernel hardening solution
+for 14 years. What PaX/Grsecurity brings to us, is amazing and
+incridble work. Unfortunately, there are a lot of reasons that
+PaX/Grsecurity don't get the credit what they deserves. Let me make
+this short: To love those who are hatred by BIG BROTHER. That's the 
+fuc*ing point.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-makes-us-ticks&quot;&gt;What makes us ticks&lt;/h1&gt;
+
+&lt;p&gt;The age of &lt;a href=&quot;https://www.iotivity.org/&quot;&gt;IoT( Internet of things)&lt;/a&gt; is coming soon…There will be
+huge numbers of devices running with diverse communication
+protocols. For the simply classify, I'll only treat these devices as
+two types: One with TCP/IP stack, or not. The one with TCP/IP stack
+might have high probablity run with GNU/Linux. The one without TCP/IP
+stack may be just a simple MCU stuff. The heterougenous network need
+to be protected in various ways. These devices may be running on our
+cars, refrigrator, or everywhere around us, which could be a risk to
+our money-shitty property and even lives. That’s one of most important
+reasons we need to &quot;H A R D E N E N I N G   E V E R Y T H I N G&quot; by free
+software.&lt;/p&gt;
+
+&lt;h3 id=&quot;paxgrsecurityhttpsgrsecuritynet&quot;&gt;&lt;a href=&quot;https://grsecurity.net/&quot;&gt;PaX/Grsecurity&lt;/a&gt;&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;NAME&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt;AUTHORS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/pageexec.txt&quot;&gt;PAGEEXEC&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;paging based non-executable pages&lt;/td&gt;
+      &lt;td&gt;The PaX team, Mar 15 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/segmexec.txt&quot;&gt;SEGMEXEC&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;segmentation based non-executable pages&lt;/td&gt;
+      &lt;td&gt;The PaX team, May 1 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/aslr.txt&quot;&gt;ASLR&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;address space layout randomization&lt;/td&gt;
+      &lt;td&gt;The PaX team, Mar 15 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/mprotect.txt&quot;&gt;MPROTECT&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;mmap() and mprotect() restrictions&lt;/td&gt;
+      &lt;td&gt;The PaX team, Nov 4 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/randustack.txt&quot;&gt;RANDUSTACK&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;userland stack randomization&lt;/td&gt;
+      &lt;td&gt;The PaX team, Feb 12 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/randkstack.txt&quot;&gt;RANDKSTACK&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;kernel stack randomization&lt;/td&gt;
+      &lt;td&gt;The PaX team, Jan 24 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/randmmap.txt&quot;&gt;RANDMMAP&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;mmap() randomization&lt;/td&gt;
+      &lt;td&gt;The PaX team, Jan 24 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/randexec.txt&quot;&gt;RANDEXEC&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;non-relocatable executable file randomization&lt;/td&gt;
+      &lt;td&gt;The PaX team, Feb 19 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;VMMIRROR&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;vma mirroring, the core of SEGMEXEC and RANDEXEC&lt;/td&gt;
+      &lt;td&gt;The PaX team, Oct 6 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/emutramp.txt&quot;&gt;EMUTRAMP&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;gcc nested function and kernel sigreturn trampolines emulation&lt;/td&gt;
+      &lt;td&gt;The PaX team, May 1 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://pax.grsecurity.net/docs/emusigrt.txt&quot;&gt;EMUSIGRT&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;automatic kernel sigreturn trampoline emulation&lt;/td&gt;
+      &lt;td&gt;The PaX team, Feb 19 2003&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://grsecurity.net/~spender/uderef.txt&quot;&gt;UDEREF&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Prevent improper userland code/date access by the kernel&lt;/td&gt;
+      &lt;td&gt;The PaX team, May 15 2007&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;paxgrsecurityhttpsforumsgrsecuritynetviewforumphpf7sid0c5e947c94d1dc30e3ea8a0daa6683bd-writings&quot;&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewforum.php?f=7&amp;amp;sid=0c5e947c94d1dc30e3ea8a0daa6683bd&quot;&gt;PaX/Grsecurity&lt;/a&gt; writings&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=2520&quot;&gt;intro&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Dec 30 2010&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=2521&quot;&gt;Assorted Notes on Defense and Exploitation&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Dec 31 2010&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=2522&quot;&gt;False Boundaries and Arbitrary Code Execution&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Jan 2 2011&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=2551&quot;&gt;The Dangers of Copy and Paste&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Feb 1 2011&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=2574&quot;&gt;The Unseen Benefits of a Security Mindset&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Mar 12 2011&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=2596&quot;&gt;Much Ado About Nothing: A Response in Text and Code&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Apr 16 2011&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=2939&quot;&gt;Recent Advances: How We Learn From Exploits&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Feb 15 2012&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=3046&quot;&gt;Supervisor Mode Access Prevention&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Sep 7 2012&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=3043&quot;&gt;Inside the Size Overflow Plugin&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Aug 28 2012&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=3292&quot;&gt;Recent ARM Security Improvements&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Feb 18 2013&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=3367&quot;&gt;KASLR: An Exercise in Cargo Cult Security&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Mar 20 2013&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=7&amp;amp;t=4173&quot;&gt;Guest Blog by Rodrigo Branco: PAX_REFCOUNT Documentation&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Mar 21 2015&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;gcc-plugins&quot;&gt;&lt;em&gt;GCC plugins&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://lwn.net/Articles/461696/&quot;&gt;Better kernels with GCC plugins&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;history&quot;&gt;History&lt;/h1&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;2005&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://lwn.net/Articles/118251/&quot;&gt;grsecurity 2.1.0 and kernel vulnerabilities&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://lkml.org/lkml/2005/2/8/93&quot;&gt;the “Turing Attack” (was: Sabotaged PaXtest)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;2009&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://lwn.net/Articles/313621/&quot;&gt;The future for grsecurity&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;2011&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://lwn.net/Articles/415653/&quot;&gt;proactive defense: using read-only memory&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;2012&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://unix.stackexchange.com/questions/59020/why-are-the-grsecurity-patches-not-included-in-the-vanilla-kernel&quot;&gt;Why are the grsecurity patches not included in the Vanilla Kernel?&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;2014&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=3&amp;amp;t=3906&amp;amp;p=13803&amp;amp;hilit=ANDROID#p13803&quot;&gt;Some Links for Newbies on Grsecurity, and the Big Picture&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.openwall.com/lists/oss-security/2014/12/06/14&quot;&gt;How GNU/Linux distros deal with offset2lib attack?&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;recent-isues&quot;&gt;Recent isues&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://forums.grsecurity.net/viewtopic.php?f=1&amp;amp;t=4143&quot;&gt;locking bug( it may also an issue in upstream)&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 May 2015 06:49:45 +0800</pubDate>
+        <link>http://www.hardenedlinux.org/jekyll/update/2015/05/12/Grsecurity-for-Nexus-7-2013.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/05/12/Grsecurity-for-Nexus-7-2013.html</guid>
         
         
         <category>jekyll</category>
