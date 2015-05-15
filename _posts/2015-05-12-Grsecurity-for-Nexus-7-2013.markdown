@@ -69,6 +69,8 @@ software.
 
 [UDEREF](https://grsecurity.net/~spender/uderef.txt) | Prevent improper userland code/date access by the kernel | The PaX team, May 15 2007
 
+[UDEREF/amd64](http://grsecurity.net/pipermail/grsecurity/2010-April/001024.html)
+
 
 ### [PaX/Grsecurity](https://forums.grsecurity.net/viewforum.php?f=7&sid=0c5e947c94d1dc30e3ea8a0daa6683bd) writings
 
@@ -117,6 +119,10 @@ software.
 [The future for grsecurity](https://lwn.net/Articles/313621/)
 
 
+## 2010
+
+[Brad Spengler (PaX Team/grsecurity) interview](https://slo-tech.com/clanki/10001en)
+
 ## 2011
 [proactive defense: using read-only memory](http://lwn.net/Articles/415653/)
 
@@ -124,6 +130,11 @@ software.
 ## 2012
 
 [Why are the grsecurity patches not included in the Vanilla Kernel?]( http://unix.stackexchange.com/questions/59020/why-are-the-grsecurity-patches-not-included-in-the-vanilla-kernel)
+
+
+## 2013
+
+[How The Linux Foundation and Fedora are Addressing Workstation Security](https://lwn.net/Articles/538600/)
 
 
 ## 2014
@@ -135,3 +146,4 @@ software.
 
 # Recent isues
 [locking bug( it may also an issue in upstream)](https://forums.grsecurity.net/viewtopic.php?f=1&t=4143)
+[RPI not booting due to randomize layout plugin](https://forums.grsecurity.net/viewtopic.php?f=3&t=3958)
