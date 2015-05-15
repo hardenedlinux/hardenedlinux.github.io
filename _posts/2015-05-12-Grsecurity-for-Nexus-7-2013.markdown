@@ -146,4 +146,5 @@ software.
 
 # Recent isues
 [locking bug( it may also an issue in upstream)](https://forums.grsecurity.net/viewtopic.php?f=1&t=4143)
+
 [RPI not booting due to randomize layout plugin](https://forums.grsecurity.net/viewtopic.php?f=3&t=3958)
