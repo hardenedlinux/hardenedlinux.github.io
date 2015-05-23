@@ -2,6 +2,7 @@
 markdown: kramdown
 # Site settings
 title: Hardened GNU/Linux
+logo: hardenedlinux.gif
 email: hardenedlinux@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   We are a group of free software enthusiasts, anarchists, cyber security researchers. 0ld sch00l long lives!!!
@@ -13,3 +14,4 @@ github_username:  hardenedlinux
 
 # Build settings
 markdown: kramdown
+
