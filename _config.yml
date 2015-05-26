@@ -15,4 +15,6 @@ github_username:  hardenedlinux
 # Build settings
 markdown: kramdown
 analytics :
-        provider : custom
+        provider : google
+	google :
+		tracking_id : 'UA-1566884-2'
