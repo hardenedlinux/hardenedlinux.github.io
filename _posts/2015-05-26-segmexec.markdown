@@ -5,7 +5,7 @@ date:   2015-05-26 05:05:05
 categories: jekyll update
 ---
 
-## 原文：[PAGEEXEC设计文档](http://pax.grsecurity.net/docs/segmexec.txt)
+## 原文：[SEGMEXEC设计文档](http://pax.grsecurity.net/docs/segmexec.txt)
 
 作者：The PaX team
 
