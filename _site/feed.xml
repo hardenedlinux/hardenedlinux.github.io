@@ -6,13 +6,13 @@
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 May 2015 23:50:40 +0800</pubDate>
-    <lastBuildDate>Tue, 26 May 2015 23:50:40 +0800</lastBuildDate>
+    <pubDate>Thu, 04 Jun 2015 10:51:44 +0800</pubDate>
+    <lastBuildDate>Thu, 04 Jun 2015 10:51:44 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>SEGMEXEC设计文档</title>
-        <description>&lt;h2 id=&quot;pageexechttppaxgrsecuritynetdocssegmexectxt&quot;&gt;原文：&lt;a href=&quot;http://pax.grsecurity.net/docs/segmexec.txt&quot;&gt;PAGEEXEC设计文档&lt;/a&gt;&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;segmexechttppaxgrsecuritynetdocssegmexectxt&quot;&gt;原文：&lt;a href=&quot;http://pax.grsecurity.net/docs/segmexec.txt&quot;&gt;SEGMEXEC设计文档&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;作者：The PaX team&lt;/p&gt;
 
@@ -22,17 +22,17 @@
 
 &lt;p&gt;SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).&lt;/p&gt;
 
-&lt;p&gt;在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。   &lt;/p&gt;
+&lt;p&gt;在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。&lt;/p&gt;
 
-&lt;p&gt;由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。   &lt;/p&gt;
+&lt;p&gt;由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。&lt;/p&gt;
 
-&lt;p&gt;基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）   &lt;/p&gt;
+&lt;p&gt;基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;2. 实现&lt;/h3&gt;
 
-&lt;p&gt;SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;文件&lt;/a&gt;中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。   &lt;/p&gt;
+&lt;p&gt;SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;文件&lt;/a&gt;中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。&lt;/p&gt;
 
-&lt;p&gt;这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。   &lt;/p&gt;
+&lt;p&gt;这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。&lt;/p&gt;
 
 &lt;p&gt;全局描述符表拥有在运行时进行设置的高级电源管理特定的描述符，而这些描述符也必须传递给第二个全局描述符表（通过arch/i386/kernel/apm.c）。最后，原有的全局描述符表必须将储存的每个CPU任务状态描述符(TSS)与本地描述符表描述符与第二个全局描述符表进行同步。（通过arch/i386/kernel/traps.c中的set_tss_desc()与set_ldt_desc()函数来完成）&lt;/p&gt;
 
@@ -491,7 +491,7 @@ TLBs看起来拥有64到256个条目（看footnote 6），他们至少4-way asso
     buf = (char*)malloc(4096*257);
     for (j=0; j&amp;lt;100000; j++) {
       for (i=0; i&amp;lt;257; i++) {
-        buf[i*4096] = &#39;a&#39;;
+        buf[i*4096] = 'a';
       }
     }
     return (0);
@@ -515,7 +515,7 @@ TLBs看起来拥有64到256个条目（看footnote 6），他们至少4-way asso
 可以联系Ice (white_ice@usa.net)或者fOSSiL &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#102;&amp;#111;&amp;#115;&amp;#115;&amp;#097;&amp;#104;&amp;#064;&amp;#117;&amp;#115;&amp;#097;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#102;&amp;#111;&amp;#115;&amp;#115;&amp;#097;&amp;#104;&amp;#064;&amp;#117;&amp;#115;&amp;#097;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;去做一些逆向
 工程，设计和实现的工作&lt;/p&gt;
 
-&lt;p&gt;给那些打算单干的路标：   &lt;/p&gt;
+&lt;p&gt;给那些打算单干的路标：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;   - 逆向工程工具IDA (the Interactive DisAssembler,
      http://www.datarescue.com). the next source of information is
@@ -780,12 +780,12 @@ SEGMEXEC能知道来自用户态和内核态的原生文件映射请求所以略
 do_mmap_pgoff()而直接调用do_mmap()，而vma mirror请求使用一些特殊参数传
 递给do_mmap_pgoff():&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&#39;file&#39;    必须是NULL，因为mirror会引用相同文件的vma作为镜像
-&#39;addr&#39;    正常使用
-&#39;len&#39;    必须是0
-‘prot&#39;    正常使用
-&#39;flags&#39;    正常使用，除了一种情况：指定MAP_MIRROR和只能指定private映射
-&#39;pgoff&#39;    指定vma的线性起始地址作为镜像
+&lt;pre&gt;&lt;code&gt;'file'    必须是NULL，因为mirror会引用相同文件的vma作为镜像
+'addr'    正常使用
+'len'    必须是0
+‘prot'    正常使用
+'flags'    正常使用，除了一种情况：指定MAP_MIRROR和只能指定private映射
+'pgoff'    指定vma的线性起始地址作为镜像
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;文章给出了一个例子：&lt;/p&gt;
@@ -1120,12 +1120,21 @@ web开发人员（ 那些编写的第三方代码运行在公共的服务器上�
     
       <item>
         <title>PaX/Grsecurity for Nexus 7 2013</title>
-        <description>&lt;h1 id=&quot;armv7-nexus7-grsechttpsgithubcomhardenedlinuxarmv7-nexus7-grsec&quot;&gt;&lt;a href=&quot;https://github.com/hardenedlinux/armv7-nexus7-grsec&quot;&gt;armv7-nexus7-grsec&lt;/a&gt;&lt;/h1&gt;
+        <description>&lt;p&gt;Update( May 28 2015)&lt;/p&gt;
+
+&lt;p&gt;The porting work of the PaX patch already done. We tested it with Towel &amp;amp; KINGROOT. The result as expected: they all failed to root the Android 5.0.2 with kernel code base from 2014. Perhaps, we might try to make GRSEC &amp;amp; RBAC into the Android in the future………&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/mr1.jpg&quot; alt=&quot;KINGROOT1&quot; /&gt;
+&lt;img src=&quot;/images/mr2.jpg&quot; alt=&quot;KINGROOT2&quot; /&gt;
+&lt;img src=&quot;/images/pr3.jpg&quot; alt=&quot;KINGROOT3&quot; /&gt;
+&lt;img src=&quot;/images/pr2.jpg&quot; alt=&quot;TOWELROOT&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;armv7-nexus7-grsechttpsgithubcomhardenedlinuxarmv7-nexus7-grsec&quot;&gt;&lt;a href=&quot;https://github.com/hardenedlinux/armv7-nexus7-grsec&quot;&gt;armv7-nexus7-grsec&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;PaX/Grsecurity patch for Nexus7, which the original version is 3.4
 kernel based with a bunch of backport features and fixes. In some
 particular cases, TrustZone is useless if the Android kernel were
-compromised. I don&#39;t think we need another rootkit-friendly solution
+compromised. I don't think we need another rootkit-friendly solution
 like SELinux always does. Get rid of one entire class of vulns in
 kernel would be an inevitable ways to make your device secure.&lt;/p&gt;
 
@@ -1135,15 +1144,15 @@ kernel would be an inevitable ways to make your device secure.&lt;/p&gt;
 have been creating the best defense-in-depth kernel hardening solution
 for 14 years. What PaX/Grsecurity brings to us, is amazing and
 incridble work. Unfortunately, there are a lot of reasons that
-PaX/Grsecurity don&#39;t get the credit what they deserves. Let me make
-this short: To love those who are hatred by BIG BROTHER. That&#39;s the 
+PaX/Grsecurity don't get the credit what they deserves. Let me make
+this short: To love those who are hatred by BIG BROTHER. That's the 
 fuc*ing point.&lt;/p&gt;
 
 &lt;h1 id=&quot;what-makes-us-ticks&quot;&gt;What makes us ticks&lt;/h1&gt;
 
 &lt;p&gt;The age of &lt;a href=&quot;https://www.iotivity.org/&quot;&gt;IoT( Internet of things)&lt;/a&gt; is coming soon…There will be
 huge numbers of devices running with diverse communication
-protocols. For the simply classify, I&#39;ll only treat these devices as
+protocols. For the simply classify, I'll only treat these devices as
 two types: One with TCP/IP stack, or not. The one with TCP/IP stack
 might have high probablity run with GNU/Linux. The one without TCP/IP
 stack may be just a simple MCU stuff. The heterougenous network need

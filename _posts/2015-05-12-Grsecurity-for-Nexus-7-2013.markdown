@@ -5,6 +5,15 @@ date:   2015-05-11 22:49:45
 categories: jekyll update
 ---
 
+Update( May 28 2015)
+
+The porting work of the PaX patch already done. We tested it with Towel & KINGROOT. The result as expected: they all failed to root the Android 5.0.2 with kernel code base from 2014. Perhaps, we might try to make GRSEC & RBAC into the Android in the future.........
+
+![KINGROOT1](/images/mr1.jpg)
+![KINGROOT2](/images/mr2.jpg)
+![KINGROOT3](/images/pr3.jpg)
+![TOWELROOT](/images/pr2.jpg)
+
 # [armv7-nexus7-grsec](https://github.com/hardenedlinux/armv7-nexus7-grsec)
 
 PaX/Grsecurity patch for Nexus7, which the original version is 3.4
