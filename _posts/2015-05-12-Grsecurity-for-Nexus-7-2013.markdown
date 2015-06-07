@@ -52,30 +52,19 @@ software.
 
 ### [PaX/Grsecurity](https://grsecurity.net/)
 
-  NAME                        | DESCRIPTION                | AUTHORS                 
+  NAME                        | DESCRIPTION                | AUTHORS
 ------------------------------|----------------------------|----------------------------
 [PAGEEXEC](https://pax.grsecurity.net/docs/pageexec.txt)  |  paging based non-executable pages  |  The PaX team, Mar 15 2003
-
 [SEGMEXEC](https://pax.grsecurity.net/docs/segmexec.txt) | segmentation based non-executable pages | The PaX team, May 1 2003
-
-[ASLR](https://pax.grsecurity.net/docs/aslr.txt) |  	address space layout randomization | The PaX team, Mar 15 2003
-
+[ASLR](https://pax.grsecurity.net/docs/aslr.txt) |      address space layout randomization | The PaX team, Mar 15 2003
 [MPROTECT](https://pax.grsecurity.net/docs/mprotect.txt) | mmap() and mprotect() restrictions | The PaX team, Nov 4 2003
-
 [RANDUSTACK](https://pax.grsecurity.net/docs/randustack.txt) | userland stack randomization  | The PaX team, Feb 12 2003
-
 [RANDKSTACK](https://pax.grsecurity.net/docs/randkstack.txt) | kernel stack randomization | The PaX team, Jan 24 2003
-
 [RANDMMAP](https://pax.grsecurity.net/docs/randmmap.txt) | mmap() randomization  | The PaX team, Jan 24 2003
-
 [RANDEXEC](https://pax.grsecurity.net/docs/randexec.txt) | non-relocatable executable file randomization | The PaX team, Feb 19 2003
-
 [VMMIRROR](https://pax.grsecurity.net/docs/vmmirror.txt) | vma mirroring, the core of SEGMEXEC and RANDEXEC  | The PaX team, Oct 6 2003
-
 [EMUTRAMP](https://pax.grsecurity.net/docs/emutramp.txt) | gcc nested function and kernel sigreturn trampolines emulation | The PaX team, May 1 2003
-
 [EMUSIGRT](https://pax.grsecurity.net/docs/emusigrt.txt) | automatic kernel sigreturn trampoline emulation |The PaX team, Feb 19 2003
-
 [UDEREF](https://grsecurity.net/~spender/uderef.txt) | Prevent improper userland code/date access by the kernel | The PaX team, May 15 2007
 
 [UDEREF/amd64](http://grsecurity.net/pipermail/grsecurity/2010-April/001024.html)
