@@ -39,12 +39,21 @@ project STIG-4-Debian will be soonn....
 
    4.1 Ciphersuites in Apache2/Nginx
 
-5. PHP
+   4.2 OpenSSH
 
-6. Weirdo audit
+       4.2.1 OpenSSH in post-prism era
+
+5. Web security
+
+   5.1 Web server( Apache/Nginx?)
+
+   5.2 WAF( Web Application Firewall)
+
+6. Security standard
+
+   6.1 STIGs for Debian
 
 7. Reference
-
 
 
 ##--[ 0. About this documentation
@@ -851,7 +860,180 @@ ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
 
 
---[ 5. Reference
+--[ 5. Web security
+
+You're not reading this article for learning pentest, are you? Let's
+just consider the fence of defender's;-)
+
+OWASP code review:
+https://www.owasp.org/images/2/2e/OWASP_Code_Review_Guide-V1_1.pdf
+https://www.owasp.org/index.php/OWASP_Code_review_V2_Project
+
+OWASP testing guide:
+https://www.owasp.org/images/5/52/OWASP_Testing_Guide_v4.pdf
+https://www.owasp.org/index.php/OWASP_Guide_Project
+
+
+----[ 5.1 Web server( Apache/Nginx ?)
+
+ServerRoot
+<pre>
+Web server's root path. Default is "/etc/httpd". It's import to keep
+track of its permission. Recommend: Do not allow none-root user has
+the permission to modify it.
+
+chown root:root /etc/httpd
+chmod 754 /etc/httpd
+</pre>
+
+Timeout
+<pre>
+Lifetime per session. Default is 60 seconds. Set the lower value for
+mitigating DoS attack. Recommend: 15 <= X <= 30
+</pre>
+
+
+KeepAlive
+<pre>
+Persistent session. Default is “Off”. Recommend: On
+</pre>
+
+User
+<pre>
+Decide which user Apache work process running as. Recommend: nobody
+</pre>
+
+Group
+<pre>
+Decide which group Apache work process running as. Recommend: nobody
+</pre>
+
+Blacklist/whitelist IP/networks
+<pre>
+Order Deny,Allow
+Deny from all
+Allow from 176.16.0.0/16
+
+Or by IP:
+
+Order Deny,Allow
+Deny from all
+Allow from 127.0.0.1
+</pre>
+
+Blacklist/whitelist web contents
+<pre>
+It can prevent malicious attack via web content.
+
+< Directory />
+Order Deny,Allow # Default is Allow
+Deny from all  # Deny all contents
+< /Directory>
+</pre>
+
+Options FollowSymLinks
+<pre>
+Do not list any other files if the visited file don't exit.
+</pre>
+
+Hide info
+<pre>
+ServerSignature:
+* Off, do not provide any information
+* On, provide Apache infomation
+
+ServerTokens:
+* Full, exposure all information
+* Prod, only provide server name
+</pre>
+
+Limit risky HTTP methods
+<pre>
+< Directory />
+< LimitExcept GET POST>
+Deny from all
+< /LimitExcept>
+< /Directory>
+
+PUT/DELETE/etc methods won't be available.
+</pre>
+
+MinSpareServers
+<pre>
+Minimal spare processes. Default is 5. Recommend: 32.
+</pre>
+
+MaxSpareServers
+<pre>
+Maximum spare processes. Default is 20. Recommend: 64.
+</pre>
+
+ServerLimit
+<pre>
+The number that MaxClients can't not exceed.
+</pre>
+
+MaxClients
+<pre>
+The maximum number of working processes. Default is 256. Recommend:
+8192.
+
+MaxClients = (RAM available to Apache) / (RAM per Apache process)
+
+RAM per Apache process:
+#ps -ylC httpd --sort:rss
+
+Example:
+64GB physical memory * 0.8 = RAM available to Apache
+HTML <= 5MB per process, PHP <= 15MB per processe
+php: MaxClients = 65536MB / 15MB =4369
+</pre>
+
+MaxRequestsPerChild
+<pre>
+Limit on the number of requests that an individual child server will
+handle during its life. Default is 4000. Recommend: 1500.
+</pre>
+
+----[ 5.2 WAF
+
+ModSecurity is an open source, cross-platform web application firewall
+(WAF) module. Known as the "Swiss Army Knife" of WAFs, it enables web
+application defenders to gain visibility into HTTP(S) traffic and
+provides a power rules language and API to implement advanced
+protections. The web malicious signatures( including OWASP Top 10) are
+maintained by ModSecurity community. You can [deploy it on Debian](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_security-with-apache-on-debian-ubuntu).
+
+Anti-DoS: [mod_evasive](https://www.linode.com/docs/websites/apache-tips-and-tricks/modevasive-on-apache)
+
+About anti DoS solution, I personally don't get used to
+mod_evasive. Iptables would be much easier to maintain, eg:
+<pre>
+iptables -I INPUT -p tcp -m multiport --dports 80,443 -i eth0 -m state --state NEW -m recent --set
+iptables -I INPUT -p tcp -m multiport --dports 80,443 -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 5 -j DROP
+</pre>
+
+--[ 6. Security standard
+
+Well, there are a bunch of crazy security standards in the
+planet. Some are compliance in some contries. FIPS-140-2/3, CC( EAL 7?
+damn, it'd be an incarnation of the organge book;-)), PCI-DSS are very
+popular terms you might hear from your security consultant. But... due
+to lack of engineering implementation, these crazy( & creepy?)
+security standards are not our concerns here.
+
+
+----[ 6.1 STIGs for Debian
+
+Once there's history, there's story about offense & defense. Once
+we've heard fascinating stories from Mr.Sn0wden about how NSA fuck the
+world, there should be some open information about how BIG-BROTHER do
+the defense. [STIGs](http://iase.disa.mil/stigs/Pages/index.aspx) is one of them.
+
+I think I'm not the right person to write this section.....
+
+
+--[ 7. Reference
 
 [1] Back To The Future: Unix Wildcards Gone Wild
     http://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt
@@ -892,3 +1074,6 @@ http://bugfuzz.com/stuff/cve-2014-0196-md.c
 [13] Secure Secure Shell
 https://stribika.github.io/2015/01/04/secure-secure-shell.html
 
+[14] STIGs
+     http://iase.disa.mil/stigs/Pages/index.aspx
+     http://iase.disa.mil/stigs/os/unix-linux/Pages/index.aspx

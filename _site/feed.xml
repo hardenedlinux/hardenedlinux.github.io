@@ -6,8 +6,8 @@
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 09 Jun 2015 23:55:25 +0800</pubDate>
-    <lastBuildDate>Tue, 09 Jun 2015 23:55:25 +0800</lastBuildDate>
+    <pubDate>Wed, 17 Jun 2015 13:43:46 +0800</pubDate>
+    <lastBuildDate>Wed, 17 Jun 2015 13:43:46 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -52,12 +52,23 @@
     &lt;p&gt;SSL/TLS Checklist&lt;/p&gt;
 
     &lt;p&gt;4.1 Ciphersuites in Apache2/Nginx&lt;/p&gt;
+
+    &lt;p&gt;4.2 OpenSSH&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;4.2.1 OpenSSH in post-prism era
+&lt;/code&gt;&lt;/pre&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;PHP&lt;/p&gt;
+    &lt;p&gt;Web security&lt;/p&gt;
+
+    &lt;p&gt;5.1 Web server( Apache/Nginx?)&lt;/p&gt;
+
+    &lt;p&gt;5.2 WAF( Web Application Firewall)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Weirdo audit&lt;/p&gt;
+    &lt;p&gt;Security standard&lt;/p&gt;
+
+    &lt;p&gt;6.1 STIGs for Debian&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Reference&lt;/p&gt;
@@ -828,7 +839,176 @@ ssl_prefer_server_ciphers On;
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS&lt;/p&gt;
 
-&lt;p&gt;–[ 5. Reference&lt;/p&gt;
+&lt;p&gt;–[ 5. Web security&lt;/p&gt;
+
+&lt;p&gt;You’re not reading this article for learning pentest, are you? Let’s
+just consider the fence of defender’s;-)&lt;/p&gt;
+
+&lt;p&gt;OWASP code review:
+https://www.owasp.org/images/2/2e/OWASP_Code_Review_Guide-V1_1.pdf
+https://www.owasp.org/index.php/OWASP_Code_review_V2_Project&lt;/p&gt;
+
+&lt;p&gt;OWASP testing guide:
+https://www.owasp.org/images/5/52/OWASP_Testing_Guide_v4.pdf
+https://www.owasp.org/index.php/OWASP_Guide_Project&lt;/p&gt;
+
+&lt;p&gt;—-[ 5.1 Web server( Apache/Nginx ?)&lt;/p&gt;
+
+&lt;p&gt;ServerRoot&lt;/p&gt;
+&lt;pre&gt;
+Web server's root path. Default is &quot;/etc/httpd&quot;. It's import to keep
+track of its permission. Recommend: Do not allow none-root user has
+the permission to modify it.
+
+chown root:root /etc/httpd
+chmod 754 /etc/httpd
+&lt;/pre&gt;
+
+&lt;p&gt;Timeout&lt;/p&gt;
+&lt;pre&gt;
+Lifetime per session. Default is 60 seconds. Set the lower value for
+mitigating DoS attack. Recommend: 15 &amp;lt;= X &amp;lt;= 30
+&lt;/pre&gt;
+
+&lt;p&gt;KeepAlive&lt;/p&gt;
+&lt;pre&gt;
+Persistent session. Default is “Off”. Recommend: On
+&lt;/pre&gt;
+
+&lt;p&gt;User&lt;/p&gt;
+&lt;pre&gt;
+Decide which user Apache work process running as. Recommend: nobody
+&lt;/pre&gt;
+
+&lt;p&gt;Group&lt;/p&gt;
+&lt;pre&gt;
+Decide which group Apache work process running as. Recommend: nobody
+&lt;/pre&gt;
+
+&lt;p&gt;Blacklist/whitelist IP/networks&lt;/p&gt;
+&lt;pre&gt;
+Order Deny,Allow
+Deny from all
+Allow from 176.16.0.0/16
+
+Or by IP:
+
+Order Deny,Allow
+Deny from all
+Allow from 127.0.0.1
+&lt;/pre&gt;
+
+&lt;p&gt;Blacklist/whitelist web contents&lt;/p&gt;
+&lt;pre&gt;
+It can prevent malicious attack via web content.
+
+&amp;lt; Directory /&amp;gt;
+Order Deny,Allow # Default is Allow
+Deny from all  # Deny all contents
+&amp;lt; /Directory&amp;gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Options FollowSymLinks&lt;/p&gt;
+&lt;pre&gt;
+Do not list any other files if the visited file don't exit.
+&lt;/pre&gt;
+
+&lt;p&gt;Hide info&lt;/p&gt;
+&lt;pre&gt;
+ServerSignature:
+* Off, do not provide any information
+* On, provide Apache infomation
+
+ServerTokens:
+* Full, exposure all information
+* Prod, only provide server name
+&lt;/pre&gt;
+
+&lt;p&gt;Limit risky HTTP methods&lt;/p&gt;
+&lt;pre&gt;
+&amp;lt; Directory /&amp;gt;
+&amp;lt; LimitExcept GET POST&amp;gt;
+Deny from all
+&amp;lt; /LimitExcept&amp;gt;
+&amp;lt; /Directory&amp;gt;
+
+PUT/DELETE/etc methods won't be available.
+&lt;/pre&gt;
+
+&lt;p&gt;MinSpareServers&lt;/p&gt;
+&lt;pre&gt;
+Minimal spare processes. Default is 5. Recommend: 32.
+&lt;/pre&gt;
+
+&lt;p&gt;MaxSpareServers&lt;/p&gt;
+&lt;pre&gt;
+Maximum spare processes. Default is 20. Recommend: 64.
+&lt;/pre&gt;
+
+&lt;p&gt;ServerLimit&lt;/p&gt;
+&lt;pre&gt;
+The number that MaxClients can't not exceed.
+&lt;/pre&gt;
+
+&lt;p&gt;MaxClients&lt;/p&gt;
+&lt;pre&gt;
+The maximum number of working processes. Default is 256. Recommend:
+8192.
+
+MaxClients = (RAM available to Apache) / (RAM per Apache process)
+
+RAM per Apache process:
+#ps -ylC httpd --sort:rss
+
+Example:
+64GB physical memory * 0.8 = RAM available to Apache
+HTML &amp;lt;= 5MB per process, PHP &amp;lt;= 15MB per processe
+php: MaxClients = 65536MB / 15MB =4369
+&lt;/pre&gt;
+
+&lt;p&gt;MaxRequestsPerChild&lt;/p&gt;
+&lt;pre&gt;
+Limit on the number of requests that an individual child server will
+handle during its life. Default is 4000. Recommend: 1500.
+&lt;/pre&gt;
+
+&lt;p&gt;—-[ 5.2 WAF&lt;/p&gt;
+
+&lt;p&gt;ModSecurity is an open source, cross-platform web application firewall
+(WAF) module. Known as the “Swiss Army Knife” of WAFs, it enables web
+application defenders to gain visibility into HTTP(S) traffic and
+provides a power rules language and API to implement advanced
+protections. The web malicious signatures( including OWASP Top 10) are
+maintained by ModSecurity community. You can &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_security-with-apache-on-debian-ubuntu&quot;&gt;deploy it on Debian&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Anti-DoS: &lt;a href=&quot;https://www.linode.com/docs/websites/apache-tips-and-tricks/modevasive-on-apache&quot;&gt;mod_evasive&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;About anti DoS solution, I personally don’t get used to
+mod_evasive. Iptables would be much easier to maintain, eg:&lt;/p&gt;
+&lt;pre&gt;
+iptables -I INPUT -p tcp -m multiport --dports 80,443 -i eth0 -m state --state NEW -m recent --set
+iptables -I INPUT -p tcp -m multiport --dports 80,443 -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 5 -j DROP
+&lt;/pre&gt;
+
+&lt;p&gt;–[ 6. Security standard&lt;/p&gt;
+
+&lt;p&gt;Well, there are a bunch of crazy security standards in the
+planet. Some are compliance in some contries. FIPS-140-2/3, CC( EAL 7?
+damn, it’d be an incarnation of the organge book;-)), PCI-DSS are very
+popular terms you might hear from your security consultant. But… due
+to lack of engineering implementation, these crazy( &amp;amp; creepy?)
+security standards are not our concerns here.&lt;/p&gt;
+
+&lt;p&gt;—-[ 6.1 STIGs for Debian&lt;/p&gt;
+
+&lt;p&gt;Once there’s history, there’s story about offense &amp;amp; defense. Once
+we’ve heard fascinating stories from Mr.Sn0wden about how NSA fuck the
+world, there should be some open information about how BIG-BROTHER do
+the defense. &lt;a href=&quot;http://iase.disa.mil/stigs/Pages/index.aspx&quot;&gt;STIGs&lt;/a&gt; is one of them.&lt;/p&gt;
+
+&lt;p&gt;I think I’m not the right person to write this section…..&lt;/p&gt;
+
+&lt;p&gt;–[ 7. Reference&lt;/p&gt;
 
 &lt;p&gt;[1] Back To The Future: Unix Wildcards Gone Wild
     http://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt&lt;/p&gt;
@@ -869,6 +1049,9 @@ http://bugfuzz.com/stuff/cve-2014-0196-md.c&lt;/p&gt;
 &lt;p&gt;[13] Secure Secure Shell
 https://stribika.github.io/2015/01/04/secure-secure-shell.html&lt;/p&gt;
 
+&lt;p&gt;[14] STIGs
+     http://iase.disa.mil/stigs/Pages/index.aspx
+     http://iase.disa.mil/stigs/os/unix-linux/Pages/index.aspx&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Jun 2015 06:48:45 +0800</pubDate>
         <link>http://www.hardenedlinux.org/jekyll/update/2015/06/10/debian-security-chklist.html</link>
