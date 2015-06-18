@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Debian GNU/Linux security checklist and hardening</title>
-  <meta name="description" content="project STIG-4-Debian will be soonn&#8230;.">
+  <meta name="description" content="project STIG-4-Debian will be soonn….">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://www.hardenedlinux.org/jekyll/update/2015/06/10/debian-security-chklist.html">
@@ -231,7 +231,7 @@ mechanism can be implemented by hardware or software emulation.</p>
 <p>In GCC’s options, <a href="http://en.wikipedia.org/wiki/NX_bit">NX</a> is enable by default. If you want to turn it off,
 use “-z execstack”.</p>
 
-<p>Check method:</p>
+<p>Check method: </p>
 <pre>
 shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_STACK 
   GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x8
@@ -263,21 +263,21 @@ protection in this area will be explained further.</p>
  the stack buffers would be used. This is a smart one. But its only
  supported by GCC 4.9.x. Kees Cook shared a very <a href="http://www.outflux.net/blog/archives/2014/01/27/fstack-protector-strong/">good writing here</a>.</p>
 
-<p>Check the symbols in an elf file:</p>
+<p>Check the symbols in an elf file: </p>
 <pre>
 #readelf -s ./a.out | grep stack_chk_fail 
      3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (3) 
     52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@@GLIBC_2 
 </pre>
 
-<p>*) RELRO</p>
+<p>*) RELRO </p>
 
-<p>RELocation Read-Only.</p>
+<p>RELocation Read-Only. </p>
 
 <p>Turn it on: -z norelro 
-Turn it off: -z now</p>
+Turn it off: -z now </p>
 
-<p>Check elf header to find partial-RELRO:</p>
+<p>Check elf header to find partial-RELRO: </p>
 <pre>
 shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_RELRO 
   GNU_RELRO      0x0000000000000e28 0x0000000000600e28 0x0000000000600e28 
@@ -493,7 +493,7 @@ net.core.somaxconn = 4096
 </pre>
 
 <p>** TIME_WAIT status TCP connections, the system will empty the
-   connection if the number is exceed the value,</p>
+   connection if the number is exceed the value, </p>
 
 <pre>
 net.ipv4.tcp_max_tw_buckets = 65535
@@ -507,7 +507,7 @@ net.ipv4.tcp_tw_reuse = 1
 /proc/sys/net/ipv4/tcp_tw_reuse
 </pre>
 
-<p>** fast recycle of TIME-WAIT status connection, the default is disable( 0):</p>
+<p>** fast recycle of TIME-WAIT status connection, the default is disable( 0): </p>
 
 <pre>
 net.ipv4.tcp_tw_recycle = 1
@@ -747,7 +747,7 @@ inventing many innovations( SEGMEXEC, PAGEEXEC, MPROTECT, UDEREF,
 RANDSTRUCT<em>, etc), while hardening the kernel in source code level(
 make important *struct</em> read-only, etc). PaX/Grsecurity is one of most
 respected 0ld sch00l hacker community. The main contributor( Spender)
-was even been through a <a href="http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced">very badly economic situation</a> back in 2004</p>
+was even been through a <a href="http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced">very badly economic situation</a> back in 2004 </p>
 
 <p>Thanks to the G0d of techn0logy, PaX/Grsecurity is still alive…. I
 personally agree with some ideas:</p>

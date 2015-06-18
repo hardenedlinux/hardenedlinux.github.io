@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SEGMEXEC设计文档</title>
-  <meta name="description" content="原文：SEGMEXEC设计文档">
+  <title>STIG-4-Debian</title>
+  <meta name="description" content="By:n3o4po11o">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.hardenedlinux.org/jekyll/update/2015/05/26/segmexec.html">
+  <link rel="canonical" href="http://www.hardenedlinux.org/jekyll/update/2015/06/19/STIG-4-Debian.html">
   <link rel="alternate" type="application/rss+xml" title="Hardened GNU/Linux" href="http://www.hardenedlinux.org/feed.xml" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -71,38 +71,76 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">SEGMEXEC设计文档</h1>
-    <p class="post-meta">May 26, 2015</p>
+    <h1 class="post-title">STIG-4-Debian</h1>
+    <p class="post-meta">Jun 19, 2015</p>
   </header>
 
   <article class="post-content">
-    <h2 id="segmexechttppaxgrsecuritynetdocssegmexectxt">原文：<a href="http://pax.grsecurity.net/docs/segmexec.txt">SEGMEXEC设计文档</a></h2>
+    <p>By:n3o4po11o</p>
 
-<p>作者：The PaX team</p>
+<h2 id="why-stig">Why STIG?</h2>
 
-<p>译者：n3o4po11o</p>
+<p>STIGs is bring by a government agency called The Defense Information
+System Agency(DISA), which is entity responsible for maintaining the security
+posture of the Department of Defence(DOD) IT infrastructure. After we heard 
+how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about
+how <em>they</em> do the defense.   </p>
 
-<h3 id="section">1. 设计</h3>
+<p>DoD use this Security Technical Implantation Guides to All DoD IT assets before
+they allowed to operate.   </p>
 
-<p>SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).</p>
+<p>And the STIGs classification system based on Mission Assurance Catagory (I-III)
+and Confidentiality Level (Public-Classified), giving you 9 different possible 
+combinations of config requirements.    </p>
 
-<p>在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。   </p>
+<h2 id="why-debian">Why Debian?</h2>
 
-<p>由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。   </p>
+<p>In this scripts I use the Debian 8, Debian has a lot security mechanism, and 
+some good feature, especially “ReproducibleBuilds”. I use the STIG for Red hat
+6 v1r7 to porting STIG for Debian 8.   </p>
 
-<p>基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）   </p>
+<p>Debian always has active maintenance, and has good security in default-configuration   </p>
 
-<h3 id="section-1">2. 实现</h3>
+<h2 id="whats-different">What’s different?</h2>
 
-<p>SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的<a href="https://pax.grsecurity.net/docs/vmmirror.txt">文件</a>中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。   </p>
+<p>In STIG for RHEL-06, there’s some service doesn’t exist in debian, or some command or
+some purpose implement in different way.</p>
 
-<p>这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。   </p>
+<p>You could find the porting-log in the repo <a href="https://github.com/hardenedlinux/STIG-4-Debian">STIG-4-Debian</a></p>
 
-<p>全局描述符表拥有在运行时进行设置的高级电源管理特定的描述符，而这些描述符也必须传递给第二个全局描述符表（通过arch/i386/kernel/apm.c）。最后，原有的全局描述符表必须将储存的每个CPU任务状态描述符(TSS)与本地描述符表描述符与第二个全局描述符表进行同步。（通过arch/i386/kernel/traps.c中的set_tss_desc()与set_ldt_desc()函数来完成）</p>
+<p>But the general idea are all based on STIG For RHEL-06 v1r7</p>
 
-<p>由于内核允许用户态在本地描述符表中自己定义代码段描述符，我们必须将这个功能
-禁止，防止用来打破激活SEGMEXEC下代码段的限制。（通过arch/i386/kernel/ldt.c中
-的write_ldt()进行额外的检查）</p>
+<h2 id="todo">TODO</h2>
+
+<p>There’s a lot of TODO <br />
+Because this version I release just a simple “POC”, and just a pre-release version.
+It doesn’t even cover all the “check”</p>
+
+<p>But I will release the first version of “full-check” version soon, and add Classification 
+and Severity right after full-check, I think it will release in next month.</p>
+
+<h2 id="reference">Reference</h2>
+
+<p>[1]Difference between hardening guides (CIS, NSA, DISA)
+http://security.stackexchange.com/questions/73164/difference-between-hardening-guides-cis-nsa-disa</p>
+
+<p>[2]What Are “STIGs” and How Do They Impact Your Overall Security Program?
+http://www.seguetech.com/blog/2013/05/06/stigs-impact-overall-security-program</p>
+
+<p>[3]Beyond compliance: DISA STIGs’ role in cybersecurity
+http://gcn.com/Articles/2015/05/14/DISA-STIG-compliance.aspx?Page=1</p>
+
+<p>[4]Security Technical Implementation Guides (STIGs)
+http://iase.disa.mil/stigs/Pages/index.aspx</p>
+
+<p>[5]DISA RHEL 6 STIG V1 R7
+http://iasecontent.disa.mil/stigs/zip/Apr2015/U_RedHat_6_V1R7_STIG.zip</p>
+
+<p>[6]Defense Information Systems Agency
+https://en.wikipedia.org/wiki/Defense_Information_Systems_Agency</p>
+
+<p>[7]ReproducibleBuilds
+https://wiki.debian.org/ReproducibleBuilds</p>
 
   </article>
 
