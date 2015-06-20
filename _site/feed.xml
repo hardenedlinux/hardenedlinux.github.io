@@ -6,8 +6,8 @@
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Jun 2015 09:30:36 +0800</pubDate>
-    <lastBuildDate>Fri, 19 Jun 2015 09:30:36 +0800</lastBuildDate>
+    <pubDate>Sun, 21 Jun 2015 00:48:52 +0800</pubDate>
+    <lastBuildDate>Sun, 21 Jun 2015 00:48:52 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -230,6 +230,26 @@ link. Defense-in-depth seems the only option we have. You should be
 the best professional paranoia and also need a proper threat
 model. “Who’s gonna attack your system” would be daily bread for your
 mind;-)&lt;/p&gt;
+
+&lt;p&gt;Those two articles are good examples of assessing GNU/Linux distros: &lt;a href=&quot;https://labs.mwrinfosecurity.com/blog/2010/06/29/assessing-the-tux-strength-part-1---userspace-memory-protection/&quot;&gt;Assessing I&lt;/a&gt;, &lt;a href=&quot;https://labs.mwrinfosecurity.com/blog/2010/09/02/assessing-the-tux-strength-part-2---into-the-kernel/&quot;&gt;Assessing II&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;“checksec.sh” is very useful tool from trapkit:&lt;/p&gt;
+&lt;pre&gt;
+#wget http://www.trapkit.de/tools/checksec.sh
+&lt;/pre&gt;
+
+&lt;p&gt;Be very careful with those binaries, which has suid( or sgid?) bit:&lt;/p&gt;
+&lt;pre&gt;
+#!/bin/bash
+
+SETUID_PROGS=`find / -type f -perm -4000`
+
+echo $SETUID_PROGS
+
+for i in $SETUID_PROGS; do
+        ./checksec.sh --file $i
+done
+&lt;/pre&gt;
 
 &lt;h3 id=&quot;gcc-mitigation&quot;&gt;—-[ 2.1 GCC mitigation&lt;/h3&gt;
 
@@ -1086,7 +1106,7 @@ we’ve heard fascinating stories from Mr.Sn0wden about how NSA fuck the
 world, there should be some open information about how BIG-BROTHER do
 the defense. &lt;a href=&quot;http://iase.disa.mil/stigs/Pages/index.aspx&quot;&gt;STIGs&lt;/a&gt; is one of them.&lt;/p&gt;
 
-&lt;p&gt;I think I’m not the right person to write this section…..&lt;/p&gt;
+&lt;p&gt;I think I’m not the right person to write this section…..plz &lt;a href=&quot;http://hardenedlinux.org/jekyll/update/2015/06/19/STIG-4-Debian.html&quot;&gt;check this out&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;–[ 7. Reference&lt;/p&gt;
 

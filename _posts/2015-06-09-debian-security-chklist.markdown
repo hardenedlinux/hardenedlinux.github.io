@@ -116,6 +116,26 @@ the best professional paranoia and also need a proper threat
 model. "Who's gonna attack your system" would be daily bread for your
 mind;-)
 
+Those two articles are good examples of assessing GNU/Linux distros: [Assessing I](https://labs.mwrinfosecurity.com/blog/2010/06/29/assessing-the-tux-strength-part-1---userspace-memory-protection/), [Assessing II](https://labs.mwrinfosecurity.com/blog/2010/09/02/assessing-the-tux-strength-part-2---into-the-kernel/)
+
+"checksec.sh" is very useful tool from trapkit:
+<pre>
+#wget http://www.trapkit.de/tools/checksec.sh
+</pre>
+
+Be very careful with those binaries, which has suid( or sgid?) bit:
+<pre>
+#!/bin/bash
+
+SETUID_PROGS=`find / -type f -perm -4000`
+
+echo $SETUID_PROGS
+
+for i in $SETUID_PROGS; do
+        ./checksec.sh --file $i
+done
+</pre>
+
 
 ###----[ 2.1 GCC mitigation
 
@@ -1030,7 +1050,7 @@ we've heard fascinating stories from Mr.Sn0wden about how NSA fuck the
 world, there should be some open information about how BIG-BROTHER do
 the defense. [STIGs](http://iase.disa.mil/stigs/Pages/index.aspx) is one of them.
 
-I think I'm not the right person to write this section.....
+I think I'm not the right person to write this section.....plz [check this out](http://hardenedlinux.org/jekyll/update/2015/06/19/STIG-4-Debian.html).
 
 
 --[ 7. Reference
