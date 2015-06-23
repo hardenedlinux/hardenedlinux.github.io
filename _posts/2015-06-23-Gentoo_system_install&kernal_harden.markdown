@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "Gentoo系统安装"
+title:  "Gentoo GNU/Linux系统安装与加固"
 date:   2015-06-23 
 categories: ciphergateway update
 
 ---
+
+By: Ciphergateway
 
 --[  目录
 
