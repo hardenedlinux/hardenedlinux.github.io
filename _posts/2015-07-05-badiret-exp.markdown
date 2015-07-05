@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "后续故事：数字军火级别的\"BadIRET\"漏洞利用(CVE-2014-9322)"
-date:   2015-07-05 15:46:39
+date:   2015-07-05 22:00:07
 categories: jekyll update
 ---
 
@@ -118,30 +118,29 @@ btw.如果你运气不好，在做stack pivoting时刚好被抢占;p（Shawn:这
 
 *) 我们的代码执行时但proc_root结构被损坏...;-) 这不是我们愿意看到的。如果有其他进程对/proc文件系统有任何操作，它会戏剧性的增加内核崩溃的概率。proc_root.subdir值必须尽快被恢复以避免系统被随机的crash掉。有几种可能的方法：
 
-a) instead of overwriting 6 bytes of subdir do only 5 of them which will leave 3 bytes untouched. This means we can easily reconstruct original value by adding 0xffff8800 value at the most significant bits (for that kernel) and trying to find only 1 byte which is 256 possibilities. Chance of crash is very low (touching not mapped page). Additionally this requires allocation in user space around 16 MB to have guarantee that after referencing overwritten proc_root.subdir always ends up in our controlled memory.
+a) 反而覆盖subdir的6 bytes只覆盖其中5个，这样其中3 bytes未碰。这意味着我们可以通过0xffff8800和最高有效位相加来轻松重构原始值，每一个单独byte最多256次尝试。内核crash的概率很低（触及到未映射的页）。另外，这个需要用户空间分配16MB去保证引用被覆盖的proc_root.subdir总是在我们控制的内存里。
 
-b) we can brute force full address by ‘preventing’ from Page Fault (#PF). For the short period of time we can overwrite #PF handler with simple code:
+b) 我们可以通过'阻止'#PF来爆破整个地址。在一段很短的时间里，我们可以用一段简单程序覆盖#PF处理程序：
 
-    – Get the exception from the stack
-    – Change the address which caused crash to smth which we know is mapped
-    – Restart faulting instruction
+ - 从栈上获得异常
+ - 改变已知映射会造成crash的地址
+ - 重启错误处理指令
 
-original brute force loop will continue running
+原生的爆破循环会继续运行
 
-c) Ignore all of the problems and just reconstruct address as much as it can be and do brute force rest of the bytes. Apparently it’s quite reliable and effective. We know that high significant bytes are 0xffff8800 and we have 2 least significant bytes. We need to find 2 bytes which are unknown for us. On Linux (as opposed to Windows) kernel memory are not being paged out (swapped out). Chance of hitting unmapped page is quite low when we brute force just 2 bytes in the middle of reconstructed address – believe me or not, it works well :)
+c) 忽略所有的问题，仅仅去重构能通过爆破获得的剩下的bytes。很明显这很稳定和高效，我们知道HSB是0xfff8800和两个LSB bytes。我们需要找到2个未知的bytes。在Linux上（与Windows相反），内核内存不被paged out（swapped out）。去爆破中间的2个bytes来重构地址时访问到未映射的内存页概率是很低的 -- believe me or not, it works well :)
 
-Problem is also how we judge if the address is correct or not. It’s quite simple, struct proc_dir_etry has ‘parent’ field. We must find address which will have on the specific offset, address of proc_root (which is known). In the end we check 65536 addresses and chance of FP is low as well. I’ve never hit that situation.
+问题同样是如何判断地址是正确的。这很简单，struct proc_dir_entry有'parent'。我们必须找到proc_root(已知地址）的特定offset。最终，我们检查了65536个地址，#FP的概率也是很低的。我从来没遇到过那种情况。
 
-Summarizing our shellcode must:
+总结我们的shellcode必须：
 
-    – save original stack pointer value
-    – disable interrupts (to prevent from being preempted) and start to reconstruct corrupted proc_root.subdir value
-    – do REAL (s)hellcode
-    – restore original stack pointer
-    – restore frame pointer
-    – restore registers pointing to the internal objects
-    – enable interrupts and return to the normal kernel execution 
-
+ - 保存原生的栈指针值
+ - 关闭中断（防止被抢占）和开始重构被污染的proc_root.subdir值
+ - 实现真正的(s)hellcode
+ - 恢复原生栈指针
+ - 恢复栈帧指针
+ - 恢复寄存器指向的内部对象
+ - 启动中断和返回正常内核执行
  
 
 ## 3) Grsecurity => UDEREF
@@ -398,3 +397,11 @@ References:
 8) http://seclists.org/oss-sec/2014/q4/1052
 
 9) http://grsecurity.net/pipermail/grsecurity/2010-April/001024.html
+
+
+UPDATE:基于PCID的UDEREF实现最早是在2013年8月，而不是2014年2月。
+
+
+Best regards,
+
+Adam 'pi3' Zabrocki
