@@ -11,11 +11,13 @@ categories: jekyll update
 原文：[Exploiting “BadIRET” vulnerability (CVE-2014-9322, Linux kernel privilege escalation)](http://labs.bromium.com/2015/02/02/exploiting-badiret-vulnerability-cve-2014-9322-linux-kernel-privilege-escalation/)
 
 
-译者：Shawn the R0ck，(参与者自己把名字加到后面)
+译者：Shawn the R0ck, Feb 5 2015
 
 POC( 感谢Mickey提供的链接):
 https://rdot.org/forum/showthread.php?t=3341
 
+Solidot相关报道：
+http://www.solidot.org/story?sid=42951
 
 Shawn：Linux内核代码文件arch/x86/kernel/entry_64.S在3.17.5之前的版本都
 没有正确的处理跟SS（堆栈区）段寄存器相关的错误，这可以让本地用户通过触
