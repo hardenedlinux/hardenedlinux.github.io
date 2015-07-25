@@ -693,6 +693,12 @@ kernel.kptr_restrict=1
 /proc/sys/kernel/kptr_restrict
 </pre>
 
+<p>** dmesg info can be read by root-only:</p>
+<pre>
+kernel.kptr_restrict=1
+/proc/sys/kernel/dmesg_restrict
+</pre>
+
 <p>** the minimal memory map address, 65536 is good at least:</p>
 <pre>
 vm.mmap_min_addr=65536
