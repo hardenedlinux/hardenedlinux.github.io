@@ -7,10 +7,13 @@ permalink: /about/
 Team: h4rdenedzer0
 
 * citypw
-* digitalplus
-* G0T3N
-* samson-w
 * n3o4po11o
+* digitalplus
+
+Contributors:
+
+* [Ciphergateway](https://twitter.com/ciphergateway), [Tom Li](https://biergaizi.info/), [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
+
 
 The h4rdenedzer0 team was formed in 2014 and is a group of free software enthusiasts, anarchists, cyber security researchers. The massive medias would love to hear any stories from offsensive side. Who the hell cares the other side of fence?
 

@@ -6,16 +6,17 @@ categories: jekyll update
 ---
 By:n3o4po11o
 
+Project: [STIG-4-Debian](https://github.com/hardenedlinux/STIG-4-Debian)
+
 ##Why STIG?
 
-STIGs is bring by a government agency called The Defense Information
+[STIGs](http://iase.disa.mil/stigs/Pages/index.aspx) is bring by a government agency called The Defense Information
 System Agency(DISA), which is entity responsible for maintaining the security
-posture of the Department of Defence(DOD) IT infrastructure. After we heard 
+posture of the Department of Defence(DoD) IT infrastructure. After we heard 
 how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about
 how *they* do the defense.   
 
-DoD use this Security Technical Implantation Guides to All DoD IT assets before
-they allowed to operate.   
+DoD use this Security Technical Implementation Guides to All DoD IT assets before online/operations.
 
 And the STIGs classification system based on Mission Assurance Catagory (I-III)
 and Confidentiality Level (Public-Classified), giving you 9 different possible 
@@ -23,8 +24,8 @@ combinations of config requirements.
 
 ##Why Debian?
 
-In this scripts I use the Debian 8, Debian has a lot security mechanism, and 
-some good feature, especially "ReproducibleBuilds". I use the STIG for Red hat
+In this scripts I've on Debian GNU/Linux 8, Debian has a lot security mechanism, and 
+some good features, especially "ReproducibleBuilds". I use the STIG for Red hat
 6 v1r7 to porting STIG for Debian 8.   
 
 Debian always has active maintenance, and has good security in default-configuration   
@@ -36,7 +37,7 @@ some purpose implement in different way.
 
 You could find the porting-log in the repo [STIG-4-Debian](https://github.com/hardenedlinux/STIG-4-Debian)
 
-But the general idea are all based on STIG For RHEL-06 v1r7
+But the general idea are all based on [STIG For RHEL-06 v1r7](http://iasecontent.disa.mil/stigs/zip/Apr2015/U_RedHat_6_V1R7_STIG.zip)
 
 ##TODO
 
