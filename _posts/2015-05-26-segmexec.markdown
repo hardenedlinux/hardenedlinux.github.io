@@ -2,7 +2,8 @@
 layout: post
 title:  "SEGMEXEC设计文档"
 date:   2015-05-26 05:05:05
-categories: jekyll update
+summary: SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。 
+categories: system-security
 ---
 
 ## 原文：[SEGMEXEC设计文档](http://pax.grsecurity.net/docs/segmexec.txt)

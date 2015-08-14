@@ -1,0 +1,849 @@
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+
+/*
+   0.	Includes
+   1.	Icons
+   2.	Base Styles
+   3.	Utilities
+   4.	General
+   5.	Single Post
+   6.	Navigation
+   7.	Pagination
+   8.	Footer
+   9.	Media Queries
+ */
+
+/* ==========================================================================
+   0. Includes - Ground zero
+   ========================================================================== */
+
+@import 'normalize.css/normalize.css';
+@import 'settings'; /* Import custom-defined styles */
+
+/* ==========================================================================
+   1. Icons - Sets up the icon font and respective classes
+   ========================================================================== */
+
+@import 'partials/1 Icons';
+
+
+/* ==========================================================================
+   2. Base Styles - Setting up some base styles
+   ========================================================================== */
+
+@import 'partials/2 Base Styles';
+
+
+/* ==========================================================================
+   3. Utilities - These things get used a lot
+   ========================================================================== */
+
+@import 'partials/3 Utilities';
+
+/* ==========================================================================
+   4. General
+   ========================================================================== */
+
+.blog-logo,
+.header-logo {
+	transition: opacity 0.5s ease-out;
+	opacity: 1;
+	position: relative;
+	z-index: 3;
+	height: 6em;
+	width: auto;
+	margin: 2.5% auto 0;
+	display: block;
+	user-drag: none;
+}
+
+	.blog-logo a img:hover {
+		opacity: 0.75;
+	}
+	
+	.blog-logo a img:active {
+		opacity: 0.85;
+	}
+
+
+/*************************
+	Fancy page headers
+*************************/
+.fancy-header {
+	&.blog-has-cover {
+		.header-logo {
+			filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.35));
+			backface-visibility: hidden; // A little hack that makes the image look crisp on HiDPI Displays: http://creativeandcode.com/fix-css-filters-creating-blurry-images-on-retina/
+		}
+
+		.site-main {
+			position: relative; /* Create stacking context and set height above cover photo */
+			z-index: 2;
+			transform: translateZ(0); /* Turn on GPU acceleration to get smooth scrolling */
+			margin-top: 15em;
+			box-shadow: 0px 0px 2em rgba(0,0,0,0.5);
+		}
+		
+		.site-header {
+			margin-top: 0;
+		}
+	}
+	
+	&.blog-has-logo {
+		.site-header {
+			margin-top: 0;
+		}
+	}
+	
+	&.blog-has-cover.blog-has-logo {
+		.blog-logo,
+		.header-logo {
+			margin-top: 0;
+		}
+		
+		.site-main {
+			margin-top: 0;
+		}
+	}
+	
+	.site-main {
+		background: $background-color;
+	}
+	
+	.featured.post {
+		box-sizing: border-box;
+		background: darken($background-color, 5%);
+		padding: 2.5%;
+	}
+}
+.fancy-header.blog-has-cover.blog-has-logo {
+	.site-main {
+		top: -3em;
+		padding-top: 3em;
+	}
+}
+
+.header-logo.author-image {
+	border-radius: 50%;
+}
+
+.page-scroll {
+	margin-top: 5em;
+	position: relative;
+}
+
+.site-header {
+	width: 100%;
+	text-align: center;
+	padding-bottom: 1.5%;
+	border-bottom: 1px solid $accent-color;
+	margin: 2.5% auto 3.5%;
+}
+
+	.author-template {
+		.site-header {
+			margin-top: 0; // Removes spacing above author card.
+		}
+	}
+
+/* The details of your blog. Defined in ghost/settings/ */
+.blog-title {
+	font-size: 1.75em;
+	font-weight: normal;
+	letter-spacing: -1px;
+	margin: 1.5% auto 0;
+}
+
+.blog-title a {
+	transition: text-shadow 0.5s ease-out;
+	color: $text-color;
+}
+
+	.blog-title a:hover {
+		color: $text-color;
+		text-shadow: 0px 0px 6px rgba(75,75,75,0.5);
+	}
+	
+	.blog-title a:active {
+		color: $text-color;
+		text-shadow: 0px -2px 12px rgba(75,75,75,0.85);
+	}
+
+.blog-description {
+	font-size: 1em;
+	font-weight: 300;
+	letter-spacing: 0;
+	line-height: 1.5em;
+	margin: 0;
+}
+
+.site-content {
+	margin: 0 auto;
+	
+	header {
+		text-align: center;
+	}
+}
+
+.tag-archive-header {
+	margin: 0 auto;
+	border-bottom: 1px solid $accent-color;
+}
+
+.post {
+	position: relative;
+	width: 92.5%;
+	margin: 5% auto 10%;
+	word-break: break-word;
+	
+	/* Prevent extra space at the bottom of the page. */
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+	
+	/* Prevent extra space at the top of the page. */
+	&:first-of-type {
+		margin-top: 0;
+	}
+
+	
+	/* Keep large images within the bounds of the post-width. */
+	img {
+		display: block;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+}
+
+/* Full-width featured images. */
+.post {
+	width: 100%;
+	
+	.post-excerpt,
+	.post-content {
+		width: 92.5%;
+		margin: 0 auto;
+	}
+	
+	.post-footer {
+		width: 92.5%;
+		
+		@media only screen and (min-width: 35em) {
+			width: 85%;
+		}
+	}
+}
+
+.post-header {
+	text-align: center;
+	margin: 0 auto 2.5%;
+}
+
+.post-image {
+	padding-bottom: 1em;
+}
+
+.post-title {
+	font-size: 1.65em;
+	font-weight: normal;
+	margin: 0;
+}
+
+.post-title a {
+	text-decoration: none;
+}
+
+/* Make sure nothing jumps outside the post. */
+.post-content *,
+.post-excerpt * {
+	max-width: 100%;
+}
+
+/* Excerpt Styles */
+.post-excerpt p {
+	line-height: 1.6em;
+	hyphens: auto;
+	margin: 1.6rem 0 0 0;
+}
+
+.post-excerpt .excerpt-suffix {
+	color: $text-color;
+
+	&:hover {
+		 color: $accent-color;
+	}
+	
+	&:active {
+		 color: $secondary-accent-color;
+	}
+}
+
+/* Post Styles */
+.post-content p {
+	hyphens: auto;
+}
+
+.post-content h1 {
+	font-size: 2em;
+}
+
+.post-content h2 {
+	font-size: 1.75em;
+}
+
+.post-content h3 {
+	font-size: 1.5em;
+}
+
+.post-content h4 {
+	font-size: 1.375em;
+}
+
+.post-content h5 {
+	font-size: 1.25em;
+}
+
+.post-content h6 {
+	font-size: 1.125em;
+}
+
+.post-content img {
+	max-width: 100%;
+	margin: 2.5% auto;
+}
+
+.post-content blockquote {
+	padding: 0.5em 0.25em 0.5em 0.75em;
+	background: darken($background-color, 3.5%);
+}
+
+.post-content blockquote > p::before {
+	content: open-quote;
+	font-size: 3.5em;
+	font-style: italic;
+	line-height: 0;
+	vertical-align: -0.4em;
+	margin-right: 0.25em;
+}
+
+.post-meta {
+	display: inline-block;
+	font-size: 0.8em;
+	color: $secondary-text-color;
+	text-decoration: none;
+	padding: 0 2.5% 1%;
+	border-bottom: 1px solid $accent-color;
+	margin: 1.5% auto;
+}
+
+.post-meta a {
+	color: #9EABB3;
+	
+}
+
+.post-footer {
+	padding-bottom: 1.5%;
+	border-bottom: 1px solid $accent-color;
+}
+
+.post-tags {
+	color: $secondary-text-color;
+	font-size: 0.9em;
+}
+
+/* ==========================================================================
+   5. Single Post - When you click on an individual post
+   ========================================================================== */
+
+/* Tweak the .post wrapper style */
+.post-template .post {
+	margin-top: 0;
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+/* Kill that stylish little circle that was on the border, too */
+.post-template .post:after {
+	display: none;
+}
+
+/* The author credit area after the post */
+.post-footer {
+	position: relative;
+	margin: 5% auto 0;
+}
+
+.post-footer h4 {
+	font-size: 1.8rem;
+	margin: 0;
+}
+
+.post-footer p {
+	margin: 1rem 0;
+	font-size: 1.4rem;
+	line-height: 1.6em;
+}
+
+/* Create some space to the right for the share links */
+.author-card {
+	transition: box-shadow 0.35s ease-out;
+	text-align: left;
+	padding: 3.5%;
+	margin: 0 auto 15%;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+
+	&:hover {
+		box-shadow: 0px 2px 5px rgba(0,0,0,0.4);
+	}
+
+	.author-image {
+		float: left;
+		width: 25%;
+		max-width: 125px;
+		margin: 0;
+		
+		img {
+			transition: box-shadow 0.35s ease-out;
+			display: block;
+			max-width: 100%;
+			margin: 0;
+			border-radius: 50%;
+			box-shadow: 0 0 5px rgba(0,0,0,0);
+			
+			&:hover {
+				box-shadow: 0 2px 5px rgba(0,0,0,.5);
+			}
+		}
+	}
+	
+	.author-meta {
+		float: left;
+		margin-left: 5%;
+		width: 70%;
+	}
+	
+	.author-name {
+		color: $text-color;
+		font-size: 1.6em;
+		font-weight: normal;
+	}
+	
+	.author-website {
+		margin-left: 1.5%;
+	}
+	
+	.author-bio {
+		font-size: 0.9em;
+		margin: 1% auto;
+	}
+}
+
+.site-header {
+	.author-card {
+		display: inline-block;
+		min-width: 50%;
+		text-align: center;
+		padding: 2.5% 3.5%;
+		margin: 3.5% auto 1.5%;
+	}
+	
+	.author-meta {
+		float: none;
+		margin: 0 auto;
+	}
+}
+
+/* ==========================================================================
+   6. Navigation
+   ========================================================================== */
+
+.nav {
+	width: 100%;	
+	font-size: 1.1em;
+	text-align: center;
+	clear: both;
+	list-style: none;
+	padding-left: 0;
+	margin: 1.5% auto 0;
+	
+	li {
+		display: inline;
+		margin: 0 0.25em;
+	}
+	
+	a {
+		color: $text-color;
+		
+		&:hover {
+			color: $accent-color;
+		}
+		
+		&:active,
+		&:focus {
+			color: $secondary-accent-color;
+		}
+	}
+	
+	.nav-current a {
+		color: $accent-color;
+		
+		&:hover {
+			animation: shake 0.25s ease 0.25s;
+		}
+	}
+}
+
+@keyframes shake {
+	0%, 54%, 90% {
+		transform: translateX(-7px);
+	}
+	18%, 72% {
+		transform: translateX(7px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.post-navigation {
+	width: 92.5%;
+	margin: 2.5% auto;
+	
+	a {
+		transition: padding 0.25s ease-out, color 0.25s ease-out;
+		display: block;
+		overflow: hidden;
+		padding: 0;
+		margin: 2.5% 0;
+		
+		&:hover {
+			padding: 0 2.5%;
+		}
+	}
+}
+
+.nav-next,
+.nav-previous {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.nav-previous {
+	float: left;
+	text-align: left;
+	width: 50%;
+
+	a::before {
+		content: '\2190';
+		/* Left arrow */
+		padding-right: 0.5%;
+	}
+}
+
+.nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+
+	a::after {
+		content: '\2192';
+		/* Right arrow */
+		padding-left: 0.5%;
+	}
+}
+
+
+/* ==========================================================================
+   7. Pagination
+   ========================================================================== */
+
+/* The main wrapper for our pagination links */
+.pagination {
+	position: relative;
+	margin: 7.5% 5% 10%;
+	font-size: 1.3rem;
+	color: $secondary-text-color;
+	text-align: center;
+}
+
+.pagination a {
+	color: $secondary-text-color;
+}
+
+	.pagination a:hover {
+		color: $accent-color;
+	}
+	
+	.pagination a:active {
+		color: $secondary-accent-color;
+	}
+
+/* Push the previous/next links out to the left/right */
+.older-posts,
+.newer-posts {
+	display: block;
+	text-decoration: none;
+	transition: padding ease 0.3s;
+	padding: 0;
+}
+
+	.older-posts:hover,
+	.newer-posts:hover {
+		padding: 0 2.5%;
+	}
+
+.older-posts {
+	padding-right: 0;
+	float: right;
+}
+
+.page-number {
+	display: block;
+	clear: both;
+}
+
+.newer-posts {
+	padding-left: 0;
+	float: left;
+}
+
+
+/* ==========================================================================
+   8. Footer - The bottom of every page
+   ========================================================================== */
+
+.site-footer {
+	position: relative;
+	margin: 5% auto 0;
+	margin: calc(2.5% + 25px) auto 0;
+	padding: 4rem 0 1%;
+	border-top: 1px solid $accent-color;
+	line-height: 1.7em;
+	text-align: center;
+	width: 85%;
+}
+
+.site-footer a {
+	color: $secondary-text-color;
+}
+
+	.site-footer a:hover {
+		 color: $accent-color;
+	}
+
+.poweredby .icon-ghost {
+	font-weight: 700;
+}
+
+.poweredby .icon-ghost::before {
+	font-size: 1rem;
+	margin-right: 0.2em;
+}
+
+/* The subscribe icon on the footer */
+.subscribe {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: -25px;
+	left: 50%;
+	margin-left: -25px;
+	text-align: center;
+	line-height: 2.4rem;
+	border-radius: 50%;
+	background-color: $accent-color;
+	transition: background-color 0.5s;
+
+	/* The RSS icon, inserted via icon font */
+	&::before {
+		color: #FFF;
+		font-size: 26px;
+		position: absolute;
+		top: 5px;
+		left: 12px;
+		font-weight: bold;
+	}
+
+	&:hover {
+		background-color: $secondary-accent-color;
+	}
+	
+	&:active {
+		background-color: $secondary-text-color;
+	}
+}
+
+/* CSS tooltip saying "RSS" - initially hidden */
+.tooltip {
+	opacity:0;
+	display: inline-block;
+	padding: 4px 8px 5px 8px;
+	position: absolute;
+	top: -23px;
+	left: -1px;
+	color: rgba(255,255,255,0.9);
+	font-size: 1.1rem;
+	font-weight: bold;
+	line-height: 1em;
+	text-align: center;
+	background: #50585D;
+	border-radius: 20px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+	transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+/* The little chiclet arrow under the tooltip, pointing down */
+.tooltip:after {
+	content: "";
+	border-width: 5px 5px 0 5px;
+	border-style: solid;
+	border-color: #50585D transparent;
+	display: block;
+	position: absolute;
+	bottom: -4px;
+	left: 50%;
+	margin-left:-5px;
+	z-index: 220;
+	width: 0;
+}
+
+/* On hover, show the tooltip! */
+.subscribe:hover .tooltip {
+	opacity: 1;
+	top: -33px;
+}
+
+/* ==========================================================================
+   9. Media Queries. The secret sauce that makes Decode awesome
+   ========================================================================== */
+
+/* Tablets
+--------------------------------------- */
+@media only screen and (min-width: 35em) {
+.page-scroll {
+	margin-top: 50vh;
+}
+
+.fancy-header.blog-has-cover.blog-has-logo,
+.fancy-header.blog-has-cover.author-has-image {
+	.site-main {
+		top: -4.25em;
+		padding-top: 4.25em;
+	}
+}
+
+.site-header, .site-content {
+	width: 82.5%;
+}
+
+.site-footer {
+	width: 75%;
+}
+
+.blog-cover {
+	height: 15em;
+}
+
+.blog-logo, .header-logo {
+	height: 8.5em;
+}
+
+.post {
+	width: 100%;
+}
+
+.post-footer,
+.tag-archive-header,
+.post-navigation {
+	width: 85%;
+}
+
+.author-card {
+	margin-bottom: 5%;
+}
+
+.author-card .author-image img {
+	max-width: 125px;
+}
+
+.pagination {
+	margin: 7.5% 5%;
+}
+}
+
+/* Desktops
+--------------------------------------- */
+@media only screen and (min-width: 50em) {
+.site-header, .site-content {
+	width: 80%;
+}
+
+.site-footer {
+	width: 72.5%;
+}
+
+.blog-cover {
+	height: 20em;
+}
+
+.blog-title {
+	font-size: 2.8em;
+}
+
+.post-title {
+	font-size: 2em;
+}
+
+.post-content h1 {
+	font-size: 2.5em;
+}
+
+.post-content h2 {
+	font-size: 2.125em;
+}
+
+.post-content h3 {
+	font-size: 1.75em;
+}
+
+.post-content h4 {
+	font-size: 1.375em;
+}
+
+.post-content h5 {
+	font-size: 1.25em;
+}
+
+.post-content h6 {
+	font-size: 1.125em;
+}
+}
+
+/* Even Larger Screens
+--------------------------------------- */
+@media only screen and (min-width: 68.5em) {
+.site-header, .site-content {
+	width: 60%;
+	max-width: 60em;
+}
+
+.site-footer {
+	width: 52.5%;
+	max-width: 55em;
+}
+
+.blog-cover {
+	height: 25em;
+}
+
+.blog-title {
+	font-size: 3.5em;
+}
+}
+
+/* ==========================================================================
+   End of file. Media queries should be the last thing here. Do not add stuff
+   below this point.
+   ========================================================================== */

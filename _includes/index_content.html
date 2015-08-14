@@ -1,0 +1,29 @@
+<main class="site-content" roll="main">
+    {% for post in paginator.posts %}
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</h2>
+	    <a class="post-meta" href="{{ post.url | prepend: site.baseurl }}">Posted on <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string}}</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>{{ post.summary }}<a class="excerpt-suffix" href="{{ post.url | prepend: site.baseurl }}">&hellip;</a></p>
+	</section>
+	<footer class="post-footer">
+	    <div class="post-tags">Tagged with:  <a href="">{{ post.categories | category_links}}</a>
+	    </div>
+	</footer>
+    </article>
+    {% endfor %}
+    <nav class="pagination" role="pagination">
+        <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        <nav class="page-nav cf">
+	{% if paginator.previous_page %}
+	    <a class="newer-posts" href="{{ paginator.previous_page_path }}">&larr; Newer Posts</a>
+	{% endif %}
+
+	{% if paginator.next_page %}
+	    <a class="older-posts" href="{{ paginator.next_page_path }}">Older Posts &rarr;</a>
+	{% endif %}
+	</nav>
+    </nav>
+</main>

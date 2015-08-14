@@ -2,7 +2,8 @@
 layout: post
 title:  "漏洞利用\"BadIRET\"分析(CVE-2014-9322, Linux内核提权)"
 date:   2015-07-05 14:46:39
-categories: jekyll update
+summary: Shawn：Linux内核代码文件arch/x86/kernel/entry_64.S在3.17.5之前的版本都没有正确的处理跟SS（堆栈区）段寄存器相关的错误，这可以让本地用户通过触发一个 IRET指令从错误的地址空间去访问GS基地址来提权。这个编号为CVE-2014-9322,漏洞于2014年11月23日被Linux内核社区修复，之后的几个礼拜里没有出现公开的利用代码甚至相关的讨论。当人们快要遗忘这个威胁的时候，Rafal Wojtczuk的分析文章Exploiting “BadIRET” vulnerability似乎在提醒我们：别忘了斯拉夫兵工厂。
+categories: system-security
 ---
 
 

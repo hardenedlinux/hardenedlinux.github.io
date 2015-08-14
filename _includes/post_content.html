@@ -1,0 +1,18 @@
+<div class="site-content" role="main">
+    <article class="post tag-text tag-formatting tag-list"> 
+        <header class="post-header">
+	    <h1 class="post-title">{{ page.title }}</h1>
+	    <span class="post-meta">
+	       Post on <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date_to_long_string }}</time>
+	    </span>
+	</header>
+	<section class="post-content">
+	    {{ content }}
+	</section>
+	<section class="post-footer">
+	    <div class="post-tags">
+	        Tagged with: {{ page.categories | category_links}}
+	    </div>
+	</section>
+    </article>
+</div>

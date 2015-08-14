@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: about2
 title: 关于
 permalink: /about2/
 ---
@@ -20,4 +20,3 @@ h4rdenedzer0团队成立于2014年，由一群自由软件狂热分子，无政�
 
 btw: h4rdenedzer0部分成员也是电子杂志[DNFWAH ezine](https://github.com/citypw/DNFWAH)的贡献者。
 
-![h4rdenedzer0](/images/hardenedlinux.png)

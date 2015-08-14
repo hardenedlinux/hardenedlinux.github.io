@@ -6,8 +6,8 @@
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Aug 2015 13:17:27 +0800</pubDate>
-    <lastBuildDate>Thu, 13 Aug 2015 13:17:27 +0800</lastBuildDate>
+    <pubDate>Fri, 14 Aug 2015 22:12:11 +0800</pubDate>
+    <lastBuildDate>Fri, 14 Aug 2015 22:12:11 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -604,13 +604,11 @@ https://community.qualys.com/blogs/securitylabs/2014/12/08/poodle-bites-tls&lt;/
 http://www.isg.rhul.ac.uk/tls/Lucky13.html&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Jul 2015 01:59:07 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/07/29/ssl-tls-deployment-1.4.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/07/29/ssl-tls-deployment-1.4.html</guid>
+        <link>http://www.hardenedlinux.org/cryptography/2015/07/29/ssl-tls-deployment-1.4.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/cryptography/2015/07/29/ssl-tls-deployment-1.4.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>cryptography</category>
         
       </item>
     
@@ -934,8 +932,8 @@ swapgs.c:175:29: warning: cast from pointer to integer of different size [-Wpoin
 [pi3@localhost clean_9322]$ ./procrop
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal 'n3rgal' Wojtczuk
-                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
+                           by Rafal &#39;n3rgal&#39; Wojtczuk
+                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
 
                 Usage: ./procrop 
 
@@ -947,8 +945,8 @@ swapgs.c:175:29: warning: cast from pointer to integer of different size [-Wpoin
 [1] 5827
 [pi3@localhost clean_9322]$
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal 'n3rgal' Wojtczuk
-                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
+                           by Rafal &#39;n3rgal&#39; Wojtczuk
+                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
 
         [+] Using kernel target: 3.11.10-301.fc20.x86_64
 
@@ -960,8 +958,8 @@ pi3       5829  0.0  0.1 112660   916 pts/1    S+   23:12   0:00 grep --color=au
 [pi3@localhost clean_9322]$ ./p_write8
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal 'n3rgal' Wojtczuk
-                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
+                           by Rafal &#39;n3rgal&#39; Wojtczuk
+                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
 
                 Usage: ./p_write8 
 
@@ -973,8 +971,8 @@ pi3       5829  0.0  0.1 112660   916 pts/1    S+   23:12   0:00 grep --color=au
 [pi3@localhost clean_9322]$ ./p_write8 1
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal 'n3rgal' Wojtczuk
-                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
+                           by Rafal &#39;n3rgal&#39; Wojtczuk
+                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
 
         [+] Using kernel target: 3.11.10-301.fc20.x86_64
         [+] mmap() memory in first 2GB of address space... DONE!
@@ -1022,13 +1020,11 @@ exit
 &lt;p&gt;Adam ‘pi3’ Zabrocki&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Jul 2015 06:00:07 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/07/06/badiret-exp.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/07/06/badiret-exp.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/07/06/badiret-exp.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/07/06/badiret-exp.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     
@@ -1537,7 +1533,7 @@ force_sig_info()覆盖后，proc_root.subdir会指向被控制的用户空间内
     &lt;p&gt;%rax:=FAKE_IOPS; call *SOME_OFFSET(%rax)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax&lt;/p&gt;
+    &lt;p&gt;%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax &lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1656,13 +1652,11 @@ long do_arch_prctl(struct task_struct *task, int code, unsigned long addr)
     http://labs.bromium.com/2014/10/27/tsx-improves-timing-attacks-against-kaslr/&lt;/p&gt;
 </description>
         <pubDate>Sun, 05 Jul 2015 22:46:39 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/07/05/badiret-analysis.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/07/05/badiret-analysis.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/07/05/badiret-analysis.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/07/05/badiret-analysis.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     
@@ -1702,7 +1696,7 @@ long do_arch_prctl(struct task_struct *task, int code, unsigned long addr)
 
 &lt;p&gt;3）保存设置并重启，按Ctrl+I(分别按不是同时按)，进入RAID配置界面，将两块3T机械硬盘组建为RAID1;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/XjgyVIQ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/XjgyVIQ.jpg&quot; alt=&quot;&quot; /&gt; &lt;/p&gt;
 
 &lt;h2 id=&quot;gentoo&quot;&gt;–[ 3、安装Gentoo系统&lt;/h2&gt;
 
@@ -1799,7 +1793,7 @@ export PS1=&quot;(chroot) $PS1&quot;
 
 &lt;p&gt;3）设置主机名：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;sed -i -e's/hostname.*/hostname=&quot;shenhua&quot;/' /etc/conf.d/hostname
+&lt;pre&gt;&lt;code&gt;sed -i -e&#39;s/hostname.*/hostname=&quot;shenhua&quot;/&#39; /etc/conf.d/hostname
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;4）修改镜像源 并且设置编译参数为8核编译(注意，编译参数在设置为核心数加1时理论上也可获得最优效果)：&lt;/p&gt;
@@ -1860,7 +1854,7 @@ export PS1=&quot;(chroot) $PS1&quot;
 
 &lt;p&gt;(1) 修改配置文件：在etc/portage/make.conf中添加GRUB_PLATFORMS=”efi-64”(mbr引导可忽略此步骤)&lt;/p&gt;
 
-&lt;p&gt;(2) 安装GRUB&lt;/p&gt;
+&lt;p&gt;(2) 安装GRUB  &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;emerge --ask sys-boot/grub:2
 emerge -av sys-boot/os-prober
@@ -1901,11 +1895,11 @@ emerge --ask kde-base/kde4-l10n
 
 &lt;p&gt;　　编辑/etc/ssh/ssh_config文件，在里面加入：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;	# 1, known_hosts stores server's signature, so hash the host name:	
+&lt;pre&gt;&lt;code&gt;	# 1, known_hosts stores server&#39;s signature, so hash the host name:	
 	HashKnownHosts yes
 	#2, SSH protocl version 1 is not secure:
 	Protocol 2
-	#3, If you don't use X11 forwarding, plz disable it&quot;
+	#3, If you don&#39;t use X11 forwarding, plz disable it&quot;
 	X11Forwarding no
 	#4, Disable rhosts:
 	IgnoreRhosts yes
@@ -1938,7 +1932,7 @@ emerge --ask kde-base/kde4-l10n
 
 &lt;p&gt;　　&lt;a href=&quot;https://wiki.gentoo.org/wiki/Hardened/Grsecurity2_Quickstart&quot;&gt;https://wiki.gentoo.org/wiki/Hardened/Grsecurity2_Quickstart&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;3）编译&lt;/p&gt;
+&lt;p&gt;3）编译 &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ make
 &lt;/code&gt;&lt;/pre&gt;
@@ -1957,13 +1951,11 @@ emerge --ask kde-base/kde4-l10n
 
 </description>
         <pubDate>Tue, 23 Jun 2015 00:00:00 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/ciphergateway/update/2015/06/23/Gentoo_system_install&kernal_harden.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/ciphergateway/update/2015/06/23/Gentoo_system_install&kernal_harden.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html</guid>
         
         
-        <category>ciphergateway</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     
@@ -1979,21 +1971,21 @@ emerge --ask kde-base/kde4-l10n
 System Agency(DISA), which is entity responsible for maintaining the security
 posture of the Department of Defence(DoD) IT infrastructure. After we heard 
 how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about
-how &lt;em&gt;they&lt;/em&gt; do the defense.&lt;/p&gt;
+how &lt;em&gt;they&lt;/em&gt; do the defense.   &lt;/p&gt;
 
 &lt;p&gt;DoD use this Security Technical Implementation Guides to All DoD IT assets before online/operations.&lt;/p&gt;
 
 &lt;p&gt;And the STIGs classification system based on Mission Assurance Catagory (I-III)
 and Confidentiality Level (Public-Classified), giving you 9 different possible 
-combinations of config requirements.&lt;/p&gt;
+combinations of config requirements.    &lt;/p&gt;
 
 &lt;h2 id=&quot;why-debian&quot;&gt;Why Debian?&lt;/h2&gt;
 
 &lt;p&gt;In this scripts I’ve on Debian GNU/Linux 8, Debian has a lot security mechanism, and 
 some good features, especially “ReproducibleBuilds”. I use the STIG for Red hat
-6 v1r7 to porting STIG for Debian 8.&lt;/p&gt;
+6 v1r7 to porting STIG for Debian 8.   &lt;/p&gt;
 
-&lt;p&gt;Debian always has active maintenance, and has good security in default-configuration&lt;/p&gt;
+&lt;p&gt;Debian always has active maintenance, and has good security in default-configuration   &lt;/p&gt;
 
 &lt;h2 id=&quot;whats-different&quot;&gt;What’s different?&lt;/h2&gt;
 
@@ -2037,13 +2029,11 @@ https://en.wikipedia.org/wiki/Defense_Information_Systems_Agency&lt;/p&gt;
 https://wiki.debian.org/ReproducibleBuilds&lt;/p&gt;
 </description>
         <pubDate>Fri, 19 Jun 2015 11:38:39 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/06/19/STIG-4-Debian.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/06/19/STIG-4-Debian.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     
@@ -2224,7 +2214,7 @@ mechanism can be implemented by hardware or software emulation.&lt;/p&gt;
 &lt;p&gt;In GCC’s options, &lt;a href=&quot;http://en.wikipedia.org/wiki/NX_bit&quot;&gt;NX&lt;/a&gt; is enable by default. If you want to turn it off,
 use “-z execstack”.&lt;/p&gt;
 
-&lt;p&gt;Check method:&lt;/p&gt;
+&lt;p&gt;Check method: &lt;/p&gt;
 &lt;pre&gt;
 shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_STACK 
   GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x8
@@ -2256,26 +2246,26 @@ protection in this area will be explained further.&lt;/p&gt;
  the stack buffers would be used. This is a smart one. But its only
  supported by GCC 4.9.x. Kees Cook shared a very &lt;a href=&quot;http://www.outflux.net/blog/archives/2014/01/27/fstack-protector-strong/&quot;&gt;good writing here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Check the symbols in an elf file:&lt;/p&gt;
+&lt;p&gt;Check the symbols in an elf file: &lt;/p&gt;
 &lt;pre&gt;
 #readelf -s ./a.out | grep stack_chk_fail 
      3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (3) 
     52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@@GLIBC_2 
 &lt;/pre&gt;
 
-&lt;p&gt;*) RELRO&lt;/p&gt;
+&lt;p&gt;*) RELRO &lt;/p&gt;
 
-&lt;p&gt;RELocation Read-Only.&lt;/p&gt;
+&lt;p&gt;RELocation Read-Only. &lt;/p&gt;
 
 &lt;p&gt;Turn it on: -z norelro 
-Turn it off: -z now&lt;/p&gt;
+Turn it off: -z now &lt;/p&gt;
 
-&lt;p&gt;Check elf header to find partial-RELRO:&lt;/p&gt;
+&lt;p&gt;Check elf header to find partial-RELRO: &lt;/p&gt;
 &lt;pre&gt;
 shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_RELRO 
   GNU_RELRO      0x0000000000000e28 0x0000000000600e28 0x0000000000600e28 
 
-Check elf's dynamic sections to find fully-RELRO: 
+Check elf&#39;s dynamic sections to find fully-RELRO: 
 shawn@shawn-fortress ~ $ readelf -d a.out | grep BIND_NOW 
  0x0000000000000018 (BIND_NOW)
 &lt;/pre&gt;
@@ -2334,7 +2324,7 @@ a defender’s daily bread, which being part of defense-in-depth model.&lt;/p&gt
 &lt;pre&gt;find / -path /proc -prune -o -nouser -o -nogroup&lt;/pre&gt;
 
 &lt;p&gt;List avaiable users, be cautions about who’s the “user”:&lt;/p&gt;
-&lt;pre&gt;egrep -v '.*:\*|:\!' /etc/shadow | awk -F: '{print $1}'&lt;/pre&gt;
+&lt;pre&gt;egrep -v &#39;.*:\*|:\!&#39; /etc/shadow | awk -F: &#39;{print $1}&#39;&lt;/pre&gt;
 
 &lt;p&gt;Check which files belong to whom. Then delete the user correctly:&lt;/p&gt;
 
@@ -2344,11 +2334,11 @@ a defender’s daily bread, which being part of defense-in-depth model.&lt;/p&gt
 
 &lt;p&gt;List which users are unavailable:&lt;/p&gt;
 
-&lt;pre&gt;grep -v ':x:' /etc/passwd&lt;/pre&gt;
+&lt;pre&gt;grep -v &#39;:x:&#39; /etc/passwd&lt;/pre&gt;
 
 &lt;p&gt;List expired passwords:&lt;/p&gt;
 
-&lt;pre&gt;cat /etc/shadow | cut -d: -f 1,2 | grep '!'&lt;/pre&gt;
+&lt;pre&gt;cat /etc/shadow | cut -d: -f 1,2 | grep &#39;!&#39;&lt;/pre&gt;
 
 &lt;p&gt;The correct permission should be 644 at least. 600 would be better:&lt;/p&gt;
 
@@ -2486,7 +2476,7 @@ net.core.somaxconn = 4096
 &lt;/pre&gt;
 
 &lt;p&gt;** TIME_WAIT status TCP connections, the system will empty the
-   connection if the number is exceed the value,&lt;/p&gt;
+   connection if the number is exceed the value, &lt;/p&gt;
 
 &lt;pre&gt;
 net.ipv4.tcp_max_tw_buckets = 65535
@@ -2500,7 +2490,7 @@ net.ipv4.tcp_tw_reuse = 1
 /proc/sys/net/ipv4/tcp_tw_reuse
 &lt;/pre&gt;
 
-&lt;p&gt;** fast recycle of TIME-WAIT status connection, the default is disable( 0):&lt;/p&gt;
+&lt;p&gt;** fast recycle of TIME-WAIT status connection, the default is disable( 0): &lt;/p&gt;
 
 &lt;pre&gt;
 net.ipv4.tcp_tw_recycle = 1
@@ -2746,7 +2736,7 @@ inventing many innovations( SEGMEXEC, PAGEEXEC, MPROTECT, UDEREF,
 RANDSTRUCT&lt;em&gt;, etc), while hardening the kernel in source code level(
 make important *struct&lt;/em&gt; read-only, etc). PaX/Grsecurity is one of most
 respected 0ld sch00l hacker community. The main contributor( Spender)
-was even been through a &lt;a href=&quot;http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced&quot;&gt;very badly economic situation&lt;/a&gt; back in 2004&lt;/p&gt;
+was even been through a &lt;a href=&quot;http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced&quot;&gt;very badly economic situation&lt;/a&gt; back in 2004 &lt;/p&gt;
 
 &lt;p&gt;Thanks to the G0d of techn0logy, PaX/Grsecurity is still alive…. I
 personally agree with some ideas:&lt;/p&gt;
@@ -2842,7 +2832,7 @@ openssl s_client -cipher EXPORT -connect www.google.com:443
 &lt;p&gt;Config file：/etc/ssh/ssh_config&lt;/p&gt;
 
 &lt;pre&gt;
-1, known_hosts stores server's signature, so hash the host name:
+1, known_hosts stores server&#39;s signature, so hash the host name:
 
 HashKnownHosts yes
 
@@ -2850,7 +2840,7 @@ HashKnownHosts yes
 
 Protocol 2
 
-3, If you don't use X11 forwarding, plz disable it&quot;
+3, If you don&#39;t use X11 forwarding, plz disable it&quot;
 
 X11Forwarding no
 
@@ -2919,7 +2909,7 @@ https://www.owasp.org/index.php/OWASP_Guide_Project&lt;/p&gt;
 
 &lt;p&gt;ServerRoot&lt;/p&gt;
 &lt;pre&gt;
-Web server's root path. Default is &quot;/etc/httpd&quot;. It's import to keep
+Web server&#39;s root path. Default is &quot;/etc/httpd&quot;. It&#39;s import to keep
 track of its permission. Recommend: Do not allow none-root user has
 the permission to modify it.
 
@@ -2973,7 +2963,7 @@ Deny from all  # Deny all contents
 
 &lt;p&gt;Options FollowSymLinks&lt;/p&gt;
 &lt;pre&gt;
-Do not list any other files if the visited file don't exit.
+Do not list any other files if the visited file don&#39;t exit.
 &lt;/pre&gt;
 
 &lt;p&gt;Hide info&lt;/p&gt;
@@ -2995,7 +2985,7 @@ Deny from all
 &amp;lt; /LimitExcept&amp;gt;
 &amp;lt; /Directory&amp;gt;
 
-PUT/DELETE/etc methods won't be available.
+PUT/DELETE/etc methods won&#39;t be available.
 &lt;/pre&gt;
 
 &lt;p&gt;MinSpareServers&lt;/p&gt;
@@ -3010,7 +3000,7 @@ Maximum spare processes. Default is 20. Recommend: 64.
 
 &lt;p&gt;ServerLimit&lt;/p&gt;
 &lt;pre&gt;
-The number that MaxClients can't not exceed.
+The number that MaxClients can&#39;t not exceed.
 &lt;/pre&gt;
 
 &lt;p&gt;MaxClients&lt;/p&gt;
@@ -3117,13 +3107,11 @@ https://stribika.github.io/2015/01/04/secure-secure-shell.html&lt;/p&gt;
      http://iase.disa.mil/stigs/os/unix-linux/Pages/index.aspx&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Jun 2015 06:48:45 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/06/10/debian-security-chklist.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/06/10/debian-security-chklist.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/06/10/debian-security-chklist.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/06/10/debian-security-chklist.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     
@@ -3139,17 +3127,17 @@ https://stribika.github.io/2015/01/04/secure-secure-shell.html&lt;/p&gt;
 
 &lt;p&gt;SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).&lt;/p&gt;
 
-&lt;p&gt;在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。&lt;/p&gt;
+&lt;p&gt;在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。   &lt;/p&gt;
 
-&lt;p&gt;由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。&lt;/p&gt;
+&lt;p&gt;由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。   &lt;/p&gt;
 
-&lt;p&gt;基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）&lt;/p&gt;
+&lt;p&gt;基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）   &lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;2. 实现&lt;/h3&gt;
 
-&lt;p&gt;SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;文件&lt;/a&gt;中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。&lt;/p&gt;
+&lt;p&gt;SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;文件&lt;/a&gt;中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。   &lt;/p&gt;
 
-&lt;p&gt;这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。&lt;/p&gt;
+&lt;p&gt;这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。   &lt;/p&gt;
 
 &lt;p&gt;全局描述符表拥有在运行时进行设置的高级电源管理特定的描述符，而这些描述符也必须传递给第二个全局描述符表（通过arch/i386/kernel/apm.c）。最后，原有的全局描述符表必须将储存的每个CPU任务状态描述符(TSS)与本地描述符表描述符与第二个全局描述符表进行同步。（通过arch/i386/kernel/traps.c中的set_tss_desc()与set_ldt_desc()函数来完成）&lt;/p&gt;
 
@@ -3158,13 +3146,11 @@ https://stribika.github.io/2015/01/04/secure-secure-shell.html&lt;/p&gt;
 的write_ldt()进行额外的检查）&lt;/p&gt;
 </description>
         <pubDate>Tue, 26 May 2015 13:05:05 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/05/26/segmexec.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/05/26/segmexec.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/05/26/segmexec.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/05/26/segmexec.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     
@@ -3608,7 +3594,7 @@ TLBs看起来拥有64到256个条目（看footnote 6），他们至少4-way asso
     buf = (char*)malloc(4096*257);
     for (j=0; j&amp;lt;100000; j++) {
       for (i=0; i&amp;lt;257; i++) {
-        buf[i*4096] = 'a';
+        buf[i*4096] = &#39;a&#39;;
       }
     }
     return (0);
@@ -3632,7 +3618,7 @@ TLBs看起来拥有64到256个条目（看footnote 6），他们至少4-way asso
 可以联系Ice (white_ice@usa.net)或者fOSSiL &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#102;&amp;#111;&amp;#115;&amp;#115;&amp;#097;&amp;#104;&amp;#064;&amp;#117;&amp;#115;&amp;#097;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#102;&amp;#111;&amp;#115;&amp;#115;&amp;#097;&amp;#104;&amp;#064;&amp;#117;&amp;#115;&amp;#097;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;去做一些逆向
 工程，设计和实现的工作&lt;/p&gt;
 
-&lt;p&gt;给那些打算单干的路标：&lt;/p&gt;
+&lt;p&gt;给那些打算单干的路标：   &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;   - 逆向工程工具IDA (the Interactive DisAssembler,
      http://www.datarescue.com). the next source of information is
@@ -3735,13 +3721,11 @@ happen, hence its omission.&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 25 May 2015 10:08:45 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/05/25/pageexec-old.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/05/25/pageexec-old.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/05/25/pageexec-old.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/05/25/pageexec-old.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     
@@ -3897,12 +3881,12 @@ SEGMEXEC能知道来自用户态和内核态的原生文件映射请求所以略
 do_mmap_pgoff()而直接调用do_mmap()，而vma mirror请求使用一些特殊参数传
 递给do_mmap_pgoff():&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;'file'    必须是NULL，因为mirror会引用相同文件的vma作为镜像
-'addr'    正常使用
-'len'    必须是0
-‘prot'    正常使用
-'flags'    正常使用，除了一种情况：指定MAP_MIRROR和只能指定private映射
-'pgoff'    指定vma的线性起始地址作为镜像
+&lt;pre&gt;&lt;code&gt;&#39;file&#39;    必须是NULL，因为mirror会引用相同文件的vma作为镜像
+&#39;addr&#39;    正常使用
+&#39;len&#39;    必须是0
+‘prot&#39;    正常使用
+&#39;flags&#39;    正常使用，除了一种情况：指定MAP_MIRROR和只能指定private映射
+&#39;pgoff&#39;    指定vma的线性起始地址作为镜像
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;文章给出了一个例子：&lt;/p&gt;
@@ -4014,13 +3998,11 @@ Grsecurity/PaX. We/I salute you!!!&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 24 May 2015 03:20:45 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/05/24/archeological_hacking_on_pax.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/05/24/archeological_hacking_on_pax.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     
@@ -4225,13 +4207,11 @@ web开发人员（ 那些编写的第三方代码运行在公共的服务器上�
 &lt;p&gt;感谢Brad Spengler的访谈。&lt;/p&gt;
 </description>
         <pubDate>Mon, 18 May 2015 00:49:45 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/jekyll/update/2015/05/18/grsec-interview.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/jekyll/update/2015/05/18/grsec-interview.html</guid>
+        <link>http://www.hardenedlinux.org/system-security/2015/05/18/grsec-interview.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/05/18/grsec-interview.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>system-security</category>
         
       </item>
     

@@ -2,7 +2,8 @@
 layout: post
 title:  "Debian GNU/Linux security checklist and hardening"
 date:   2015-06-09 22:48:45
-categories: jekyll update
+summary: GNU/Linux already become one of most important fundamental element in modern IT platform. Almost every important applications heavily rely on the core component of GNU system:GCC, Glibc and linux kernel. GNU/Linux is totally free/libre and open source software(FLOSS). Many people thinks free/libre and open source software is secure because its open to many eyes. Yes, that's true.
+categories: system-security
 ---
 
 project STIG-4-Debian will be soonn....

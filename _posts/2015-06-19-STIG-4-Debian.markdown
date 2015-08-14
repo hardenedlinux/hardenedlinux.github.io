@@ -2,7 +2,8 @@
 layout: post
 title:  "STIG-4-Debian"
 date:   2015-06-19 03:38:39
-categories: jekyll update
+summary: STIGs is bring by a government agency called The Defense Information System Agency(DISA), which is entity responsible for maintaining the security posture of the Department of Defence(DoD) IT infrastructure. After we heard how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about how *they* do the defense.
+categories: system-security
 ---
 By:n3o4po11o
 

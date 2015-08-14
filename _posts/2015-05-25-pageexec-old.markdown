@@ -2,7 +2,8 @@
 layout: post
 title:  "PAGEEXEC的最早设计文档"
 date:   2015-05-25 02:08:45
-categories: jekyll update
+summary: Shawn：事实证明对性能影响很大，在之后的一些年里SEGEXEC用的更多，但PAGEXEC让我们明白了初始的PaX feature到底是什么样的一个东东，不了解你hacking领域历史的人永远无法去解决未来所要面对的问题，过去的15年里系统安全经历了有趣的进化，关于进攻阵营介绍已经够多了（或许我们未来可以花些时间聊聊），Aleph One也是名利双收。
+categories: system-security
 ---
 
 Shawn：事实证明对性能影响很大，在之后的一些年里SEGEXEC用的更多，但
