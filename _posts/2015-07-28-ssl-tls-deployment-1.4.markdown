@@ -2,7 +2,8 @@
 layout: post
 title:  "SSL/TLS部署最佳实践v1.4"
 date:   2015-07-28 17:59:07
-categories: jekyll update
+summary:  SSL/TLS是一个看似简单的技术。非常容易部署和让她跑起来，但是...她真的跑起来了吗？第一部分是真的 —— SSL确实容易部署 —— 然而正确部属她并不容易。为了确保TLS提供安全性，系统管理员和开发者必须投入额外的精力，去配置服务器和编写应用程序。
+categories: cryptography
 ---
 
 译者：Shawn the R0ck( 1.3), Tom Li( 1.4)

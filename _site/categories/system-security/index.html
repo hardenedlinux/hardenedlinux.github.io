@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Category: system-security</title>
+
+  <meta name="description" content="We are a group of free software enthusiasts, anarchists, cyber security researchers. 0ld sch00l long lives!!!
+">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="canonical" href="http://www.hardenedlinux.org/categories/system-security/">
+  <link rel="alternate" type="application/rss+xml" title="Hardened GNU/Linux" href="http://www.hardenedlinux.org/feed.xml" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1566884-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+ 
+<body class="tag-template tag-text blog-has-logo">
+    <div class="page-scroll">
+        <img class="header-logo blog-logo" src="/images/logo_400.png" alt="Blog Logo">
+        <div class="site-main">
+        <header class="site-header">
+    <h1 class="blog-title">Hardened GNU/Linux</h1>
+    <h2 class="blog-description">We are a group of free software enthusiasts, anarchists, cyber security researchers. 0ld sch00l long lives!!!
+</h2>
+    <ul class="nav">
+        <li class="nav-home nav-current" role="presentation">
+	    <a href="http://www.hardenedlinux.org">Home</a>
+	</li>
+        <li class="nav-about" role="presentation">
+	    <a href="http://www.hardenedlinux.org/about">About</a>
+	</li>
+        <li class="nav-about" role="presentation">
+	    <a href="http://www.hardenedlinux.org/about2">关于</a>
+	</li>
+    </ul>
+</header>
+ 
+        <main class="site-content" roll="main">
+    <header class="tag-archive-header">
+        <h1>system-security</h1>
+    </header>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/07/06/badiret-exp.html">后续故事：数字军火级别的"BadIRET"漏洞利用(CVE-2014-9322)</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/07/06/badiret-exp.html">Posted on <time datetime="2015-07-06">06 July 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>Shawn：nergal在2015年2月公开的针对BadIRET漏洞的分析文章仿佛就在昨天，但Linux内核社区对安全的态度的确比10年还糟糕，Linux内核社区一如既往坚持"Security through obscurity"这种简单到根本不用考虑斯拉夫兵工厂的威胁建模，不辛的是，BadIRET又是一例Linux内核社区认为几乎不可利用但实际是可利用的漏洞，更糟糕的是一些商业GNU/Linux厂商因为各种原因（在后棱镜时代，不得不考虑非商业因素的可能）基本按照是否有公开的漏洞利用会成为他们对于风险评估的重要指标，这种说法好像是当0-day exploit从来都不存在一样，这的确是一个黑暗的时代，就算没有Mr.Snowden，这的确也称的上是一个黑暗的信息时代，anyway，这次pi3公开了BadIRET的漏洞利用代码，这对于安全研究人员来说是一个好事，也希望整个事件能帮助个人以及企业GNU/Linux用户对于安全有正确的认识。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/07/06/badiret-exp.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/07/05/badiret-analysis.html">漏洞利用"BadIRET"分析(CVE-2014-9322, Linux内核提权)</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/07/05/badiret-analysis.html">Posted on <time datetime="2015-07-05">05 July 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>Shawn：Linux内核代码文件arch/x86/kernel/entry_64.S在3.17.5之前的版本都没有正确的处理跟SS（堆栈区）段寄存器相关的错误，这可以让本地用户通过触发一个 IRET指令从错误的地址空间去访问GS基地址来提权。这个编号为CVE-2014-9322,漏洞于2014年11月23日被Linux内核社区修复，之后的几个礼拜里没有出现公开的利用代码甚至相关的讨论。当人们快要遗忘这个威胁的时候，Rafal Wojtczuk的分析文章Exploiting “BadIRET” vulnerability似乎在提醒我们：别忘了斯拉夫兵工厂。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/07/05/badiret-analysis.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">Gentoo GNU/Linux系统安装与加固</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">Posted on <time datetime="2015-06-23">23 June 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>Gentoo Hardened is a Gentoo project that offers multiple additional security services on top of the well-known Gentoo Linux installation. Although each of them can be selected separately, Gentoo Hardened enables several risk-mitigating options in the toolchain, supports PaX, grSecurity, SELinux, TPE and more.<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html">STIG-4-Debian</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html">Posted on <time datetime="2015-06-19">19 June 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>STIGs is bring by a government agency called The Defense Information System Agency(DISA), which is entity responsible for maintaining the security posture of the Department of Defence(DoD) IT infrastructure. After we heard how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about how *they* do the defense.<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/06/10/debian-security-chklist.html">Debian GNU/Linux security checklist and hardening</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/06/10/debian-security-chklist.html">Posted on <time datetime="2015-06-10">10 June 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>GNU/Linux already become one of most important fundamental element in modern IT platform. Almost every important applications heavily rely on the core component of GNU system:GCC, Glibc and linux kernel. GNU/Linux is totally free/libre and open source software(FLOSS). Many people thinks free/libre and open source software is secure because its open to many eyes. Yes, that's true.<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/06/10/debian-security-chklist.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/05/26/segmexec.html">SEGMEXEC设计文档</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/05/26/segmexec.html">Posted on <time datetime="2015-05-26">26 May 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/05/26/segmexec.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/05/25/pageexec-old.html">PAGEEXEC的最早设计文档</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/05/25/pageexec-old.html">Posted on <time datetime="2015-05-25">25 May 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>Shawn：事实证明对性能影响很大，在之后的一些年里SEGEXEC用的更多，但PAGEXEC让我们明白了初始的PaX feature到底是什么样的一个东东，不了解你hacking领域历史的人永远无法去解决未来所要面对的问题，过去的15年里系统安全经历了有趣的进化，关于进攻阵营介绍已经够多了（或许我们未来可以花些时间聊聊），Aleph One也是名利双收。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/05/25/pageexec-old.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html">PaX的技术考古之旅</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html">Posted on <time datetime="2015-05-24">24 May 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>PaX是针对linux kernel的一个加固版本的补丁，它让linux内核的内存页受限于最小权限原则，是这个星球上有史以来最极端和最优秀的防御系统级别0day的方案，第1版的设计和实现诞生于2000年，那可是一个没有ASLR/RELRO/NX/CANARY/FORITY/PIE都没有的年代，这些今天意义上的现代mitigation技术不管是linux/windows/macosx都多少抄袭和模仿了PaX的设计和实现，但有很多朋友会问：既然这东东这么厉害，为什么不在linux mainline里？PaX没有进入Linux内核upstream的原因不止一个，甚至有时候都不是纯粹技术本身的问题<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/05/18/grsec-interview.html">Brad Spengler( Pax Team/grsecurity)访谈, 2010年1月1日</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/05/18/grsec-interview.html">Posted on <time datetime="2015-05-18">18 May 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>Shawn：PaX/Grsecurity是在OS安全上的一个开创性的贡献，没有PaX/Grsecurity的GNU/Linux的安全性只能防御脚本小子，过去的14年里Pax/Grsecurity为Linux内核做出了巨大出贡献的贡献，但到今天Linux内核社区都不愿意承认，这可能的确是受商业厂商控制了主流媒体的后果，在后棱镜时代，这种现象有极端的阴谋论甚至认为NSA也是推手，当然这也并非完全没有道理，毕竟SELinux项目早已成为Five-Eyes国家的标配。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/05/18/grsec-interview.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/05/12/Grsecurity-for-Nexus-7-2013.html">PaX/Grsecurity for Nexus 7 2013</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/05/12/Grsecurity-for-Nexus-7-2013.html">Posted on <time datetime="2015-05-12">12 May 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>The porting work of the PaX patch already done. We tested it with Towel & KINGROOT. The result as expected:they all failed to root the Android 5.0.2 with kernel code base from 2014. Perhaps, we might try to make GRSEC & RBAC into the Android in the future.........<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/05/12/Grsecurity-for-Nexus-7-2013.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+</main>
+ 
+        <footer class="site-footer">
+    <a href="https://github.com/hardenedlinux"><i class="fa fa-github-alt fa-2x"></i></a>
+    <a href="mailto:hardenedlinux@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
+    <a href="https://twitter.com/hardenedlinux"><i class="fa fa-twitter fa-2x"></i></a>
+    <div class="inner">
+        <section class="copyright">This theme copyright by <a href="http://scotthsmith.com">Scott Smith</a></section>
+    </div>
+</footer>
+ 
+        </div>
+    </div>
+<script src="//use.typekit.net/qdi5fpu.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+</body>
+</html>

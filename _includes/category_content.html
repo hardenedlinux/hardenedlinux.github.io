@@ -1,0 +1,16 @@
+<main class="site-content" roll="main">
+    <header class="tag-archive-header">
+        <h1>{{ page.category }}</h1>
+    </header>
+    {% for post in site.categories[page.category] %}
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="{{ post.url | prepend: site.url }}">{{ post.title }}</h2>
+	    <a class="post-meta" href="{{ post.url | prepend: site.url }}">Posted on <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string}}</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>{{ post.summary }}<a class="excerpt-suffix" href="{{ post.url | prepend: site.url }}">&hellip;</a></p>
+	</section>
+    </article>
+    {% endfor %}
+</main>

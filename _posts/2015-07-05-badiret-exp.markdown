@@ -2,7 +2,8 @@
 layout: post
 title:  "后续故事：数字军火级别的\"BadIRET\"漏洞利用(CVE-2014-9322)"
 date:   2015-07-05 22:00:07
-categories: jekyll update
+summary: Shawn：nergal在2015年2月公开的针对BadIRET漏洞的分析文章仿佛就在昨天，但Linux内核社区对安全的态度的确比10年还糟糕，Linux内核社区一如既往坚持"Security through obscurity"这种简单到根本不用考虑斯拉夫兵工厂的威胁建模，不辛的是，BadIRET又是一例Linux内核社区认为几乎不可利用但实际是可利用的漏洞，更糟糕的是一些商业GNU/Linux厂商因为各种原因（在后棱镜时代，不得不考虑非商业因素的可能）基本按照是否有公开的漏洞利用会成为他们对于风险评估的重要指标，这种说法好像是当0-day exploit从来都不存在一样，这的确是一个黑暗的时代，就算没有Mr.Snowden，这的确也称的上是一个黑暗的信息时代，anyway，这次pi3公开了BadIRET的漏洞利用代码，这对于安全研究人员来说是一个好事，也希望整个事件能帮助个人以及企业GNU/Linux用户对于安全有正确的认识。
+categories: system-security
 ---
 
 

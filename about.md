@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: about
 title: About
 permalink: /about/
 ---
@@ -21,4 +21,3 @@ Every member of h4rdenedzer0 has their own hacking fields, resulting in a divers
 
 btw: Some members of the h4rdenedzer0 are also contributors for [DNFWAH ezine](https://github.com/citypw/DNFWAH).
 
-![h4rdenedzer0](/images/hardenedlinux.png)

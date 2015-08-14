@@ -2,7 +2,8 @@
 layout: post
 title:  "Gentoo GNU/Linux系统安装与加固"
 date:   2015-06-23 
-categories: ciphergateway update
+summary: Gentoo Hardened is a Gentoo project that offers multiple additional security services on top of the well-known Gentoo Linux installation. Although each of them can be selected separately, Gentoo Hardened enables several risk-mitigating options in the toolchain, supports PaX, grSecurity, SELinux, TPE and more.
+categories: system-security
 
 ---
 

@@ -2,7 +2,8 @@
 layout: post
 title:  "PaX的技术考古之旅"
 date:   2015-05-23 19:20:45
-categories: jekyll update
+summary: PaX是针对linux kernel的一个加固版本的补丁，它让linux内核的内存页受限于最小权限原则，是这个星球上有史以来最极端和最优秀的防御系统级别0day的方案，第1版的设计和实现诞生于2000年，那可是一个没有ASLR/RELRO/NX/CANARY/FORITY/PIE都没有的年代，这些今天意义上的现代mitigation技术不管是linux/windows/macosx都多少抄袭和模仿了PaX的设计和实现，但有很多朋友会问：既然这东东这么厉害，为什么不在linux mainline里？PaX没有进入Linux内核upstream的原因不止一个，甚至有时候都不是纯粹技术本身的问题
+categories: system-security
 ---
 
 h4rdenedzer0会尝试翻译PaX/Grsecurity的一些文档，请关注。

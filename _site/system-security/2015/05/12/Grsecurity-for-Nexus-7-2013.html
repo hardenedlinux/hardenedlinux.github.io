@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>PaX/Grsecurity for Nexus 7 2013</title>
+
+  <meta name="description" content="Update( May 28 2015)">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="canonical" href="http://www.hardenedlinux.org/system-security/2015/05/12/Grsecurity-for-Nexus-7-2013.html">
+  <link rel="alternate" type="application/rss+xml" title="Hardened GNU/Linux" href="http://www.hardenedlinux.org/feed.xml" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1566884-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+ 
+<body class="post-template tag-text tag-formatting tag-list tag-images-2">
+<div class="site-main">
+        <header class="site-header">
+    <a href="Hardened GNU/Linux"><img class="blog-logo" src="/images/logo_400.png" alt="Blog Logo"></a>
+    <h1 class="blog-title"><a href="http://www.hardenedlinux.org">Hardened GNU/Linux</a></h1>
+    <h2 class="blog-description">We are a group of free software enthusiasts, anarchists, cyber security researchers. 0ld sch00l long lives!!!
+</h2>
+    <ul class="nav">
+        <li class="nav-home" role="presentation">
+	    <a href="http://www.hardenedlinux.org">Home</a>
+	</li>
+        <li class="nav-about" role="presentation">
+	    <a href="http://www.hardenedlinux.org/about">About</a>
+	</li>
+        <li class="nav-about" role="presentation">
+	    <a href="http://www.hardenedlinux.org/about2">关于</a>
+	</li>
+    </ul>
+</header>
+ 
+        <div class="site-content" role="main">
+    <article class="post tag-text tag-formatting tag-list"> 
+        <header class="post-header">
+	    <h1 class="post-title">PaX/Grsecurity for Nexus 7 2013</h1>
+	    <span class="post-meta">
+	       Post on <time datetime="2015-05-12">12 May 2015</time>
+	    </span>
+	</header>
+	<section class="post-content">
+	    <p>Update( May 28 2015)</p>
+
+<p>The porting work of the PaX patch already done. We tested it with Towel &amp; KINGROOT. The result as expected: they all failed to root the Android 5.0.2 with kernel code base from 2014. Perhaps, we might try to make GRSEC &amp; RBAC into the Android in the future………</p>
+
+<p><img src="/images/mr1.jpg" alt="KINGROOT1" />
+<img src="/images/mr2.jpg" alt="KINGROOT2" />
+<img src="/images/pr3.jpg" alt="KINGROOT3" />
+<img src="/images/pr2.jpg" alt="TOWELROOT" /></p>
+
+<h1 id="armv7-nexus7-grsechttpsgithubcomhardenedlinuxarmv7-nexus7-grsec"><a href="https://github.com/hardenedlinux/armv7-nexus7-grsec">armv7-nexus7-grsec</a></h1>
+
+<p>PaX/Grsecurity patch for Nexus7, which the original version is 3.4
+kernel based with a bunch of backport features and fixes. In some
+particular cases, TrustZone is useless if the Android kernel were
+compromised. I don't think we need another rootkit-friendly solution
+like SELinux always does. Get rid of one entire class of vulns in
+kernel would be an inevitable ways to make your device secure.</p>
+
+<h1 id="credit-for-paxgrsecurity">Credit for PaX/Grsecurity</h1>
+
+<p>PaX/Grsecurity is the most respected 0ld sch00l community and they
+have been creating the best defense-in-depth kernel hardening solution
+for 14 years. What PaX/Grsecurity brings to us, is amazing and
+incridble work. Unfortunately, there are a lot of reasons that
+PaX/Grsecurity don't get the credit what they deserves. Let me make
+this short: To love those who are hatred by BIG BROTHER. That's the 
+fuc*ing point.</p>
+
+<h1 id="what-makes-us-ticks">What makes us ticks</h1>
+
+<p>The age of <a href="https://www.iotivity.org/">IoT( Internet of things)</a> is coming soon…There will be
+huge numbers of devices running with diverse communication
+protocols. For the simply classify, I'll only treat these devices as
+two types: One with TCP/IP stack, or not. The one with TCP/IP stack
+might have high probablity run with GNU/Linux. The one without TCP/IP
+stack may be just a simple MCU stuff. The heterougenous network need
+to be protected in various ways. These devices may be running on our
+cars, refrigrator, or everywhere around us, which could be a risk to
+our money-shitty property and even lives. That’s one of most important
+reasons we need to "H A R D E N E N I N G   E V E R Y T H I N G" by free
+software.</p>
+
+<h3 id="paxgrsecurityhttpsgrsecuritynet"><a href="https://grsecurity.net/">PaX/Grsecurity</a></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>DESCRIPTION</th>
+      <th>AUTHORS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/pageexec.txt">PAGEEXEC</a></td>
+      <td>paging based non-executable pages</td>
+      <td>The PaX team, Mar 15 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/segmexec.txt">SEGMEXEC</a></td>
+      <td>segmentation based non-executable pages</td>
+      <td>The PaX team, May 1 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/aslr.txt">ASLR</a></td>
+      <td>address space layout randomization</td>
+      <td>The PaX team, Mar 15 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/mprotect.txt">MPROTECT</a></td>
+      <td>mmap() and mprotect() restrictions</td>
+      <td>The PaX team, Nov 4 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/randustack.txt">RANDUSTACK</a></td>
+      <td>userland stack randomization</td>
+      <td>The PaX team, Feb 12 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/randkstack.txt">RANDKSTACK</a></td>
+      <td>kernel stack randomization</td>
+      <td>The PaX team, Jan 24 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/randmmap.txt">RANDMMAP</a></td>
+      <td>mmap() randomization</td>
+      <td>The PaX team, Jan 24 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/randexec.txt">RANDEXEC</a></td>
+      <td>non-relocatable executable file randomization</td>
+      <td>The PaX team, Feb 19 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/vmmirror.txt">VMMIRROR</a></td>
+      <td>vma mirroring, the core of SEGMEXEC and RANDEXEC</td>
+      <td>The PaX team, Oct 6 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/emutramp.txt">EMUTRAMP</a></td>
+      <td>gcc nested function and kernel sigreturn trampolines emulation</td>
+      <td>The PaX team, May 1 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://pax.grsecurity.net/docs/emusigrt.txt">EMUSIGRT</a></td>
+      <td>automatic kernel sigreturn trampoline emulation</td>
+      <td>The PaX team, Feb 19 2003</td>
+    </tr>
+    <tr>
+      <td><a href="https://grsecurity.net/~spender/uderef.txt">UDEREF</a></td>
+      <td>Prevent improper userland code/date access by the kernel</td>
+      <td>The PaX team, May 15 2007</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://grsecurity.net/pipermail/grsecurity/2010-April/001024.html">UDEREF/amd64</a></p>
+
+<h3 id="paxgrsecurityhttpsforumsgrsecuritynetviewforumphpf7sid0c5e947c94d1dc30e3ea8a0daa6683bd-writings"><a href="https://forums.grsecurity.net/viewforum.php?f=7&amp;sid=0c5e947c94d1dc30e3ea8a0daa6683bd">PaX/Grsecurity</a> writings</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=2520">intro</a></td>
+      <td>Dec 30 2010</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=2521">Assorted Notes on Defense and Exploitation</a></td>
+      <td>Dec 31 2010</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=2522">False Boundaries and Arbitrary Code Execution</a></td>
+      <td>Jan 2 2011</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=2551">The Dangers of Copy and Paste</a></td>
+      <td>Feb 1 2011</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=2574">The Unseen Benefits of a Security Mindset</a></td>
+      <td>Mar 12 2011</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=2596">Much Ado About Nothing: A Response in Text and Code</a></td>
+      <td>Apr 16 2011</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=2939">Recent Advances: How We Learn From Exploits</a></td>
+      <td>Feb 15 2012</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=3046">Supervisor Mode Access Prevention</a></td>
+      <td>Sep 7 2012</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=3043">Inside the Size Overflow Plugin</a></td>
+      <td>Aug 28 2012</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=3292">Recent ARM Security Improvements</a></td>
+      <td>Feb 18 2013</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=3367">KASLR: An Exercise in Cargo Cult Security</a></td>
+      <td>Mar 20 2013</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://forums.grsecurity.net/viewtopic.php?f=7&amp;t=4173">Guest Blog by Rodrigo Branco: PAX_REFCOUNT Documentation</a></td>
+      <td>Mar 21 2015</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gcc-plugins"><em>GCC plugins</em></h3>
+
+<p><a href="https://lwn.net/Articles/461696/">Better kernels with GCC plugins</a></p>
+
+<h1 id="history">History</h1>
+
+<h2 id="section">2005</h2>
+
+<p><a href="http://lwn.net/Articles/118251/">grsecurity 2.1.0 and kernel vulnerabilities</a></p>
+
+<p><a href="https://lkml.org/lkml/2005/2/8/93">the “Turing Attack” (was: Sabotaged PaXtest)</a></p>
+
+<h2 id="section-1">2009</h2>
+
+<p><a href="https://lwn.net/Articles/313621/">The future for grsecurity</a></p>
+
+<h2 id="section-2">2010</h2>
+
+<p><a href="https://slo-tech.com/clanki/10001en">Brad Spengler (PaX Team/grsecurity) interview</a></p>
+
+<h2 id="section-3">2011</h2>
+<p><a href="http://lwn.net/Articles/415653/">proactive defense: using read-only memory</a></p>
+
+<h2 id="section-4">2012</h2>
+
+<p><a href="http://unix.stackexchange.com/questions/59020/why-are-the-grsecurity-patches-not-included-in-the-vanilla-kernel">Why are the grsecurity patches not included in the Vanilla Kernel?</a></p>
+
+<h2 id="section-5">2013</h2>
+
+<p><a href="https://lwn.net/Articles/538600/">How The Linux Foundation and Fedora are Addressing Workstation Security</a></p>
+
+<h2 id="section-6">2014</h2>
+
+<p><a href="https://forums.grsecurity.net/viewtopic.php?f=3&amp;t=3906&amp;p=13803&amp;hilit=ANDROID#p13803">Some Links for Newbies on Grsecurity, and the Big Picture</a></p>
+
+<p><a href="http://www.openwall.com/lists/oss-security/2014/12/06/14">How GNU/Linux distros deal with offset2lib attack?</a></p>
+
+<h1 id="recent-isues">Recent isues</h1>
+<p><a href="https://forums.grsecurity.net/viewtopic.php?f=1&amp;t=4143">locking bug( it may also an issue in upstream)</a></p>
+
+<p><a href="https://forums.grsecurity.net/viewtopic.php?f=3&amp;t=3958">RPI not booting due to randomize layout plugin</a></p>
+
+	</section>
+	<section class="post-footer">
+	    <div class="post-tags">
+	        Tagged with: <a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a>
+	    </div>
+	</section>
+    </article>
+</div>
+ 
+        <footer class="site-footer">
+    <a href="https://github.com/hardenedlinux"><i class="fa fa-github-alt fa-2x"></i></a>
+    <a href="mailto:hardenedlinux@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
+    <a href="https://twitter.com/hardenedlinux"><i class="fa fa-twitter fa-2x"></i></a>
+    <div class="inner">
+        <section class="copyright">This theme copyright by <a href="http://scotthsmith.com">Scott Smith</a></section>
+    </div>
+</footer>
+ 
+</div>
+<script src="//use.typekit.net/qdi5fpu.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+</body>
+</html>
