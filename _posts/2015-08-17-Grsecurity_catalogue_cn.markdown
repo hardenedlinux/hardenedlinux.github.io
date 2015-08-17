@@ -1,18 +1,18 @@
 ---
 layout: post
-title:  "Grsecurity目录结构"
+title:  "PaX/Grsecurity目录结构"
 date:   August 17, 2015 12:46 PM
 summary: The introduction of  per Grsecurity's option.Translated from "Grsecurity/Appendix/Grsecurity and PaX Configuration Options".
 categories: system-security
 
 ---
 
-By: Ciphergateway
+By: CipherGateway
 
 Wiki网址：[https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Disallow_access_to_overly-permissive_IPC_objects](http://)
 
 
-# Grsecurity目录结构
+# PaX/Grsecurity目录结构
 
 
 [TOC]
@@ -38,21 +38,21 @@ Wiki网址：[https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_P
 
 **Host** 【内核将被运行在宿主机上】
 
->(X) EPT/RVI Processor Support** 【Choose this option if your CPU supports the EPT or RVI features of 2nd-gen hardware virtualization.This allows for additional kernel hardening protections to operate without additional performance impact.
+**-->(X) EPT/RVI Processor Support** 【Choose this option if your CPU supports the EPT or RVI features of 2nd-gen hardware virtualization.This allows for additional kernel hardening protections to operate without additional performance impact.
 To see if your Intel processor supports EPT, see: http://ark.intel.com/Products/VirtualizationTechnology (Most Core i3/5/7 support EPT)
 To see if your AMD processor supports RVI, see: http://support.amd.com/us/kbarticles/Pages/GPU120AMDRVICPUsHyperVWin8.aspx】
 
->( ) First-gen/No Hardware Virtualization** 【Choose this option if you use an Atom/Pentium/Core 2 processor that either doesn't support hardware virtualization or doesn't support the EPT/RVI extensions.】
+**-->( ) First-gen/No Hardware Virtualization** 【Choose this option if you use an Atom/Pentium/Core 2 processor that either doesn't support hardware virtualization or doesn't support the EPT/RVI extensions.】
 
 #### Virtualization Software
 
-**Xen** 【（GRKERNSEC_CONFIG_VIRT_XEN）Choose this option if this kernel is running as a Xen guest or host.】
+**Xen** 【（GRKERNSEC_CONFIG_VIRT_XEN）如果内核将作为Xen虚拟机或宿主机运行，选择该选项】
 
-**VMWare** 【Choose this option if this kernel is running as a VMWare guest or host.】
+**VMWare** 【如果内核将作为VMWare虚拟机或宿主机运行，选择该选项】
 
-**KVM** 【Choose this option if this kernel is running as a KVM guest or host.】
+**KVM** 【如果内核将作为KVM虚拟机或宿主机运行，选择该选项】
 
-**VirtualBox** 【Choose this option if this kernel is running as a VirtualBox guest or host.】
+**VirtualBox** 【如果内核将作为VirtualBox虚拟机或宿主机运行，选择该选项】
 
 #### Required Priorities (Performance)（优先级需求）
 
@@ -113,10 +113,11 @@ To see if your AMD processor supports RVI, see: http://support.amd.com/us/kbarti
 
 **Enforce non-executable kernel pages** 【该选项相当于内核态的mprotect和pageexec。启用这个选项将使在系统区中注入和外来代码的执行更加困难。】
 
->Return Address Instrumentation Method
->>bts
+**-->Return Address Instrumentation Method**
 
->>or
+**---->bts**
+
+**---->or**
 
 #### Address Space Layout Randomization(地址空间随机化)
 
