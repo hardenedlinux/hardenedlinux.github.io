@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Grsecurity目录结构"
+title:  "PaX/Grsecurity配置选项"
 date:   August 17, 2015 12:46 PM
 summary: The introduction of  per Grsecurity's option.Translated from "Grsecurity/Appendix/Grsecurity and PaX Configuration Options".
 categories: system-security
@@ -9,7 +9,7 @@ categories: system-security
 
 By: Ciphergateway
 
-Wiki网址：[https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Disallow_access_to_overly-permissive_IPC_objects](http://)
+Wiki网址：https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options
 
 
 # Grsecurity目录结构
