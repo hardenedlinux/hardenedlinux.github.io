@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardened GNU/Linux</title>
-    <description>We are a group of free software enthusiasts, anarchists, cyber security researchers. 0ld sch00l long lives!!!
+    <description>We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!!
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Aug 2015 15:30:55 +0800</pubDate>
-    <lastBuildDate>Mon, 17 Aug 2015 15:30:55 +0800</lastBuildDate>
+    <pubDate>Mon, 17 Aug 2015 15:39:00 +0800</pubDate>
+    <lastBuildDate>Mon, 17 Aug 2015 15:39:00 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -16,7 +16,7 @@
 
 &lt;p&gt;Wiki网址：https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options&lt;/p&gt;
 
-&lt;h1 id=&quot;grsecurity&quot;&gt;Grsecurity目录结构&lt;/h1&gt;
+&lt;h1 id=&quot;grsecurity&quot;&gt;Grsecurity配置选项&lt;/h1&gt;
 
 &lt;p&gt;[TOC]&lt;/p&gt;
 

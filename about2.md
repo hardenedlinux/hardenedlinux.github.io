@@ -12,7 +12,7 @@ Team: h4rdenedzer0
 
 Contributors:
 
-* [Ciphergateway](https://twitter.com/ciphergateway), [Tom Li](https://biergaizi.info/), [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
+* [Ciphergateway](https://twitter.com/ciphergateway), [Tom Li](https://biergaizi.info/), [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25), happy-dw
 
 h4rdenedzer0团队成立于2014年，由一群自由软件狂热分子，无政府主义(Anarchy翻译成“反权威主义”更准确)和信息安全研究人员组成。媒体（以及"媒体砖家"）喜欢对大众讲攻击事件的故事，而厂商更偏重于推销合规性的安全和"疯狂"的安标，在这个群魔乱舞的时代，谁还会在乎那些“难以看见”的安全领域？
 

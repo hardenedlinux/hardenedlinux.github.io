@@ -12,7 +12,7 @@ By: Ciphergateway
 Wiki网址：https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options
 
 
-# Grsecurity目录结构
+# Grsecurity配置选项
 
 
 [TOC]
