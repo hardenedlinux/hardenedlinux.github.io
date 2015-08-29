@@ -5,7 +5,7 @@ title: Hardened GNU/Linux
 logo: /images/hardenedlinux-logo.png
 email: hardenedlinux@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  We are a group of free software enthusiasts, anarchists, cyber security researchers. 0ld sch00l long lives!!!
+  We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!!
 
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.hardenedlinux.org" # the base hostname & protocol for your site

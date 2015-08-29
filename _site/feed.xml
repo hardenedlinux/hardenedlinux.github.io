@@ -2,13 +2,386 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardened GNU/Linux</title>
-    <description>We are a group of free software enthusiasts, anarchists, cyber security researchers. 0ld sch00l long lives!!!
+    <description>We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!!
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 14 Aug 2015 22:12:11 +0800</pubDate>
-    <lastBuildDate>Fri, 14 Aug 2015 22:12:11 +0800</lastBuildDate>
+    <pubDate>Sat, 29 Aug 2015 22:23:31 +0800</pubDate>
+    <lastBuildDate>Sat, 29 Aug 2015 22:23:31 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>PaX/Grsecurity配置选项</title>
+        <description>&lt;p&gt;By: CipherGateway&lt;/p&gt;
+
+&lt;p&gt;Wiki网址：https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options&lt;/p&gt;
+
+&lt;h1 id=&quot;grsecurity&quot;&gt;Grsecurity配置选项&lt;/h1&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h2 id=&quot;configuration-method&quot;&gt;Configuration Method（配置选项）&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Automatic(自动配置)&lt;/strong&gt; 【使用此选项，你只需回答一些你希望如何配置内核的问题，Grsecurity和Pax将自动以此标准并按照最通用化完成配置。如果你还想定制其他标准，custom configuration自定义选项的选择同样会生效&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Custom（自定义配置）&lt;/strong&gt;【你将完全手动定制Grsecurity和Pax】&lt;/p&gt;
+
+&lt;h4 id=&quot;usage-type&quot;&gt;Usage Type（内核用途）&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Server&lt;/strong&gt; 【如果你打算将此作为一个服务器的内核】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Desktop&lt;/strong&gt; 【如果你打算将此作为一个桌面操作系统的内核】&lt;/p&gt;
+
+&lt;h4 id=&quot;virtyalization-type&quot;&gt;Virtyalization Type（虚拟化技术类型）&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;None&lt;/strong&gt; 【内核将运行在纯物理机上】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Guest&lt;/strong&gt; 【内核将被运行在虚拟机上】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Host&lt;/strong&gt; 【内核将被运行在宿主机上】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;(X) EPT/RVI Processor Support&lt;/strong&gt; 【Choose this option if your CPU supports the EPT or RVI features of 2nd-gen hardware virtualization.This allows for additional kernel hardening protections to operate without additional performance impact.
+To see if your Intel processor supports EPT, see: http://ark.intel.com/Products/VirtualizationTechnology (Most Core i3/5/7 support EPT)
+To see if your AMD processor supports RVI, see: http://support.amd.com/us/kbarticles/Pages/GPU120AMDRVICPUsHyperVWin8.aspx】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;( ) First-gen/No Hardware Virtualization&lt;/strong&gt; 【Choose this option if you use an Atom/Pentium/Core 2 processor that either doesn’t support hardware virtualization or doesn’t support the EPT/RVI extensions.】&lt;/p&gt;
+
+&lt;h4 id=&quot;virtualization-software&quot;&gt;Virtualization Software&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Xen&lt;/strong&gt; 【（GRKERNSEC_CONFIG_VIRT_XEN）Choose this option if this kernel is running as a Xen guest or host.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;VMWare&lt;/strong&gt; 【Choose this option if this kernel is running as a VMWare guest or host.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;KVM&lt;/strong&gt; 【Choose this option if this kernel is running as a KVM guest or host.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;VirtualBox&lt;/strong&gt; 【Choose this option if this kernel is running as a VirtualBox guest or host.】&lt;/p&gt;
+
+&lt;h4 id=&quot;required-priorities-performance&quot;&gt;Required Priorities (Performance)（优先级需求）&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Performance（性能优先）&lt;/strong&gt; 【选取这个选项将导致以下特性无法使用：UDEREF on a 64bit kernel, kernel stack clearing,clearing of structures intended for userland, and freed memory sanitizing】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Security（安全优先）&lt;/strong&gt; 【以上特性可用，但在最糟糕的情况下这些特性将导致20%的性能损耗】&lt;/p&gt;
+
+&lt;h4 id=&quot;default-special-groups&quot;&gt;Default Special Groups（特殊组）&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;(1001) GID exempted(被免除) from /proc restrictions&lt;/strong&gt;
+【通过设定这个GID来决定那个组中的用户能够免除/proc目录下Grsecurity规则的限制，允许特殊组的用户查看网络数据、和其他用户的运行信息。这个GID也可以在开机时在内核命令行中通过“grsec_proc_gid=”设置】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(1005) GID for TPE-untrusted users(TPE:Tursted Path Execution）&lt;/strong&gt; 【该组的用户将会受到TPE的限制。如果sysctl可用，sysctl中一个名为“tpe_gid”选项将会产生】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(1006) GID for users with kernel-enforced&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;customize-configuration&quot;&gt;Customize Configuration（自定义配置）&lt;/h2&gt;
+
+&lt;h3 id=&quot;pax&quot;&gt;PaX&lt;/h3&gt;
+
+&lt;h4 id=&quot;enable-various-pax-features&quot;&gt;Enable various PaX features&lt;/h4&gt;
+
+&lt;p&gt;【Pax为内核提供了防止入侵机制，从而降低了可利用的内存漏洞造成的风险】&lt;/p&gt;
+
+&lt;h4 id=&quot;pax-control&quot;&gt;PaX Control&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Support soft mode&lt;/strong&gt; 【（PAX_SOFTMODE）允许通过soft mode(友好的方式??)运行Pax，Pax的特性将不会被强制设定为默认选项，只会在可运行时显示标记。你必须同时启用PT_PAX_FLAGS或XATTR_PAX_FLAGS支持，因为只有它们能在soft mode下标记可运行程序。	soft mode可以使用“pax_softmode=1”参数通过内核命令行在开机时激活。	此外，在运行时你可以通过/proc/sys/kernel/pax的项目控制各种Pax特性。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Use legacy ELF header marking&lt;/strong&gt; 【（PAX_EI_PAX）启用这个选项将允许你通过“chpax”工具（可在http://pax.grsecurity.net 获得）控制每一个可执行程序的Pax特性。控制信息可以在otherwise reserved 的部分ELF头部（其他情况保存的部分ELF头部？？）读取。这个标记有大量的弊端（没有对soft-mode的支持、工具链不知道ELF头部的不规范用法），因此这个特性相比于PT_PAX_FLAGS and XATTR_PAX_FLAGS已经过时.		要注意的是如果你启用PT_PAX_FLAGS or XATTR_PAX_FLAG标记支持，它们会覆盖传统的EI_PAX标记。		If you enable none of the marking options then all applications will run with PaX enabled on them by default.（仅是没有PT_PAX_FLAGS or XATTR_PAX_FLAG标记支持吗？？）】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Use ELF program header marking&lt;/strong&gt; 【（PAX_PT_PAX_FLAGS）启用这个选项将允许你通过“paxctl”工具（可在http://pax.grsecurity.net 获得）控制每一个可执行程序的Pax特性。控制信息可以从一个Pax特定的ELF程序头部读取。这个标记有同时支持soft-mode和完全整合toolchain。		要注意如果你同时启用了传统的EI_PAX标记支持，EI_PAX标记将被PT_PAX_FLAGS覆盖。		如果你同时启动了PT_PAX_FLAGS and XATTR_PAX_FLAGS支持，你应该确保被标记的二进制文件的标志是相同的。		If you enable none of the marking options then all applications will run with PaX enabled on them by default.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Use filesystem extended attributes marking（使用文件系统的扩展属性）&lt;/strong&gt; 【（PAX_XATTR_PAX_FLAGS）启用这个选项将允许你通过“setfattr”工具控制每一个可执行程序的Pax特性。控制信息可以从文件的扩展属性user.pax.flags读取。这个标记的好处是：支持可以自检的binary-only applications（如skype）并且不能兼容chpax/paxctl的改变。	该特性主要的缺点是因为一些文件系统（如isofs, udf, vfat)不支持扩展属性，导致通过这类文件系统拷贝文件时将失去扩展属性和Pax标记。		要注意如果你同时启用了传统的EI_PAX标记支持，EI_PAX标记将被XATTR_PAX_FLAGS覆盖。	如果你同时启动了PT_PAX_FLAGS and XATTR_PAX_FLAGS支持，你应该确保被标记的二进制文件的标志是相同的。	If you enable none of the marking options then all applications will run with PaX enabled on them by default.】&lt;/p&gt;
+
+&lt;h4 id=&quot;mac-system-integrationmacmandatory-access-control-&quot;&gt;MAC system integration（集合）（MAC，Mandatory Access Control 强制访问控制）&lt;/h4&gt;
+
+&lt;p&gt;【MAC系统具有控制每个可执行程序Pax标志的选项。选择你特定的系统支持的方法。		NOTE: this option is for developers/integrators only.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;none&lt;/strong&gt; 【（PAX_NO_ACL_FLAGS）如果MAC系统与Pax没有联系】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;direct&lt;/strong&gt; 【（PAX_HAVE_ACL_FLAGS）如果MAC系统自行定义pax_set_initial_flags参数】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;hook&lt;/strong&gt; 【（PAX_HOOK_ACL_FLAGS）如果MAC系统使用pax_set_initial_flags_func的回调】&lt;/p&gt;
+
+&lt;h4 id=&quot;non-executable-pages&quot;&gt;Non-executable pages（不可执行页：只允许读和写，而代码执行是被禁止的）&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Enforce non-executable pages&lt;/strong&gt; 【(PAX_NOEXEC)勾选这个选项你将可以选择众多防止注入和外来代码的特性。但将使依赖原始方法（RWX权限系统???）和通过malloc()方法族动态分配内存的程序无法使用。如： XFree86 4.x server, the java runtime and wine.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paging based non-executable pages&lt;/strong&gt; 【（PAX_PAGEEXEC）这个特性基于CPU的页特性。在没有硬件不可执行位支持的i386CPU里它是可变的，但通常带有较低的性能损耗。然而在基于Intel’s P4核心的CPU性能损耗将非常高，所有此类情况你应该禁止这个选项。对于拥有硬件不可执行位支持的CPU：alpha, avr32, ia64, parisc, sparc, sparc64, x86_64 and i386，这个特性没有性能损耗,在ppc下损耗可以忽略不计。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Emulate trampolines (模仿GCC扩展（回调？？？））&lt;/strong&gt; 【（PAX_EMUTRAMP）总有一些程序和库因为一些原因或意图去执行在禁止执行内存页中的特殊代码段，大量有名的例子是内核自己生成的信号句柄回调代码（kernel signal handler return code）和GCC trampolines。  如果你开启了CONFIG_PAX_PAGEEXEC这个特性这些进程将不能再运行。  作为补救，你可以启用这个选项并通过chpax、paxctl工具来为那些仍受到non-executable pages的保护的受影响的程序启用trampoline emulation。  在工作站(On parisc)你必须开启这个选项和EMUSIGRT，否则你的系统将无法启动！】【另外的，你可以在这里选否，并使用chpax或paxctl工具为受影响的文件禁用CONFIG_PAX_PAGEEXEC and CONFIG_PAX_SEGMEXEC特性。】【开启这个特性可能会从non-executable pages的保护中打开一个漏洞。因此最好的解决方法是不使用任何请求这个选项的文件。这可以通过不使用libc5（因为它依赖kernel signal handler return code）和不使用或重写通过GCC实现的嵌套函数的程序。  有经验的使用者可以直接修改GCC使嵌套函数不干扰Pax。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Restrict mprotect()（限制mprotect()）&lt;/strong&gt; 【(PAX_MPROTECT)启用这个特性将阻止进程进行以下操作：1、改变未被初始化为可执行的内存页的可执行状态；2、使只读的可执行页可再次写入；3、在分配的内存中创建可执行页；4、让重定位后只读的（RELRO）数据页可再次写入】【你应该启用这个特性来完善non-executable pages提供的强制保护措施.  Note:你可以使用chpax或paxctl来控制每个可执行程序的这个属性】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Use legacy/compat protection demoting (read help)（使用传统/可兼容的安全措施（如RWX权限？）降低pax安全作用的影响）&lt;/strong&gt; 【（PAX_MPROTECT_COMPAT）现在的PAX_MPROTECT实现机制通过发送适当的错误代码给应用程序来阻止RWX权限分配。对于一些broken userland，Python或其他应用可能会造成问题。The current implementation however allows for applications like clamav to detect if JIT compilation/execution is allowed and to fall back gracefully to an interpreter-based mode if it does not.  While we encourage everyone to use the current implementation as-is and push upstream to fix broken userland (note that the RWX logging option can assist with this), in some environments this may not be possible. Having to disable MPROTECT completely on certain binaries reduces the security benefit of PaX,所以这个选项用来使会出现问题的这类环境恢复到old behavior】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Allow ELF text relocations (read help) (Executable and Linking Format，ELF，可执行文件)&lt;/strong&gt; 【(PAX_ELFRELOCS)Non-executable pages and mprotect()的限制对阻止新的可执行代码进入攻击任务的地址空间很有用。 There remain only two venues for this kind of attack:if the attacker can execute already existing code in the attacked task then he can either have it create and mmap() a file containing his code or have it mmap() an already existing ELF library that does not have position independent code in it and use mprotect() on it to make it writable and copy his code there.  While protecting against the former approach is beyond PaX, the latter can be prevented by having only PIC ELF libraries on one’s system (which do not need to relocate their code).&lt;em&gt;（如果攻击者可以执行在攻击任务中已存在的代码，那他可以创建它并mmap（）到一个包含他的代码的文件 或者 把它mmap（）到一个已存在的没有独立位置的代码的ELF库并且使用mprotect（）使其变得可写入并把他的代码复制进去？）&lt;/em&gt;。  如果你确定这跟你的情况相似，因为所有现代Linux发行版都有这个情况，让这个选项禁用——这里应该选否。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Enforce non-executable kernel pages&lt;/strong&gt; 【该选项相当于内核态的mprotect和pageexec。启用这个选项将使在系统区中注入和外来代码的执行更加困难。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;Return Address Instrumentation Method&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;—-&amp;gt;bts&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;—-&amp;gt;or&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;address-space-layout-randomization&quot;&gt;Address Space Layout Randomization(地址空间随机化)&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Address Space Layout Randomization&lt;/strong&gt; 【（PAX_ASLR）接下来的选项会让内核在特定的程序部分采取随机化，因此强迫攻击者在众多的情况中猜测程序的位置。在允许内核检测这类意图并回应它的前提下，任何一个失败的猜测都很可能导致被攻击的程序崩溃。启用这个选项你可以选择随机化下面的区域：1、 top of the task’s kernel stack；2、 top of the task’s userland stack；3、 base address for mmap() requests that do not specify one(this includes all libraries)；4、 base address of the main executable。强烈建议打开这个选项，因为它提供有效的保护且损失性能的可以忽略不计。  Note：可以使用chpax和paxctl控制每个可执行程序的该特性。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Randomize kernel stack base&lt;/strong&gt; 【（PAX_RANDKSTACK）启用这个选项将随机化每一个任务的每一个系统调用内核栈。强迫攻击者猜测，且能防止他利用有关的可能已经泄露的信息。注意，一旦kernel stack紧缺，可能导致堆栈溢出，所以你要认真测试你的系统。  一旦在内核配置中启用这个选项，基于这个特性的文件将无法禁用这个特性。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Randomize user stack and mmap() base&lt;/strong&gt; 【（PAX_RANDUSTACK）user stack：内核随机化每一个任务的用户栈。随机化过程分为两步，第二步将采用大量的栈顶移位，从而导致程序需要大量的内存（如果SEGMEXEC未被启用将超过2.5G，如果启用了将为1.25G）。  因为这个原因，在每个基于这个特性的文件第二步可以被chpax和paxctl控制。】【（PAX_RANDMMAP）mmap，内存映射机制。如果选是，mmap()请求将不自己指定地址，内核将为之使用基于随机的地址。结果是所有动态加载的库将在一个随机的地址出现，并因此使攻击者执行library code的意图更困难。 Furthermore, if a program is relinked as a dynamic ELF file, its base address will be randomized as well, completing the full randomization of the address space layout.  攻击这样的程序将变成一个猜测游戏。】&lt;/p&gt;
+
+&lt;h4 id=&quot;miscellaneous-hardening-features&quot;&gt;Miscellaneous hardening features(杂项优化）&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanitize all freed memory （清除已释放内存）&lt;/strong&gt; 【一旦内存被释放，内核将清除内存页和slab对象（Linux下的一种内存分配机制）。这可以轮流减少存储数据的生命周期，避免密码等敏感数据在内存太长时间。对运行时间短的进程尤其有好处,long lived processes and the kernel itself benefit from this as long as they ensure timely freeing of memory that may hold sensitive information.作为交易，这可能对性能有所影响，在单CPU系统中内核编译可能会慢3%，部署该选项前最好在工作负荷下测试一下性能损失。要注意这个特性不会保护存储在仍然存活的内存页中的数据】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanitize kernel stack&lt;/strong&gt; 【内核将在系统调用返回前清除内核栈,这会减少内核栈leak bug泄露的信息。这同样会造成性能损耗，最好在工作环境下测试一下。完整的特性需要GCC插件的支持，例如GCC4.5或更新的版本。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Forcibly initialize local variables copied to userland(对复制到用户态的局部变量进行强制初始化)&lt;/strong&gt; 【内核将对一些被复制到用户态的局部变量进行0初始化操作。The tradeoff is less performance impact than PAX_MEMORY_STACKLEAK at a much smaller coverage.  This in turn prevents unintended information leakage from the kernel stack should later code forget to explicitly set all parts of the copied variable.完整的特性需要GCC插件的支持】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prevent invalid userland pointer dereference（阻止间接引用不合法的用户态指针）&lt;/strong&gt; 【在只允许内核指针的环境下内核将阻止间接引用用户态指针，这是一个有用的运行时debugging feature和阻止渗透内核bugs的一个安全方法。作为交换，一些虚拟化措施将遭受到可观的延迟，因此如果内核将运行在这类环境上你应该禁用这个特性。一个给定虚拟环境是否会受到影响最好通过一些简单的测试再决定。性能损耗将会在开机的时候最为明显。一个重要的准则是虚拟机运行在没有硬件虚拟化支持的CPU上会很可能遭到这类延迟。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prevent various kernel object reference counter overflows(阻止各类内核对象引用计数器溢出)&lt;/strong&gt; 【内核会检查并阻止溢出的各类（但不是全部）对象引用计数器。作为交易，被溢出引用计数机制保护的数据结构将不会被释放，从而导致内存泄露。需要注意到的是即使没有这种保护，这种泄露也会发生。但是那样的话，泄露出的大量数据会最终引发数据结构的freeing（&lt;em&gt;//解释为内存释放还是数据自由？&lt;/em&gt;）, 即使这种数据结构正在被用于别处的时候。这会最终导致这个特性所阻止的渗透的情况的发生。鉴于该特性对性能损耗微乎其微，建议启用这个特性】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Automatically constify eligible structures （自动常量化符合条件的结构)&lt;/strong&gt; 【the compiler will automatically constify a class of types that contain only function pointers.它减少了内核的受攻击面并产生了更好的内存配置。此特性需要GCC4.5及以上。要注意的是，如果一些代码不得不修改已常量化的变量，那源代码将作为补丁才能被使用。 Examples can be found in PaX itself (the no_const attribute) and for some out-of-tree modules at http://www.grsecurity.net/~paxguy1/ .】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Harden heap object copies between kernel and userland （加固用户与内核之间堆对象的拷贝）&lt;/strong&gt; 【内核会限制堆对象的大小，当它们被在内核态和用户态之间的目录拷贝时。这种检查防止在内核向用户拷贝时造成内核堆的信息泄露，并且防止在用户向内核拷贝时造成内核堆溢出。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prevent various integer overflows in function size parameters&lt;/strong&gt; 【选择这个选项内核会重新计算被标记为size_overflow特征的具有双精度整数的函数参数的表达式。The recomputed argument is checked against TYPE_MAX and an event is logged on overflow and the triggering process is killed.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Generate some entropy during boot and runtime （在开机和运行时生成一些无序状态量（平均信息量））&lt;/strong&gt; 【选择这个选项内核会利用某些内核代码从原始以及手动产生的程序状态中提取无序状态量This will help especially embedded（嵌入式） systems where there is little ‘natural’ source of entropy normally. The cost is some slowdown of the boot process and fork（分岔） and irq（中断请求） processing.注意这个提取entropy的方法不是密码级别的安全】&lt;/p&gt;
+
+&lt;h3 id=&quot;memory-protections&quot;&gt;Memory Protections（内存保护）&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny reading/writing to /dev/kmem, /dev/mem, and /dev/port&lt;/strong&gt; 【（GRKERNSEC_KMEM）如果你启用这个选项，在运行的内核上/dev/kmem和/dev/mem将无法读写，/dev/port也将不允许被打开。/dev/cpu/*/msr和kexec的支持将被删除。If you have module support disabled, enabling this will close up six ways that are currently used to insert malicious code（恶意代码） into the running kernel.就算这个特性被启用，我们依然高度建议你使用RBAC系统，因为攻击者仍然可能通过鲜为人知的代码修改运行的内核。启用这个选项会阻止cpupower和powertop工具的运行。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disable privileged I/O&lt;/strong&gt; 【（kernel.grsecurity.disable_priv_io）启用这个选项，所有ioperm和iopl调用都会返回error。不幸的是一些程序需要这个通道来正确地运行，最著名的是XFree86 and hwclock。hwclock可以通过内核的RTC（real-time clock)支持补救，所以如果这个选项启用，那RTC也将可用，用来保证hwclock正确运行。如果你正使用XFree86或Xorg2012或更早的版本，你可能导致无法使用图形界面，在这种情况下你应该使用RBAC系统。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Harden BPF JIT against spray attacks&lt;/strong&gt; 【（GRKERNSEC_JIT_HARDEN）？？？】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disable unprivileged PERF_EVENTS usage by default&lt;/strong&gt; 【sysctl中的/proc/sys/kernel/perf_event_paranoid取值范围将被允许扩大，并且的得到一个新的默认值3。当sysctl被设置成这个值时，对PERF_EVENTS系统调用接口没有权限的使用将被允许。虽然PERF_EVENTS能被合法地用来管理性能和低等级应用分析，但是这建立在强制忽略配置上，是一些漏洞的原因所在，也为边缘途径和信息泄露产生新的机会。这个特性将PERF_EVENTS设置为一个默认的安全状态，并且如果有不具备权限的程序分析需要，允许管理员暂时更改它的值。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Insert random gaps between thread stacks（在线程栈中插入随机间隙）&lt;/strong&gt; 【（GRKERNSEC_RAND_THREADSTACK）一个随机大小的间隙将会强制插入已分配的线程栈中。Glibc’s NPTL and other threading libraries that pass MAP_STACK to the kernel for thread stack allocation are supported.这个implements目前为间隙提供8位的平均信息。Many distributions do not compile threaded remote services with the -fstack-check argument to GCC, causing the variable-sized stack-based allocator, alloca(), to not probe the stack on allocation. 这将允许一个无界限alloca()来跳过所有保护页面，潜在并有把握地修改其他的线程栈。一个强制随机的间隙可以降低这类攻击的可靠性and increases the chance that such a read/write to another thread’s stack instead lands in an unmapped area,导致崩溃并触发Grsecurity的anti-bruteforcing（反暴力破解）逻辑。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Harden ASLR against information leaks and entropy reduction （加强ASLR来抵御信息泄露和平均状态量减少）&lt;/strong&gt; 【（GRKERNSEC_PROC_MEMMAP）如果启用这个特性，并且Pax中的依赖随机地址特性在任务中被启用，那/proc//maps和/proc//stat文件将不再给出地址映射信息。另外还将清除这些信息并禁用那些危险源的信息。this option causes reads of sensitive /proc/ entries（条目） where the file descriptor（描述子） was opened in a different task than the one performing the read.这类意图将会被记录。This option also limits argv/env strings for suid/sgid binaries to 512KB to prevent a complete exhaustion of the stack entropy provided by ASLR. Finally, it places an 8MB stack resource limit on suid/sgid binaries to prevent alternative mmap layouts from being abused.】【如果你使用Pax，启用这个选项至关重要，因为它关闭了许多让完整的ASLR局部失效的漏洞】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prevent kernel stack overflows&lt;/strong&gt; 【（GRKERNSEC_KSTACKOVERFLOW）内核的进程栈将使用vmalloc来进行分配，而不是内核默认的分配器。This introduces guard pages that in combination with the alloca checking of the STACKLEAK feature prevents all forms of kernel process stack overflow abuse.要注意这个特性与内核栈缓存溢出不一样.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deter exploit bruteforcing（阻止暴力破解）&lt;/strong&gt; 【（GRKERNSEC_BRUTE， kernel.grsecurity.deter_bruteforce）启动这个选项，尝试暴力破解分支后台进程如apche和sshd以及suid/sgid下的二进制文件的意图都会被阻止。当一个forking deamon的子进程被Pax或因为一个不合法的操作或其他可疑信号杀死、崩溃时，（the parent process will be delayed 30 seconds upon every subsequent fork）父进程将在之后的每个分支延迟30秒，直到管理员能评定这个情况并重启这个后台程序。 在suid/sgid方面，这个意图会被记录，the user has all their existing instances of the suid/sgid binary terminated，并在15分钟内不能执行任何suid/sgid的二进制程序。 建议你在审计部分开启信号记录使得每当进程触发可疑信号时就生成记录。 如果sysctl选项可用，一个名为”deter_bruteforce”的选项会被生成。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Harden module auto-loading（模板自动加载的加固）&lt;/strong&gt; 【（GRKERNSEC_MODHARDEN）module auto-loading in response to use of some feature implemented by an unloaded module will be restricted to root users。Enabling this option helps defend against attacks by unprivileged users who abuse（滥用） the auto-loading behavior to cause a vulnerable（有漏洞的） module to load that is then exploited. 如果这个选项阻止了非root用户合理的自动加载，管理员可以通过使用警告日志中提到的准确的模块的名字手动执行模块。另外，管理员可以通过修改init脚本添加模块到开机模块加载列表中去。 拥有加密home目录支持的ubuntu服务器可能更需要对init脚本的修改，as the first non-root user logging in will cause the ecb(aes), ecb(aes)-all, cbc(aes), and cbc(aes)-all modules to be loaded.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hide kernel symbols&lt;/strong&gt; 【（GRKERNSEC_HIDESYM）启用这个选项，users with CAP_SYS_MODULE通过系统调用从已加载的模块中获得信息和显示所有内核标志的操作将被限制。由于软件的兼容性的原因，root用户对/proc/kallsyms目录将会被限制。RBAC系统将会隐藏entry（条目？入口？），即使是针对root用户。 该选项同样通过/proc一些条目防止内核地址的泄露。 要注意，当且仅当遇到下列情况时，该选项才会起作用：1、内核正使用的Grsecurity没有被一些发行版预先编译过了；2、你还应该同时启用了GRKERNSEC_DMESG特性；3、你正使用RBAC系统并且隐藏其他文件，例如kernel image and System.map。除此之外，启用这个选项将获得在编译时改变/boot, /lib/modules, and the kernel source这些目录的许可，以防止非root用户查看。  如果以上的情况都符合，这个选项将有助于对局部内核可利用溢出和任意读写漏洞（local kernel exploitation of overflows and arbitrary read/write vulnerabilities）提供有用的保护。 强烈建议你再此之外启用GRKERNSEC_PERF_HARDEN特性】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Randomize layout of sensitive kernel structures （敏感内核结构的随机配置）&lt;/strong&gt; 【（GRKERNSEC_RANDSTRUCT）许多敏感内核结构（如task, fs, cred, etc)和all structures composed entirely of function pointers (aka “ops” structs)的配置将在编译的时候被随机化。This can introduce the requirement of an additional infoleak vulnerability for exploits targeting these structure types.		使用这个选项会产生一些性能损耗，轻微地增加内存使用，并且阻止取证工具（forensic tools）如Volatility的使用（除非内核资源树在内核安装完后没有清除。		编译的种子放在tools/gcc/randomize_layout_seed.h中。这在一个允许的make clean命令后会保留下来，用来使用先用的种子来编译external modules，并且可以通过make mrproper或make distclean被删除。】&lt;/p&gt;
+
+&lt;p&gt;**Use cacheline-aware structure randomization ** 【（GRKERNSEC_RANDSTRUCT_PERFORMANCE）If you say Y here, the RANDSTRUCT randomization will make a best effort at restricting randomization to cacheline-sized groups of elements. It will further not randomize bitfields in structures. This reduces the performance hit of RANDSTRUCT at the cost of weakened randomization.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Active kernel exploit response&lt;/strong&gt; 【（GRKERNSEC_KERN_LOCKOUT）启用这个选项，当一个Pax警告触发，原因是可疑的内核活动(from KERNEXEC/UDEREF/USERCOPY)或因为bad memory accesses导致一个OOPS（意外？？）发生，我们将使用一下两个措施中的一个，而不是直接终止攻击进程(and potentially allowing a subsequent（后来的） exploit from the same user)：1如果用户是root，we will panic the system；2、如果用户不是root，我们会记录这个行为，终止该用户的所有进程，然后在系统重启前阻止他们创建任何新进程。This deters repeated kernel exploitation/bruteforcing attempts and is useful for later forensics.】&lt;/p&gt;
+
+&lt;h3 id=&quot;role-based-access-control-options&quot;&gt;Role Based Access Control Options&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Disable RBAC system&lt;/strong&gt; 【（GRKERNSEC_NO_RBAC）如果这里选是，/dev/grsec设备将从内核中删除，来阻止RBAC系统生效。		应该仅在你不打算使用RBAC时才选Yes，以防止当可加载的模块支持并且/dev/[k]mem已被锁定时，攻击者通过错误使用的RBAC系统使用root权限来隐藏文件或进程。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hide kernel processes&lt;/strong&gt; 【（GRKERNSEC_ACL_HIDEKERN）如果这里选是，除了有”view hidden processes”标志的subject，所有内核线程将对所有进程隐藏。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;() Maximum tries before password lockout （最大密码尝试次数）&lt;/strong&gt; 【（GRKERNSEC_ACL_MAXTRIES）这个选项强制设定用户在Grsecurity RBAC系统中认证自己的最大次数，超过特定次数将被拒绝再次认证。数字越小，密码越难被暴力破解。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;() Time to wait after max password tries, in seconds&lt;/strong&gt; 【（GRKERNSEC_ACL_TIMEOUT）这个选项指定用户在RABC系统认证失败达最大次数后必须等待的时间。数字越大，密码越难被暴力破解。】&lt;/p&gt;
+
+&lt;h3 id=&quot;filesystem-protections&quot;&gt;Filesystem Protections&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Proc restrictions&lt;/strong&gt; 【（GRKERNSEC_PROC）如果选是，/proc文件系统的访问权限将会改变，以加强系统安全和隐私。你必须在用户限制和用户及用户组限制中选择一个。根据你的选择，你可以把用户限制在只能查看自己运行的进程，或choose a group that can view all processes and files normally restricted to root if you choose the “restrict to user only” option. 		注意，如果你以非root身份运行identd或者ntpd（网络时间校正协议(network time protocol daemon)），你必须在你指定的组里运行。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Restrict /proc to user only&lt;/strong&gt; 【（GRKERNSEC_PROC_USER）如果选是，非root用户将只能查看他们自己的进程，并且会被禁止查看网络相关的信息、内核标志和模块信息。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Allow special group&lt;/strong&gt; 【（GRKERNSEC_PROC_USERGROUP）如果选是，你可以选择一个组，这个组将可以查看所有进程的信息以及网络相关的信息。如果你启用了GRKERNSEC_HIDESYM选项，内核的标志信息可能依旧对这个组隐藏。 如果你想以非root身份运行identd，这将很有帮助。 你选择的组也可以在开机时通过”grsec_proc_gid=”在内核命令行选择。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;() GID for special group&lt;/strong&gt; 【（GRKERNSEC_PROC_GID）设置这个GID决定那个组将可以避免Grsecurity对/proc的限制，允许该特殊组的用户查看网络数据和其他用户进程的存在信息。该GID也可以在开机时通过”grsec_proc_gid=”参数在内核命令行设定。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Additional restrictions&lt;/strong&gt; 【（GRKERNSEC_PROC_ADD）如果选是，/proc将会添加附加的限制来阻止用户查看device和slabinfo信息（因为这些信息对exploits（渗透？）很有用）】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linking restrictions&lt;/strong&gt; 【（GRKERNSEC_LINK、kernel.grsecurity.linking_restrictions）如果选是，race exploits将被阻止，因为在可写+t（world-write +t)的目录下（如/tmp)用户将不能再跟踪其他用户的符号链接，除非符号链接的所有者也是目录的所有者。 用户同样无法硬链接到不属于他们的文件上。如果sysctl被启用，一个名为”linking_restrictions”的sysctl选项被创建。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Kernel-enforced SymlinksIfOwnerMatch&lt;/strong&gt;* 【？？？】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;（）GID for users with kernel-enforced SymlinksIfOwnerMatch&lt;/strong&gt; 【】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FIFO restrictions&lt;/strong&gt; 【（GRKERNSEC_FIFO、kernel.grsecurity.fifo_restrictions） users will not be able to write to FIFOs they don’t own in world-writable +t directories (e.g. /tmp), unless the owner of the FIFO is the same owner of the directory it’s held in.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sysfs/debugfs restriction&lt;/strong&gt; 【（GRKERNSEC_SYSFS_RESTRICT）如果选是，在这个限制下正常挂载的sysfs以及所有在该目录下的文件系统都只能被root访问。		这些文件系统通常会提供硬件信息和调试信息的访问入口，然而这些信息却不适合被没有权限的用户看见。因为sysfs和debugfs也是一个潜在漏洞的最大的信息源ranging from infoleaks to local compromise.There has been very little oversight with an eye toward security involved in adding new exporters of information to these filesystems,所以不建议使用这些文件系统。 	因为兼容性的原因，一些目录对非root用户的访问提供了白名单：/sys/fs/selinux、/sys/fs/fuse、/sys/devices/system/cpu】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Runtime read-only mount protection&lt;/strong&gt; 【（GRKERNSEC_ROFS、kernel.grsecurity.romount_protect）如果选是，一个名为“romount_protect”的sysctl选项被产生。在运行时将这个选项设为1，文件系统将会获得如下保护：1、不允许新的可写入的加载的文件系统；2、现有的只读加载的文件系统不能被重新加载为可读可写；3、所有设备区块的写入选项都会被拒绝。 This option acts independently of grsec_lock: once it is set to 1, it cannot be turned off.		因此，如果该选项在只读系统的初始化脚本中被启用，请留意resulting behavior。		Also be aware that as with other root-focused features, GRKERNSEC_KMEM and GRKERNSEC_IO should be enabled and module loading disabled via config or at runtime.这个特性主要面向安全嵌入式系统（secure embedded systems）。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Eliminate stat/notify-based device sidechannels(（排除基于 进程状态/通知 的设备旁道攻击）&lt;/strong&gt; 【（GRKERNSEC_DEVICE_SIDECHANNEL）If you say Y here, timing analyses on block or character devices like /dev/ptmx using stat or inotify/dnotify/fanotify will be thwarted for unprivileged users. If a process without CAP_MKNOD stats such a device, the last access and last modify times will match the device’s create time. No access or modify events will be triggered through inotify/dnotify/fanotify for such devices。This feature will prevent attacks that may at a minimum allow an attacker to determine the administrator’s password length.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chroot jail restrictions&lt;/strong&gt; 【（GRKERNSEC_CHROOT）如果选是，你可以选择多个选项使突破chroot的限制更困难。如果在这些选项下没有不兼容的软件，建议你把每个都打开。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;Deny mounts&lt;/strong&gt; 【（GRKERNSEC_CHROOT_MOUNT、kernel.grsecurity.chroot_deny_mount）如果选是，在chroot下的进程将不能再挂载或重新挂载文件系统】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;Deny double-chroots&lt;/strong&gt; 【（GRKERNSEC_CHROOT_DOUBLE、kernel.grsecurity.chroot_deny_chroot）如果选是，在chroot下的进程不能再一次使用chroot。因为这个操作是打破chroot限制的普遍方法，不应该被允许。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;Deny pivot_root in chroot&lt;/strong&gt; 【（GRKERNSEC_CHROOT_PIVOT、kernel.grsecurity.chroot_deny_pivot）如果选是，在chroot下的进程将不能使用pivot_root()方法，它就像会改变root文件系统的chroot in一样。这个方法可能在已经chroot的进程中被错误地使用来试图打破chroot限制，因此不该被允许。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;Enforce chdir(“/“) on all chroots&lt;/strong&gt; 【（GRKERNSEC_CHROOT_CHDIR、kernel.grsecurity.chroot_enforce_chdir）如果选是，所有刚刚chroot的应用的当前工作目录都会被设定到chroot的根目录下。 因为目前所知这个特性不妨碍任何软件，建议你在这里选是。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;Deny (f)chmod +s&lt;/strong&gt; 【（GRKERNSEC_CHROOT_CHMOD、kernel.grsecurity.chroot_deny_chmod）如果选是，在chroot下的进程将不能对文件使用chmod和fchmod来使它们具有SUID或SGID位。这特性保护chroot不被其他已公布的方法打破。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny fchdir and fhandle out of chroot&lt;/strong&gt; 【（GRKERNSEC_CHROOT_FCHDIR、kernel.grsecurity.chroot_deny_fchdir）如果选是，一个非常有名的打破chroot限制的方法将会被阻止，这个方法是fchdir’ing to a file descriptor of the chrooting process that points to a directory outside the filesystem.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny mknod&lt;/strong&gt; 【（GRKERNSEC_CHROOT_MKNOD、kernel.grsecurity.chroot_deny_mknod）如果选是，在chroot下的进程将不能使用mknod命令。   在chroot使用mknod的问题是：这将允许攻击者生成一个device entry，就像在物理层次上获得你系统的root权限，which could range from anything from the console device to a device for your harddrive(which they could then use to wipe the drive or steal data).  建议选是，除非你运行的软件不兼容。	 如果sysctl可用，一个名为”chroot_deny_mknod”的选项将被创建。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny shmat() out of chroot&lt;/strong&gt; 【（GRKERNSEC_CHROOT_SHMAT、kernel.grsecurity.chroot_deny_shmat）如果选是，在chroot下的进程将不能连接到在chroot jail外创建的共享内存段。  建议在这里选是。 如果sysctl可用，一个名为”chroot_deny_shmat”的选项将被创建。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny access to abstract AF_UNIX sockets out of chroot&lt;/strong&gt; 【（GRKERNSEC_CHROOT_UNIX、kernel.grsecurity.chroot_deny_unix）如果选是，在chroot下的进程将不能连接到限制在chroot外部的abstract（表示不属于一个文件系统） Unix domain sockets.  建议选是。  如果sysctl可用，一个名为”chroot_deny_unix”的选项将被创建】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Protect outside processes&lt;/strong&gt; 【（GRKERNSEC_CHROOT_FINDTASK、kernel.grsecurity.chroot_findtask）如果选是，在chroot下的进程将不能杀死chroot外的进程，不能使用fcntl, ptrace, capget, getpgid, setpgid, getsid向chroot外的进程发送信号，不能查看chroot外的任何进程。	如果sysctl可用，一个名为”chroot_findtask”的选项将被创建】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Restrict priority changes&lt;/strong&gt; 【（GRKERNSEC_CHROOT_NICE、kernel.grsecurity.chroot_restrict_nice）如果选是，chroot下的进程将不能提升chroot下进程的优先级，或改变chroot外面的进程的优先级。	这个选项比从进程的能力设定中简单地删除CAP_SYS_NICE提供了更高的安全型。	如果sysctl可用，一个名为”chroot_restrict_nice”的选项将被创建】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny sysctl writes&lt;/strong&gt; 【（GRKERNSEC_CHROOT_SYSCTL、kernel.grsecurity.chroot_deny_sysctl）如果选是，在chroot下的攻击者将不能对sysctl的条目进行写入操作，不管是通过sysctl(2)还是通过/proc的接口。		强烈建议你在这个地方选是。如果sysctl可用，一个名为”chroot_sysctl”的选项将被创建】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Capability restrictions&lt;/strong&gt; 【（GRKERNSEC_CHROOT_CAPS、kernel.grsecurity.chroot_caps）如果选是，在chroot jail下的所有进程的性能都会被降低到关闭以下功能：模块插入、raw I/O、系统和网络服务管理、重启系统、修改immutable文件、修改其他用户的IPC和改变系统时间。留下这个选项是因为它可能破坏某些应用。如果你的chroot下的应用执行这些任务时出现了问题，那请禁用这个选项。如果sysctl可用，一个名为”chroot_caps”的选项将被创建】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exempt initrd tasks from restrictions&lt;/strong&gt; 【（GRKERNSEC_CHROOT_INITRD）如果选是，先前为了初始化而启动的tasks将可以免除Grsecurity的chroot限制。This option is mainly meant to resolve Plymouth’s performing privileged operations unnecessarily in a chroot.】&lt;/p&gt;
+
+&lt;h3 id=&quot;kernel-auditing&quot;&gt;Kernel Auditing&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Single group for auditing&lt;/strong&gt; 【（GRKERNSEC_AUDIT_GROUP、kernel.grsecurity.audit_gid、kernel.grsecurity.audit_group）如果选是,the exec and chdir logging features将只在你选定的组里面运作。	如果你只是想看特定的用户而不是系统大量的logs，这个选项建议启用。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GID for auditing&lt;/strong&gt; 【GRKERNSEC_AUDIT_GID】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exec logging&lt;/strong&gt; 【（GRKERNSEC_EXECLOG、kernel.grsecurity.exec_logging）如果选是，所有execve()调用都会被记录。对shell-servers的好处是保持对用户的跟踪。		如果sysctl可用，一个名为”exec_logging”的选项将被创建。	警告：这个选项启用时会产生大量的日志，特别是在活动的系统。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resource logging&lt;/strong&gt; 【（GRKERNSEC_RESLOG、kernel.grsecurity.resource_logging）如果选是，所有超越resource限制的意图都将随着resource的名字、请求资源的大小和目前的限制被记录。高度建议你在这里选Y。如果sysctl可用，一个名为”resource_logging”的选项将被创建。如果RBAC系统也可用，这个sysctl选项的值将被忽略。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Log execs within chroot&lt;/strong&gt; 【（GRKERNSEC_CHROOT_EXECLOG、kernel.grsecurity.chroot_execlog）如果选是，在chroot中的所有执行都将被记录在syslog上。如果特定的程序已安装在系统上，这会产生大量的日志。  因此留下了这个选项。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ptrace logging&lt;/strong&gt; 【（GRKERNSEC_AUDIT_PTRACE、kernel.grsecurity.audit_ptrace）如果选是，所有通过ptrace连接进程的意图都将被记录。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chdir logging&lt;/strong&gt; 【（GRKERNSEC_AUDIT_CHDIR、kernel.grsecurity.audit_chdir）如果选是，所有chdir()调用都会被记录。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(Un)Mount logging&lt;/strong&gt; 【（GRKERNSEC_AUDIT_MOUNT、kernel.grsecurity.audit_mount）如果选是，所有挂载和卸载都会被记录。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Signal logging&lt;/strong&gt; 【（GRKERNSEC_SIGNAL、kernel.grsecurity.signal_logging）如果选是，特定的重要信息（如SIGSEGV）将被记录，当进程发生一个错误时它会作为一个结果通知你，这在一定程度上可能意味着a possible exploit attempt。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fork failure logging&lt;/strong&gt; 【（GRKERNSEC_FORKFAIL、kernel.grsecurity.forkfail_logging）所有失败的fork()尝试都会被记录。这可能意味着fork炸弹，或有人正试图使他们的程序越权。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Time change logging&lt;/strong&gt; 【（GRKERNSEC_TIME、kernel.grsecurity.timechange_logging）所有系统时钟的改变都将被记录】&lt;/p&gt;
+
+&lt;p&gt;**/proc/&lt;pid&gt;/ipaddr support** 【（GRKERNSEC_PROC_IPADDR）如果选是，一个包含用户IP地址的新条目将会被加在每个/proc/&lt;pid&gt;目录下。The IP is carried across local TCP and AF_UNIX stream sockets.This information can be useful for IDS/IPSes to perform remote response to a local attack.这个条目只能被进程的所有者看见（root用户也能看见，如果他拥有CAP_DAC_OVERRIDE。这可以通过RBAC系统删除。）因此不会产生相关的隐私】&lt;/pid&gt;&lt;/pid&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Denied RWX mmap/mprotect logging&lt;/strong&gt; 【（GRKERNSEC_RWXMAP_LOG、kernel.grsecurity.rwxmap_logging）如果选是，当被PAX_MPROTECT阻止时，calls to mmap() and mprotect() with explicit usage of PROT_WRITE and PROT_EXEC together将会被记录。 这个feature也会记录其他的当PAX_MPROTECT开启时可能有问题的方案，比如textrels and PT_GNU_STACK】&lt;/p&gt;
+
+&lt;h3 id=&quot;executable-protections&quot;&gt;Executable Protections&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Dmesg(8) restriction&lt;/strong&gt; 【（GRKERNSEC_DMESG、kernel.grsecurity.dmesg）如果选是，非root用户将无法使用dmesg命令查看内核环日志缓冲。内核日志缓冲经常包含有内核地址和其他对攻击者有用的标识信息，in fingerprinting（数字指纹） a system for a targeted exploit。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deter ptrace-based process snoopin&lt;/strong&gt; 【（GRKERNSEC_HARDEN_PTRACE、kernel.grsecurity.harden_ptrace）如果选是，通过ptrace实现的tty嗅探程序和其他恶意监督程序将被阻止。如果你一直使用着RBAC系统，那所有用户的这个选项已经启用了好几年了，with the ability to make fine-grained（细粒度？） exceptions. 这个选项只会影响到非root用户ptrace到其他不是ptrace的子孙进程的能力。 This means that strace ./binary and gdb ./binary will still work, but attaching to arbitrary processes will not.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Require read access to ptrace sensitive binaries&lt;/strong&gt; 【（GRKERNSEC_PTRACE_READEXEC、kernel.grsecurity.ptrace_readexec）如果选是，没有权限的用户将不能ptrace不可读的二进制程序。这个选项对在移除了有suid的二进制程序的可读权限后的环境很有用——可防止内容泄露。  这个选项增加了这种文件使用的稳定性，因为当没有执行权限且ptracing时，二进制程序能被正常地读取。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Enforce consistent multithreaded privileges&lt;/strong&gt; 【（GRKERNSEC_SETXID、kernel.grsecurity.consistent_setxid）If you say Y here, a change from a root uid to a non-root uid in a multithreaded application will cause the resulting uids, gids, supplementary(增补的） groups, and capabilities in that thread to be propagated（传送，扩散） to the other threads of the process.  在大多数情况下这是不必要的，因为glibc在应用程序的维护上会仿真这个行为。  其他的libc不会做同样的事情——允许进程的其他线程以root权限继续运行。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disallow access to overly-permissive（过分宽松） IPC objects&lt;/strong&gt; 【（GRKERNSEC_HARDEN_IPC、kernel.grsecurity.harden_ipc)如果选是，过分宽松的IPC对象通道（共享内存、队列信息和信号量）将被禁止，进程将在正常权限下加入以下准则检查：1、If the IPC object is world-accessible and the euid doesn’t match that of the creator or current uid for the IPC object&lt;em&gt;（//IPC对象是否可访问以及euid是否与创建者或现在IPC对象的uid不匹配）&lt;/em&gt; 2、If the IPC object is group-accessible and the egid doesn’t match that of the creator or current gid for the IPC object。  [It’s a common error to grant too much permission to these objects, with impact ranging from denial of service and information leaking to privilege escalation.]&lt;em&gt;（授予这些对象太多权限是一个常见的错误，权限的提高可能导致拒绝服务和信息泄露）&lt;/em&gt;。  拥有CAP_IPC_OWNER属性的进程仍然可以access these IPC objects.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Trusted Path Execution (TPE)&lt;/strong&gt; 【（GRKERNSEC_TPE、kernel.grsecurity.tpe、kernel.grsecurity.tpe_gid）如果选是，你将可以选择一个GID加入增补的组中，里面的成员都被标记为”untrusted.”这些用户将不能执行在只有root能写入的但不属于root用户的目录中的所有文件。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Partially restrict（局部限制） all non-root users&lt;/strong&gt; 【（GRKERNSEC_TPE_ALL、kernel.grsecurity.tpe_restrict_all）如果选是，所有非root用户都将在一个削弱的TPE限制下。 This is separate from, and in addition to, the main TPE options that you have selected elsewhere.&lt;em&gt;（//与你在别处选择的TPE选项有区别，并且效果叠加？）&lt;/em&gt;  因此，如果一个”trusted” GID被选择，这个限制同样会应用在这个GID上。 Under this restriction, all non-root users will only be allowed to execute files in directories they own that are not group or world-writable, or in directories owned by root and writable only by root.&lt;em&gt;（在这个限制下，所有非root用户只被允许执行属于他们自己 并且&lt;/em&gt;不是&lt;em&gt;一个组或可写入的目录、或属于root且只能被root写入的目录下的文件。）&lt;/em&gt;】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Invert（反转？） GID option&lt;/strong&gt; 【（GRKERNSEC_TPE_INVERT、kernel.grsecurity.tpe_invert）如果选是，the group you specify in the TPE configuration will decide what group TPE restrictions will be &lt;em&gt;disabled&lt;/em&gt; for.&lt;em&gt;（你在TPE配置中指定的组将判断那些TPE组限制将会被禁用）&lt;/em&gt;  如果你想TPE限制应用在大多数用户上，这个选项很有用。  Unlike other sysctl options, this entry will default to on for backward-compatibility.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;GID for TPE-untrusted users&lt;/strong&gt; 【（GRKERNSEC_TPE_UNTRUSTED_GID）Setting this GID determines what group TPE restrictions will be &lt;em&gt;enabled&lt;/em&gt; for.】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–&amp;gt;GID for TPE-trusted users&lt;/strong&gt; 【（GRKERNSEC_TPE_TRUSTED_GID）Setting this GID determines what group TPE restrictions will be &lt;em&gt;disabled&lt;/em&gt; for.】&lt;/p&gt;
+
+&lt;h3 id=&quot;network-protections&quot;&gt;Network Protections&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Larger entropy pools&lt;/strong&gt; 【（GRKERNSEC_RANDNET）如果选是，用来存放Linux和Grsecurity的各种features的entropy pool的大小会翻倍。由于有些Grsecurity的features使用附加的随机性，所有建议你在这里选是——相当于修改/proc/sys/kernel/random/poolsize】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TCP/UDP blackhole and LAST_ACK DoS(Denial of Service, 拒绝服务攻击)prevention&lt;/strong&gt; 【（GRKERNSEC_BLACKHOLE、kernel.grsecurity.ip_blackhole、kernel.grsecurity.lastack_retries）如果选是，当外来数据包发送到没有程序监听的端口上，TCP重置和ICMP目标不可达数据包都不会被发送来相应该外来数据包。这个features支持IPV4和IPV6并且可以绕过回环网卡避免转发到黑洞。启用这个选项是主机对DoS攻击变得更有适应力（更主动），还能减少对扫瞄者的可视度。  这里的blackhole features实现相当于FreeBSD的blackhole feature，它对所有数据包不只是SYNs阻止RST（reset）响应。  在大多数程序执行下这不会造成问题，但程序（如haproxy）可能不会通过在远程端干净利落地终止他们来关闭特定的连接，从而让远程主机停留在LAST_ACK状态。 Because of this side-effect and to prevent intentional LAST_ACK DoSes,所有这个特性也增加automatic mitigation来应对这类攻击。  这个mitigation大幅度地减少一个socket花费在LAST_ACK state的时间。 如果你正使用haproxy并且不是所有的正连接的服务器都启用了这个选项，那在haproxy主机上禁用这个选项。  如果sysctl可用，两个名为”ip_blackhole” and “lastack_retries”的选项将被产生。当ip_blackhole进行标准的 0/非0、开/关 切换时，lastack_retries使用相同的值（”tcp_retries1” and “tcp_retries2”）。 默认的值 4 阻止一个socket保持LAST_ACK状态45秒。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disable TCP Simultaneous（同时的） Connect&lt;/strong&gt; 【（GRKERNSEC_NO_SIMULT_CONNECT）如果选是，该特性将会移除Linux的strict implementation of TCP的缺点——允许两个没有均进入监听状态的client相互连接。这个缺点可以让一个攻击者很容易地阻止一个client连接上一个已知的一提供正确连接端口的服务器。  因为这个缺点可能被用来阻止杀毒软件或者IPS from fetching updates，或者阻止SSL网关获取CRL，因此这个弱点应该通过启用这个选项除去。  虽然Linux是为数不多的支持同时连接的操作系统之一，当这在现实中没有合理的用途，并且缺少防火墙的支持。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Socket restrictions&lt;/strong&gt; 【（GRKERNSEC_SOCKET）如果选是，你可以选择以下几个选项。如果你在你的系统上分配一个GID并且把它作为额外的用户组——你希望限制其中的用户对socket的访问，这个patch将表现为基于你的选项表现为三种状态。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny any sockets to group&lt;/strong&gt; 【（GRKERNSEC_SOCKET_ALL、kernel.grsecurity.socket_all、kernel.grsecurity.socket_all_gid）如果选是，你可以选择一个GID，这个组里的用户都将不能通过该机器连接到其他主机上或在该机器上运行服务端应用。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GID to deny all sockets for&lt;/strong&gt; 【（GRKERNSEC_SOCKET_ALL_GID）在这里你可以选择一个禁止socket访问功能的GID，要记得在这个组添加你想要禁止socket访问功能的用户。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny client sockets to group&lt;/strong&gt; 【（GRKERNSEC_SOCKET_CLIENT、kernel.grsecurity.socket_client、kernel.grsecurity.socket_client_gid）如果选是，你可以选择一个GID，这个组里的用户都将不能通过该机器连接到其他主机上，但可以运行服务。 如果这个选项启用，当你的机器在shell中启动ftp transfers时，所有在这个组里的用户将必须使用passive mode（被动模式？）】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GID to deny client sockets for&lt;/strong&gt; 【（GRKERNSEC_SOCKET_CLIENT_GID）在这里你可以选择一个禁止socket访问功能的GID，要记得在这个组添加你想要禁止socket访问功能的用户。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny server sockets to group&lt;/strong&gt; 【（GRKERNSEC_SOCKET_SERVER、kernel.grsecurity.socket_server、kernel.grsecurity.socket_server_gid）如果选是，你可以选择一个GID，这个组里的用户都将不能在该机器上运行服务端应用。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GID to deny server sockets for&lt;/strong&gt; 【（GRKERNSEC_SOCKET_SERVER_GID）在这里你可以选择一个禁止socket访问功能的GID，要记得在这个组添加你想要禁止socket访问功能的用户。】&lt;/p&gt;
+
+&lt;h3 id=&quot;physical-protections&quot;&gt;Physical Protections&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deny new USB connections after toggle&lt;/strong&gt; 【（GRKERNSEC_DENYUSB、kernel.grsecurity.deny_new_usb）如果选是，一个新的名为”deny_new_usb”的sysctl选项将被生成。 将这个选项设为1将阻止任何被OS识别的新的USB设备。所有USB设备的插入记录都会被记录。  这个选项被用来在各种USB设备中阻止被设计为渗透漏洞的USB。  为了最大的效益，在相关的启动脚本执行后这个sysctl应该被设置。  如果在发行版中的每一个用户都可以选择是否切换这个sysctl，那启用这个选项是安全的】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reject all USB devices not connected at boot&lt;/strong&gt; 【（GRKERNSEC_DENYUSB_FORCE）如果选是，一个将不生成sysctl项目的GRKERNSEC_DENYUSB的变型会被启用（意味着编译后无法再动态改变）。这个选项应该只在你确定要拒绝所有运行时的USB连接、并且不再改变初始化脚本时才启用。 这个选项不应该被distros启用。 It forces the core USB code to be built into the kernel image so that all devices connected at boot time can be recognized and new USB device connections can be prevented prior to init running.&lt;em&gt;（//强制USB的代码被build在kernel image里，以使所有在开机时就已连接的设备能被识别，并且新的USB设备将会被阻止。）&lt;/em&gt;】&lt;/p&gt;
+
+&lt;h3 id=&quot;sysctl-support&quot;&gt;Sysctl Support&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Sysctl support&lt;/strong&gt; 【（GRKERNSEC_SYSCTL）如果选是，你可以改变Grsecurity的开机选项，而不用重新编译内核。  你可以echo 变量的值到/proc/sys/kernel/grsecurity目录来开启（1）或禁用（0）各种features。”grsec_lock”条目被设置成非0值之前，所有sysctl条目都是可变的。  如果你没有在开机时对”Turn on features by default”选项选是，所有内核配置中可用的feature都将不可用。  所有选项应被设置为startup，并且当所有选项设置好后grsec_lock应该被设置成非零值。】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Extra sysctl support for distro（发行版） makers (READ HELP)&lt;/strong&gt; 【（GRKERNSEC_SYSCTL_DISTRO）如果选是，将会生成附加的sysctl选项用来控制针对root下运行进程的features。因此，当grsec_lock在开机后被启用了，使用这个选项很重要。    Only distros with prebuilt kernel packages with this option enabled that can ensure grsec_lock is enabled after boot should use this option.  &lt;em&gt;Failure to set grsec_lock after boot makes all grsec features this option covers useless&lt;/em&gt; 。目前这个选项生成如下sysctl项目：”Disable Privileged I/O”: “disable_priv_io”】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Turn on features by default&lt;/strong&gt; 【（GRKERNSEC_SYSCTL_ON）如果选是，所有内核配置选项中选用的features都会在开机时被启用。 建议你选是，除非因为某些原因你想默认禁用所有sysctl可调的features。  就像其他地方提到的，在你完成对sysctl项目的修改之后启用grsec_lock项目非常重要。】&lt;/p&gt;
+
+&lt;h3 id=&quot;logging-options&quot;&gt;Logging Options&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Seconds in between log messages (minimum)&lt;/strong&gt; 【（GRKERNSEC_FLOODTIME）这个选项允许你设定Grsecurity生成日志的时间。默认选项应该适合大多数人，如果你要更改它，选择一个足够小的数来允许生成能提供信息的日志，但应足够大以防止泛洪。  设定这个值并且将GRKERNSEC_FLOODBURST设为0，能防止Grsecurity日志的任何限制发生的概率】&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Number of messages in a burst (maximum)&lt;/strong&gt; 【（GRKERNSEC_FLOODBURST）This option allows you to choose the maximum number of messages allowed within the flood time interval you chose in a separate option.  默认选项应该适合大多数人, 然而，如果你发现你的许多日志被解释为flooding，你可能需要提高这个值。Setting both this value and GRKERNSEC_FLOODTIME to 0 will disable any rate limiting on grsecurity log messages.】&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;知识索引&lt;/h2&gt;
+
+&lt;p&gt;1、TPE:Tursted Path Execution， 是Linux内核模块。
+【Trusted Path Execution (TPE) is a feature that basically denies users the ability to execute programs that are not owned by the root user, or that they can write to. This prevents all kinds of exploits（漏洞利用程序） that would have otherwise rooted your system.】&lt;/p&gt;
+
+&lt;p&gt;2、MPROTECT：
+【The goal of MPROTECT is to help prevent the introduction of new executable code into the task’s address space. This is accomplished by restricting the mmap() and mprotect() interfaces.】
+   The restrictions prevent
+   - creating executable anonymous mappings
+   - creating executable/writable file mappings
+   - making an executable/read-only file mapping writable except for performing
+     relocations on an ET_DYN ELF file (non-PIC shared library)
+   - making a non-executable mapping executable&lt;/p&gt;
+
+&lt;p&gt;3、PTE( page table entries， 页表项)&lt;/p&gt;
+
+&lt;p&gt;4、NX（No Excute， 不可执行）&lt;/p&gt;
+
+&lt;p&gt;5、ASLR（Address space layout randomization） 【是一种针对缓冲区溢出的安全保护技术，通过对堆、栈、共享库映射等线性区布局的随机化，通过增加攻击者预测目的地址的难度，防止攻击者直接定位攻击代码位置，达到阻止溢出攻击的目的。】&lt;/p&gt;
+
+&lt;p&gt;6、kexec 【kexec 是 Linux 内核的一个补丁，让您可以从当前正在运行的内核直接引导到一个新内核。在上面描述的引导序列中，kexec 跳过了整个引导装载程序阶段（第一部分）并直接跳转到我们希望引导到的内核。不再有硬件的重启，不再有固件操作，不再涉及引导装载程序。完全避开了引导序列中最弱的一环 – 固件。这一功能部件带来的最大益处在于，系统现在可以极其快速地重新启动。】&lt;/p&gt;
+
+&lt;p&gt;7、Linux下设置端口权限的系统调用:
+ioperm 【为调用进程设置I/O端口访问权能。ioperm的使用需要具有超级用户的权限，只有低端的[0-0x3ff] I/O端口可被设置，要想指定更多端口的权能，可使用iopl函数。这一调用只可用于i386平台。】&lt;/p&gt;
+
+&lt;p&gt;iopl 【该调用用于修改当前进程的操作端口的权限。可以用于所有65536个端口的权限。因此，ioperm相当于该调用的子集。和ioperm一样，这一调用仅适用于i386平台。】&lt;/p&gt;
+
+&lt;p&gt;8、hwclock 【用来显示与设定硬件时钟。在Linux中有硬件时钟与系统时钟等两种时钟。硬件时钟是指主机板上的时钟设备，也就是通常可在BIOS画面设定的时钟。系统时钟则是指kernel中的时钟。当Linux启动时，系统时钟会去读取硬件时钟的设定，之后系统时钟即独立运作。所有Linux相关指令与函数都是读取系统时钟的设定。】&lt;/p&gt;
+
+&lt;p&gt;9、shmat(把共享内存区对象映射到调用进程的地址空间)：连接共享内存标识符为shmid的共享内存，连接成功后把共享内存区对象映射到调用进程的地址空间，随后可像本地空间一样访问&lt;/p&gt;
+
+&lt;p&gt;10、dmesg 【dmesg用来显示开机信息，kernel会将开机信息存储在ring buffer中。若是开机时来不及查看信息，可利用dmesg来查看。开机信息亦保存在/var/log目录中，名称为dmesg的文件里。】&lt;/p&gt;
+
+&lt;p&gt;11、ptrace 【ptrace提供了一种使父进程得以监视和控制其它进程的方式，它还能够改变子进程中的寄存器和内核映像，因而可以实现断点调试和系统调用的跟踪。】&lt;/p&gt;
+
+&lt;p&gt;12、ACK 【ACK (Acknowledgement），即确认字符，在数据通信中，接收站发给发送站的一种传输类控制字符。表示发来的数据已确认接收无误。在TCP/IP协议中，如果接收方成功的接收到数据，那么会回复一个ACK数据。通常ACK信号有自己固定的格式,长度大小,由接收方回复给发送方。其格式取决于采取的网络协议。当发送方接收到ACK信号时，就可以发送下一个数据。如果发送方没有收到信号，那么发送方可能会重发当前的数据包，也可能停止传送数据。具体情况取决于所采用的网络协议。】&lt;/p&gt;
+
+&lt;p&gt;13、IPC 【Inter-Process Communication，进程间通信】&lt;/p&gt;
+</description>
+        <pubDate>Mon, 17 Aug 2015 12:46:00 +0800</pubDate>
+        <link>http://www.hardenedlinux.org/system-security/2015/08/17/Grsecurity_catalogue_cn.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/08/17/Grsecurity_catalogue_cn.html</guid>
+        
+        
+        <category>system-security</category>
+        
+      </item>
     
       <item>
         <title>SSL/TLS部署最佳实践v1.4</title>
@@ -932,8 +1305,8 @@ swapgs.c:175:29: warning: cast from pointer to integer of different size [-Wpoin
 [pi3@localhost clean_9322]$ ./procrop
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal &#39;n3rgal&#39; Wojtczuk
-                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
+                           by Rafal 'n3rgal' Wojtczuk
+                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
 
                 Usage: ./procrop 
 
@@ -945,8 +1318,8 @@ swapgs.c:175:29: warning: cast from pointer to integer of different size [-Wpoin
 [1] 5827
 [pi3@localhost clean_9322]$
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal &#39;n3rgal&#39; Wojtczuk
-                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
+                           by Rafal 'n3rgal' Wojtczuk
+                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
 
         [+] Using kernel target: 3.11.10-301.fc20.x86_64
 
@@ -958,8 +1331,8 @@ pi3       5829  0.0  0.1 112660   916 pts/1    S+   23:12   0:00 grep --color=au
 [pi3@localhost clean_9322]$ ./p_write8
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal &#39;n3rgal&#39; Wojtczuk
-                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
+                           by Rafal 'n3rgal' Wojtczuk
+                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
 
                 Usage: ./p_write8 
 
@@ -971,8 +1344,8 @@ pi3       5829  0.0  0.1 112660   916 pts/1    S+   23:12   0:00 grep --color=au
 [pi3@localhost clean_9322]$ ./p_write8 1
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal &#39;n3rgal&#39; Wojtczuk
-                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
+                           by Rafal 'n3rgal' Wojtczuk
+                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
 
         [+] Using kernel target: 3.11.10-301.fc20.x86_64
         [+] mmap() memory in first 2GB of address space... DONE!
@@ -1533,7 +1906,7 @@ force_sig_info()覆盖后，proc_root.subdir会指向被控制的用户空间内
     &lt;p&gt;%rax:=FAKE_IOPS; call *SOME_OFFSET(%rax)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax &lt;/p&gt;
+    &lt;p&gt;%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1696,7 +2069,7 @@ long do_arch_prctl(struct task_struct *task, int code, unsigned long addr)
 
 &lt;p&gt;3）保存设置并重启，按Ctrl+I(分别按不是同时按)，进入RAID配置界面，将两块3T机械硬盘组建为RAID1;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/XjgyVIQ.jpg&quot; alt=&quot;&quot; /&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/XjgyVIQ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;gentoo&quot;&gt;–[ 3、安装Gentoo系统&lt;/h2&gt;
 
@@ -1793,7 +2166,7 @@ export PS1=&quot;(chroot) $PS1&quot;
 
 &lt;p&gt;3）设置主机名：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;sed -i -e&#39;s/hostname.*/hostname=&quot;shenhua&quot;/&#39; /etc/conf.d/hostname
+&lt;pre&gt;&lt;code&gt;sed -i -e's/hostname.*/hostname=&quot;shenhua&quot;/' /etc/conf.d/hostname
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;4）修改镜像源 并且设置编译参数为8核编译(注意，编译参数在设置为核心数加1时理论上也可获得最优效果)：&lt;/p&gt;
@@ -1854,7 +2227,7 @@ export PS1=&quot;(chroot) $PS1&quot;
 
 &lt;p&gt;(1) 修改配置文件：在etc/portage/make.conf中添加GRUB_PLATFORMS=”efi-64”(mbr引导可忽略此步骤)&lt;/p&gt;
 
-&lt;p&gt;(2) 安装GRUB  &lt;/p&gt;
+&lt;p&gt;(2) 安装GRUB&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;emerge --ask sys-boot/grub:2
 emerge -av sys-boot/os-prober
@@ -1895,11 +2268,11 @@ emerge --ask kde-base/kde4-l10n
 
 &lt;p&gt;　　编辑/etc/ssh/ssh_config文件，在里面加入：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;	# 1, known_hosts stores server&#39;s signature, so hash the host name:	
+&lt;pre&gt;&lt;code&gt;	# 1, known_hosts stores server's signature, so hash the host name:	
 	HashKnownHosts yes
 	#2, SSH protocl version 1 is not secure:
 	Protocol 2
-	#3, If you don&#39;t use X11 forwarding, plz disable it&quot;
+	#3, If you don't use X11 forwarding, plz disable it&quot;
 	X11Forwarding no
 	#4, Disable rhosts:
 	IgnoreRhosts yes
@@ -1932,7 +2305,7 @@ emerge --ask kde-base/kde4-l10n
 
 &lt;p&gt;　　&lt;a href=&quot;https://wiki.gentoo.org/wiki/Hardened/Grsecurity2_Quickstart&quot;&gt;https://wiki.gentoo.org/wiki/Hardened/Grsecurity2_Quickstart&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;3）编译 &lt;/p&gt;
+&lt;p&gt;3）编译&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ make
 &lt;/code&gt;&lt;/pre&gt;
@@ -1971,21 +2344,21 @@ emerge --ask kde-base/kde4-l10n
 System Agency(DISA), which is entity responsible for maintaining the security
 posture of the Department of Defence(DoD) IT infrastructure. After we heard 
 how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about
-how &lt;em&gt;they&lt;/em&gt; do the defense.   &lt;/p&gt;
+how &lt;em&gt;they&lt;/em&gt; do the defense.&lt;/p&gt;
 
 &lt;p&gt;DoD use this Security Technical Implementation Guides to All DoD IT assets before online/operations.&lt;/p&gt;
 
 &lt;p&gt;And the STIGs classification system based on Mission Assurance Catagory (I-III)
 and Confidentiality Level (Public-Classified), giving you 9 different possible 
-combinations of config requirements.    &lt;/p&gt;
+combinations of config requirements.&lt;/p&gt;
 
 &lt;h2 id=&quot;why-debian&quot;&gt;Why Debian?&lt;/h2&gt;
 
 &lt;p&gt;In this scripts I’ve on Debian GNU/Linux 8, Debian has a lot security mechanism, and 
 some good features, especially “ReproducibleBuilds”. I use the STIG for Red hat
-6 v1r7 to porting STIG for Debian 8.   &lt;/p&gt;
+6 v1r7 to porting STIG for Debian 8.&lt;/p&gt;
 
-&lt;p&gt;Debian always has active maintenance, and has good security in default-configuration   &lt;/p&gt;
+&lt;p&gt;Debian always has active maintenance, and has good security in default-configuration&lt;/p&gt;
 
 &lt;h2 id=&quot;whats-different&quot;&gt;What’s different?&lt;/h2&gt;
 
@@ -2214,7 +2587,7 @@ mechanism can be implemented by hardware or software emulation.&lt;/p&gt;
 &lt;p&gt;In GCC’s options, &lt;a href=&quot;http://en.wikipedia.org/wiki/NX_bit&quot;&gt;NX&lt;/a&gt; is enable by default. If you want to turn it off,
 use “-z execstack”.&lt;/p&gt;
 
-&lt;p&gt;Check method: &lt;/p&gt;
+&lt;p&gt;Check method:&lt;/p&gt;
 &lt;pre&gt;
 shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_STACK 
   GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x8
@@ -2246,26 +2619,26 @@ protection in this area will be explained further.&lt;/p&gt;
  the stack buffers would be used. This is a smart one. But its only
  supported by GCC 4.9.x. Kees Cook shared a very &lt;a href=&quot;http://www.outflux.net/blog/archives/2014/01/27/fstack-protector-strong/&quot;&gt;good writing here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Check the symbols in an elf file: &lt;/p&gt;
+&lt;p&gt;Check the symbols in an elf file:&lt;/p&gt;
 &lt;pre&gt;
 #readelf -s ./a.out | grep stack_chk_fail 
      3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (3) 
     52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@@GLIBC_2 
 &lt;/pre&gt;
 
-&lt;p&gt;*) RELRO &lt;/p&gt;
+&lt;p&gt;*) RELRO&lt;/p&gt;
 
-&lt;p&gt;RELocation Read-Only. &lt;/p&gt;
+&lt;p&gt;RELocation Read-Only.&lt;/p&gt;
 
 &lt;p&gt;Turn it on: -z norelro 
-Turn it off: -z now &lt;/p&gt;
+Turn it off: -z now&lt;/p&gt;
 
-&lt;p&gt;Check elf header to find partial-RELRO: &lt;/p&gt;
+&lt;p&gt;Check elf header to find partial-RELRO:&lt;/p&gt;
 &lt;pre&gt;
 shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_RELRO 
   GNU_RELRO      0x0000000000000e28 0x0000000000600e28 0x0000000000600e28 
 
-Check elf&#39;s dynamic sections to find fully-RELRO: 
+Check elf's dynamic sections to find fully-RELRO: 
 shawn@shawn-fortress ~ $ readelf -d a.out | grep BIND_NOW 
  0x0000000000000018 (BIND_NOW)
 &lt;/pre&gt;
@@ -2324,7 +2697,7 @@ a defender’s daily bread, which being part of defense-in-depth model.&lt;/p&gt
 &lt;pre&gt;find / -path /proc -prune -o -nouser -o -nogroup&lt;/pre&gt;
 
 &lt;p&gt;List avaiable users, be cautions about who’s the “user”:&lt;/p&gt;
-&lt;pre&gt;egrep -v &#39;.*:\*|:\!&#39; /etc/shadow | awk -F: &#39;{print $1}&#39;&lt;/pre&gt;
+&lt;pre&gt;egrep -v '.*:\*|:\!' /etc/shadow | awk -F: '{print $1}'&lt;/pre&gt;
 
 &lt;p&gt;Check which files belong to whom. Then delete the user correctly:&lt;/p&gt;
 
@@ -2334,11 +2707,11 @@ a defender’s daily bread, which being part of defense-in-depth model.&lt;/p&gt
 
 &lt;p&gt;List which users are unavailable:&lt;/p&gt;
 
-&lt;pre&gt;grep -v &#39;:x:&#39; /etc/passwd&lt;/pre&gt;
+&lt;pre&gt;grep -v ':x:' /etc/passwd&lt;/pre&gt;
 
 &lt;p&gt;List expired passwords:&lt;/p&gt;
 
-&lt;pre&gt;cat /etc/shadow | cut -d: -f 1,2 | grep &#39;!&#39;&lt;/pre&gt;
+&lt;pre&gt;cat /etc/shadow | cut -d: -f 1,2 | grep '!'&lt;/pre&gt;
 
 &lt;p&gt;The correct permission should be 644 at least. 600 would be better:&lt;/p&gt;
 
@@ -2476,7 +2849,7 @@ net.core.somaxconn = 4096
 &lt;/pre&gt;
 
 &lt;p&gt;** TIME_WAIT status TCP connections, the system will empty the
-   connection if the number is exceed the value, &lt;/p&gt;
+   connection if the number is exceed the value,&lt;/p&gt;
 
 &lt;pre&gt;
 net.ipv4.tcp_max_tw_buckets = 65535
@@ -2490,7 +2863,7 @@ net.ipv4.tcp_tw_reuse = 1
 /proc/sys/net/ipv4/tcp_tw_reuse
 &lt;/pre&gt;
 
-&lt;p&gt;** fast recycle of TIME-WAIT status connection, the default is disable( 0): &lt;/p&gt;
+&lt;p&gt;** fast recycle of TIME-WAIT status connection, the default is disable( 0):&lt;/p&gt;
 
 &lt;pre&gt;
 net.ipv4.tcp_tw_recycle = 1
@@ -2736,7 +3109,7 @@ inventing many innovations( SEGMEXEC, PAGEEXEC, MPROTECT, UDEREF,
 RANDSTRUCT&lt;em&gt;, etc), while hardening the kernel in source code level(
 make important *struct&lt;/em&gt; read-only, etc). PaX/Grsecurity is one of most
 respected 0ld sch00l hacker community. The main contributor( Spender)
-was even been through a &lt;a href=&quot;http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced&quot;&gt;very badly economic situation&lt;/a&gt; back in 2004 &lt;/p&gt;
+was even been through a &lt;a href=&quot;http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced&quot;&gt;very badly economic situation&lt;/a&gt; back in 2004&lt;/p&gt;
 
 &lt;p&gt;Thanks to the G0d of techn0logy, PaX/Grsecurity is still alive…. I
 personally agree with some ideas:&lt;/p&gt;
@@ -2832,7 +3205,7 @@ openssl s_client -cipher EXPORT -connect www.google.com:443
 &lt;p&gt;Config file：/etc/ssh/ssh_config&lt;/p&gt;
 
 &lt;pre&gt;
-1, known_hosts stores server&#39;s signature, so hash the host name:
+1, known_hosts stores server's signature, so hash the host name:
 
 HashKnownHosts yes
 
@@ -2840,7 +3213,7 @@ HashKnownHosts yes
 
 Protocol 2
 
-3, If you don&#39;t use X11 forwarding, plz disable it&quot;
+3, If you don't use X11 forwarding, plz disable it&quot;
 
 X11Forwarding no
 
@@ -2909,7 +3282,7 @@ https://www.owasp.org/index.php/OWASP_Guide_Project&lt;/p&gt;
 
 &lt;p&gt;ServerRoot&lt;/p&gt;
 &lt;pre&gt;
-Web server&#39;s root path. Default is &quot;/etc/httpd&quot;. It&#39;s import to keep
+Web server's root path. Default is &quot;/etc/httpd&quot;. It's import to keep
 track of its permission. Recommend: Do not allow none-root user has
 the permission to modify it.
 
@@ -2963,7 +3336,7 @@ Deny from all  # Deny all contents
 
 &lt;p&gt;Options FollowSymLinks&lt;/p&gt;
 &lt;pre&gt;
-Do not list any other files if the visited file don&#39;t exit.
+Do not list any other files if the visited file don't exit.
 &lt;/pre&gt;
 
 &lt;p&gt;Hide info&lt;/p&gt;
@@ -2985,7 +3358,7 @@ Deny from all
 &amp;lt; /LimitExcept&amp;gt;
 &amp;lt; /Directory&amp;gt;
 
-PUT/DELETE/etc methods won&#39;t be available.
+PUT/DELETE/etc methods won't be available.
 &lt;/pre&gt;
 
 &lt;p&gt;MinSpareServers&lt;/p&gt;
@@ -3000,7 +3373,7 @@ Maximum spare processes. Default is 20. Recommend: 64.
 
 &lt;p&gt;ServerLimit&lt;/p&gt;
 &lt;pre&gt;
-The number that MaxClients can&#39;t not exceed.
+The number that MaxClients can't not exceed.
 &lt;/pre&gt;
 
 &lt;p&gt;MaxClients&lt;/p&gt;
@@ -3127,17 +3500,17 @@ https://stribika.github.io/2015/01/04/secure-secure-shell.html&lt;/p&gt;
 
 &lt;p&gt;SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).&lt;/p&gt;
 
-&lt;p&gt;在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。   &lt;/p&gt;
+&lt;p&gt;在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。&lt;/p&gt;
 
-&lt;p&gt;由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。   &lt;/p&gt;
+&lt;p&gt;由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。&lt;/p&gt;
 
-&lt;p&gt;基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）   &lt;/p&gt;
+&lt;p&gt;基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;2. 实现&lt;/h3&gt;
 
-&lt;p&gt;SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;文件&lt;/a&gt;中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。   &lt;/p&gt;
+&lt;p&gt;SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;文件&lt;/a&gt;中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。&lt;/p&gt;
 
-&lt;p&gt;这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。   &lt;/p&gt;
+&lt;p&gt;这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。&lt;/p&gt;
 
 &lt;p&gt;全局描述符表拥有在运行时进行设置的高级电源管理特定的描述符，而这些描述符也必须传递给第二个全局描述符表（通过arch/i386/kernel/apm.c）。最后，原有的全局描述符表必须将储存的每个CPU任务状态描述符(TSS)与本地描述符表描述符与第二个全局描述符表进行同步。（通过arch/i386/kernel/traps.c中的set_tss_desc()与set_ldt_desc()函数来完成）&lt;/p&gt;
 
@@ -3594,7 +3967,7 @@ TLBs看起来拥有64到256个条目（看footnote 6），他们至少4-way asso
     buf = (char*)malloc(4096*257);
     for (j=0; j&amp;lt;100000; j++) {
       for (i=0; i&amp;lt;257; i++) {
-        buf[i*4096] = &#39;a&#39;;
+        buf[i*4096] = 'a';
       }
     }
     return (0);
@@ -3618,7 +3991,7 @@ TLBs看起来拥有64到256个条目（看footnote 6），他们至少4-way asso
 可以联系Ice (white_ice@usa.net)或者fOSSiL &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#102;&amp;#111;&amp;#115;&amp;#115;&amp;#097;&amp;#104;&amp;#064;&amp;#117;&amp;#115;&amp;#097;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#102;&amp;#111;&amp;#115;&amp;#115;&amp;#097;&amp;#104;&amp;#064;&amp;#117;&amp;#115;&amp;#097;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;去做一些逆向
 工程，设计和实现的工作&lt;/p&gt;
 
-&lt;p&gt;给那些打算单干的路标：   &lt;/p&gt;
+&lt;p&gt;给那些打算单干的路标：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;   - 逆向工程工具IDA (the Interactive DisAssembler,
      http://www.datarescue.com). the next source of information is
@@ -3881,12 +4254,12 @@ SEGMEXEC能知道来自用户态和内核态的原生文件映射请求所以略
 do_mmap_pgoff()而直接调用do_mmap()，而vma mirror请求使用一些特殊参数传
 递给do_mmap_pgoff():&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&#39;file&#39;    必须是NULL，因为mirror会引用相同文件的vma作为镜像
-&#39;addr&#39;    正常使用
-&#39;len&#39;    必须是0
-‘prot&#39;    正常使用
-&#39;flags&#39;    正常使用，除了一种情况：指定MAP_MIRROR和只能指定private映射
-&#39;pgoff&#39;    指定vma的线性起始地址作为镜像
+&lt;pre&gt;&lt;code&gt;'file'    必须是NULL，因为mirror会引用相同文件的vma作为镜像
+'addr'    正常使用
+'len'    必须是0
+‘prot'    正常使用
+'flags'    正常使用，除了一种情况：指定MAP_MIRROR和只能指定private映射
+'pgoff'    指定vma的线性起始地址作为镜像
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;文章给出了一个例子：&lt;/p&gt;
@@ -4000,215 +4373,6 @@ Grsecurity/PaX. We/I salute you!!!&lt;/p&gt;
         <pubDate>Sun, 24 May 2015 03:20:45 +0800</pubDate>
         <link>http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html</link>
         <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html</guid>
-        
-        
-        <category>system-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Brad Spengler( Pax Team/grsecurity)访谈, 2010年1月1日</title>
-        <description>&lt;h2 id=&quot;brad-spengler-pax-teamgrsecurity-interview-jan-1-2010httpsslo-techcomclanki10001en&quot;&gt;原文：&lt;a href=&quot;https://slo-tech.com/clanki/10001en&quot;&gt;Brad Spengler (PaX Team/grsecurity) interview， Jan 1 2010&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;shawn-the-r0ck-may-16-2015&quot;&gt;译者：Shawn the R0ck, May 16 2015&lt;/h2&gt;
-
-&lt;p&gt;Shawn：PaX/Grsecurity是在OS安全上的一个开创性的贡献，没有
-PaX/Grsecurity的GNU/Linux的安全性只能防御脚本小子，过去的14年里
-Pax/Grsecurity为Linux内核做出了巨大出贡献的贡献，但到今天Linux内核社区
-都不愿意承认，这可能的确是受商业厂商控制了主流媒体的后果，&lt;a href=&quot;https://raw.githubusercontent.com/citypw/DNFWAH/master/3/d3_0x06_hacker_nsa_free-software.txt&quot;&gt;在后棱镜时代&lt;/a&gt;，
-这种现象有极端的阴谋论甚至认为NSA也是推手，当然这也并非完全没有道理，毕
-竟&lt;a href=&quot;http://www.solidot.org/story?sid=43483&quot;&gt;SELinux项目&lt;/a&gt;早已成为Five-Eyes国家的标配。&lt;/p&gt;
-
-&lt;p&gt;我尝试翻译这篇5年前的访谈是为了让更多的人了解到历史，因为反观今天的
-Linux内核社区对于安全的态度相比5年前可能是更糟糕，&lt;a href=&quot;http://www.solidot.org/story?sid=42174&quot;&gt;offset2lib&lt;/a&gt;的远程利用
-方式轻松绕过了GNU/Linux厂商们宣称的完美防御，相信就算是智商只有85的人也
-能明白“抗爆破”机制只能抗不到1秒的时间是在扯淡;-) 即使offset2lib所带来的
-风险巨大，Linux内核社区的态度也是极度傲慢，他们也不认为这个
-PaX/Grsecurity在2001年就已经加固的攻击平面而他们在2015年还存在有什么问
-题，而BadiRET漏洞里我们更能清晰的看到SMEP虽然被绕过，但SMAP依然有效，而这两个Intel CPU的特性也是源于2007年PaX/Grsecurity的其中一个特性UDEREF的启发，自从有了OS的攻防历史，就有了PaX/Grsecurity，如果Linux内核社区继续傲慢自大，最终的受害者是企业用户和个人用户。&lt;/p&gt;
-
-&lt;p&gt;在Anarchist看来，这样的Linux内核社区正是数字军火商，斯拉夫兵工厂甚至
-NSA所喜欢的。&lt;/p&gt;
-
-&lt;h2 id=&quot;brad-spengler-pax-teamgrsecurity&quot;&gt;标题：Brad Spengler( PaX Team/grsecurity)访谈&lt;/h2&gt;
-
-&lt;h3 id=&quot;slo-techspenderspengler--brad&quot;&gt;Slo-Tech：向我们的读者介绍一下你自己（工作，教育背景以及兴趣），也请你解释一下你的真名是Spender还是Spengler;-) 请问Brad是否是任何黑帽组织的成员？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler: Brad Spengler(不是Brad Spender)，虽然相似的名字并非偶然，
-我改了改姓氏作为别名。我毕业于Bucknell大学，获得了计算机与工程（混杂了
-计算机科学和电子硬件的课程）学士学位和一个应用数学的学士学位。数学/物理
-学/经济学/哲学都是我最有兴趣的课程。我在学习操作系统课程之前就已经有4年
-的学习Linux内核和编程的经历，所以计算机科学课程并不是那么的有趣。我从来
-没有参加过任何黑帽组织。自从高中开始我总是对创造有趣的事物有兴趣。&lt;/p&gt;
-
-&lt;p&gt;………………….(未翻译）&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techpaxgrsecurity&quot;&gt;Slo-Tech：你能用简单描述一下什么是PaX和GRSecurity以及有多少人参与这些项目吗？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：&lt;a href=&quot;http://en.wikipedia.org/wiki/PaX&quot;&gt;PaX&lt;/a&gt;是一头戏剧性的改变了整个安全的形态的野兽，而且对未来
-安全的影响甚至会更多。PaX专注于一次性的解决一堆各种类型的漏洞利用，有一
-些工作还没有完成，但希望能有所改变，也希望8年后（Shawn：现在已经是5年后
-了，愚蠢的大众还是宁愿相信商业厂商和NSA;-)）所有人都能明白PaX的前瞻性。
-PaX完全专注于内存的漏洞利用，&lt;a href=&quot;http://www.grsecurity.net/&quot;&gt;grsecurity&lt;/a&gt;则增加了主机层的防御和基于现有的
-PaX特性进行了一系列的改进，包括抗爆破，ASLR的抗信息泄漏，不允许文件系统
-级别的任意代码执行等。Grsecurity包括了很多简单的自动化特性，比如RBAC系
-统可以通过学习模式（你可以选择基于进程/用户或者整个系统）来自动化创建规
-则，这些规则都是人类可读的纯文本格式（Shawn：SELinux是使用难以审计的二
-进制的格式。），报错信息有助于根据攻击类型来制定相应的规则。&lt;/p&gt;
-
-&lt;p&gt;PaX项目的参与人数是未知的！因此PaX Team至少有一个人:) 对于grsecurity这
-边就我一个人。偶尔我也收到一些patch提交（比如来自Zbyniu Krzystolik），
-赞助者和朋友有时也会告诉我他们想要加入一些新功能。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techpax-teamaslrlinuxlinuxpaxlinux&quot;&gt;Slo-Tech：只有一些人真正了解PaX Team开发了一些安全机制（比如ASLR）后来被用于Linux内核里，至少目前来看主要的Linux内核社区开发者和参与者并不打算承认PaX所带来的贡献，你认为这些机制对于Linux安全贡献最大的是什么。&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：好吧，对我而言很搞笑的是聪明的&lt;a href=&quot;http://en.wikipedia.org/wiki/Ingo_Molnar&quot;&gt;Ingo Molnar&lt;/a&gt;多年前对于
-paxtest测试（包括检查不同区域的地址空间是否有能力执行任意代码）非常不爽，
-因为第2组测试中mprotect用于标记一些内存为可写和可执行。Ingo称这个测试是
-“破坏” – mprotect检测多少有些不公平（因为exec-shield完全失效了）。往前
-看几年你会发现SELinux基本上把PaX的&lt;a href=&quot;http://pax.grsecurity.net/docs/mprotect.txt&quot;&gt;MPROTECT&lt;/a&gt;加入了它的规则语言。在
-Windows的世界里你能找到所有人都在尝试日等价于Linux上的mprotect，glibc曾
-经有一个make_stack_executable()函数也是ret2libc攻击的对象，Windows上也
-有类似的函数。PaX team早在很多年前就认识到攻击者会找最薄弱的环节下手，
-而这正是今天正在发生的事情。&lt;/p&gt;
-
-&lt;p&gt;我不能说哪一个特性是对Linux安全贡献最大，因为这些特性都是叠加式的让
-Linux内核更安全。同样，我认为下一个最具革命性的贡献将同样来自PaX team。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/pax_grsec_graph.jpg&quot; alt=&quot;PaX/Grsecurity&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techbradlinuxgnulinux&quot;&gt;Slo-Tech：看起来Brad和Linux内核开发者的“口水战”还在继续。什么是主要原因导致了这种不愉快的情况？你不认为其实GNU/Linux的终端用户才是遭受损失的吗？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：我从来都没有发过一封邮件到LKML（Linux内核邮件列表），所
-以我并没有参与任何”口水战“。PaX Team曾经发过邮件到LKML（比如让Linux内核
-开发者承认他们的不愿意让外界关注的不披露漏洞的官方政策和安全漏洞信息模
-糊化以及Linus为此多次赢得pwnie奖项的”a bug is bug”的安全哲学）。8个公开
-的空指针引用的漏洞利用才被作为提权威胁来处理，在第一个公开漏洞利用后几
-个月，mmap_min_addr被引入，但并不懂安全的Linux开发者开发的这个安全机制
-导致了至少6个不同的绕过。Linux内核的ASLR有大量的弱点。SSP被攻破了多次最
-终导致他们强行限制其工作范围。所有这些破事都来自于一个商业源头: Red
-Hat – 对于公司重要的是为了赚钱你要说你有X特性（比如反病毒厂商会宣称：
-“我们将会保护你不受病毒的侵害。”，至于这个特性是否有用并不是公司关心的
-（但有些人会去验证厂商的宣传 — 安全研究人员或者黑帽）。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techlinuxlinuxsdlsdl&quot;&gt;Slo-Tech：谁是你尊重的Linux内核开发者？或者说，你不觉得在安全问题上Linux需要重新组织一下关于处理安全事件和安全开发的流程（很多回归测试代码）。比如微软的SDL…你觉得SDL怎么样？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：基于有很多公司和个人用户使用微软的产品，我很尊重微软对安
-全的态度。Windows大量的二进制软件的生态系统的基础上，去实现安全功能的同
-时还要保证应用程序的兼容性。这些工程的真实难度很容易被误认为是简单的事
-情。&lt;/p&gt;
-
-&lt;p&gt;Linux确实需要一些集中的领导者或者组织来处理安全。Linux开发者就算知道他
-们在修复安全漏洞，但他们也不会通知任何人（包括厂商）。选择性的通知厂商
-特定的安全问题，而不通知小的厂商和GNU/Linux发行版社区。Upstream基本上让
-厂商难受，每个厂商都必须去做重复的劳动，因为没有标准化流程。这个Linux内
-核社区官方的”a bug is just a bug”政策是在伤害所有的GNU/Linux用户。一些
-很优秀的加固补丁很少被内核社区接受，因为他们过度看中安全机制造成的性能
-影响。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techlinux-torvaldslinuxlinux&quot;&gt;Slo-Tech：你觉得Linux Torvalds能胜任Linux的安全工作吗？我的意思是，他是一个优秀的开发者，但不是一个安全研究人员。那其他的著名Linux内核开发者呢？他们有相关的技能吗？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：我不认为他能，他没有安全思维，也无法理解安全。我不确定为
-什么很多人都感觉在安全问题上Linus是否参与很重要。一些开发者”理解”安全，
-但通常他们只修复bug。Upstream通常不关心系统加固方面的内容。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techdave-aitellinux&quot;&gt;Slo-Tech：Dave Aitel写了一封名为“需要中心平台让多厂商合作来改善Linux内核安全问题“的邮件到他的邮件列表。你同意他的观点吗？这是正确的一步吗？你愿意为这样的中心平台工作吗？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：这点上&lt;a href=&quot;http://en.wikipedia.org/wiki/Dave_Aitel&quot;&gt;Dave&lt;/a&gt;是对的，但我并没看到这种事情在发生。最重要的是
-Linus对安全的态度必须改变才行。只要一天他还是upstream内核的看门人，不论
-他的观点对还是错都会直接影响Linux的安全。同时，PaX team和我只能继续做我
-们所一直在做的事情，改善Linux的安全只有一条路：单干。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/1.jpg&quot; alt=&quot;1&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techbugbug&quot;&gt;Slo-Tech：内核维护者悄然无声的修复一些内核bug是真的吗？”悄然无声的修复“是否意味着不正确的BUG分类和低估安全风险或者其他什么的？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：是的，他们已经承认这么干过。如果你回去读读LWN上我的文章
-有一堆这样的例子。厂商在漏洞分类的问题上也非常糟糕 – 所有都是DoS。我认
-为这个事情现在有所改善是因为他们被曝光和受到了公众的批评。部分的问题原
-因是没有统一的bug管理造成了对于同一个bug有不同的解释。通常不同的厂商的
-bug分析也不一样，而现在有一些厂商发的安全公告并不是安全漏洞（比如NOMMU
-是用于嵌入式系统，由于用户空间和内核空间没有隔离所以根本没有安全的设计，
-但至少有2个CVE是有关这种系统的BUG）。这些事情可能会促使商业公司更愿意招
-聘软件开发人员而不是安全人员来完成安全有关的工作。在每天都会报无数漏洞
-的年代，集中处理平台和管理流程是能减轻很多工作量的。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techcrispin-cowanred-hat&quot;&gt;Slo-Tech：这是个恶心的问题，所以你不愿意的话你可以不回答。你愿意为微软（像Crispin Cowan）或者Red Hat工作吗？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：在我大学的最后一年微软曾经邀请我去面试，但我拒绝了，因为
-HR在弄丢了我的简历1年后他们才想起我，而我那时已经失去去那里工作的兴趣。
-为Red Hat工作？我确定你知道答案的;)&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techwindows-vistalinuxwindowsbug&quot;&gt;Slo-Tech：众所周知你使用Windows Vista作为你的主要操作系统。这对于一个Linux内核安全研究者很奇怪。你为什么会这样选择呢？你尝试去找过Windows的bug吗？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：事实上我使用的是Windows 7 – Cheddar Bay的视频里应该是
-RC版。因为Linux对我而言只是用来测试和改进grsecurity的。在高中和大学的时
-候，我曾经使用GNU/Linux作为我的主要桌面系统，但现在GNU/Linux都是在虚拟
-机里。以前的Linux的内核和用户态都简单很多。你知道那些众所周知的配置文件，
-如果你修改他们，一些”智能”的进程会背着你把配置改回去，你不会因为想要不
-同的默认配置而一定要修改SELinux规则。那是更多的是感受到GNU/Linux的自由
-（Shawn：个人认为Brad说的问题应该是针对RedHat/CentOS/Fedora的，至少目前
-来看Debian和Gentoo是享有高度的自由），而自由的缺失我认为是因为商业化造
-成的。而游戏是我用Windows的主要原因。如果Pidgin通知我有一个新版本更新，
-我只是下载一个去执行，而不需要强制的更新另外100+个包，那样会增加系统的
-风险的。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techidefensezdiimmunity-rootcheddarbay-ingom0wnar-wundebar&quot;&gt;Slo-Tech：为什么你会公布漏洞利用而不是把它们卖给像iDefense，ZDI，Immunity这样的公司… 类似像本地root提权漏洞像cheddarbay, ingom0wnar, wundebar的市场价值是什么？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：我不确定他们是否关心Linux的本地提权漏洞 – 首先，这些漏
-洞已经在某些版本的Linux内核开发分支上被修复了。其次这些漏洞利用太容易编
-写了。所以这些漏洞利用是用于提醒大家安全的重要性的（以前的一堆讨论无法
-改善Linux内核社区的看法，但那8个漏洞利用做到了）。第1个成果是帮助到了人
-们去理解风险的等级（有一些人联系我说那些漏洞利用帮助他们说服了他们的老
-板更关注安全），因为Linux内核公开的漏洞利用并不是那么多，不是因为漏洞不
-存在，而是因为黑帽们都用于自己的目的了。第2个成果是让所有主要的的
-GNU/Linux厂商和发行版都把空指针引用的攻击平面给默认防御住了，SELinux的
-漏洞也修复了，厂商更注重关于mmap_min_addr的问题。用户也注意到了这个特性
-和开启它的重要性（Shawn: mmap_min_addr成为今天的标准安全基线），很多人
-也都升级了Linux内核。这些都是好事。我想整件事情唯一的”创新”应该是
-enlightenment框架了（下一个问题跟这个有关）。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techlinuxenglightenmentmetasploit&quot;&gt;Slo-Tech：最近你发布的针对Linux内核漏洞利用的框架叫Englightenment。你是否有计划继续改进这个框架并且希望它成为像Metasploit一样？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：我一直在改进这个框架因为她让我以攻击者的方式来思考，这会
-帮助我有多种思路去考虑针对特定攻击的防御机制（我最近在grsecurity里实现
-的加固就是来源于此）。我也想让她变得尽量通用：她已经支持x86和x8\6_64平台
-的所有2.4和2.6内核上关闭所有LSM模块。我最近也增加了Xen特性的支持，这个
-特性会更恰当的让hyppercall去修改内核代码。我也在考虑关于
-namespace/container(Shawn：就是lxc，以及后来docker用的底层模块），这些
-都在TODO list上。&lt;a href=&quot;http://grsecurity.net/~spender/enlightenment.tgz&quot;&gt;Enlightenment&lt;/a&gt;会仅仅针对Linux内核漏洞利用。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2.jpg&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techsusesebastian-krahmersgrakkyulinux&quot;&gt;Slo-Tech：大多数人都不把本地漏洞利用提权当成真正的威胁。我知道SuSE的Sebastian Krahmer写过相关的观点而我也同意他的观点，但事实上现在已经没有任何公开的远程漏洞利用了（Sgrakkyu是最后一名勇士），远程漏洞利用标准Linux内核真的已经是不可能还是在不远的将来会有所改变？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：远程内核漏洞利用非常困难，特别是针对运行PaX的内核和定制
-过的内核。只要读读sgrakkyu/twiz在Phrack上的论文Attacking the core:
-Kernel exploitation notes（Shawn：发表于Phrack Issue 64，2007年）就知道
-所涉及的复杂性。他们都是热衷于挑战高难度的人，而其他大部分人会选择更简
-单的方式，比如从Web进入然后使用本地内核提权漏洞的方式。如果系统运行了最
-新的PaX，漏洞利用会变得极度困难，而不是更简单。我仍然能看到现有的威胁会
-在可预见的未来存在下去，因为GNU/Linux发行版都把时间浪费在了不太可能出现
-严重bug的SUID程序上，而新的内核提权漏洞几乎每个礼拜都在曝光。还有就是
-web开发人员（ 那些编写的第三方代码运行在公共的服务器上，让远程用户能进
-入”非信任的本地用户”）并没有变得更聪明。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-techgnulinuxgnulinux&quot;&gt;Slo-Tech：GNU/Linux能依然被认为是安全的操作系统吗？你觉得政府或者其他对安全性要求高的基础架构应该使用GNU/Linux吗？&lt;/h3&gt;
-
-&lt;p&gt;Brad Spengler：我希望在高安全要求的环境中有其他的系统可以使用(Shawn: 经
-过加固的GNU/Linux或者Quebes OS/MirageOS?)。作为建议，一个安全的操作系统
-可能会犯下非常不安全愚蠢的错误，而一个不安全的操作系统可以变得安全如果
-不跑任何业务的话。&lt;/p&gt;
-
-&lt;h3 id=&quot;slo-tech0-day&quot;&gt;Slo-Tech：你有任何私人的0-day漏洞利用在你的硬盘上吗;)&lt;/h3&gt;
-
-&lt;p&gt;Brade Spenger：有的，&lt;a href=&quot;http://grsecurity.net/~spender/ext4_own.tgz&quot;&gt;ext4_own.tgz&lt;/a&gt;，它小于1000bytes。&lt;/p&gt;
-
-&lt;p&gt;感谢Brad Spengler的访谈。&lt;/p&gt;
-</description>
-        <pubDate>Mon, 18 May 2015 00:49:45 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/system-security/2015/05/18/grsec-interview.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/05/18/grsec-interview.html</guid>
         
         
         <category>system-security</category>
