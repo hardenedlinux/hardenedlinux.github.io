@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hardening es( in Docker) with PaX/Grsecurity & STIG & Shield"
+title:  "社区最佳实践：基于PaX/Grsecurity & STIG & Sheild针对es的Docker场景化加固"
 date:   September 6, 2015 10:42 PM
 summary: 随着Container技术的逐步成熟，Docker的应用也越来越广泛，越来越多的重要业务依赖于Docker运行环境，针对场景化的加固是基于GNU/Linux系统重要工作，本文基于Docker里运行es为应用来进行场景化加固的探讨关于PaX/Grsecurity，STIG-4-Debian以及Sheild的实践。
 categories: system-security
