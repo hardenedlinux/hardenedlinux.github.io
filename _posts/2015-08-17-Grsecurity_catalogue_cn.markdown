@@ -79,13 +79,15 @@ To see if your AMD processor supports RVI, see: http://support.amd.com/us/kbarti
 
 #### PaX Control
 
-**Support soft mode** 【（PAX_SOFTMODE）允许通过soft mode(友好的方式??)运行Pax，Pax的特性将不会被强制设定为默认选项，只会在可运行时显示标记。你必须同时启用PT_PAX_FLAGS或XATTR_PAX_FLAGS支持，因为只有它们能在soft mode下标记可运行程序。	soft mode可以使用“pax_softmode=1”参数通过内核命令行在开机时激活。	此外，在运行时你可以通过/proc/sys/kernel/pax的项目控制各种Pax特性。】
+**Support soft mode** 【（PAX_SOFTMODE）允许通过soft mode运行Pax，内核并不默认执行PaX保护功能,可以在运行时开启或关闭。。你必须同时启用PT_PAX_FLAGS或XATTR_PAX_FLAGS支持，因为只有它们能在soft mode下标记可运行程序。	soft mode可以使用“pax_softmode=1”参数通过内核命令行在开机时激活。	此外，在运行时你可以通过/proc/sys/kernel/pax的项目控制各种Pax特性。】【Non-SOFTMODE: The kernel enforces PaX protections by default for all features.】
 
 **Use legacy ELF header marking** 【（PAX_EI_PAX）启用这个选项将允许你通过“chpax”工具（可在http://pax.grsecurity.net 获得）控制每一个可执行程序的Pax特性。控制信息可以在otherwise reserved 的部分ELF头部（其他情况保存的部分ELF头部？？）读取。这个标记有大量的弊端（没有对soft-mode的支持、工具链不知道ELF头部的不规范用法），因此这个特性相比于PT_PAX_FLAGS and XATTR_PAX_FLAGS已经过时.		要注意的是如果你启用PT_PAX_FLAGS or XATTR_PAX_FLAG标记支持，它们会覆盖传统的EI_PAX标记。		If you enable none of the marking options then all applications will run with PaX enabled on them by default.（仅是没有PT_PAX_FLAGS or XATTR_PAX_FLAG标记支持吗？？）】
 
 **Use ELF program header marking** 【（PAX_PT_PAX_FLAGS）启用这个选项将允许你通过“paxctl”工具（可在http://pax.grsecurity.net 获得）控制每一个可执行程序的Pax特性。控制信息可以从一个Pax特定的ELF程序头部读取。这个标记有同时支持soft-mode和完全整合toolchain。		要注意如果你同时启用了传统的EI_PAX标记支持，EI_PAX标记将被PT_PAX_FLAGS覆盖。		如果你同时启动了PT_PAX_FLAGS and XATTR_PAX_FLAGS支持，你应该确保被标记的二进制文件的标志是相同的。		If you enable none of the marking options then all applications will run with PaX enabled on them by default.】
 
-**Use filesystem extended attributes marking（使用文件系统的扩展属性）** 【（PAX_XATTR_PAX_FLAGS）启用这个选项将允许你通过“setfattr”工具控制每一个可执行程序的Pax特性。控制信息可以从文件的扩展属性user.pax.flags读取。这个标记的好处是：支持可以自检的binary-only applications（如skype）并且不能兼容chpax/paxctl的改变。	该特性主要的缺点是因为一些文件系统（如isofs, udf, vfat)不支持扩展属性，导致通过这类文件系统拷贝文件时将失去扩展属性和Pax标记。		要注意如果你同时启用了传统的EI_PAX标记支持，EI_PAX标记将被XATTR_PAX_FLAGS覆盖。	如果你同时启动了PT_PAX_FLAGS and XATTR_PAX_FLAGS支持，你应该确保被标记的二进制文件的标志是相同的。	If you enable none of the marking options then all applications will run with PaX enabled on them by default.】
+**Use filesystem extended attributes（EA） marking（使用文件系统的扩展属性）** 【（PAX_XATTR_PAX_FLAGS）启用这个选项将允许你通过“setfattr”工具控制每一个可执行程序的Pax特性。控制信息可以从文件的扩展属性user.pax.flags读取（将Pax flags保存在EA中，从而不会修改ELF程序）。这个标记的好处是：支持可以自检的binary-only applications（如skype）并且不能兼容chpax/paxctl的改变。】【该特性主要的缺点是因为一些文件系统（如isofs, udf, vfat)不支持扩展属性，导致通过这类文件系统拷贝文件时将失去扩展属性和Pax标记。		要注意如果你同时启用了传统的EI_PAX标记支持，EI_PAX标记将被XATTR_PAX_FLAGS覆盖。	如果你同时启动了PT_PAX_FLAGS and XATTR_PAX_FLAGS支持，你应该确保被标记的二进制文件的标志是相同的。	If you enable none of the marking options then all applications will run with PaX enabled on them by default.】
+
+==（//可通过cat /proc/'PID'/status | grep PaX来查看进程的Pax flags）==
 
 #### MAC system integration（集合）（MAC，Mandatory Access Control 强制访问控制）
 
