@@ -13,7 +13,7 @@ By: 炼石网络CipherGateway
 
 **文档说明**：
 
-*内核方面*：此实践文档使用[PaX/Grsecurity](http://https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Disallow_access_to_overly-permissive_IPC_objects)完成Linux内核级别的加固，并采用美国DISA组织的STIG脚本对内核进行安全扫描，以使内核安全达到一定的高度。
+*基础平台*：此实践文档使用[PaX/Grsecurity](http://https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Disallow_access_to_overly-permissive_IPC_objects)完成Linux内核级别的加固，并采用美国DISA组织的STIG脚本对Debian GNU/Linux发行版进行安全扫描，以使Debian GNU/Linux发行版安全达到一定的高度。
 
 *业务方面*：以在Docker下运行的ElasticSearc服务为例，结合ES的[Shield](http://https://www.elastic.co/guide/en/shield/current/index.html)插件对ES进行业务级别的加固。
 
