@@ -648,6 +648,19 @@ Grsecurity的学习模式分为全系统学习模式跟基于角色的学习模�
 
 Grsecurity和Shield都是无比强大的加固武器，通过STIG检测的系统更是拥有更高的安全性。文档只是粗勒地描绘出一套加固思路，更多安全措施请参考Grsecurity和Shield的官方文档。
 
+
+# TODO
+
+* 内核调参数，主要针对TCP/IP性能（针对DoS）和安全的一系列参数需要调整，场景化的情况下根据一款具体的硬件配置来进行调参。
+
+* Iptables/netfilter规则，这个可以根据具体的业务场景来定制。
+
+* （重点）安装部署的一个STIG-compliance的系统，效果是在安装步骤完成后，stig-4-debian自动扫描出的结果应该全部或者大部分通过。
+
+* PaX/Grsec的config可以细化，这个未来我们会把针对不同场景的config归档。
+
+* Grsec的RBAC规则使用learning mode只是把规则抓出来，和AppArmor的aa-genprof/aa-logprof类似，加固的原则是针对的RBAC/MAC规则都必须经过review，这一步工作也需要加强。
+
 # Reference
 
 1） Grsecurity官方文档：[https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Address_Space_Layout_Randomization](http://)
