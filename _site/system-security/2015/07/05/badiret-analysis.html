@@ -562,7 +562,7 @@ force_sig_info()覆盖后，proc_root.subdir会指向被控制的用户空间内
     <p>%rax:=FAKE_IOPS; call *SOME_OFFSET(%rax)</p>
   </li>
   <li>
-    <p>%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax</p>
+    <p>%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax </p>
   </li>
 </ol>
 
@@ -693,6 +693,7 @@ long do_arch_prctl(struct task_struct *task, int code, unsigned long addr)
     <a href="https://github.com/hardenedlinux"><i class="fa fa-github-alt fa-2x"></i></a>
     <a href="mailto:hardenedlinux@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
     <a href="https://twitter.com/hardenedlinux"><i class="fa fa-twitter fa-2x"></i></a>
+    <a href="https://groups.google.com/forum/#!forum/hardenedlinux"><i class="fa fa-google fa-2x"></i></a>
     <div class="inner">
         <section class="copyright">This theme copyright by <a href="http://scotthsmith.com">Scott Smith</a></section>
     </div>
