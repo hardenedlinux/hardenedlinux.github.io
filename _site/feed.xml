@@ -6,9 +6,782 @@
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 29 Aug 2015 23:45:40 +0800</pubDate>
-    <lastBuildDate>Sat, 29 Aug 2015 23:45:40 +0800</lastBuildDate>
+    <pubDate>Sun, 06 Sep 2015 23:07:05 +0800</pubDate>
+    <lastBuildDate>Sun, 06 Sep 2015 23:07:05 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Hardening es( in Docker) with PaX/Grsecurity &amp; STIG &amp; Shield</title>
+        <description>&lt;p&gt;By: 炼石网络CipherGateway&lt;/p&gt;
+
+&lt;h1 id=&quot;hardening-esin-docker-with-paxgrsecurity--stig--shield&quot;&gt;Hardening es(in docker) with PaX/Grsecurity &amp;amp; STIG &amp;amp; Shield&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;文档说明&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;内核方面&lt;/em&gt;：此实践文档使用&lt;a href=&quot;http://https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Disallow_access_to_overly-permissive_IPC_objects&quot;&gt;PaX/Grsecurity&lt;/a&gt;完成Linux内核级别的加固，并采用美国DISA组织的STIG脚本对内核进行安全扫描，以使内核安全达到一定的高度。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;业务方面&lt;/em&gt;：以在Docker下运行的ElasticSearc服务为例，结合ES的&lt;a href=&quot;http://https://www.elastic.co/guide/en/shield/current/index.html&quot;&gt;Shield&lt;/a&gt;插件对ES进行业务级别的加固。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;基本步骤如下：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1、最小化安装Debian8 GNU/Linux&lt;/p&gt;
+
+&lt;p&gt;2、使用PaX/Grsecurity加固&lt;/p&gt;
+
+&lt;p&gt;3、使用STIG验证&lt;/p&gt;
+
+&lt;p&gt;4、使用Shield对ElasticSearch进行业务级别的加固&lt;/p&gt;
+
+&lt;p&gt;5、完善物理机RBAC系统，达到最小权限要求&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;debian8-gnulinux&quot;&gt;1、最小化安装Debian8 GNU/Linux系统&lt;/h2&gt;
+
+&lt;p&gt;1）在服务器上插入U盘，连接好网线，配置网络：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Y8ZBvBJ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2）为硬盘分区：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/omVXCcF.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3）软件环境安装：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GV5UIz9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/sHqiWQv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4）系统安装完成：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/zBfEUEQ.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;加固前准备&lt;/h3&gt;
+
+&lt;p&gt;1）在root下打开/etc/apt/sources.list，确定是否有以下三个debian的源，若没有自行添加,并且注释或删掉其他的软件源，尽量避免使用非社区源：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nano /etc/apt/sources.list
+deb http://ftp.debian.org/debian jessie main contrib
+deb http://security.debian.org/jessie/updates main contrib
+deb http://ftp.debian.org/debian jessie-updates main contrib
+
+apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2）安装sudo&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get install sudo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改sudoers文件，添加一句（等效于添加当前用户到sudo用户组，或者直接使用root用户可忽略此步）:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; nano /etc/sudoers
+ add &quot;user   ALL=(ALL:ALL)ALL&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3）安装make&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install make
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;paxgrsecurity&quot;&gt;2、使用PaX/Grsecurity加固&lt;/h2&gt;
+
+&lt;p&gt;这次加固主要用到的是一个增强内核安全的工具Grsecurity，和SELinux以及Apparmor一样，是用来控制文件访问权限的安全工具。&lt;/p&gt;
+
+&lt;p&gt;1）Grsecurity需要打包到内核，所以需要重新编译内核，由于grsec长期支持的内核版本是3.14.48，而debian8的内核版本是3.16，所以我们要将内核版本降到3.14.48，查看内核版本命令:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /proc/version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2）到kernel.org下载相应的目标内核版本源代码:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; wget https://kernel.org/pub/linux/kernel/v3.x/linux-3.14.48.tar.xz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3)到Grsecurity下载相应的patch，注意必须要和内核版本一致(先到http://grsecurity.net/download.php查看“grsecurity - stable kernel patch”和“paxctld - PaX flags maintenance daemon - binary packages”的版本):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; wget http://grsecurity.net/stable/grsecurity-3.1-3.14.48-201507261203.patch
+ wget http://grsecurity.net/paxctld/paxctld_1.0-2_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;4）编译前安装支持插件的gcc：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; apt-get install libncurses* kernel-package build-essential
+ gcc --version
+ apt-get install gcc-`gcc --version`-plugin-dev（gcc --version用大版本即可 例如4.9而不是4.9.2）
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;5）解压缩内核包和补丁包，给内核打patch:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;xz -d linux-3.14.48.tar.xz
+tar -xvf linux-3.14.48.tar
+cd linux-3.14.48/
+patch -p1 &amp;lt; ../grsecurity-3.1-3.14.48-201507261203.patch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;6）配置内核：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;make menuconfig
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;grsecurity&quot;&gt;开始配置Grsecurity选项&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Note：该文档的配置选项仅测试在Debian8 GNU/Linux中。（业务：启动docker，并在其中运行ElasticSearch服务）&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;关于Grsecurity具体的配置选项请参照：&lt;a href=&quot;https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options&quot;&gt;https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;7)开启Grsecurity支持&lt;/p&gt;
+
+&lt;p&gt;执行命令后会出现配置窗口：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;在配置界面按下键盘选择&quot;security options&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/HGIQswO.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;security options --&amp;gt; Grsecurity
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/CYR2XEe.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;按空格选上Grsecurity(NEW)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/RW83QSo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/w85poOM.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;8）选择automatic后Grsecurity将自动根据通用标准形成一系列配置，但仍可在
+Customer Configuration中进行更细致的加固措施的划分，二者效果会叠加。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Configuration Method --&amp;gt;选择 automatic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GYO41kc.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;9）优先选项选择Security优先&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Required Priority--&amp;gt;Security
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/d8c6c741jw1evo9ufrg99j20ke0cajth.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;10）去掉mprotect限制。因为Grsecurity默认禁止mprotect功能，而这会使JVM无法运行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Security Options --&amp;gt;Grsecurity --&amp;gt;customize configuration --&amp;gt;PAX --&amp;gt;Nonexcutable pages--&amp;gt;disable  restrict mprotect
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/d8c6c741jw1ev1140ill5j20ll0dqwhl.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://ww1.sinaimg.cn/large/d8c6c741jw1ev115fx6koj20lr0dogog.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://ww4.sinaimg.cn/large/d8c6c741jw1ev1166ekopj20lq0dg77k.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;11）为了docker能正常运行，去掉chroot下’chmod+s’和’mknod’的限制&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Security Options --&amp;gt;Grsecurity --&amp;gt;customize configuration --&amp;gt;FileSystem Protections--&amp;gt;Deny (f)chmod +s &amp;amp;&amp;amp; Deny mknod
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/d8c6c741jw1evo9ux6odcj20ke0cewhz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;12)去除USB限制（看业务需求）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Security Options --&amp;gt;Grsecurity --&amp;gt;customize configuration --&amp;gt;Physical Protections--&amp;gt;Deny new USB connections after toggle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/d8c6c741jw1evo9vgclhoj20kh0cadil.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;13)其余选项保持默认，Save之后退出内核配置窗口。&lt;/p&gt;
+
+&lt;p&gt;14)完成之后执行编译内核命令，这一步需要较长时间&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;make deb-pkg -j'cpu核心数+1' 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;15）编译之后安装：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ..
+dpkg -i linux*.deb 
+dpkg -i paxctld_1.0-2_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;16）安装完成重启即可，重启时选择新内核&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;paxctld -d
+sudo reboot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在启动界面选择高级选项&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/d8c6c741jw1evrj57c193j20iv0dwwgu.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;选择已加固的内核&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/d8c6c741jw1evrj6wg06dj20ii0dxad7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;17) 重启之后&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;su - root
+paxctld -d
+exit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;18)安装&lt;a href=&quot;https://en.wikibooks.org/wiki/Grsecurity/The_Administration_Utility&quot;&gt;gradm&lt;/a&gt;工具&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;这是RBAC系统的管理工具，使用它可以配置/etc/policy规则文件来定义每个用户的权限，也可通过gradm的学习模式来自动生成policy文件。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note：安装gradm之前必须保证在已有Grsecurity加固的内核上，并且系统有（lex或flex）和（byacc或bison）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;下载相应的组件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get install flex
+apt-get install bison
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载gradm：（或者到Grsecurity官网下载最新版）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget http://grsecurity.net/stable/gradm-3.1-201507191652.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;开始安装：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tar zxvf gradm-3.1-201507191652.tar.gz
+cd gradm
+make nopam (无PAM支持）
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装结束后，要求输入gradm的管理密码，注意不要与root密码相同，否则降低了Grsecurity的安全防护。
+另外，将会在/sbin下安装gradm和grlearn程序。并在/etc/grsec目录下生成learn_config和policy两个文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;关于使用gradm对系统权限进行细分将在下面提及。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;19)	卸载旧内核(&lt;em&gt;Note：dpkg确定内核版本号，remove掉相应的内核deb包，请替换后再执行命令&lt;/em&gt;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dpkg -l | grep linux-headers（若没有3.16的headers则可略去下面的apt-get remove linux-headers-''）
+dpkg -l | grep linux-image
+sudo apt-get remove linux-headers-'' linux-image-''(注意：这一步使用前两个命令得到的信息替换''里的内容）
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此时再重启计算机会发现现在只有Linux 3.14.48-grsec的内核了。&lt;/p&gt;
+
+&lt;p&gt;20） 卸载编译工具链&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get remove kernel-package build-essential
+sudo apt-get remove libncursesada-dbg  libncursesada3-dev libncursesada-doc libncurses5-dbg libncurses5-dev libncursesw5-dbg  libncurses-gst libncursesw5-dev libncursesada3
+sudo apt-get autoremove
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;至此Grsecurity的第一步加固完成。若以后在系统运行时需要修改某些特性，可在/etc/sysctl.conf中对相应的条目进行修改。具体条目对应的选项请参看&lt;a href=&quot;https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options&quot;&gt;https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;stig&quot;&gt;3、使用STIG验证&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;STIG（安全技术实现指南）是由DISA为了IT安全态势给DoD(美国国防部）提供的一套防御指南。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE：STIG是一组庞大的集合，且针对OS的部分官方只针对RHEL。这里的STIG指的是h4rdenedzer0(http://hardenedlinux.org/about/) 的stig-4-debian项目&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1） 将github中STIG的脚本文件克隆到本地：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/hardenedlinux/STIG-4-Debian.git
+cd STIG-4-Debian
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2） 使用方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;usage: check.sh [options]
+
+  -c    Output Log with catable colors
+  -s    Perform STIG checking with NORMAL output log
+  -v    Show version
+  -h    Show this message
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3） 执行脚本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo ./check.sh -s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;4) 脚本对内核执行完毕后我们可以看到在/var/log下生成了一个100K左右名为STIG-Checking-2015-??-??.log的日志，即为STIG对内核进行安全扫描的结果。&lt;/p&gt;
+
+&lt;p&gt;其中，日志中为FAIL的条目表示未达到STIG安全标准的项目，PASS的项目为通过STIG验证的项目。我们接下来要做的工作就是通过修改内核选项尽可能地使所有FAIL的条目变成PASS。&lt;/p&gt;
+
+&lt;p&gt;5）示例：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/d8c6c741jw1evrrl7g6obj20m60dk409.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在上图中可看到一个FAIL的条目是”The /etc/shadow file must be group-owned by root”,Vulnerability是该条目的漏洞分析，Fix text是解决方法。&lt;/p&gt;
+
+&lt;p&gt;为了解决该问题，执行Fix text中提示的命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chgrp root /etc/shadow
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改后：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/d8c6c741jw1evrs5ykn7bj20kn018t8m.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看到，按Fix text修改后该条目通过STIG验证。&lt;/p&gt;
+
+&lt;p&gt;6）STIG总结&lt;/p&gt;
+
+&lt;p&gt;STIG是由DISA为了IT安全态势给美国国防部提供的一套安全指南，据说DoD的应用在上线前都会使用这个指南进行安全强化。在日志内容上看来也的确有不少值得借鉴之处。&lt;/p&gt;
+
+&lt;p&gt;综上，尽可能把其余的FAIL条目按照STIG标准进行修改达到PASS，使系统安全到达更高一个层次。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;以上即为Linux内核加固的实践内容。接下来是结合ElasticSearch进行业务层面的加固，具体部分包括：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在docker下运行ES，并使用Shield对ES进行加固————安全认证及RBAC系统&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在物理机上配置RBAC系统，达到系统最小权限————主要为gradm工具的使用&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;shieldelasticsearch&quot;&gt;4、使用Shield对ElasticSearch进行业务级别的加固&lt;/h2&gt;
+
+&lt;h3 id=&quot;shield&quot;&gt;介绍Shield&lt;/h3&gt;
+
+&lt;p&gt;Shield是一个为了使ElasticSearch更安全而产生的一个插件。在Shield的安全加固中包括安全认证机制，RBAC系统，IP过滤和系统审计。&lt;/p&gt;
+
+&lt;p&gt;下面的加固将通过配置安全认证机制和RBAC系统来演示加固流程。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;### 配置ElasticSearch
+
+1） 安装docker
+
+    apt-get install curl
+    curl -sSL https://get.docker.com | sh
+
+验证docker是否安装成功：`$ docker`
+
+2）启动docker
+
+    sudo service docker start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;shield-1&quot;&gt;安装Shield&lt;/h3&gt;
+
+&lt;p&gt;1) 安装需求:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装了Java7或更新版本&lt;/li&gt;
+  &lt;li&gt;Shield plugin必须在集群的每个节点都安装，并且每个节点安装完后都要重启。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2) 启动ES的每个节点：（oaDataNode1等是自定义的节点名称）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service docker start
+sudo weave launch
+sudo weave start 10.0.0.1/24 oaDataNode1
+sudo weave start 10.0.0.2/24 oaDataNode2
+sudo weave start 10.0.0.3/24 oaDataNode3
+sudo weave start 10.0.0.4/24 oaDataNode4
+sudo weave expose 10.0.0.254/24
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3) 首先进入Docker：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo docker exec -it oaDataNode1 /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;4) 进入ES的安装目录下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/es/elasticsearch-1.7.0/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;5) 安装ElasticSearch许可插件和Shield插件：：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;./plugin -i elasticsearch/license/latest
+./plugin -i elasticsearch/shield/latest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;6）重启ElasticSearch服务&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo weave stop
+sudo docker stop oaDataNode2 oaDataNode1 oaDataNode3 oaDataNode4
+sudo weave launch
+sudo weave start 10.0.0.1/24 oaDataNode1
+sudo weave start 10.0.0.2/24 oaDataNode2
+sudo weave start 10.0.0.3/24 oaDataNode3
+sudo weave start 10.0.0.4/24 oaDataNode4
+sudo weave expose 10.0.0.254/24
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;安全认证模块&lt;/h3&gt;
+
+&lt;p&gt;1) 新建一个ElasticSearch管理员账户&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;./esusers useradd es_admin -r admin(新建一个名为es_admin的用户，角色为admin)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;现在可以尝试着用RESTFUL API来访问ElasticSearch，会发现访问被拒绝&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -XGET 'http://localhost:9200/'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在请求上加上用户名和密码即可：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -u es_admin -XGET 'http://localhost:9200/'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;由此可知，使用Shield新建ES账户后，可以为ES添加严格个安全认证机制。&lt;/p&gt;
+
+&lt;h3 id=&quot;rbac&quot;&gt;RBAC模块&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;知识准备&lt;/h4&gt;
+
+&lt;p&gt;Shield实现了RBAC权限管理系统。在RBAC系统下，所有的行为都会被默认限制，所有用户的权限都与“角色”联系在一起，而每个“角色”代表了一组允许的行为。&lt;/p&gt;
+
+&lt;h5 id=&quot;roles-permissions-and-privileges&quot;&gt;1）Roles, Permissions and Privileges的概念&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Privileges：代表一组用户在ElasticSearch中允许执行的行为。例如：是否能运行query就是一种Privileges。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Permissions：一组结合一个或多个“安全对象（Secured Object）”的Privileges。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在ElasticSearch中有两种Secured Object：
+&amp;gt;Cluster：Cluster permissions提供了集群范围内的管理、侦听权限。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;Index：Index permissions提供了数据通道，包括在集群中特定索引的管理和侦听。&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;roles：一组命名的Permission的组合。例如：你可以定义一个“日志管理员”的role，他允许对名字为“logs-*”的索引做任何操作，但对其他文件却没有任何权限。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Note:作为ES的管理员，你需要定义一些角色，并将每个用户分配到这些角色上。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;roles&quot;&gt;2) 定义roles&lt;/h5&gt;
+
+&lt;p&gt;Roles在ES_HOME/config/shield中的roles.yml文件中定义，其中的每个条目都定义了唯一一个role和相应的permission。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note：roles.yml文件在每个节点中独立管理。所以在拥有多个节点的集群中，所有节点的该文件都需要修改。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;roles.yml文件的格式如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# All cluster rights
+# All operations on all indices
+admin:
+  cluster: all
+  indices:
+    '*': all
+
+# Monitoring cluster privileges
+# All operations on all indices
+power_user:
+  cluster: monitor
+  indices:
+    '*': all
+
+# Only read operations on indices named events_*
+events_user:
+  indices:
+    'events_*': read
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;具体的Privileges请参见：&lt;a href=&quot;http://&quot;&gt;https://www.elastic.co/guide/en/shield/current/reference.html#ref-actions-list&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;esusers&quot;&gt;3） 使用esusers工具管理用户&lt;/h5&gt;
+
+&lt;p&gt;esusers工具主要控制在ES_HOME/config/shield/的两个文件————users和users_roles。这两个文件存储着所有esuser域的信息，并且会在ES启动时被shield读取。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note：roles.yml文件在每个节点中独立管理。所以在拥有多个节点的集群中，所有节点的该文件都需要修改。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;users文件：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;users文件储存着所有用户和他们的密码。每个条目是每个用户的名字和密码的hash值。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;users_roles文件：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;users_roles存储的是每个用户相联系的roles&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&quot;a&quot;&gt;A、添加用户&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;esusers useradd &amp;lt;username&amp;gt;
+esusers useradd &amp;lt;username&amp;gt; -r &amp;lt;comma-separated list of role names&amp;gt; 使用-r参数定义用户的roles，roles间用逗号隔开
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ES在启动时会读取用户和角色信息，应该使用开启ES的用户使用useradd添加用户。&lt;/p&gt;
+
+&lt;h6 id=&quot;b&quot;&gt;B、打印用户信息&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;esusers list
+esusers list &amp;lt;username&amp;gt; 这个命令打印指定用户信息
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&quot;c&quot;&gt;C、修改用户密码&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;esusers passwd &amp;lt;username&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&quot;d&quot;&gt;D、分配用户角色&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;esusers roles &amp;lt;username&amp;gt; -a &amp;lt;roles&amp;gt; -r &amp;lt;roles&amp;gt;
+-a指定添加，-r指定移除
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&quot;e&quot;&gt;E、删除用户&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;esusers userdel &amp;lt;username&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;rbac-1&quot;&gt;RBAC加固实践&lt;/h4&gt;
+
+&lt;p&gt;1） 修改roles.yml文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/es/elasticsearch-1.7.0/config/shield
+vim roles.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在文件的末尾加入如下内容：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Data_user: #Data_user 角色定义
+  indices:  #index部分
+    '*': crub  #指定Data_user可以读写所有indices
+
+Server_user:  #Serve_user 角色定义
+  cluster: cluster:admin/nodes/restart, cluster:admin/nodes/shutdown
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2） 添加两个用户user_Data和user_Server&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;esusers useradd user_data -r Data_user
+esusers useradd user_server -r Server_user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这时，用不同的用户登陆ES将可以进行不同的操作：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;user_data：读写ES的所有文件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;user_server:启动或关闭ES服务&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rbac-2&quot;&gt;5、完善物理机RBAC系统，达到最小权限要求&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;知识准备&lt;/h3&gt;
+
+&lt;p&gt;之前讲解了ElasticSearch上的RBAC系统的配置。在Grsecurity中也提供了RBAC权限控制系统，而且比ES中的划分更细致更严格。&lt;/p&gt;
+
+&lt;p&gt;管理物理机中的系统主要依靠gradm工具。使用&lt;code&gt;gradm --help&lt;/code&gt;获得gradm的用法：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# gradm --help
+gradm 3.1
+grsecurity RBAC administration and policy analysis utility
+
+Usage: gradm [option] ... 
+
+Examples:
+        gradm -P
+        gradm -F -L /etc/grsec/learning.logs -O /etc/grsec/policy
+Options:
+        -E, --enable    Enable the grsecurity RBAC system
+        -D, --disable   Disable the grsecurity RBAC system
+        ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;/etc/grsec/policy文件是RBAC系统的核心。在RBAC启动后，它会根据该文件中所写定的策略对系统进行严格的访问控制。&lt;/p&gt;
+
+&lt;h4 id=&quot;policyrole-subject-object&quot;&gt;policy中的三个概念role, subject, object&lt;/h4&gt;
+
+&lt;p&gt;同Shield的RBAC相似，Grsecurity的RBAC也具有三个关于角色和权限的概念。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;role（角色）：如“role admin sA“，“role default ”，”role root uG“，表明有三个角色，分别是admin , default, root&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Roles: Users and groups on the system
+在policy中声明即可以定义角色，语法为”role &amp;lt; role name&amp;gt; &amp;lt; parameter&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;grsecurity中的角色分为用户角色，组角色，缺省角色（default），还有个管理员角色。定义不同角色需要有不同的参数。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NOTE：grsecurity的角色与用户是一对一的。假设有tester用户，属于test组，那么tester用户登录后，会先在policy文件中匹配名为tester用户角色，如果没有，就会去匹配叫test的组角色，如果还没有，那么tester用户进入系统后的角色会是default（default角色在配置文件里面定义）。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;也就是说，tester用户登录后，不是tester用户角色，就是test组角色，要么就是default缺省角色，不可能进入其他policy中定义的角色。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;subject（程序），每个subject中首先定义了一个可执行程序（注意，一个subject中只定义一个可执行程序，要对多个可执行程序进行定义的话，就需要多个subject），或者更准确一点，定义了一个运行在系统中的进程。然后后面跟着一系列的object，用来规定当前这个进程的权限。每个角色定义的后面都可以跟一个或多个subject&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Subjects: Processes and directories
+参数：
+&amp;gt;h 这个进程是隐藏的，只能够被具有v模式的进程看到；
+v 具有这个模式的进程拥有察看隐藏进程的能力；
+p 进程是受保护的，这种模式的进程只能被具有k模式的进程杀死；
+k 具有这个模式的进程可以杀死处于保护模式（p）的进程；
+l 为这个进程打开学习模式；
+o 撤销ACL继承&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;object（对象）：每个subject中都会有若干的object，表示每个进程都有若干个操作对象，这些操作对象一般来说都是一些目录，文件等等，用来规定当前这个subject中的进程对这些文件拥有哪些权限&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Objects: Files and PaX flags
+参数：
+&amp;gt;r 这个对象可以打开阅读；
+  w 这个对象可以打开写或者添加；
+  o 这个对象可以打开添加；
+  h 这个对象是隐藏的；
+  i 这个模式只用于二进制可执行文件。当这个对象被执行时，它继承所在主体进程的访问控制列表；
+  x: 这个模式代表文件可执行&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE：配置文件中关于subject和object的所有路径都必须是绝对路径&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;例：&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;role root uG
+subject /
+subject /usr/bin/ssh
+/etc/ssh/ssh_config r
+表示/usr/bin/ssh这个进程对/etc/ssh/ssh_config这个文件有读权限（r）。更进一步讲，这个subject位于角色root后面，所以这两行策略的含义就是以root角色运行ssh时，ssh进程对/etc/ssh/ssh_config有读权限。该策略只定义在了root角色中，对于其他角色不起作用。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;缺省ACL&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;注意：在每一个角色中，都必须有一个subject /，表示一个缺省的ACL，如果没有这个缺省的ACL，grsecurity启动时会报错同时启动失败。当以一个角色登录系统后，如果要执行的可执行程序没有被某个subject定义，那么，该程序就会采用subject /中的缺省定义。例如root角色，没有对cat命令进行定义，所以以root角色执行cat命令时，ACL系统就会参照subject /中的定义来控制cat进程对文件的访问。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;rbac-3&quot;&gt;部署RBAC系统&lt;/h3&gt;
+
+&lt;p&gt;Grsecurity的policy文件极其繁大复杂，通过手工几乎不可能完成一个具有安全效力的规则文件。所幸Grsecurity为RBAC系统提供了学习机制，即可以通过你在学习机制下进行的操作自动配置policy文件。&lt;/p&gt;
+
+&lt;p&gt;Grsecurity的学习模式分为全系统学习模式跟基于角色的学习模式，在这里我们使用全系统学习模式:&lt;/p&gt;
+
+&lt;p&gt;1） 开启全系统学习模式&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo gradm -F -L /etc/grsec/learning.logs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/d8c6c741jw1evsx0lb4fij20pn02u0ta.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如图所示，RBAC学习模式开启成功。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;从现在开始，gradm将记录下你的一切操作。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;NOTE：&lt;/em&gt;初次启动时RBAC可能会报出一些ERROR，原因是默认的policy文件没有配置完全：如图，该ERROR为未给shutdown用户设置密码。按照提示执行&lt;code&gt;gradm -P shutdown&lt;/code&gt;并设置密码即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/d8c6c741jw1evswtm71ylj20q904gmxv.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2) 进行一些系统运行时正常的必要的操作，并重复至少4遍，以使gradm将操作记录下来&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTE：不要在学习模式下进行进行管理员操作，如果需要此类操作，先切换到RBAC管理员角色：&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gradm -a admin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;在高危操作结束后，记得从管理员角色退出：&lt;code&gt;gradm -u&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3） 以针对ElasticSearch业务的加固为例，对RBAC进行配置：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;业务分析：&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在docker中的ES内设置两个用户，一个只允许对其中数据进行读写操作，一个只允许在docker内部重启ES服务；这一步已在前文Shield的加固中实现。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在docker外设置一个本地用户，其除了拥有对本地系统的管理权限之外，还应对运行着ES业务的docker拥有启停等操作的权限；但不应拥有进入docker内部的权限。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在全系统学习模式下，对普通用户执行如下命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;启动docker:
+sudo service docker start
+sudo weave launch
+sudo weave start 10.0.0.1/24 oaDataNode1
+sudo weave start 10.0.0.2/24 oaDataNode2
+sudo weave start 10.0.0.3/24 oaDataNode3
+sudo weave start 10.0.0.4/24 oaDataNode4
+sudo weave expose 10.0.0.254/24
+
+关闭docker：
+sudo weave stop
+sudo docker stop oaDataNode2 oaDataNode1 oaDataNode3 oaDataNode4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;重复执行至少4遍。&lt;/p&gt;
+
+&lt;p&gt;4）关闭RBAC&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gradm -D
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这一步是必要的，因为它强制将学习模式的缓存写入磁盘。如果没有关闭gradm就生成policy，可能会导致学习记录的丢失。&lt;/p&gt;
+
+&lt;p&gt;此时查看learning.logs会看见里面有很多命令。&lt;/p&gt;
+
+&lt;p&gt;4） 生成policy文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gradm -F -L /etc/grsec/learning.logs -O /etc/grsec/policy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE：执行该命令前应该确保学习模式已经记录了足够多安全的操作，否则再次启动RBAC时将导致无法管理系统。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;section-5&quot;&gt;结语&lt;/h1&gt;
+
+&lt;p&gt;该文档通过使用Grsecurity和Shield对系统及ES进行了一系列的加固，虽然所做的所有措施只针对与ES有关的业务，但也能大体描绘出一个最小权限系统加固的轮廓。在其他不同的环境下依然能够按照这个思路对系统进行安全加固。&lt;/p&gt;
+
+&lt;p&gt;Grsecurity和Shield都是无比强大的加固武器，通过STIG检测的系统更是拥有更高的安全性。文档只是粗勒地描绘出一套加固思路，更多安全措施请参考Grsecurity和Shield的官方文档。&lt;/p&gt;
+
+&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
+
+&lt;p&gt;1） Grsecurity官方文档：&lt;a href=&quot;http://&quot;&gt;https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Address_Space_Layout_Randomization&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2） gradm官方文档：&lt;a href=&quot;http://&quot;&gt;https://en.wikibooks.org/wiki/Grsecurity/The_Administration_Utility&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;3） Shield官方文档：&lt;a href=&quot;http://&quot;&gt;https://www.elastic.co/guide/en/shield/current/index.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;4） hardenedlinux社区：&lt;a href=&quot;http://&quot;&gt;http://hardenedlinux.org/&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Sep 2015 22:42:00 +0800</pubDate>
+        <link>http://www.hardenedlinux.org/system-security/2015/09/06/hardening-es-in-docker-with-grsec.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/09/06/hardening-es-in-docker-with-grsec.html</guid>
+        
+        
+        <category>system-security</category>
+        
+      </item>
     
       <item>
         <title>PaX/Grsecurity配置选项</title>
@@ -81,13 +854,22 @@ To see if your AMD processor supports RVI, see: http://support.amd.com/us/kbarti
 
 &lt;h4 id=&quot;pax-control&quot;&gt;PaX Control&lt;/h4&gt;
 
-&lt;p&gt;&lt;strong&gt;Support soft mode&lt;/strong&gt; 【（PAX_SOFTMODE）允许通过soft mode(友好的方式??)运行Pax，Pax的特性将不会被强制设定为默认选项，只会在可运行时显示标记。你必须同时启用PT_PAX_FLAGS或XATTR_PAX_FLAGS支持，因为只有它们能在soft mode下标记可运行程序。	soft mode可以使用“pax_softmode=1”参数通过内核命令行在开机时激活。	此外，在运行时你可以通过/proc/sys/kernel/pax的项目控制各种Pax特性。】&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Support soft mode&lt;/strong&gt; 【（PAX_SOFTMODE）允许通过soft mode运行Pax，内核并不默认执行PaX保护功能,可以在运行时开启或关闭。。你必须同时启用PT_PAX_FLAGS或XATTR_PAX_FLAGS支持，因为只有它们能在soft mode下标记可运行程序。	soft mode可以使用“pax_softmode=1”参数通过内核命令行在开机时激活。	此外，在运行时你可以通过/proc/sys/kernel/pax的项目控制各种Pax特性。】【Non-SOFTMODE: The kernel enforces PaX protections by default for all features.】&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Use legacy ELF header marking&lt;/strong&gt; 【（PAX_EI_PAX）启用这个选项将允许你通过“chpax”工具（可在http://pax.grsecurity.net 获得）控制每一个可执行程序的Pax特性。控制信息可以在otherwise reserved 的部分ELF头部（其他情况保存的部分ELF头部？？）读取。这个标记有大量的弊端（没有对soft-mode的支持、工具链不知道ELF头部的不规范用法），因此这个特性相比于PT_PAX_FLAGS and XATTR_PAX_FLAGS已经过时.		要注意的是如果你启用PT_PAX_FLAGS or XATTR_PAX_FLAG标记支持，它们会覆盖传统的EI_PAX标记。		If you enable none of the marking options then all applications will run with PaX enabled on them by default.（仅是没有PT_PAX_FLAGS or XATTR_PAX_FLAG标记支持吗？？）】&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Use ELF program header marking&lt;/strong&gt; 【（PAX_PT_PAX_FLAGS）启用这个选项将允许你通过“paxctl”工具（可在http://pax.grsecurity.net 获得）控制每一个可执行程序的Pax特性。控制信息可以从一个Pax特定的ELF程序头部读取。这个标记有同时支持soft-mode和完全整合toolchain。		要注意如果你同时启用了传统的EI_PAX标记支持，EI_PAX标记将被PT_PAX_FLAGS覆盖。		如果你同时启动了PT_PAX_FLAGS and XATTR_PAX_FLAGS支持，你应该确保被标记的二进制文件的标志是相同的。		If you enable none of the marking options then all applications will run with PaX enabled on them by default.】&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Use filesystem extended attributes marking（使用文件系统的扩展属性）&lt;/strong&gt; 【（PAX_XATTR_PAX_FLAGS）启用这个选项将允许你通过“setfattr”工具控制每一个可执行程序的Pax特性。控制信息可以从文件的扩展属性user.pax.flags读取。这个标记的好处是：支持可以自检的binary-only applications（如skype）并且不能兼容chpax/paxctl的改变。	该特性主要的缺点是因为一些文件系统（如isofs, udf, vfat)不支持扩展属性，导致通过这类文件系统拷贝文件时将失去扩展属性和Pax标记。		要注意如果你同时启用了传统的EI_PAX标记支持，EI_PAX标记将被XATTR_PAX_FLAGS覆盖。	如果你同时启动了PT_PAX_FLAGS and XATTR_PAX_FLAGS支持，你应该确保被标记的二进制文件的标志是相同的。	If you enable none of the marking options then all applications will run with PaX enabled on them by default.】&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Use filesystem extended attributes（EA） marking（使用文件系统的扩展属性）&lt;/strong&gt; 【（PAX_XATTR_PAX_FLAGS）启用这个选项将允许你通过“setfattr”工具控制每一个可执行程序的Pax特性。控制信息可以从文件的扩展属性user.pax.flags读取（将Pax flags保存在EA中，从而不会修改ELF程序）。这个标记的好处是：支持可以自检的binary-only applications（如skype）并且不能兼容chpax/paxctl的改变。】【该特性主要的缺点是因为一些文件系统（如isofs, udf, vfat)不支持扩展属性，导致通过这类文件系统拷贝文件时将失去扩展属性和Pax标记。		要注意如果你同时启用了传统的EI_PAX标记支持，EI_PAX标记将被XATTR_PAX_FLAGS覆盖。	如果你同时启动了PT_PAX_FLAGS and XATTR_PAX_FLAGS支持，你应该确保被标记的二进制文件的标志是相同的。	If you enable none of the marking options then all applications will run with PaX enabled on them by default.】&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;==（//可通过cat /proc/’PID’/status&lt;/td&gt;
+      &lt;td&gt;grep PaX来查看进程的Pax flags）==&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h4 id=&quot;mac-system-integrationmacmandatory-access-control-&quot;&gt;MAC system integration（集合）（MAC，Mandatory Access Control 强制访问控制）&lt;/h4&gt;
 
@@ -1305,8 +2087,8 @@ swapgs.c:175:29: warning: cast from pointer to integer of different size [-Wpoin
 [pi3@localhost clean_9322]$ ./procrop
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal &#39;n3rgal&#39; Wojtczuk
-                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
+                           by Rafal 'n3rgal' Wojtczuk
+                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
 
                 Usage: ./procrop 
 
@@ -1318,8 +2100,8 @@ swapgs.c:175:29: warning: cast from pointer to integer of different size [-Wpoin
 [1] 5827
 [pi3@localhost clean_9322]$
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal &#39;n3rgal&#39; Wojtczuk
-                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
+                           by Rafal 'n3rgal' Wojtczuk
+                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
 
         [+] Using kernel target: 3.11.10-301.fc20.x86_64
 
@@ -1331,8 +2113,8 @@ pi3       5829  0.0  0.1 112660   916 pts/1    S+   23:12   0:00 grep --color=au
 [pi3@localhost clean_9322]$ ./p_write8
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal &#39;n3rgal&#39; Wojtczuk
-                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
+                           by Rafal 'n3rgal' Wojtczuk
+                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
 
                 Usage: ./p_write8 
 
@@ -1344,8 +2126,8 @@ pi3       5829  0.0  0.1 112660   916 pts/1    S+   23:12   0:00 grep --color=au
 [pi3@localhost clean_9322]$ ./p_write8 1
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal &#39;n3rgal&#39; Wojtczuk
-                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
+                           by Rafal 'n3rgal' Wojtczuk
+                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
 
         [+] Using kernel target: 3.11.10-301.fc20.x86_64
         [+] mmap() memory in first 2GB of address space... DONE!
@@ -1906,7 +2688,7 @@ force_sig_info()覆盖后，proc_root.subdir会指向被控制的用户空间内
     &lt;p&gt;%rax:=FAKE_IOPS; call *SOME_OFFSET(%rax)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax &lt;/p&gt;
+    &lt;p&gt;%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -2069,7 +2851,7 @@ long do_arch_prctl(struct task_struct *task, int code, unsigned long addr)
 
 &lt;p&gt;3）保存设置并重启，按Ctrl+I(分别按不是同时按)，进入RAID配置界面，将两块3T机械硬盘组建为RAID1;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/XjgyVIQ.jpg&quot; alt=&quot;&quot; /&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/XjgyVIQ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;gentoo&quot;&gt;–[ 3、安装Gentoo系统&lt;/h2&gt;
 
@@ -2166,7 +2948,7 @@ export PS1=&quot;(chroot) $PS1&quot;
 
 &lt;p&gt;3）设置主机名：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;sed -i -e&#39;s/hostname.*/hostname=&quot;shenhua&quot;/&#39; /etc/conf.d/hostname
+&lt;pre&gt;&lt;code&gt;sed -i -e's/hostname.*/hostname=&quot;shenhua&quot;/' /etc/conf.d/hostname
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;4）修改镜像源 并且设置编译参数为8核编译(注意，编译参数在设置为核心数加1时理论上也可获得最优效果)：&lt;/p&gt;
@@ -2227,7 +3009,7 @@ export PS1=&quot;(chroot) $PS1&quot;
 
 &lt;p&gt;(1) 修改配置文件：在etc/portage/make.conf中添加GRUB_PLATFORMS=”efi-64”(mbr引导可忽略此步骤)&lt;/p&gt;
 
-&lt;p&gt;(2) 安装GRUB  &lt;/p&gt;
+&lt;p&gt;(2) 安装GRUB&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;emerge --ask sys-boot/grub:2
 emerge -av sys-boot/os-prober
@@ -2268,11 +3050,11 @@ emerge --ask kde-base/kde4-l10n
 
 &lt;p&gt;　　编辑/etc/ssh/ssh_config文件，在里面加入：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;	# 1, known_hosts stores server&#39;s signature, so hash the host name:	
+&lt;pre&gt;&lt;code&gt;	# 1, known_hosts stores server's signature, so hash the host name:	
 	HashKnownHosts yes
 	#2, SSH protocl version 1 is not secure:
 	Protocol 2
-	#3, If you don&#39;t use X11 forwarding, plz disable it&quot;
+	#3, If you don't use X11 forwarding, plz disable it&quot;
 	X11Forwarding no
 	#4, Disable rhosts:
 	IgnoreRhosts yes
@@ -2305,7 +3087,7 @@ emerge --ask kde-base/kde4-l10n
 
 &lt;p&gt;　　&lt;a href=&quot;https://wiki.gentoo.org/wiki/Hardened/Grsecurity2_Quickstart&quot;&gt;https://wiki.gentoo.org/wiki/Hardened/Grsecurity2_Quickstart&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;3）编译 &lt;/p&gt;
+&lt;p&gt;3）编译&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ make
 &lt;/code&gt;&lt;/pre&gt;
@@ -2344,21 +3126,21 @@ emerge --ask kde-base/kde4-l10n
 System Agency(DISA), which is entity responsible for maintaining the security
 posture of the Department of Defence(DoD) IT infrastructure. After we heard 
 how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about
-how &lt;em&gt;they&lt;/em&gt; do the defense.   &lt;/p&gt;
+how &lt;em&gt;they&lt;/em&gt; do the defense.&lt;/p&gt;
 
 &lt;p&gt;DoD use this Security Technical Implementation Guides to All DoD IT assets before online/operations.&lt;/p&gt;
 
 &lt;p&gt;And the STIGs classification system based on Mission Assurance Catagory (I-III)
 and Confidentiality Level (Public-Classified), giving you 9 different possible 
-combinations of config requirements.    &lt;/p&gt;
+combinations of config requirements.&lt;/p&gt;
 
 &lt;h2 id=&quot;why-debian&quot;&gt;Why Debian?&lt;/h2&gt;
 
 &lt;p&gt;In this scripts I’ve on Debian GNU/Linux 8, Debian has a lot security mechanism, and 
 some good features, especially “ReproducibleBuilds”. I use the STIG for Red hat
-6 v1r7 to porting STIG for Debian 8.   &lt;/p&gt;
+6 v1r7 to porting STIG for Debian 8.&lt;/p&gt;
 
-&lt;p&gt;Debian always has active maintenance, and has good security in default-configuration   &lt;/p&gt;
+&lt;p&gt;Debian always has active maintenance, and has good security in default-configuration&lt;/p&gt;
 
 &lt;h2 id=&quot;whats-different&quot;&gt;What’s different?&lt;/h2&gt;
 
@@ -2587,7 +3369,7 @@ mechanism can be implemented by hardware or software emulation.&lt;/p&gt;
 &lt;p&gt;In GCC’s options, &lt;a href=&quot;http://en.wikipedia.org/wiki/NX_bit&quot;&gt;NX&lt;/a&gt; is enable by default. If you want to turn it off,
 use “-z execstack”.&lt;/p&gt;
 
-&lt;p&gt;Check method: &lt;/p&gt;
+&lt;p&gt;Check method:&lt;/p&gt;
 &lt;pre&gt;
 shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_STACK 
   GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x8
@@ -2619,26 +3401,26 @@ protection in this area will be explained further.&lt;/p&gt;
  the stack buffers would be used. This is a smart one. But its only
  supported by GCC 4.9.x. Kees Cook shared a very &lt;a href=&quot;http://www.outflux.net/blog/archives/2014/01/27/fstack-protector-strong/&quot;&gt;good writing here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Check the symbols in an elf file: &lt;/p&gt;
+&lt;p&gt;Check the symbols in an elf file:&lt;/p&gt;
 &lt;pre&gt;
 #readelf -s ./a.out | grep stack_chk_fail 
      3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (3) 
     52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@@GLIBC_2 
 &lt;/pre&gt;
 
-&lt;p&gt;*) RELRO &lt;/p&gt;
+&lt;p&gt;*) RELRO&lt;/p&gt;
 
-&lt;p&gt;RELocation Read-Only. &lt;/p&gt;
+&lt;p&gt;RELocation Read-Only.&lt;/p&gt;
 
 &lt;p&gt;Turn it on: -z norelro 
-Turn it off: -z now &lt;/p&gt;
+Turn it off: -z now&lt;/p&gt;
 
-&lt;p&gt;Check elf header to find partial-RELRO: &lt;/p&gt;
+&lt;p&gt;Check elf header to find partial-RELRO:&lt;/p&gt;
 &lt;pre&gt;
 shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_RELRO 
   GNU_RELRO      0x0000000000000e28 0x0000000000600e28 0x0000000000600e28 
 
-Check elf&#39;s dynamic sections to find fully-RELRO: 
+Check elf's dynamic sections to find fully-RELRO: 
 shawn@shawn-fortress ~ $ readelf -d a.out | grep BIND_NOW 
  0x0000000000000018 (BIND_NOW)
 &lt;/pre&gt;
@@ -2697,7 +3479,7 @@ a defender’s daily bread, which being part of defense-in-depth model.&lt;/p&gt
 &lt;pre&gt;find / -path /proc -prune -o -nouser -o -nogroup&lt;/pre&gt;
 
 &lt;p&gt;List avaiable users, be cautions about who’s the “user”:&lt;/p&gt;
-&lt;pre&gt;egrep -v &#39;.*:\*|:\!&#39; /etc/shadow | awk -F: &#39;{print $1}&#39;&lt;/pre&gt;
+&lt;pre&gt;egrep -v '.*:\*|:\!' /etc/shadow | awk -F: '{print $1}'&lt;/pre&gt;
 
 &lt;p&gt;Check which files belong to whom. Then delete the user correctly:&lt;/p&gt;
 
@@ -2707,11 +3489,11 @@ a defender’s daily bread, which being part of defense-in-depth model.&lt;/p&gt
 
 &lt;p&gt;List which users are unavailable:&lt;/p&gt;
 
-&lt;pre&gt;grep -v &#39;:x:&#39; /etc/passwd&lt;/pre&gt;
+&lt;pre&gt;grep -v ':x:' /etc/passwd&lt;/pre&gt;
 
 &lt;p&gt;List expired passwords:&lt;/p&gt;
 
-&lt;pre&gt;cat /etc/shadow | cut -d: -f 1,2 | grep &#39;!&#39;&lt;/pre&gt;
+&lt;pre&gt;cat /etc/shadow | cut -d: -f 1,2 | grep '!'&lt;/pre&gt;
 
 &lt;p&gt;The correct permission should be 644 at least. 600 would be better:&lt;/p&gt;
 
@@ -2849,7 +3631,7 @@ net.core.somaxconn = 4096
 &lt;/pre&gt;
 
 &lt;p&gt;** TIME_WAIT status TCP connections, the system will empty the
-   connection if the number is exceed the value, &lt;/p&gt;
+   connection if the number is exceed the value,&lt;/p&gt;
 
 &lt;pre&gt;
 net.ipv4.tcp_max_tw_buckets = 65535
@@ -2863,7 +3645,7 @@ net.ipv4.tcp_tw_reuse = 1
 /proc/sys/net/ipv4/tcp_tw_reuse
 &lt;/pre&gt;
 
-&lt;p&gt;** fast recycle of TIME-WAIT status connection, the default is disable( 0): &lt;/p&gt;
+&lt;p&gt;** fast recycle of TIME-WAIT status connection, the default is disable( 0):&lt;/p&gt;
 
 &lt;pre&gt;
 net.ipv4.tcp_tw_recycle = 1
@@ -3109,7 +3891,7 @@ inventing many innovations( SEGMEXEC, PAGEEXEC, MPROTECT, UDEREF,
 RANDSTRUCT&lt;em&gt;, etc), while hardening the kernel in source code level(
 make important *struct&lt;/em&gt; read-only, etc). PaX/Grsecurity is one of most
 respected 0ld sch00l hacker community. The main contributor( Spender)
-was even been through a &lt;a href=&quot;http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced&quot;&gt;very badly economic situation&lt;/a&gt; back in 2004 &lt;/p&gt;
+was even been through a &lt;a href=&quot;http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced&quot;&gt;very badly economic situation&lt;/a&gt; back in 2004&lt;/p&gt;
 
 &lt;p&gt;Thanks to the G0d of techn0logy, PaX/Grsecurity is still alive…. I
 personally agree with some ideas:&lt;/p&gt;
@@ -3205,7 +3987,7 @@ openssl s_client -cipher EXPORT -connect www.google.com:443
 &lt;p&gt;Config file：/etc/ssh/ssh_config&lt;/p&gt;
 
 &lt;pre&gt;
-1, known_hosts stores server&#39;s signature, so hash the host name:
+1, known_hosts stores server's signature, so hash the host name:
 
 HashKnownHosts yes
 
@@ -3213,7 +3995,7 @@ HashKnownHosts yes
 
 Protocol 2
 
-3, If you don&#39;t use X11 forwarding, plz disable it&quot;
+3, If you don't use X11 forwarding, plz disable it&quot;
 
 X11Forwarding no
 
@@ -3282,7 +4064,7 @@ https://www.owasp.org/index.php/OWASP_Guide_Project&lt;/p&gt;
 
 &lt;p&gt;ServerRoot&lt;/p&gt;
 &lt;pre&gt;
-Web server&#39;s root path. Default is &quot;/etc/httpd&quot;. It&#39;s import to keep
+Web server's root path. Default is &quot;/etc/httpd&quot;. It's import to keep
 track of its permission. Recommend: Do not allow none-root user has
 the permission to modify it.
 
@@ -3336,7 +4118,7 @@ Deny from all  # Deny all contents
 
 &lt;p&gt;Options FollowSymLinks&lt;/p&gt;
 &lt;pre&gt;
-Do not list any other files if the visited file don&#39;t exit.
+Do not list any other files if the visited file don't exit.
 &lt;/pre&gt;
 
 &lt;p&gt;Hide info&lt;/p&gt;
@@ -3358,7 +4140,7 @@ Deny from all
 &amp;lt; /LimitExcept&amp;gt;
 &amp;lt; /Directory&amp;gt;
 
-PUT/DELETE/etc methods won&#39;t be available.
+PUT/DELETE/etc methods won't be available.
 &lt;/pre&gt;
 
 &lt;p&gt;MinSpareServers&lt;/p&gt;
@@ -3373,7 +4155,7 @@ Maximum spare processes. Default is 20. Recommend: 64.
 
 &lt;p&gt;ServerLimit&lt;/p&gt;
 &lt;pre&gt;
-The number that MaxClients can&#39;t not exceed.
+The number that MaxClients can't not exceed.
 &lt;/pre&gt;
 
 &lt;p&gt;MaxClients&lt;/p&gt;
@@ -3500,17 +4282,17 @@ https://stribika.github.io/2015/01/04/secure-secure-shell.html&lt;/p&gt;
 
 &lt;p&gt;SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).&lt;/p&gt;
 
-&lt;p&gt;在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。   &lt;/p&gt;
+&lt;p&gt;在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。&lt;/p&gt;
 
-&lt;p&gt;由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。   &lt;/p&gt;
+&lt;p&gt;由于Linux高效地通过不使用分段而是通过分别为代码和数据的访问创建基址为0，段界限为4GB的内存段（因此，逻辑地址和线性地址一致），这使得通过设置段来实现不可执行页成为了可能。&lt;/p&gt;
 
-&lt;p&gt;基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）   &lt;/p&gt;
+&lt;p&gt;基本的思路是将3GB用户态的线性地址空间平均分成两半，其中一半用来放置数据的映射（那就是我们定义了一个可以涵盖0-1.5GB范围的线性地址的数据段描述符），而另外一半用来放置代码的映射（那就是我们定义了一个可以涵盖1.5-3GB范围的线性地址的代码段描述符）。由于一个可执行的映射也可以用来进行数据的存取。我们必须保证这样的映射对两个段都可见，在两个段中相对应的地址都有这些数据的映射。这样的设置会在取指令时将数据存取的操作分离开来。因此能够基于访问的类型进行控制或者干预。而当一个只会出现在0-1.5GB线性地址范围的数据，有了试图执行的行为，就会抛出页错误（page fault, PF）&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;2. 实现&lt;/h3&gt;
 
-&lt;p&gt;SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;文件&lt;/a&gt;中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。   &lt;/p&gt;
+&lt;p&gt;SEGMEXEC的核心为虚拟内存空间镜像（vma mirroring），其具体细节在单独的&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;文件&lt;/a&gt;中进行讨论.可执行文件映射的镜像除了有RANDEXEC的情况下，是通过do_mmap()（位于include/linux/mm.h）来完成的。do_mmap()是用户态和内核态用来发起映射请求的函数。&lt;/p&gt;
 
-&lt;p&gt;这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。   &lt;/p&gt;
+&lt;p&gt;这样特殊的代码段描述符和数据段描述符放置在arch/i386/kernel/head.S中一个叫做gdt_table2的新全局描述符表(Global Descriptor Table)中。另外的全局描述表存在有两个原因：第一是为了简化实现，这样的话用户态的CS/SS选择器就不需要有任何改变；第二是能够防止在单独一个全局描述表中简单的通过滥用retf或者其他指令打破SEGMEXEC中受限制的代码段的攻击。而GDT保存的用户态的代码/数据描述符与SEGMEXEC事务中的不一致。我们必须对/arch/i386/kernel/process.c中对底层内容进行转换代码的__switch_to()函数以及在fs/bin/fmt_elf.c(其在用户态中对可执行文件的执行进行初始准备)中的local_elf_binary()函数的最后一步进行修改。&lt;/p&gt;
 
 &lt;p&gt;全局描述符表拥有在运行时进行设置的高级电源管理特定的描述符，而这些描述符也必须传递给第二个全局描述符表（通过arch/i386/kernel/apm.c）。最后，原有的全局描述符表必须将储存的每个CPU任务状态描述符(TSS)与本地描述符表描述符与第二个全局描述符表进行同步。（通过arch/i386/kernel/traps.c中的set_tss_desc()与set_ldt_desc()函数来完成）&lt;/p&gt;
 
@@ -3967,7 +4749,7 @@ TLBs看起来拥有64到256个条目（看footnote 6），他们至少4-way asso
     buf = (char*)malloc(4096*257);
     for (j=0; j&amp;lt;100000; j++) {
       for (i=0; i&amp;lt;257; i++) {
-        buf[i*4096] = &#39;a&#39;;
+        buf[i*4096] = 'a';
       }
     }
     return (0);
@@ -3991,7 +4773,7 @@ TLBs看起来拥有64到256个条目（看footnote 6），他们至少4-way asso
 可以联系Ice (white_ice@usa.net)或者fOSSiL &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#102;&amp;#111;&amp;#115;&amp;#115;&amp;#097;&amp;#104;&amp;#064;&amp;#117;&amp;#115;&amp;#097;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#102;&amp;#111;&amp;#115;&amp;#115;&amp;#097;&amp;#104;&amp;#064;&amp;#117;&amp;#115;&amp;#097;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;去做一些逆向
 工程，设计和实现的工作&lt;/p&gt;
 
-&lt;p&gt;给那些打算单干的路标：   &lt;/p&gt;
+&lt;p&gt;给那些打算单干的路标：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;   - 逆向工程工具IDA (the Interactive DisAssembler,
      http://www.datarescue.com). the next source of information is
@@ -4096,283 +4878,6 @@ happen, hence its omission.&lt;/p&gt;
         <pubDate>Mon, 25 May 2015 10:08:45 +0800</pubDate>
         <link>http://www.hardenedlinux.org/system-security/2015/05/25/pageexec-old.html</link>
         <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/05/25/pageexec-old.html</guid>
-        
-        
-        <category>system-security</category>
-        
-      </item>
-    
-      <item>
-        <title>PaX的技术考古之旅</title>
-        <description>&lt;p&gt;h4rdenedzer0会尝试翻译PaX/Grsecurity的一些文档，请关注。&lt;/p&gt;
-
-&lt;h2 id=&quot;grsecuritypax&quot;&gt;0. 什么是Grsecurity/PaX?&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://pax.grsecurity.net/&quot;&gt;PaX&lt;/a&gt;是针对linux kernel的一个加固版本的补丁，它让linux内核的内存页受限于
-最小权限原则，是这个星球上有史以来最极端和最优秀的防御系统级别0day的方
-案，第1版的设计和实现诞生于2000年，那可是一个没有
-ASLR/RELRO/NX/CANARY/FORITY/PIE都没有的年代，这些今天意义上的现代
-mitigation技术不管是linux/windows/macosx都多少抄袭和模仿了PaX的设计和实
-现，但有很多朋友会问：既然这东东这么厉害，为什么不在linux mainline里？
-PaX没有进入Linux内核upstream的原因不止一个，甚至有时候都不是纯粹技术本身的问题：&lt;/p&gt;
-
-&lt;p&gt;1) &lt;a href=&quot;http://unix.stackexchange.com/questions/59020/why-are-the-grsecurity-patches-not-included-in-the-vanilla-kernel&quot;&gt;PaX Team并不在意PaX是否进入Linux主干代码&lt;/a&gt;，但多年来有很多关心Linux内核安全的人不断的尝试把PaX的代码分拆成小的patch提交给Linux内核社区。&lt;/p&gt;
-
-&lt;p&gt;2) Linux内核社区认为PaX的代码难以维护，而Linux内核社区更喜欢花时间在性能和新功能上，而非安全。&lt;/p&gt;
-
-&lt;p&gt;3) Linux内核社区和Linux基金会受到由各个大厂商的影响，大厂商对于安全的要求取决于他们的客户的需求，如果很多真相不曝光大厂商是不会在意安全性的&lt;/p&gt;
-
-&lt;p&gt;4) 商业公司在意他们的主要利润来源，比如Five-eyes国家（美国，英国，加拿大，澳大利亚和新西兰）的政府项目都会统一采购SELinux的项目，所以大厂商都会花费精力去满足这一需求，这也是SELinux虽然备受争议但是一直有厂商和NSA持续投入的原因。&lt;/p&gt;
-
-&lt;p&gt;SELinux也是一个著名的开源MAC（强制访问控制）实现，是由NSA(美国国家安全局）于1990年代末发起的项目，于2000年以GPL自由软件许可证开放源代码，2003年&lt;a href=&quot;http://www.internetnews.com/ent-news/article.php/3317331&quot;&gt;合并到Linux内核中&lt;/a&gt;，过去10年中关于&lt;a href=&quot;https://www.schneier.com/blog/archives/2008/04/nsas_linux.html&quot;&gt;是否NSA在其中放后门的争论&lt;/a&gt;没有停过，一些人认为应该信任SELinux，因为它是以GPL自由软件许可证公开的源代码，也有人认为它是NSA参与过的项目，所以不应该信任。2013年Snowden曝光棱镜后更多的人极度的不信任NSA，认为&lt;a href=&quot;http://www.zerohedge.com/news/2013-07-09/nsa-has-inserted-its-code-android-os-bugging-three-quarters-all-smartphones&quot;&gt;NSA有对Android代码植入后门的前科&lt;/a&gt;，所以应该&lt;a href=&quot;http://www.eteknix.com/nsa-has-code-running-in-the-linux-kernel-and-android/&quot;&gt;怀疑所有NSA积极参与的项目包括SELinux&lt;/a&gt;。目前MAC的开源实现里，SELinux主要由RedHat/CentOS/Fedora社区维护，Apparmor主要由OpenSuSE/Ubuntu社区维护，关于SELinux是否应该使用是一个长久争论的话题，个人认为这取决于你的威胁建模，如果你是Five-Eyes阵营你当然应该使用SELinux，如果你是其他阵营比如德国或者中国，或许你应该考虑其他选择。&lt;/p&gt;
-
-&lt;p&gt;针对Linux内核的MAC实现都是基于LSM( Linux Security Module)去实现的，LSM利用了一堆CAPABILITY的
-机制提供了一些限制用户态程序访问控制的接口，SELinux和Apparmor都是基于LSM开发的，注意LSM并不是一个传统意义上的linux kernel module，至少在2个地方不同于普通module:&lt;/p&gt;
-
-&lt;p&gt;1) 必须在bootloader启动内核时启动，不能在内核加载完后启动。&lt;/p&gt;
-
-&lt;p&gt;2) 不能同时启动2个LSM的实现。&lt;/p&gt;
-
-&lt;p&gt;但PaX Team是一群old school security hackers，他们认为LSM一方面打破了
-“security as a whole”的哲学，另外一方面对于&lt;a href=&quot;https://grsecurity.net/compare.php&quot;&gt;内核漏洞没有防御能力&lt;/a&gt;，虽然在早年Linux内核社区以及大厂商不管是刻意还是无意的想要掩盖这一点，但&lt;a href=&quot;https://grsecurity.net/spender_summit.pdf&quot;&gt;时间&lt;/a&gt;证明PaX Team是正确的。其
-实当人们谈到Gnu/Linux安全性比windows/OSX更好时，其实未必，至少linux内核社区并没有把安全性放在首位，Linus Torvalds从来都不是太care安全问题，不是吗？&lt;/p&gt;
-
-&lt;p&gt;PaX从一开始就主要关注如何防御和检测memory corruption，PaX由PaX team维护，Grsecurity主要包括了RBAC（基于角色的访问控制）和一系列对PaX的改进，Grsecurity主要由Spender维护，最近几年这2组Patch都合并到了一起发布，所以我们都称这组补丁为Grsecurity/PaX或者PaX/Grsecurity。&lt;/p&gt;
-
-&lt;h2 id=&quot;pax&quot;&gt;0.1 PaX的诞生&lt;/h2&gt;
-
-&lt;p&gt;这个section描述的是这篇“过时”的&lt;a href=&quot;https://pax.grsecurity.net/docs/pageexec.old.txt&quot;&gt;论文&lt;/a&gt;，这是PaX的Genesis，1999年7月的
-&lt;a href=&quot;http://www.plex86.org/&quot;&gt;plex86社区&lt;/a&gt;(old school虚拟化社区之一)打算验证一个概念，当时Pentium(包
-括P6family)处理器新增加了一个功能，就是CPU把TLB区分为DTLB(数据TLB)和
-ITLB(指令TLB)，TLB主要是PTE( page table entries)的缓存，因此存放着
-user/kernel spaces的访问权限信息，在正常的情况下，ITLB和DTLB entries从
-相同的PTE里读出相同的状态，但如果状态有所改变的话也就意味着可以把数据读
-写和代码执行分开，如果这个POC能成功也就意味着可以对抗缓冲区溢出的最佳方
-案，这个成为了今天的NX=&amp;gt;要么可读写要么可执行。&lt;/p&gt;
-
-&lt;p&gt;在PaX的初始设计文档中经过了对PTE中的2个flags的分析：&lt;/p&gt;
-
-&lt;p&gt;Present位，如果设置1，指向的page(或者page table)是存在于内存里的；如果
-设置为0，page没有在内存里和保存的入口位(bits)可能会被OS用作其他用途。如
-果page table或者page directory的入口需要执行地址转换(线性地址到物理地
-址)时Present位被清0，会产生一个异常:page fault异常。&lt;/p&gt;
-
-&lt;p&gt;U/S位，权限管理，U-&amp;gt;user space, S-&amp;gt;kernel space&lt;/p&gt;
-
-&lt;p&gt;关于ITLB和DTLB的状态之间的转换这篇paper里已经有非常详细的描述，这里就不
-多阐述了，linux内核的实现问题，虚拟内存管理的主要结构是vm_area_struct，
-主要是描述连续的线性地址的一些属性包括
-READ/WRITE/EXECUTE/SHARED/PRIVATE等，里面有2个结构体成员需要关注：
-vm_flags，vm_page_prot。PaX在出现page fault的时候多增加了一些动作包括模
-拟page table entry里的可访问U标志位和在模拟PTE中检查访问权限。&lt;/p&gt;
-
-&lt;p&gt;PaX的第一版的副作用也不小，
-1，用户态可执行的栈是不可能的
-2，性能损耗在5%–8%&lt;/p&gt;
-
-&lt;p&gt;old school社区plex86在1999年的一个概念验证建立了后来NX(目前是硬件支持)
-的基础，个人觉得最有意思的地方是防御缓冲区溢出利用最早的策略是基于对于
-TLB的研究导致的，这听起来怎么那么像emerging property, Out of C0ntrol?
-KK? Ring the bell?&lt;/p&gt;
-
-&lt;h2 id=&quot;pax-1&quot;&gt;1. 2003年PaX谈”未来”&lt;/h2&gt;
-
-&lt;p&gt;PaX在2003年的时候开始思考如何在[未来&lt;a href=&quot;https://pax.grsecurity.net/docs/pax-future.txt&quot;&gt;(2003以后)在根本上根除漏洞利用&lt;/a&gt;，PaX
-对于W-xor-X的实现非常奏效，具体在&lt;a href=&quot;https://pax.grsecurity.net/docs/pageexec.old.txt&quot;&gt;PAGEEXEC原始设计文档&lt;/a&gt;里已经有所描述。&lt;/p&gt;
-
-&lt;p&gt;从defensive的平面来看，当时GNU/Linux平台主要依赖PaX的patch来进行加固(包
-括ASLR)，ASLR和NX进入linux内核mainstream是后来的事情，OpenBSD和Windows
-XP SP2和OSX 10.5也加入了NX，但都是抄袭PaX的设计(或许也包括实现)，&lt;/p&gt;
-
-&lt;p&gt;从offensive的平面来看，2003年的背景是stack-based overflow和string
-format vuln已经泛滥，但ROP还没有大规模的流行，但old school社区对于ROP的
-研究已经有相当的研究，包括Solar Designer在1997年发到&lt;a href=&quot;http://seclists.org/bugtraq/1997/Aug/63&quot;&gt;bugtraq里的讨论&lt;/a&gt;，之后更精彩的paper是在2001年&lt;a href=&quot;http://phrack.org/archives/issues/58/4.txt&quot;&gt;Phrack Issue 58的那篇论文”The advanced return-into-lib(c) exploits: PaX case study”&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;注意：2003年时SK的那篇Borrowed code chunks还没有发布。&lt;/p&gt;
-
-&lt;p&gt;2003年，PaX team认为会导致漏洞利用的bug给予了攻击者(区分攻击者和黑客是
-不同的term)在3个不同层面上访问被攻击的进程：&lt;/p&gt;
-
-&lt;p&gt;(1) 执行任意代码
-(2) 执行现有代码但打破了原有的执行顺序
-(3) 原有的执行顺序执行现有代码，但加载任意数据&lt;/p&gt;
-
-&lt;p&gt;NOEXEC( Non-executable pages)和MPROTECT(mmap/mprotect)能防御(1)，但有一
-种情况是例外：如果攻击者能创建和写入一个文件然后mmap()到被攻击的进程空
-间里，这样可以执行任意的代码。&lt;/p&gt;
-
-&lt;p&gt;ASLR在一定程度上降低了(1),(2),(3)的风险，但如果内核有信息泄露的bug例外。
-PaX team在当时就认为把内核当成可信计算( Trusted Computing)的基础是一件
-可笑的事情，因为内核跟用户空间一样容易遭受各种攻击。所以他们认为”未来”
-需要做一些事情(注：这些事情今天都已经搞定）：&lt;/p&gt;
-
-&lt;p&gt;(a) 尝试处理(1)不能处理的那个例外情况
-(b) 实现所有可能在内核态自己的防御机制
-(c) 为(2)实现确定性( deterministic)防护，可能也为(3)实现类似的机制
-(d) 为(2)实现概率行( probalilistic)防护以实现阻止信息泄露&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;处理(a)更好的解决方案是使用访问控制和可信路径执行来限制，Grsecurity今
-天就是这么做的
-—————————————————&lt;/p&gt;
-
-&lt;p&gt;之后这篇文档里详细的罗列了针对(a)(b)(c)(d)需要去实现的加固方案。在&lt;a href=&quot;https://raw.githubusercontent.com/citypw/security-regression-testing-for-suse/master/other/vulns_hardening_assessment.log&quot;&gt;这里已经能看出一些后来出现的mitigation技术&lt;/a&gt;：Stack Canary, RELRO,
-pointer constant/encryption?&lt;/p&gt;
-
-&lt;h2 id=&quot;paxvma-mirroring&quot;&gt;1.1 2003年PaX里vma mirroring的设计&lt;/h2&gt;
-
-&lt;p&gt;在2003年的晚些时候PaX实现了&lt;a href=&quot;https://pax.grsecurity.net/docs/vmmirror.txt&quot;&gt;虚拟内存空间的镜像( vma mirroring)&lt;/a&gt;，vma
-mirroring的目的是为了在一组物理页上做特殊文件隐射时有2个不同的线性地址，
-这2个地址即使在swap-out/swap-in或者COW后依然是不会改变的。这样做的目的
-为了满足几种场景：&lt;/p&gt;
-
-&lt;p&gt;1，把可执行的区域在使用SEGMEXEC隐射进入代码段。在32-bit的linux内核里的
-4GB地址空间是其中3GB给用户空间，1GB给内核空间，而vma mirroring把用户空
-间的3GB划分成了2个1.5GB分别是给代码段和数据段，在可执行区域里包含的数据
-的部分(常量字符串，函数指针表等)都会mirroring到数据段里。&lt;/p&gt;
-
-&lt;p&gt;2，实现可执行区域的地址随机化( RANDEXEC)。&lt;/p&gt;
-
-&lt;p&gt;3，这个引出了第3种情况，就是SEGMEXEC和RANDEXEC同时激活，个人觉得这个的
-效果应该和PIE＋ASLR的效果类似，不同的不是整个elf binary的代码段随机化，
-而是在mirroring时对代码段和数据段进行随机化。&lt;/p&gt;
-
-&lt;p&gt;之后这篇文章开始聊到实现的问题，对于一个普通的用户态binary在执行后，内
-核得做一系列的工作，fs/binfmt_elf.c里的load_elf_binary()负责进程地址空
-间的一些基本的映射包括stack,动态连接器和binary本身。而文件的映射是通过
-elf_map()调用do_mmap()完成的。用户态binary的第1条指令从ld.so或者binary
-自己fetch到后会raise一个page fault，linux内核内存管理是按需分配内存的，
-所以在binary刚执行时是没有建立有效的物理映射的。x86架构的page fault
-handler在arch/i386/mm/fault.c文件里的do_page_fault()去找到vma结构体，
-VMA里包含了物理页的数据(ELF文件里的代码段, etc)。&lt;/p&gt;
-
-&lt;p&gt;当时的PaX的做法大致是这样的，vma mirror是根据已经内存映射mmap()后的地址，
-用户态通过mmap()是无法直接去做vma mirror请求的，所有的mmap()请求多会经
-过include/linux/mm.h的do_map()，PaX扩展( SEGMEXEC)也是在这个地方处理，
-原始内核通过调用do_mmap_pgoff()来调用do_mmap()，PaX在这里为了确保
-SEGMEXEC能知道来自用户态和内核态的原生文件映射请求所以略过
-do_mmap_pgoff()而直接调用do_mmap()，而vma mirror请求使用一些特殊参数传
-递给do_mmap_pgoff():&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&#39;file&#39;    必须是NULL，因为mirror会引用相同文件的vma作为镜像
-&#39;addr&#39;    正常使用
-&#39;len&#39;    必须是0
-‘prot&#39;    正常使用
-&#39;flags&#39;    正常使用，除了一种情况：指定MAP_MIRROR和只能指定private映射
-&#39;pgoff&#39;    指定vma的线性起始地址作为镜像
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;文章给出了一个例子：&lt;/p&gt;
-
-&lt;p&gt;# cp /bin/cat /tmp/
-# /tmp/cat /proc/self/maps&lt;/p&gt;
-
-&lt;p&gt;激活PaX的2个功能: SEGMEXEC, MPROTECT&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[1] 08048000-0804a000 R-Xp 00000000 00:0b 1109       /tmp/cat
-[2] 0804a000-0804b000 RW-p 00002000 00:0b 1109       /tmp/cat
-[3] 0804b000-0804d000 RW-p 00000000 00:00 0
-[4] 20000000-20015000 R-Xp 00000000 03:07 110818     /lib/ld-2.2.5.so
-[5] 20015000-20016000 RW-p 00014000 03:07 110818     /lib/ld-2.2.5.so
-[6] 2001e000-20143000 R-Xp 00000000 03:07 106687     /lib/libc-2.2.5.so
-[7] 20143000-20149000 RW-p 00125000 03:07 106687     /lib/libc-2.2.5.so
-[8] 20149000-2014d000 RW-p 00000000 00:00 0
-[9] 5fffe000-60000000 RW-p fffff000 00:00 0    [10] 68048000-6804a000 R-Xp 00000000 00:0b 1109       /tmp/cat    [11] 80000000-80015000 R-Xp 00000000 03:07 110818     /lib/ld-2.2.5.so    [12] 8001e000-80143000 R-Xp 00000000 03:07 106687     /lib/libc-2.2.5.so
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个binary是一个动态连接的可执行程序，所以在执行时会映射其他的库文件。&lt;/p&gt;
-
-&lt;p&gt;[1] 这个binary文件/tmp/cat的第1个PT-LOAD段映射为有读和执行的权限，包含
-了可执行的代码和只读的初始化后的数据。因为是可执行的所以被[10]镜像。&lt;/p&gt;
-
-&lt;p&gt;[2] 第2个PT_LOAD段，映射为读写权限，包含了可写的数据(所有初始化和没有初
-始化的)&lt;/p&gt;
-
-&lt;p&gt;[3] brk()管理的堆，在运行时会根据malloc()/free()来调整大小&lt;/p&gt;
-
-&lt;p&gt;[4][5] 动态连接器&lt;/p&gt;
-
-&lt;p&gt;[6][7] C库 ，[4][6]被映射到了[11][12]，因为他们是可执行的。&lt;/p&gt;
-
-&lt;p&gt;[8] 一个针对C库的初始化数据的匿名映射&lt;/p&gt;
-
-&lt;p&gt;[9] 一个匿名映射包含了stack。我们能观察到这个地址在用户空间的数据部分的
-结束地址，开启SEGMEXEC后是TASK_SIZE/2。&lt;/p&gt;
-
-&lt;p&gt;[10][11][12] 分别映射可执行镜像[1][4][6]。&lt;/p&gt;
-
-&lt;p&gt;激活PaX的3个功能的情况: SEGMEXEC，RANDEXEC，MPROTECT&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[1] 08048000-0804a000 R-Xp 00000000 00:0b 1109       /tmp/cat
-[2] 0804a000-0804b000 RW-p 00002000 00:0b 1109       /tmp/cat
-    0804b000-0804d000 RW-p 00000000 00:00 0
-[3] 20000000-20002000 ++-p 00000000 00:00 0
-[4] 20002000-20003000 RW-p 00002000 00:0b 1109       /tmp/cat
-    20003000-20018000 R-Xp 00000000 03:07 110818     /lib/ld-2.2.5.so
-    20018000-20019000 RW-p 00014000 03:07 110818     /lib/ld-2.2.5.so
-    20021000-20146000 R-Xp 00000000 03:07 106687     /lib/libc-2.2.5.so
-    20146000-2014c000 RW-p 00125000 03:07 106687     /lib/libc-2.2.5.so
-    2014c000-20150000 RW-p 00000000 00:00 0
-[5] 5fffe000-60000000 RW-p 00000000 00:00 0
-[6] 80000000-80002000 R-Xp 00000000 00:0b 1109       /tmp/cat
-    80003000-80018000 R-Xp 00000000 03:07 110818     /lib/ld-2.2.5.so
-    80021000-80146000 R-Xp 00000000 03:07 106687     /lib/libc-2.2.5.so
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;RANDEXEC有一些改变，[3]成了第1个可执行的PT_LOAD段的匿名映射，[4]成为第
-2个PT_LOAD段的的mirror，[2]和[4]有相同的页偏移值，文档说[1]被[6]给
-mirror后是超出了TASK/SIZE/2的范围，但个人觉得这个地方是代码段的区域所以
-必然是在1.5G以上(如果数据段在0-1.5G的话)，还有就是在RANDUSTACK开启后由
-于stack的第1部分不能关闭随机化，所以多比第1个例子多占了1个page，这个怎
-么得出的呢？靠我真不知道，可能是fffff000 xor ffffffff = fff来的？&lt;/p&gt;
-
-&lt;p&gt;激活PaX的3个功能的情况: PAGEEXEC, RANDEXEC, MPROTECT&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[1] 08048000-0804a000 R--p 00000000 00:0b 1109       /tmp/cat
-[2] 0804a000-0804b000 RW-p 00002000 00:0b 1109       /tmp/cat
-    0804b000-0804d000 RW-p 00000000 00:00 0
-[3] 40000000-40002000 R-Xp 00000000 00:0b 1109       /tmp/cat
-[4] 40002000-40003000 RW-p 00002000 00:0b 1109       /tmp/cat
-    40003000-40018000 R-Xp 00000000 03:07 110818     /lib/ld-2.2.5.so
-    40018000-40019000 RW-p 00014000 03:07 110818     /lib/ld-2.2.5.so
-    40021000-40146000 R-Xp 00000000 03:07 106687     /lib/libc-2.2.5.so
-    40146000-4014c000 RW-p 00125000 03:07 106687     /lib/libc-2.2.5.so
-    4014c000-40150000 RW-p 00000000 00:00 0
-    bfffe000-c0000000 RW-p fffff000 00:00 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;最后的这种情况是vma mirroring所产生最简单的内存layout，只有binary本生被
-镜像了，[1]被[3]，[2]被[4]镜像了。注意[1]没有R-X权限了，在PAGEEXEC下只
-有R–。&lt;/p&gt;
-
-&lt;p&gt;虽然现在的PaX实现肯定不是这个设计的版本，但读读原始的paper会有一些意想
-不到的收获，也算技术进化考古的过程了;-)&lt;/p&gt;
-
-&lt;h2 id=&quot;ld-sch00l&quot;&gt;2. 0ld sch00l黑客的出埃及记&lt;/h2&gt;
-
-&lt;p&gt;Grsecurity/PaX目前&lt;a href=&quot;https://grsecurity.net/the_case_for_grsecurity.pdf&quot;&gt;应用广泛&lt;/a&gt;，特别是具有高安全性的环境，Gnu/Linux发行版里
-Gentoo提供PaX作为加固选项，最近半年Debian社区发起的对抗大规模监控的加固
-项目&lt;a href=&quot;http://mempo.org/&quot;&gt;Mempo&lt;/a&gt;在内核中也使用了Grsecurity/PaX。&lt;/p&gt;
-
-&lt;p&gt;这篇文章仅仅是在学习PaX的3篇paper里的记录，PaX的思路的确非常的震撼，那
-都是10多年前的设计和实现，在这个一天云计算一天雾计算的年代，虽然关注本
-质的黑客越来越少，但地下精神并未死去，PaX Team就是一个活生生的例证，相
-反，不少old school黑客都坚信其实old school的数量并没有减少，至少我个人
-相信这是真的…Phrack没死，Grsecurity/PaX没死，DNFWAH也没死，希望更多的
-黑客分享自己的hacking之旅。&lt;/p&gt;
-
-&lt;p&gt;Phrack is not dead, Grsecurity/PaX is not dead, DNFWAH is not dead,
-The Underground spirit is not dead…..If they were, that’d be on us!&lt;/p&gt;
-
-&lt;p&gt;=——————————————————————–=&lt;/p&gt;
-
-&lt;p&gt;To one of the most respected old school communities:
-Grsecurity/PaX. We/I salute you!!!&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 24 May 2015 03:20:45 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/05/24/archeological_hacking_on_pax.html</guid>
         
         
         <category>system-security</category>

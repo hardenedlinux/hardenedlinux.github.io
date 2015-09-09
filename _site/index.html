@@ -56,6 +56,20 @@
     
     <article class="post tag-text tag-formatting">
         <header class="post-header">
+	    <h2 class="post-title"><a href="/system-security/2015/09/06/hardening-es-in-docker-with-grsec.html">Hardening es( in Docker) with PaX/Grsecurity & STIG & Shield</h2>
+	    <a class="post-meta" href="/system-security/2015/09/06/hardening-es-in-docker-with-grsec.html">Posted on <time datetime="2015-09-06">06 September 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>随着Container技术的逐步成熟，Docker的应用也越来越广泛，越来越多的重要业务依赖于Docker运行环境，针对场景化的加固是基于GNU/Linux系统重要工作，本文基于Docker里运行es为应用来进行场景化加固的探讨关于PaX/Grsecurity，STIG-4-Debian以及Sheild的实践。<a class="excerpt-suffix" href="/system-security/2015/09/06/hardening-es-in-docker-with-grsec.html">&hellip;</a></p>
+	</section>
+	<footer class="post-footer">
+	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
+	    </div>
+	</footer>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
 	    <h2 class="post-title"><a href="/system-security/2015/08/17/Grsecurity_catalogue_cn.html">PaX/Grsecurity配置选项</h2>
 	    <a class="post-meta" href="/system-security/2015/08/17/Grsecurity_catalogue_cn.html">Posted on <time datetime="2015-08-17">17 August 2015</time></a>
 	</header>
@@ -103,20 +117,6 @@
 	</header>
 	<section class="post-excerpt">
 	    <p>Shawn：Linux内核代码文件arch/x86/kernel/entry_64.S在3.17.5之前的版本都没有正确的处理跟SS（堆栈区）段寄存器相关的错误，这可以让本地用户通过触发一个 IRET指令从错误的地址空间去访问GS基地址来提权。这个编号为CVE-2014-9322,漏洞于2014年11月23日被Linux内核社区修复，之后的几个礼拜里没有出现公开的利用代码甚至相关的讨论。当人们快要遗忘这个威胁的时候，Rafal Wojtczuk的分析文章Exploiting “BadIRET” vulnerability似乎在提醒我们：别忘了斯拉夫兵工厂。<a class="excerpt-suffix" href="/system-security/2015/07/05/badiret-analysis.html">&hellip;</a></p>
-	</section>
-	<footer class="post-footer">
-	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
-	    </div>
-	</footer>
-    </article>
-    
-    <article class="post tag-text tag-formatting">
-        <header class="post-header">
-	    <h2 class="post-title"><a href="/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">Gentoo GNU/Linux系统安装与加固</h2>
-	    <a class="post-meta" href="/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">Posted on <time datetime="2015-06-23">23 June 2015</time></a>
-	</header>
-	<section class="post-excerpt">
-	    <p>Gentoo Hardened is a Gentoo project that offers multiple additional security services on top of the well-known Gentoo Linux installation. Although each of them can be selected separately, Gentoo Hardened enables several risk-mitigating options in the toolchain, supports PaX, grSecurity, SELinux, TPE and more.<a class="excerpt-suffix" href="/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">&hellip;</a></p>
 	</section>
 	<footer class="post-footer">
 	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
