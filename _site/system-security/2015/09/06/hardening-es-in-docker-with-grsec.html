@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Hardening es( in Docker) with PaX/Grsecurity & STIG & Shield</title>
+  <title>社区最佳实践：基于PaX/Grsecurity & STIG & Sheild针对es的Docker场景化加固</title>
 
   <meta name="description" content="By: 炼石网络CipherGateway">
   <meta name="HandheldFriendly" content="True">
@@ -53,7 +53,7 @@
         <div class="site-content" role="main">
     <article class="post tag-text tag-formatting tag-list"> 
         <header class="post-header">
-	    <h1 class="post-title">Hardening es( in Docker) with PaX/Grsecurity & STIG & Shield</h1>
+	    <h1 class="post-title">社区最佳实践：基于PaX/Grsecurity & STIG & Sheild针对es的Docker场景化加固</h1>
 	    <span class="post-meta">
 	       Post on <time datetime="2015-09-06">06 September 2015</time>
 	    </span>
@@ -65,7 +65,7 @@
 
 <p><strong>文档说明</strong>：</p>
 
-<p><em>内核方面</em>：此实践文档使用<a href="http://https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Disallow_access_to_overly-permissive_IPC_objects">PaX/Grsecurity</a>完成Linux内核级别的加固，并采用美国DISA组织的STIG脚本对内核进行安全扫描，以使内核安全达到一定的高度。</p>
+<p><em>基础平台</em>：此实践文档使用<a href="http://https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Disallow_access_to_overly-permissive_IPC_objects">PaX/Grsecurity</a>完成Linux内核级别的加固，并采用美国DISA组织的STIG脚本对Debian GNU/Linux发行版进行安全扫描，以使Debian GNU/Linux发行版安全达到一定的高度。</p>
 
 <p><em>业务方面</em>：以在Docker下运行的ElasticSearc服务为例，结合ES的<a href="http://https://www.elastic.co/guide/en/shield/current/index.html">Shield</a>插件对ES进行业务级别的加固。</p>
 
@@ -120,7 +120,7 @@ apt-get update
 <pre><code>apt-get install sudo
 </code></pre>
 
-<p>修改sudoers文件，添加一句（等效于添加当前用户到sudo用户组，或者直接使用root用户可忽略此步）:</p>
+<p>修改sudoers文件，添加一句（等效于添加当前用户到sudo用户组，或者直接使用root用户可忽略此步）:   </p>
 
 <pre><code> nano /etc/sudoers
  add "user   ALL=(ALL:ALL)ALL"
@@ -811,6 +811,26 @@ sudo docker stop oaDataNode2 oaDataNode1 oaDataNode3 oaDataNode4
 
 <p>Grsecurity和Shield都是无比强大的加固武器，通过STIG检测的系统更是拥有更高的安全性。文档只是粗勒地描绘出一套加固思路，更多安全措施请参考Grsecurity和Shield的官方文档。</p>
 
+<h1 id="todo">TODO</h1>
+
+<ul>
+  <li>
+    <p>内核调参数，主要针对TCP/IP性能（针对DoS）和安全的一系列参数需要调整，场景化的情况下根据一款具体的硬件配置来进行调参。</p>
+  </li>
+  <li>
+    <p>Iptables/netfilter规则，这个可以根据具体的业务场景来定制。</p>
+  </li>
+  <li>
+    <p>（重点）安装部署的一个STIG-compliance的系统，效果是在安装步骤完成后，stig-4-debian自动扫描出的结果应该全部或者大部分通过。</p>
+  </li>
+  <li>
+    <p>PaX/Grsec的config可以细化，这个未来我们会把针对不同场景的config归档。</p>
+  </li>
+  <li>
+    <p>Grsec的RBAC规则使用learning mode只是把规则抓出来，和AppArmor的aa-genprof/aa-logprof类似，加固的原则是针对的RBAC/MAC规则都必须经过review，这一步工作也需要加强。</p>
+  </li>
+</ul>
+
 <h1 id="reference">Reference</h1>
 
 <p>1） Grsecurity官方文档：<a href="http://">https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Address_Space_Layout_Randomization</a></p>
@@ -834,6 +854,7 @@ sudo docker stop oaDataNode2 oaDataNode1 oaDataNode3 oaDataNode4
     <a href="https://github.com/hardenedlinux"><i class="fa fa-github-alt fa-2x"></i></a>
     <a href="mailto:hardenedlinux@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
     <a href="https://twitter.com/hardenedlinux"><i class="fa fa-twitter fa-2x"></i></a>
+    <a href="https://groups.google.com/forum/#!forum/hardenedlinux"><i class="fa fa-google fa-2x"></i></a>
     <div class="inner">
         <section class="copyright">This theme copyright by <a href="http://scotthsmith.com">Scott Smith</a></section>
     </div>
