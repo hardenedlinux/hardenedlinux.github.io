@@ -1,0 +1,69 @@
+---
+layout: post
+title:  "编译器后门与防御"
+date:   2015-11-05 12:34:07
+summary:  编译器安全是对于很多人来说可能比较陌生，但这个领域却和kernel以及firmware安全一样备受BIG BROTHER的关注，由于compiler也是>重要基础设施的组成部分，这块的防御的重要性不言而喻，通过对David A. Wheeler的这篇文章的翻译希望能引起更多自由软件社区以及企业的相关人员的关注。目前最大规模应用DDC研究的是Debian GNU/Linux社区的Reproducible builds。Long live anarchy!
+categories: system-security
+---
+
+Shawn: [PoC||GTFO](https://www.alchemistowl.org/pocorgtfo/)是最近几年深受0ld sch00l黑客喜爱的电子杂志，[第8期](https://www.alchemistowl.org/pocorgtfo/pocorgtfo08.pdf)里有一篇名为Deniable Backdoors Using Compiler Bugs（利用编译器Bug的可抵赖后门）的文章，作者向我们展示了一种可能的威胁，这个威胁模型是需要两个条件：1)一个可利用的编译器miscompilation bug； 2) 向目标的开源社区提交看起来不怎么像后门的patch。[作者修改了Sudo 1.8.13的少量代码](https://github.com/regehr/sudo-1.8.13/tree/compromise/backdoor-info)去利用Clang/LLVM 3.3的一个bug，最终导致提权。相比[传统的编译器后门](http://c2.com/cgi/wiki?TheKenThompsonHack)和传统软件后门（比如[疑似NSA对Linux内核代码的植入](https://freedom-to-tinker.com/blog/felten/the-linux-backdoor-attempt-of-2003/)），这种方式更加的隐蔽，因为它是针对特定版本的编译器下手。
+
+作者也对自由软件社区的不同角色给出了对于这种后门植入的防御性建议：
+
+编译器开发者
+
+    * 优先修复miscompilation bugs
+    * 考虑miscompilation bug针对维护版本的backport修复
+    * 使用fuzz工具（文章中提到了[Csmith](https://embed.cs.utah.edu/csmith/)和[afl](http://lcamtuf.coredump.cx/afl/)）
+
+开源包的维护人员
+
+    * 谨慎的接收代码提交
+    * 考虑重新实现一些patch 
+
+GNU/Linux发行版打包人员
+
+    * 评估编译器的可靠性
+    * 在所有的平台上测试编译的程序后再进行部署
+    * 对系统编译器进行"[trusting trust"测试](http://www.dwheeler.com/trusting-trust/)
+
+终端用户
+
+    * 使用不同的编译器或者编译器版本对源代码进行重新编译
+    * 对预编译的程序进行你自己定制的测试（比如针对某些程序功能的回归测试） 
+
+研究人员
+
+    * 开发可被证明对这种利用方式免疫的编译器
+    * 开发可检测miscompilation的验证模式
+    * 开发可检测后门执行的多版本编程系统" 
+
+编译器安全是对于很多人来说可能比较陌生，但这个领域却和kernel以及firmware安全一样备受BIG BROTHER的关注，由于compiler也是重要基础设施的组成部分，这块的防御的重要性不言而喻，通过对David A. Wheeler的这篇文章的翻译希望能引起更多自由软件社区以及企业的相关人员的关注。David A. Wheeler的研究成果目前已经有的工程化实践中[Debian GNU/Linux社区的Reproducible builds是部署范围最大的](http://motherboard.vice.com/read/how-debian-is-trying-to-shut-down-the-cia-and-make-software-trustworthy-again)。
+
+
+原文：[David A. Wheeler’s Page on Fully Countering Trusting Trust through Diverse Double-Compiling (DDC) - Countering Trojan Horse attacks on Compilers](http://www.dwheeler.com/trusting-trust/)
+
+作者：David A. Wheeler
+
+译者：Eleanor Chen
+
+翻译版Reviewer：Shawn the R0ck
+
+
+## 开篇
+
+这里是关于我对反击"Trusting Trust"攻击相关工作的信息。"Trusting Trust"攻击是一种恶毒的攻击方法，到现在为止都被假设为无法进行有效的防御。自从Ken Thompson公开的对其进行阐述后，我一直对此问题非常忧心。一种已知但却无法有效防御的攻击存在，我们还应该继续使用计算机吗？欣慰的是，我认为有一种被我命名为"Diverse Double-Compiling"(DDC)的有效反制方法。
+
+
+### 2009 博士论文
+
+[Fully Countering Trusting Trust through Diverse Double-Compiling](http://www.dwheeler.com/trusting-trust/dissertation/html/wheeler-trusting-trust-ddc.html) ([PDF版](http://www.dwheeler.com/trusting-trust/dissertation/wheeler-trusting-trust-ddc.pdf), [HTML](http://www.dwheeler.com/trusting-trust/dissertation/html/wheeler-trusting-trust-ddc.html), [OpenDocument版](http://www.dwheeler.com/trusting-trust/dissertation/wheeler-trusting-trust-ddc.odt))是我2009年关于如何通过"Diverse Double-Compiling"(DDC)对抗"Trusting trust"攻击的博士论文。这篇论文被我的博士委员会接受日期为2009年10月26日。
+
+[这个视频是我的正式的public defense](http://www.dwheeler.com/trusting-trust/dissertation/wheeler-trusting-trust-video.html)( webm或者mp4)，这个演讲是2009年11月23日下午1点到3点进行的([podcase/RSS](http://www.dwheeler.com/trusting-trust/countering-trusting-trust.rss))。演讲的材料同样以[PDF](http://www.dwheeler.com/trusting-trust/dissertation/fully-countering-trusting-trust-ddc-presentation.pdf)和[ODP](http://www.dwheeler.com/trusting-trust/dissertation/fully-countering-trusting-trust-ddc-presentation.odp)格式提供下载。public defense的地点是[George Mason University](http://www.gmu.edu/), Fairfax, Virginia, [Innovation Hall](http://itu.gmu.edu/innovationhall/aboutih.html), room 105 [location on campus](http://itu.gmu.edu/innovationhall/images/academiciv.gif) [Google map](http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=38.828240,+-77.307578&sll=38.828258,-77.307615&sspn=0.011417,0.01929&ie=UTF8&ll=38.827539,-77.307336&spn=0.011417,0.01929&z=16)。
+
+>Shawn: "public defense"通常是博士生正式获得PhD的title后在6个月内必须做的公开演讲。
+
+这里是论文的摘要：
+
+	Ken Thompson的图灵奖演讲"[Reflections on Trusting Trust](http://delivery.acm.org/10.1145/360000/358210/reflections.pdf?ip=170.178.162.104&id=358210&acc=OPEN&key=4D4702B0C3E38B35.4D4702B0C3E38B35.4D4702B0C3E38B35.6D218144511F3437&CFID=727534328&CFTOKEN=23851549&__acm__=1446695913_4dd9ed7d68cfada7dbae845681d8baf3)"是基于对空军使用的Multics系统的评估，这个演讲展示了编译器可以被利用向重要的软件甚至编译器自己植入恶意木马。如果"trustingtrust"攻击无法被检测，那代码审计也不能找到恶意代码。之前已知的反制方法都是很低效的。如果这类攻击不能被反制，攻击者可以悄悄的搞定一堆计算机系统，获得金融机构，基础设施，军队或者商业系统的全部权限。这篇论文的题目是trusting trust攻击可以被检测并且使用“Diverse Double-Compiling” (DDC)技术是有效的反制手段，如展示，(1) 形式化证明DDC可以判断源代码和生成的可执行代码的对应，(2) 演示了DDC使用4个编译器（一个轻量级C编译器，一个轻量级Lisp编译器，一个轻量级的恶意版Lisp编译器和工业级C编译器GCC），(3) 描述了应用DDC在真实世界的场景。DDC会要求源代码被两次编译：编译器本身的源代码先被一个可信的编译器编译，之后用第一个编译结果去编译需要测试的编译器的源代码。如果DDC结果是与原生的编译器可执行程序bit-for-bit一致，那说明这个需要测试的编译器的可执行程序完全对应相关的公认代码。
+

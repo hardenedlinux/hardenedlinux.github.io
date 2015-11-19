@@ -56,6 +56,20 @@
     
     <article class="post tag-text tag-formatting">
         <header class="post-header">
+	    <h2 class="post-title"><a href="/system-security/2015/05/26/segmexec.html">SEGMEXEC设计文档</h2>
+	    <a class="post-meta" href="/system-security/2015/05/26/segmexec.html">Posted on <time datetime="2015-05-26">26 May 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。<a class="excerpt-suffix" href="/system-security/2015/05/26/segmexec.html">&hellip;</a></p>
+	</section>
+	<footer class="post-footer">
+	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
+	    </div>
+	</footer>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
 	    <h2 class="post-title"><a href="/system-security/2015/05/25/pageexec-old.html">PAGEEXEC的最早设计文档</h2>
 	    <a class="post-meta" href="/system-security/2015/05/25/pageexec-old.html">Posted on <time datetime="2015-05-25">25 May 2015</time></a>
 	</header>
