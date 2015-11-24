@@ -56,6 +56,20 @@
     
     <article class="post tag-text tag-formatting">
         <header class="post-header">
+	    <h2 class="post-title"><a href="/system-security/2015/07/06/badiret-exp.html">后续故事：数字军火级别的"BadIRET"漏洞利用(CVE-2014-9322)</h2>
+	    <a class="post-meta" href="/system-security/2015/07/06/badiret-exp.html">Posted on <time datetime="2015-07-06">06 July 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>Shawn：nergal在2015年2月公开的针对BadIRET漏洞的分析文章仿佛就在昨天，但Linux内核社区对安全的态度的确比10年还糟糕，Linux内核社区一如既往坚持"Security through obscurity"这种简单到根本不用考虑斯拉夫兵工厂的威胁建模，不辛的是，BadIRET又是一例Linux内核社区认为几乎不可利用但实际是可利用的漏洞，更糟糕的是一些商业GNU/Linux厂商因为各种原因（在后棱镜时代，不得不考虑非商业因素的可能）基本按照是否有公开的漏洞利用会成为他们对于风险评估的重要指标，这种说法好像是当0-day exploit从来都不存在一样，这的确是一个黑暗的时代，就算没有Mr.Snowden，这的确也称的上是一个黑暗的信息时代，anyway，这次pi3公开了BadIRET的漏洞利用代码，这对于安全研究人员来说是一个好事，也希望整个事件能帮助个人以及企业GNU/Linux用户对于安全有正确的认识。<a class="excerpt-suffix" href="/system-security/2015/07/06/badiret-exp.html">&hellip;</a></p>
+	</section>
+	<footer class="post-footer">
+	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
+	    </div>
+	</footer>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
 	    <h2 class="post-title"><a href="/system-security/2015/07/05/badiret-analysis.html">漏洞利用"BadIRET"分析(CVE-2014-9322, Linux内核提权)</h2>
 	    <a class="post-meta" href="/system-security/2015/07/05/badiret-analysis.html">Posted on <time datetime="2015-07-05">05 July 2015</time></a>
 	</header>
@@ -103,20 +117,6 @@
 	</header>
 	<section class="post-excerpt">
 	    <p>GNU/Linux already become one of most important fundamental element in modern IT platform. Almost every important applications heavily rely on the core component of GNU system:GCC, Glibc and linux kernel. GNU/Linux is totally free/libre and open source software(FLOSS). Many people thinks free/libre and open source software is secure because its open to many eyes. Yes, that's true.<a class="excerpt-suffix" href="/system-security/2015/06/10/debian-security-chklist.html">&hellip;</a></p>
-	</section>
-	<footer class="post-footer">
-	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
-	    </div>
-	</footer>
-    </article>
-    
-    <article class="post tag-text tag-formatting">
-        <header class="post-header">
-	    <h2 class="post-title"><a href="/system-security/2015/05/26/segmexec.html">SEGMEXEC设计文档</h2>
-	    <a class="post-meta" href="/system-security/2015/05/26/segmexec.html">Posted on <time datetime="2015-05-26">26 May 2015</time></a>
-	</header>
-	<section class="post-excerpt">
-	    <p>SEGMEXEC的目标是通过IA-32构架CPU的内存分段实现不可执行页(Non-executable Page).在IA-32环境下,Linux运行在保护模式下并开启了内存分页。这意味着，所有访问内存的操作都必须经过两步的地址转换。第一步从指令中解码出逻辑地址并将其转换为线性地址（也就是我们常说的虚拟地址）.这个转换通过内存分段来完成，具体细节在另外的文档进行描述。<a class="excerpt-suffix" href="/system-security/2015/05/26/segmexec.html">&hellip;</a></p>
 	</section>
 	<footer class="post-footer">
 	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
