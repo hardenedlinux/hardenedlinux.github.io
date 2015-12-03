@@ -168,8 +168,8 @@ uid=0(root) gid=0(root) groups=0(root)
 
 ##Final Notes
 
-vDSO不是唯一一个同时映射在内核空间和用户空间的内存。在x86-64当中,vSYSCALL与vDSO实现类是的功能，但多了一点特性就是每次重启都在同一个位置（可能可以通过内核版本进行预测）。然而 kernel.vsyscall64并没有在本次比赛启用，所以我们将通过vDSO来完成这个目的。如果vm.vdso_enable设置为0，then vDSO will also be bypassed and the libc wrappers will default to the normal syscalls. 
+vDSO不是唯一一个同时映射在内核空间和用户空间的内存。在x86-64当中,vSYSCALL与vDSO实现类是的功能，但多了一点特性就是每次重启都在同一个位置（可能可以通过内核版本进行预测）。然而 kernel.vsyscall64并没有在本次比赛启用，所以我们将通过vDSO来完成这个目的。如果vm.vdso_enable设置为0，vDSO也会被绕过并且libc的wrapper function会默认调用正常的系统调用。
 
-vDSO/vSYSCALL overwriting是一个非常有用的技术，它能够用在对于中断内容(interrupt context)的利用，因为它不需要本地进程来映射一段内存，或者提升权限。
+vDSO/vSYSCALL overwriting是一个非常有用的技术，它能够用在对于中断上下文(interrupt context)的利用，因为它不需要本地进程来映射一段内存，或者提升权限。
 
 在解决这个问题当中本文提到的解决思路也不是唯一的，另外一个解决思路可以在[这里](https://github.com/mncoppola/StringIPC/blob/master/solution/solution.c)找到
