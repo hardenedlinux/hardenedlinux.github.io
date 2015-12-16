@@ -10,9 +10,7 @@ Team: h4rdenedzer0
 * n3o4po11o
 * digitalplus
 
-Contributors:
-
-* [Ciphergateway](https://twitter.com/ciphergateway), [Tom Li](https://biergaizi.info/), [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25), happy-dw
+[Contributors](http://www.hardenedlinux.org/about2)
 
 
 The h4rdenedzer0 team was formed in 2014 and is a group of free software enthusiasts, anarchists, cyber security researchers. The massive medias would love to hear any stories from offsensive side. Who the hell cares the other side of fence?
@@ -26,3 +24,5 @@ Every member of h4rdenedzer0 has their own hacking fields, resulting in a divers
 btw: Some members of the h4rdenedzer0 are also contributors for [DNFWAH ezine](https://github.com/citypw/DNFWAH).
 
 btw: h4rdenedzer0部分成员也是电子杂志[DNFWAH ezine](https://github.com/citypw/DNFWAH)的贡献者。
+
+Contact us: ##hardenedlinux on FreeNode
