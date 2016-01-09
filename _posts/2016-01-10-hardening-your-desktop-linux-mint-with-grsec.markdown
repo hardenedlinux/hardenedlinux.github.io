@@ -60,7 +60,7 @@ Now you should have multiple kernel options. Comment two lines in /etc/default/g
 <pre>
 #GRUB_HIDDEN_TIMEOUT=0
 #GRUB_HIDDEN_TIMEOUT_QUIET=true
-<pre>
+</pre>
 
 And run:
 <pre>
