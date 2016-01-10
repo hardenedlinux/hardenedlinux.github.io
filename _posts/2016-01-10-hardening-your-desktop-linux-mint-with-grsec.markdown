@@ -32,7 +32,8 @@ We just celebrated another new year a couple of days ago, which means it's 2016 
 I just reviewed the current status of GNU/Linux distros. Sadly to say, only a few distros( Aphine, Gentoo, etc) shipped PaX/Grsecurity by default. Even worse if you take a glance at the GNU/Linux desktop field. The GUI is looking better than ever before. But the sense of security is almost like a decade ago. This is what make me ticks, to write this doc. I'm trying to show you there's a pretty easy way to do the whole process of hardening your desktop/laptop. I choose Linux Mint 17 as exmaple for two reasons.
 
 1, I'm a Linux Mint user since Linut Mint 15. I personally like MATE and I hate GNOME3;-)
-2, Linux Mint is the highest rank GNU/Linux distro in past 5 years( at least) according to (DistroWatch)[http://distrowatch.com/].
+
+2, Linux Mint is the highest rank GNU/Linux distro in past 5 years( at least) according to [DistroWatch](http://distrowatch.com/).
 
 
 ##--[ 1. Build and install customized kernel with PaX/Grsecurity patch
@@ -40,20 +41,21 @@ I just reviewed the current status of GNU/Linux distros. Sadly to say, only a fe
 I assumed you have Linux Mint 17 installed on your laptop or PC already. The 1st thing to do is install some packages will be used in the building of PaX/Grsecurity kernel:
 <pre>
 sudo apt-get update && sudo apt-get upgrade
+
 sudo apt-get install build-essential libncurses5-dev gcc-4.8-plugin-dev libssl-dev
 </pre>
 
-Download [linux kernel 4.3.3](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.3.3.tar.xz) and PaX/Grsecurity [test patch for 4.3.3](https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/grsecurity-3.1-4.3.3-201601051958.patch)( note: for any commercial purpose use, I'm highly recommend you to use [PaX/Grsecurity stable patch](https://grsecurity.net/announce.php)). Then, you could use [my config](https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/grsec-4.3.3-for-linux-mint-17.config) to build kernel:
+Then, download [linux kernel 4.3.3](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.3.3.tar.xz) and PaX/Grsecurity [test patch for 4.3.3](https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/grsecurity-3.1-4.3.3-201601051958.patch)( note: for any commercial purpose use, I'm highly recommend you to use [PaX/Grsecurity stable patch](https://grsecurity.net/announce.php)). Then, you could use [my config](https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/grsec-4.3.3-for-linux-mint-17.config) to build kernel:
 <pre>
 cd kernel-src
 patch -p1 < ../grsecurity-patch
-cp grsec-4.3.3-for-linux-mint-17.config .
+cp grsec-4.3.3-for-linux-mint-17.config .config
 make -j4 deb-pkg
 </pre>
 
 Then you should see some .deb files and you can use dpkg to install your new kernel:
 <pre>
-dpkg -i \*.deb
+dpkg -i *.deb
 </pre>
 
 Now you should have multiple kernel options. Comment two lines in /etc/default/grub if you want to choose which kernel to bootup:
@@ -75,12 +77,12 @@ sudo apt-get install chromium-browser vlc firefox amarok
 
 ##--[ 2. PaX flags: paxctl-ng & pax-bites
 
-[PaX flags](https://en.wikibooks.org/wiki/Grsecurity/Appendix/PaX_Flags) is provided by PaX/Grsecurity to tell the kernel which mitigations should be used in the specific binary. More falgs are active, more security you gains. But some binaries are not working with some PaX flags, e.g: JIT can't work with MPROTECT. For the sake of making PaX/Grsecurity work with Linux Mint, we'll have to disable some mitigations in some binaries. I wrote a tool is called [pax-bites](https://github.com/hardenedlinux/pax-bites), which utilize paxctl-ng to add/delete PaX flags. The config file of pax-bites is very easy to write. The format is like this:
+[PaX flags](https://en.wikibooks.org/wiki/Grsecurity/Appendix/PaX_Flags) is provided by PaX/Grsecurity to tell the kernel which mitigations should be used in the specific binary. More flags are enabled, more security you gains. But some binaries doesn't work with some PaX flags, e.g: JIT can't work with MPROTECT. For the sake of making PaX/Grsecurity work with Linux Mint, we'll have to disable some mitigations in some binaries. I wrote a tool is called [pax-bites](https://github.com/hardenedlinux/pax-bites), which utilize paxctl-ng to add/delete PaX flags. The config file of pax-bites is very easy to write. The format is like this:
 <pre>
-file\_path;flags
+file_path;flags
 </pre>
 
-For example, I'm using (this config)[https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/pax_flags_mint17.config):
+For example, I'm using [this config](https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/pax_flags_mint17.config):
 <pre>
 cat pax_flags_mint17.config 
 /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java;m
@@ -95,7 +97,7 @@ cat pax_flags_mint17.config
 /usr/bin/pulseaudio;m
 </pre>
 
- I( and other members of Hardenedlinux community) have tested some popular applications. If you find some applications won't work correctly caused by PaX/Grsecurity, you can write your own config( plz let us know) or just file a bug by our github.
+The very limited number of applications on Linut Mint GNU/Linux have been tested by us( I and other members of Hardenedlinux community). If you find some applications won't work correctly caused by PaX flags, you can write your own config( plz let us know) or just file a bug by our [github repo](https://github.com/hardenedlinux/hardenedlinux_profiles).
 
 
 ##--[ 3. Kernel tuning
