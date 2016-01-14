@@ -22,6 +22,7 @@ By citypw
 
 5. Sandboxing: seccomp
 
+6. Crypto
 
 ##--[ 0. About this documentation
 We just celebrated another new year a couple of days ago, which means it's 2016 already. A another new year usually just brings us to another fight. FOSS is still our fortress, as always.
@@ -132,3 +133,46 @@ The 2nd approach seems quite flexible. Here are two options:
 * [Firejail](https://firejail.wordpress.com/), developed/maintained by a group of people.
 
 I choose firejail, because the community provides a bunch of sandboxing polices for [some popular applications](http://forums.linuxmint.com/viewtopic.php?f=42&t=202735)( firefox, vlc, chromium, etc). It's almost like off-the-shell stuff. You can download the latest version of [firejail](http://sourceforge.net/projects/firejail/files/firejail/) and install it by package or compile it from source code. Note that the default Seccomp-bpf policies doesn't have any system call whitelists, which mean it is a sandbox without filtering any syscalls basically. So [write your own one](https://l3net.wordpress.com/2015/04/13/firejail-seccomp-guide/) if you want.
+
+
+##--[ 6. Crypto
+
+Crypto engineering has been playing a very important role in past decade. System security & crypto engineering are like twins. One can't live without another. Use crypto without system hardening is like building your infrastructre on sand. Only hardening the system without using crypto is like archer's holding a fancy Elf silver-bow but doesn't have any arrows at all. Don't forget the goal of infosec is to protect the fuc*ing information in 3 basic dimensions: C(onfidentiality), I(ntegrity) and A(vailability).
+
+##----[ 6.1 Entropy
+
+Entropy is matter to private/session keys. It'd be a big deal if you're using GNU/Linux as server. Desktop won't be have much trouble about it. PaX/Grsecurity increased entropy for the kernel somehow. You may still want to install a daemon to ensuring the system always has enough entrop. Let the cryptographers worries about blocking/non-blocking issues on [random/urandom](http://www.2uo.de/myths-about-urandom/). All you need to know is [Haveged](http://www.issihosts.com/haveged/history.html) will be very helpful to your server/desktop. You can [install it via](https://www.digitalocean.com/community/tutorials/how-to-setup-additional-entropy-for-cloud-servers-using-haveged):
+
+<pre>
+Installing haveged on Debian/Ubuntu
+
+You can easily install haveged on Debian and Ubuntu by running the following command:
+
+# apt-get install haveged
+
+Should this package not be available in your default repositories, you will need to compile from source (see below)
+
+Once you have the package installed, you can simply edit the configuration file located in /etc/default/haveged, ensuring the following options are set (usually already the default options):
+
+DAEMON_ARGS="-w 1024"
+
+Finally, just make sure it's configured to start on boot:
+
+# update-rc.d haveged defaults
+</pre>
+
+##----[ 6.2 Daily bread
+
+* [Pidgin](https://pidgin.im/) + OTR
+<pre>
+sudo apt-get install pidgin pidgin-otr
+</pre>
+
+
+* [Tor broswer](https://www.torproject.org/)
+
+It can bring you anonymity. Download it [here](https://www.torproject.org/download/download-easy.html.en).
+
+* [GnuPG](https://www.gnupg.org/)
+
+Encryption/Decryption email with GPG is not a bad idea. You may also want to try [opmsg](https://github.com/stealth/opmsg).
