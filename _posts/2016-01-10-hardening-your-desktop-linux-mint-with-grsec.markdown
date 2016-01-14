@@ -109,4 +109,26 @@ The current [sysctl.conf](https://github.com/hardenedlinux/hardenedlinux_profile
 
 ##--[ 4. Networking
 
-##--[ 5. Sandbox: seccomp
+Iptables is a eay-to-use stateful firewall. It's very important to let your desktop/laptop have it. [Some policies](https://github.com/hardenedlinux/hardenedlinux_profiles/blob/master/linux-mint_desktop/iptables_mint17.sh) has been tested. You can use it directly. Any feedback or improvement are always welcome.
+
+You might be interested in [how iptables/netfilter works](https://raw.githubusercontent.com/citypw/DNFWAH/master/2/d2_0x06_Hacking_the_wholism_of_linux_net.txt).
+
+##--[ 5. Sandbox: Seccomp-bpf based implementation
+
+The sandboxing technolog has a very long history of evolution journey in past decades. Here we're just going through [Seccomp based implementation](http://ekoparty.org/archive/2013/charlas/Sandboxing%20Linux%20code%20to%20mitigate%20exploitation%20%28Or-%20How%20to%20ship%20a%20secure%20operating%20system%20that%20includes%20third-party%20code%29.pdf). [Seccomp](https://wiki.mozilla.org/Security/Sandbox/Seccomp) is being merged into vanilla kernel since 2.6.12. Seccomp can not support complicated task because it whitelisted a few system calls for computing-only task. Anyway, it's not what we talk about here. We only care about Seccomp's extension: [Seccomp-bpf](https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt).
+
+There are two approaches to sandboxing the application you choose:
+
+* You can add Seccomp-bpf polices into the application by tweaking the polices via prctl(). IMOHO, it's quite like pledge() system call in latest OpenBSD. Here's [some examples](https://outflux.net/teach-seccomp/) from Kees Cook( Yeah, that Kees who helped out to brings the real sense of security into kernel upstream;-))
+
+* Use a external wrapper program to exec the application with Seccomp-bpf filtering polices.
+
+The 1st approach is developer-only. Because you'll have to modify the source code add those polices into it. Otherwise, I don't think this gonna happen in GNU/Linux community. OpenBSD community are trying add [pledge()](http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man2/pledge.2) into diverse applications but...the people who cares about security from OpenBSD community were called "[bunch of masturbating monkeys](http://article.gmane.org/gmane.linux.kernel/706950)" by Linus Torvalds....
+
+The 2nd approach seems quite flexible. Here are two options:
+
+* [Playpen](https://github.com/thestinger/playpen), developed by Daniel Micay.
+
+* [Firejail](https://firejail.wordpress.com/), developed/maintained by a group of people.
+
+I choose firejail, because the community provides a bunch of sandboxing polices for [some popular applications](http://forums.linuxmint.com/viewtopic.php?f=42&t=202735)( firefox, vlc, chromium, etc). It's almost like off-the-shell stuff. You can download the latest version of [firejail](http://sourceforge.net/projects/firejail/files/firejail/) and install it by package or compile it from source code. Note that the default Seccomp-bpf policies doesn't have any system call whitelists, which mean it is a sandbox without filtering any syscalls basically. So [write your own one](https://l3net.wordpress.com/2015/04/13/firejail-seccomp-guide/) if you want.
