@@ -24,6 +24,10 @@ By citypw
 
 6. Crypto
 
+   6.1 Entropy
+
+   6.2 Daily bread
+
 ##--[ 0. About this documentation
 We just celebrated another new year a couple of days ago, which means it's 2016 already. A another new year usually just brings us to another fight. FOSS is still our fortress, as always.
 
