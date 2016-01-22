@@ -9,6 +9,7 @@ Team: h4rdenedzer0
 * citypw
 * n3o4po11o
 * digitalplus
+* Pray3r
 
 [Contributors](http://www.hardenedlinux.org/about2)
 
