@@ -19,6 +19,7 @@ Content contributors:
 * [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
 * happy-dw
 * samson-w
+* [Pray3r](https://github.com/Pray3r)
 
 Donation:
 

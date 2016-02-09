@@ -1,15 +1,17 @@
 ---
 layout: post
-title:  "Bypassing SMEP Using vDSO Overwrites"
+title:  "Bypassing SMEP Using vDSO Overwrites(使用vDSO重写来绕过SMEP防护)"
 date:   2015-11-25 3:30:02
-summary: 在今年的CSAW(Cyber Security Awareness Week)决赛中有几个内核相关的挑战。下文是关于我解决题名为"StringIPC"的思路。
+summary: 在Intel的SMEP( Sandybridge加入）和SMAP（本来应该是Haswell加入，最终推迟到了broadwell时才加入）中SMEP已经大规模的部署到了生产环境中，由于一些媒体的误导，企业和个人都对SMEP有着过高的期望，斯拉夫兵工厂至少在13个月以前就有针对SMEP绕过的weaponized exploit，这次itszn的绕过SMEP防护的实现非常的精彩，直接把SMEP绕过打成了“白菜价”，而另外一方面，经过h4rdenedzer0的研究和测试发现，虽然PaX/Grsecurity中的类似USERCOPY可以轻松防御这种绕过，但更有意思的是没有任何防御feature的情况下仅靠代码级别的调整也能启到security through obscurity的作用，至少可以防止massive exploit的通杀。这个case值得关注的点还是在于单点防御是无效的，系统层的加固必须以纵深防御的思路来做
 categories: translation
 ---
+
+Shawn: Intel的SMEP( Sandybridge加入）和SMAP（本来应该是Haswell加入，最终推迟到了broadwell时才加入）中SMEP已经大规模的部署到了生产环境中，由于一些媒体的误导，企业和个人都对SMEP有着过高的期望，斯拉夫兵工厂至少在13个月以前就有针对SMEP绕过的weaponized exploit，这次itszn的绕过SMEP防护的实现非常的精彩，直接把SMEP绕过打成了“白菜价”，而另外一方面，经过h4rdenedzer0的研究和测试发现，虽然PaX/Grsecurity中的类似USERCOPY可以轻松防御这种绕过，但更有意思的是没有任何防御feature的情况下仅靠代码级别的调整也能启到security through obscurity的作用，至少可以防止massive exploit的通杀。这个case值得关注的点还是在于单点防御是无效的，系统层的加固必须以纵深防御的思路来做，多个mitigation feature+代码级加固会让兵工厂也很蛋疼，当然另外一方面bypass难度提升了他们的利润也会上升;-)
 
 原文地址 [Bypassing SMEP Using vDSO Overwrites](http://itszn.com/blog/?p=21)
 
 
-By:n3o4po11o
+译者：n3o4po11o
 
 在今年的CSAW(Cyber Security Awareness Week)决赛中有几个内核相关的挑战。下文是关于我解决题名为"StringIPC"的思路。(作者为[Michael Coppola](https://twitter.com/mncoppola))
 
@@ -166,8 +168,8 @@ uid=0(root) gid=0(root) groups=0(root)
 
 ##Final Notes
 
-vDSO不是唯一一个同时映射在内核空间和用户空间的内存。在x86-64当中,vSYSCALL与vDSO实现类是的功能，但多了一点特性就是每次重启都在同一个位置（可能可以通过内核版本进行预测）。然而 kernel.vsyscall64并没有在本次比赛启用，所以我们将通过vDSO来完成这个目的。如果vm.vdso_enable设置为0，then vDSO will also be bypassed and the libc wrappers will default to the normal syscalls. 
+vDSO不是唯一一个同时映射在内核空间和用户空间的内存。在x86-64当中,vSYSCALL与vDSO实现类是的功能，但多了一点特性就是每次重启都在同一个位置（可能可以通过内核版本进行预测）。然而 kernel.vsyscall64并没有在本次比赛启用，所以我们将通过vDSO来完成这个目的。如果vm.vdso_enable设置为0，vDSO也会被绕过并且libc的wrapper function会默认调用正常的系统调用。
 
-vDSO/vSYSCALL overwriting是一个非常有用的技术，它能够用在对于中断内容(interrupt context)的利用，因为它不需要本地进程来映射一段内存，或者提升权限。
+vDSO/vSYSCALL overwriting是一个非常有用的技术，它能够用在对于中断上下文(interrupt context)的利用，因为它不需要本地进程来映射一段内存，或者提升权限。
 
 在解决这个问题当中本文提到的解决思路也不是唯一的，另外一个解决思路可以在[这里](https://github.com/mncoppola/StringIPC/blob/master/solution/solution.c)找到
