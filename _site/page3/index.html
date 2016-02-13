@@ -6,7 +6,7 @@
   
   <title>Hardened GNU/Linux</title>
 
-  <meta name="description" content="We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!!
+  <meta name="description" content="We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!! A small step in security hardening --> A giant leap in Free & Open source software!!!
 ">
   <meta name="HandheldFriendly" content="True">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -37,7 +37,7 @@
         <div class="site-main">
         <header class="site-header">
     <h1 class="blog-title">Hardened GNU/Linux</h1>
-    <h2 class="blog-description">We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!!
+    <h2 class="blog-description">We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!! A small step in security hardening --> A giant leap in Free & Open source software!!!
 </h2>
     <ul class="nav">
         <li class="nav-home nav-current" role="presentation">
@@ -56,6 +56,62 @@
     
     <article class="post tag-text tag-formatting">
         <header class="post-header">
+	    <h2 class="post-title"><a href="/system-security/2015/07/05/badiret-analysis.html">漏洞利用"BadIRET"分析(CVE-2014-9322, Linux内核提权)</h2>
+	    <a class="post-meta" href="/system-security/2015/07/05/badiret-analysis.html">Posted on <time datetime="2015-07-05">05 July 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>Shawn：Linux内核代码文件arch/x86/kernel/entry_64.S在3.17.5之前的版本都没有正确的处理跟SS（堆栈区）段寄存器相关的错误，这可以让本地用户通过触发一个 IRET指令从错误的地址空间去访问GS基地址来提权。这个编号为CVE-2014-9322,漏洞于2014年11月23日被Linux内核社区修复，之后的几个礼拜里没有出现公开的利用代码甚至相关的讨论。当人们快要遗忘这个威胁的时候，Rafal Wojtczuk的分析文章Exploiting “BadIRET” vulnerability似乎在提醒我们：别忘了斯拉夫兵工厂。<a class="excerpt-suffix" href="/system-security/2015/07/05/badiret-analysis.html">&hellip;</a></p>
+	</section>
+	<footer class="post-footer">
+	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
+	    </div>
+	</footer>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">Gentoo GNU/Linux系统安装与加固</h2>
+	    <a class="post-meta" href="/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">Posted on <time datetime="2015-06-23">23 June 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>Gentoo Hardened is a Gentoo project that offers multiple additional security services on top of the well-known Gentoo Linux installation. Although each of them can be selected separately, Gentoo Hardened enables several risk-mitigating options in the toolchain, supports PaX, grSecurity, SELinux, TPE and more.<a class="excerpt-suffix" href="/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html">&hellip;</a></p>
+	</section>
+	<footer class="post-footer">
+	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
+	    </div>
+	</footer>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="/system-security/2015/06/19/STIG-4-Debian.html">STIG-4-Debian</h2>
+	    <a class="post-meta" href="/system-security/2015/06/19/STIG-4-Debian.html">Posted on <time datetime="2015-06-19">19 June 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>STIGs is bring by a government agency called The Defense Information System Agency(DISA), which is entity responsible for maintaining the security posture of the Department of Defence(DoD) IT infrastructure. After we heard how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about how *they* do the defense.<a class="excerpt-suffix" href="/system-security/2015/06/19/STIG-4-Debian.html">&hellip;</a></p>
+	</section>
+	<footer class="post-footer">
+	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
+	    </div>
+	</footer>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="/system-security/2015/06/10/debian-security-chklist.html">Debian GNU/Linux security checklist and hardening</h2>
+	    <a class="post-meta" href="/system-security/2015/06/10/debian-security-chklist.html">Posted on <time datetime="2015-06-10">10 June 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>GNU/Linux already become one of most important fundamental element in modern IT platform. Almost every important applications heavily rely on the core component of GNU system:GCC, Glibc and linux kernel. GNU/Linux is totally free/libre and open source software(FLOSS). Many people thinks free/libre and open source software is secure because its open to many eyes. Yes, that's true.<a class="excerpt-suffix" href="/system-security/2015/06/10/debian-security-chklist.html">&hellip;</a></p>
+	</section>
+	<footer class="post-footer">
+	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
+	    </div>
+	</footer>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
 	    <h2 class="post-title"><a href="/system-security/2015/05/26/segmexec.html">SEGMEXEC设计文档</h2>
 	    <a class="post-meta" href="/system-security/2015/05/26/segmexec.html">Posted on <time datetime="2015-05-26">26 May 2015</time></a>
 	</header>
@@ -68,69 +124,15 @@
 	</footer>
     </article>
     
-    <article class="post tag-text tag-formatting">
-        <header class="post-header">
-	    <h2 class="post-title"><a href="/system-security/2015/05/25/pageexec-old.html">PAGEEXEC的最早设计文档</h2>
-	    <a class="post-meta" href="/system-security/2015/05/25/pageexec-old.html">Posted on <time datetime="2015-05-25">25 May 2015</time></a>
-	</header>
-	<section class="post-excerpt">
-	    <p>Shawn：事实证明对性能影响很大，在之后的一些年里SEGEXEC用的更多，但PAGEXEC让我们明白了初始的PaX feature到底是什么样的一个东东，不了解你hacking领域历史的人永远无法去解决未来所要面对的问题，过去的15年里系统安全经历了有趣的进化，关于进攻阵营介绍已经够多了（或许我们未来可以花些时间聊聊），Aleph One也是名利双收。<a class="excerpt-suffix" href="/system-security/2015/05/25/pageexec-old.html">&hellip;</a></p>
-	</section>
-	<footer class="post-footer">
-	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
-	    </div>
-	</footer>
-    </article>
-    
-    <article class="post tag-text tag-formatting">
-        <header class="post-header">
-	    <h2 class="post-title"><a href="/system-security/2015/05/24/archeological_hacking_on_pax.html">PaX的技术考古之旅</h2>
-	    <a class="post-meta" href="/system-security/2015/05/24/archeological_hacking_on_pax.html">Posted on <time datetime="2015-05-24">24 May 2015</time></a>
-	</header>
-	<section class="post-excerpt">
-	    <p>PaX是针对linux kernel的一个加固版本的补丁，它让linux内核的内存页受限于最小权限原则，是这个星球上有史以来最极端和最优秀的防御系统级别0day的方案，第1版的设计和实现诞生于2000年，那可是一个没有ASLR/RELRO/NX/CANARY/FORITY/PIE都没有的年代，这些今天意义上的现代mitigation技术不管是linux/windows/macosx都多少抄袭和模仿了PaX的设计和实现，但有很多朋友会问：既然这东东这么厉害，为什么不在linux mainline里？PaX没有进入Linux内核upstream的原因不止一个，甚至有时候都不是纯粹技术本身的问题<a class="excerpt-suffix" href="/system-security/2015/05/24/archeological_hacking_on_pax.html">&hellip;</a></p>
-	</section>
-	<footer class="post-footer">
-	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
-	    </div>
-	</footer>
-    </article>
-    
-    <article class="post tag-text tag-formatting">
-        <header class="post-header">
-	    <h2 class="post-title"><a href="/system-security/2015/05/18/grsec-interview.html">Brad Spengler( Pax Team/grsecurity)访谈, 2010年1月1日</h2>
-	    <a class="post-meta" href="/system-security/2015/05/18/grsec-interview.html">Posted on <time datetime="2015-05-18">18 May 2015</time></a>
-	</header>
-	<section class="post-excerpt">
-	    <p>Shawn：PaX/Grsecurity是在OS安全上的一个开创性的贡献，没有PaX/Grsecurity的GNU/Linux的安全性只能防御脚本小子，过去的14年里Pax/Grsecurity为Linux内核做出了巨大出贡献的贡献，但到今天Linux内核社区都不愿意承认，这可能的确是受商业厂商控制了主流媒体的后果，在后棱镜时代，这种现象有极端的阴谋论甚至认为NSA也是推手，当然这也并非完全没有道理，毕竟SELinux项目早已成为Five-Eyes国家的标配。<a class="excerpt-suffix" href="/system-security/2015/05/18/grsec-interview.html">&hellip;</a></p>
-	</section>
-	<footer class="post-footer">
-	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
-	    </div>
-	</footer>
-    </article>
-    
-    <article class="post tag-text tag-formatting">
-        <header class="post-header">
-	    <h2 class="post-title"><a href="/system-security/2015/05/12/Grsecurity-for-Nexus-7-2013.html">PaX/Grsecurity for Nexus 7 2013</h2>
-	    <a class="post-meta" href="/system-security/2015/05/12/Grsecurity-for-Nexus-7-2013.html">Posted on <time datetime="2015-05-12">12 May 2015</time></a>
-	</header>
-	<section class="post-excerpt">
-	    <p>The porting work of the PaX patch already done. We tested it with Towel & KINGROOT. The result as expected:they all failed to root the Android 5.0.2 with kernel code base from 2014. Perhaps, we might try to make GRSEC & RBAC into the Android in the future.........<a class="excerpt-suffix" href="/system-security/2015/05/12/Grsecurity-for-Nexus-7-2013.html">&hellip;</a></p>
-	</section>
-	<footer class="post-footer">
-	    <div class="post-tags">Tagged with:  <a href=""><a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a></a>
-	    </div>
-	</footer>
-    </article>
-    
     <nav class="pagination" role="pagination">
-        <span class="page-number">Page 3 of 3</span>
+        <span class="page-number">Page 3 of 4</span>
         <nav class="page-nav cf">
 	
 	    <a class="newer-posts" href="/page2/">&larr; Newer Posts</a>
 	
 
+	
+	    <a class="older-posts" href="/page4/">Older Posts &rarr;</a>
 	
 	</nav>
     </nav>
