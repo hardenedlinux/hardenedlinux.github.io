@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Hardening your desktop: Linux Mint with PaX/Grsecurity </title>
+
+  <meta name="description" content="By citypw">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="canonical" href="http://www.hardenedlinux.org/system-security/2016/01/10/hardening-your-desktop-linux-mint-with-grsec.html">
+  <link rel="alternate" type="application/rss+xml" title="Hardened GNU/Linux" href="http://www.hardenedlinux.org/feed.xml" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1566884-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+ 
+<body class="post-template tag-text tag-formatting tag-list tag-images-2">
+<div class="site-main">
+        <header class="site-header">
+    <a href="Hardened GNU/Linux"><img class="blog-logo" src="/images/logo_400.png" alt="Blog Logo"></a>
+    <h1 class="blog-title"><a href="http://www.hardenedlinux.org">Hardened GNU/Linux</a></h1>
+    <h2 class="blog-description">We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!! A small step in security hardening --> A giant leap in Free & Open source software!!!
+</h2>
+    <ul class="nav">
+        <li class="nav-home" role="presentation">
+	    <a href="http://www.hardenedlinux.org">Home</a>
+	</li>
+        <li class="nav-about" role="presentation">
+	    <a href="http://www.hardenedlinux.org/about">About</a>
+	</li>
+        <li class="nav-about" role="presentation">
+	    <a href="http://www.hardenedlinux.org/about2">Contribution</a>
+	</li>
+    </ul>
+</header>
+ 
+        <div class="site-content" role="main">
+    <article class="post tag-text tag-formatting tag-list"> 
+        <header class="post-header">
+	    <h1 class="post-title">Hardening your desktop: Linux Mint with PaX/Grsecurity </h1>
+	    <span class="post-meta">
+	       Post on <time datetime="2016-01-10">10 January 2016</time>
+	    </span>
+	</header>
+	<section class="post-content">
+	    <p>By citypw</p>
+
+<p>–[ CONTENTS</p>
+
+<ol>
+  <li>
+    <p>About this doc</p>
+  </li>
+  <li>
+    <p>Build and install customized kernel with PaX/Grsecurity patch</p>
+  </li>
+  <li>
+    <p>PaX flags: paxctl-ng &amp; pax-bites</p>
+  </li>
+  <li>
+    <p>Kernel tuning</p>
+  </li>
+  <li>
+    <p>Networking</p>
+  </li>
+  <li>
+    <p>Sandboxing: seccomp</p>
+  </li>
+  <li>
+    <p>Crypto</p>
+
+    <p>6.1 Entropy</p>
+
+    <p>6.2 Daily bread</p>
+  </li>
+</ol>
+
+<h2 id="about-this-documentation">–[ 0. About this documentation</h2>
+<p>We just celebrated another new year a couple of days ago, which means it’s 2016 already. A another new year usually just brings us to another fight. FOSS is still our fortress, as always.</p>
+
+<ul>
+  <li>People may quite excited about we are getting one step closer to the Singularity. </li>
+  <li>People may praise about how great of technological evolution will be.</li>
+  <li>People may just stuck in some shitty places and get drunk and going out of nowhere.</li>
+  <li>People may……….well, it’s none of my fuc*ing business.</li>
+</ul>
+
+<p>I just reviewed the current status of GNU/Linux distros. Sadly to say, only a few distros( Aphine, Gentoo, etc) shipped PaX/Grsecurity by default. Even worse if you take a glance at the GNU/Linux desktop field. The GUI is looking better than ever before. But the sense of security is almost like a decade ago. This is what make me ticks, to write this doc. I’m trying to show you there’s a pretty easy way to do the whole process of hardening your desktop/laptop. I choose Linux Mint 17 as exmaple for two reasons.</p>
+
+<p>1, I’m a Linux Mint user since Linut Mint 15. I personally like MATE and I hate GNOME3;-)</p>
+
+<p>2, Linux Mint is the highest rank GNU/Linux distro in past 5 years( at least) according to <a href="http://distrowatch.com/">DistroWatch</a>.</p>
+
+<h2 id="build-and-install-customized-kernel-with-paxgrsecurity-patch">–[ 1. Build and install customized kernel with PaX/Grsecurity patch</h2>
+
+<p>I assumed you have Linux Mint 17 installed on your laptop or PC already. The 1st thing to do is install some packages will be used in the building of PaX/Grsecurity kernel:</p>
+<pre>
+sudo apt-get update &amp;&amp; sudo apt-get upgrade
+
+sudo apt-get install build-essential libncurses5-dev gcc-4.8-plugin-dev libssl-dev
+</pre>
+
+<p>Then, download <a href="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.3.3.tar.xz">linux kernel 4.3.3</a> and PaX/Grsecurity <a href="https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/grsecurity-3.1-4.3.3-201601051958.patch">test patch for 4.3.3</a>( note: for any commercial purpose use, I’m highly recommend you to use <a href="https://grsecurity.net/announce.php">PaX/Grsecurity stable patch</a>). Then, you could use <a href="https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/grsec-4.3.3-for-linux-mint-17.config">my config</a> to build kernel:</p>
+<pre>
+cd kernel-src
+patch -p1 &lt; ../grsecurity-patch
+cp grsec-4.3.3-for-linux-mint-17.config .config
+make -j4 deb-pkg
+</pre>
+
+<p>Then you should see some .deb files and you can use dpkg to install your new kernel:</p>
+<pre>
+dpkg -i *.deb
+</pre>
+
+<p>Now you should have multiple kernel options. Comment two lines in /etc/default/grub if you want to choose which kernel to bootup:</p>
+<pre>
+#GRUB_HIDDEN_TIMEOUT=0
+#GRUB_HIDDEN_TIMEOUT_QUIET=true
+</pre>
+
+<p>And run:</p>
+<pre>
+update-grub2
+</pre>
+
+<p>Before reboot, plz make sure you install some popular applications:</p>
+<pre>
+sudo apt-get install chromium-browser vlc firefox amarok
+</pre>
+
+<h2 id="pax-flags-paxctl-ng--pax-bites">–[ 2. PaX flags: paxctl-ng &amp; pax-bites</h2>
+
+<p><a href="https://en.wikibooks.org/wiki/Grsecurity/Appendix/PaX_Flags">PaX flags</a> is provided by PaX/Grsecurity to tell the kernel which mitigations should be used in the specific binary. More flags are enabled, more security you gains. But some binaries doesn’t work with some PaX flags, e.g: JIT can’t work with MPROTECT. For the sake of making PaX/Grsecurity work with Linux Mint, we’ll have to disable some mitigations in some binaries. I wrote a tool is called <a href="https://github.com/hardenedlinux/pax-bites">pax-bites</a>, which utilize paxctl-ng to add/delete PaX flags. The config file of pax-bites is very easy to write. The format is like this:</p>
+<pre>
+file_path;flags
+</pre>
+
+<p>For example, I’m using <a href="https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/pax_flags_mint17.config">this config</a>:</p>
+<pre>
+cat pax_flags_mint17.config 
+/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java;m
+/usr/bin/python2.7;m
+/usr/bin/python3.4;m
+/usr/lib/mdm/mdmwebkit;m
+/usr/lib/firefox/firefox;m
+/usr/lib/firefox/plugin-container;m
+/usr/lib/thunderbird/thunderbird;m
+/usr/lib/chromium-browser/chromium-browser;m
+/usr/bin/amarok;m
+/usr/bin/pulseaudio;m
+</pre>
+
+<p>The very limited number of applications on Linut Mint GNU/Linux have been tested by us( I and other members of Hardenedlinux community). If you find some applications won’t work correctly caused by PaX flags, you can write your own config( plz let us know) or just file a bug by our <a href="https://github.com/hardenedlinux/hardenedlinux_profiles">github repo</a>.</p>
+
+<h2 id="kernel-tuning">–[ 3. Kernel tuning</h2>
+
+<p>The current <a href="https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/sysctl.conf">sysctl.conf</a>. We will do more work on this. Any detail about security-related kernel tuning, you might want to check <a href="http://hardenedlinux.org/system-security/2015/06/09/debian-security-chklist.html">Debian security checklist</a>.</p>
+
+<h2 id="networking">–[ 4. Networking</h2>
+
+<p>Iptables is a eay-to-use stateful firewall. It’s very important to let your desktop/laptop have it. <a href="https://github.com/hardenedlinux/hardenedlinux_profiles/blob/master/linux-mint_desktop/iptables_mint17.sh">Some policies</a> has been tested. You can use it directly. Any feedback or improvement are always welcome.</p>
+
+<p>You might be interested in <a href="https://raw.githubusercontent.com/citypw/DNFWAH/master/2/d2_0x06_Hacking_the_wholism_of_linux_net.txt">how iptables/netfilter works</a>.</p>
+
+<h2 id="sandbox-seccomp-bpf-based-implementation">–[ 5. Sandbox: Seccomp-bpf based implementation</h2>
+
+<p>The sandboxing technolog has a very long history of evolution journey in past decades. Here we’re just going through <a href="http://ekoparty.org/archive/2013/charlas/Sandboxing%20Linux%20code%20to%20mitigate%20exploitation%20%28Or-%20How%20to%20ship%20a%20secure%20operating%20system%20that%20includes%20third-party%20code%29.pdf">Seccomp based implementation</a>. <a href="https://wiki.mozilla.org/Security/Sandbox/Seccomp">Seccomp</a> is being merged into vanilla kernel since 2.6.12. Seccomp can not support complicated task because it whitelisted a few system calls for computing-only task. Anyway, it’s not what we talk about here. We only care about Seccomp’s extension: <a href="https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">Seccomp-bpf</a>.</p>
+
+<p>There are two approaches to sandboxing the application you choose:</p>
+
+<ul>
+  <li>
+    <p>You can add Seccomp-bpf polices into the application by tweaking the polices via prctl(). IMOHO, it’s quite like pledge() system call in latest OpenBSD. Here’s <a href="https://outflux.net/teach-seccomp/">some examples</a> from Kees Cook( Yeah, that Kees who helped out to brings the real sense of security into kernel upstream;-))</p>
+  </li>
+  <li>
+    <p>Use a external wrapper program to exec the application with Seccomp-bpf filtering polices.</p>
+  </li>
+</ul>
+
+<p>The 1st approach is developer-only. Because you’ll have to modify the source code add those polices into it. Otherwise, I don’t think this gonna happen in GNU/Linux community. OpenBSD community are trying add <a href="http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man2/pledge.2">pledge()</a> into diverse applications but…the people who cares about security from OpenBSD community were called “<a href="http://article.gmane.org/gmane.linux.kernel/706950">bunch of masturbating monkeys</a>” by Linus Torvalds….</p>
+
+<p>The 2nd approach seems quite flexible. Here are two options:</p>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/thestinger/playpen">Playpen</a>, developed by Daniel Micay.</p>
+  </li>
+  <li>
+    <p><a href="https://firejail.wordpress.com/">Firejail</a>, developed/maintained by a group of people.</p>
+  </li>
+</ul>
+
+<p>I choose firejail, because the community provides a bunch of sandboxing polices for <a href="http://forums.linuxmint.com/viewtopic.php?f=42&amp;t=202735">some popular applications</a>( firefox, vlc, chromium, etc). It’s almost like off-the-shell stuff. You can download the latest version of <a href="http://sourceforge.net/projects/firejail/files/firejail/">firejail</a> and install it by package or compile it from source code. Note that the default Seccomp-bpf policies doesn’t have any system call whitelists, which mean it is a sandbox without filtering any syscalls basically. So <a href="https://l3net.wordpress.com/2015/04/13/firejail-seccomp-guide/">write your own one</a> if you want.</p>
+
+<h2 id="crypto">–[ 6. Crypto</h2>
+
+<p>Crypto engineering has been playing a very important role in past decade. System security &amp; crypto engineering are like twins. One can’t live without another. Use crypto without system hardening is like building your infrastructre on sand. Only hardening the system without using crypto is like archer’s holding a fancy Elf silver-bow but doesn’t have any arrows at all. Don’t forget the goal of infosec is to protect the fuc*ing information in 3 basic dimensions: C(onfidentiality), I(ntegrity) and A(vailability).</p>
+
+<h2 id="entropy">—-[ 6.1 Entropy</h2>
+
+<p>Entropy is matter to private/session keys. It’d be a big deal if you’re using GNU/Linux as server. Desktop won’t be have much trouble about it. PaX/Grsecurity increased entropy for the kernel somehow. You may still want to install a daemon to ensuring the system always has enough entrop. Let the cryptographers worries about blocking/non-blocking issues on <a href="http://www.2uo.de/myths-about-urandom/">random/urandom</a>. All you need to know is <a href="http://www.issihosts.com/haveged/history.html">Haveged</a> will be very helpful to your server/desktop. You can <a href="https://www.digitalocean.com/community/tutorials/how-to-setup-additional-entropy-for-cloud-servers-using-haveged">install it via</a>:</p>
+
+<pre>
+Installing haveged on Debian/Ubuntu
+
+You can easily install haveged on Debian and Ubuntu by running the following command:
+
+# apt-get install haveged
+
+Should this package not be available in your default repositories, you will need to compile from source (see below)
+
+Once you have the package installed, you can simply edit the configuration file located in /etc/default/haveged, ensuring the following options are set (usually already the default options):
+
+DAEMON_ARGS="-w 1024"
+
+Finally, just make sure it's configured to start on boot:
+
+# update-rc.d haveged defaults
+</pre>
+
+<h2 id="daily-bread">—-[ 6.2 Daily bread</h2>
+
+<ul>
+  <li><a href="https://pidgin.im/">Pidgin</a> + OTR</li>
+</ul>
+<pre>
+sudo apt-get install pidgin pidgin-otr
+</pre>
+
+<ul>
+  <li><a href="https://www.torproject.org/">Tor broswer</a></li>
+</ul>
+
+<p>It can bring you anonymity. Download it <a href="https://www.torproject.org/download/download-easy.html.en">here</a>.</p>
+
+<ul>
+  <li><a href="https://www.gnupg.org/">GnuPG</a></li>
+</ul>
+
+<p>Encryption/Decryption email with GPG is not a bad idea. You may also want to try <a href="https://github.com/stealth/opmsg">opmsg</a>.</p>
+
+	</section>
+	<section class="post-footer">
+	    <div class="post-tags">
+	        Tagged with: <a class='category' href='http://hardenedlinux.org/categories/system-security/'>system-security</a>
+	    </div>
+	</section>
+    </article>
+</div>
+ 
+        <footer class="site-footer">
+    <a href="https://github.com/hardenedlinux"><i class="fa fa-github-alt fa-2x"></i></a>
+    <a href="mailto:hardenedlinux@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
+    <a href="https://twitter.com/hardenedlinux"><i class="fa fa-twitter fa-2x"></i></a>
+    <a href="https://groups.google.com/forum/#!forum/hardenedlinux"><i class="fa fa-google fa-2x"></i></a>
+    <div class="inner">
+        <section class="copyright">This theme copyright by <a href="http://scotthsmith.com">Scott Smith</a></section>
+    </div>
+</footer>
+ 
+</div>
+<script src="//use.typekit.net/qdi5fpu.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+</body>
+</html>

