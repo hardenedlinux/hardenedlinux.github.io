@@ -2,7 +2,7 @@
 layout: post
 title:  "HACKERS AND HEROES: A TALE OF TWO COUNTRIES"
 date:   2016-02-12 22:05:05
-summary: 
+summary: "从很多方面来说，德国与美国的黑客文化都很相似，从软硬结合类型到相近的业余无线电到Blinkenlights。通过阅读Hackaday，你会发现两个国家都有类似的项目出现。在过去的10年中，两个国家都有大量黑客空间(hackerspace)出现。可能在你生活的城市中就有一两个:)。但生活在美国的黑客还缺少了一个德国黑客已经拥有的东西：尊重。"
 categories: translation
 ---
 
