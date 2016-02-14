@@ -37,7 +37,7 @@ CCC在这点上做得十分在行，他们偶尔推出的出版物提醒他们�
 
 就在CCC像其他俱乐部一样诞生时，一些早期的高调 hacks 帮忙找到了俱乐部的方向，也让作为普通人一面的他们塑造了他们的公众形象。我并不是说所有人的动机都是纯正的或者光明磊落的，但就像L0pht后来在美国一样，CCC也成为了网络新闻中关于安全漏洞的公开信息来源。CCC将这些安全漏洞一律公开，而不考虑它们会造成什么样的潜在后果。而且，如果蒙受损失的是黑客们的头号大敌 —— 德国邮政(Bundespost)，也不会损害黑客的声誉。
 
-![Posthorn Montage](images/posthorn_montage.png)
+![Posthorn Montage](/images/posthorn_montage.png)
 
 *左图：德国邮政Logo。右图：CCC海盗旗。看懂了吧？*
 
@@ -68,7 +68,7 @@ CCC在这点上做得十分在行，他们偶尔推出的出版物提醒他们�
 
 这个演讲的幻灯片[《黑客空间设计模式》](http://events.ccc.de/congress/2007/Fahrplan/attachments/1003_Building%20a%20Hacker%20Space.pdf)，成为这三人引领美国黑客空间新浪潮的起点。在2008年2月，营利组织[NYC Resistor](http://www.nycresistor.com/)开张营业，3月，非营利组织[HacDC](http://www.hacdc.org/)成立，开始进行非营利活动。尽管他们在这里和那里聚会有一段时间了，在2008年10月，[Noisebridge](https://www.noisebridge.net/)租借了一个场地，并在六个月内紧接其后，成立为一个非营利组织。
 
-![Hackers On Plane](hackersonaplane2.jpg)
+![Hackers On Plane](/images/hackersonaplane2.jpg)
 
 在这些年中，有成百的黑客空间在美国建立。如今，[在hackerspace.org上，全美国有406个登记活跃的黑客空间](https://wiki.hackerspaces.org/w/index.php?title=Special:Ask&offset=0&limit=500&q=[[Category%3AHackerspace]]+[[country%3A%3AUnited+States+of+America]]+[[hackerspace+status%3A%3Aactive]]&p=format%3Dul%2Fdefault%3D-27-27There-20is-20no-20known-20hackerspace-20in-20this-20country.-27-27&po=%3FCity%0A%3FState%0A%3FWebsite%0A%3FResidencies%0A&sort=Last+Updated)，在全世界则有超过1200 个。八年时间内的如此成果显然不差！如果你还没有参与到本地的黑客空间中，这对你来说是笔损失。
 
@@ -78,7 +78,7 @@ CCC在这点上做得十分在行，他们偶尔推出的出版物提醒他们�
 
 但是，我虽然热爱美国黑客空间在过去十年中雨后春笋般的出现，以及我访问的每个黑客空间各自的特色，我不得不说美国缺失了一些东西：一个更大的组织和目的。如果400+个美国黑客空间众志成城，他们会取得多酷的成果怎么高估都不过分。
 
-![HackerSpaces](800px-hackerspacesteedesign.jpg)
+![HackerSpaces](/images/800px-hackerspacesteedesign.jpg)
 
 
 ## USA-CON!
