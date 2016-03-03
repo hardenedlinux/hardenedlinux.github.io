@@ -106,7 +106,7 @@ CCC随之创建了一个“eingetragener Verein (e. V.)” (*译注: [e. V.](htt
 
 
 
-## 我认为德国是尊重黑客的安全岛
+### 我认为德国是尊重黑客的安全岛
 
 
 起初在网络背后的政府机构[忽略了提出的问题](http://www.spiegel.de/einestages/btx-hack-1984-angriff-der-ccc-hacker-gegen-die-bundespost-a-1002443.html)。因此CCC将hack的细节分享给德国最大的一家广播公司，在媒体一番炒作之后，问题被修复了。最后CCC将现金返还。
@@ -143,7 +143,7 @@ CCC随之创建了一个“eingetragener Verein (e. V.)” (*译注: [e. V.](htt
 整个事件“威胁到要终结CCC，” Neumann说 - 严重损害他们所代表的黑客形象。
 
 ![](/images/2016-03-02-cccavghc/CCC-hackerspace.jpg)
-<center><center><small>CCC hackerspace. Photo: Joseph Cox</small></center>
+<center><small>CCC hackerspace. Photo: Joseph Cox</small></center>
 
 
 Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏林墙倒塌，让首都成为一个”疯狂"的地方，聚会当时在柏林举办，Pritlove说，"在那儿，每个社会的小组织都莫名其妙地足够壮大而能维持。“
@@ -175,7 +175,7 @@ Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏�
 进入权力机构的做法已经受到欢迎。2015年11月，德国内政部长[公开声明](http://www.faz.net/aktuell/wirtschaft/netzwirtschaft/it-gipfel-ich-braeuchte-von-ihnen-mal-eine-krisennummer-13921103.html)，如果一个大规模的互联网相关或赛博事件发生，他将会求助于CCC。
 
 
-##“如今整个活动就是一个操作系统”
+###“如今整个活动就是一个操作系统”
 
 
 
@@ -183,7 +183,7 @@ Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏�
 
 
 因此，Pritlove告诉我，CCC开始接触到在美国的联系人，邀请他们来发表演讲。
-</small></center>
+
 
 “他们回去后，告诉其朋友们所有关于大会的情况。下一年，有20个人来，再下一年，有更多的人来，” Pritlove说。
 
