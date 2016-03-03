@@ -146,13 +146,13 @@ CCC随之创建了一个“eingetragener Verein (e. V.)” (*译注: [e. V.](htt
 <center><center><small>CCC hackerspace. Photo: Joseph Cox</small></center>
 
 
-Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏林墙倒塌，让首都成为一个“疯狂”的地方，聚会当时在柏林举办，Pritlove说，“在那儿，每个社会的小组织都莫名其妙地足够壮大而能维持。”
+Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏林墙倒塌，让首都成为一个”疯狂"的地方，聚会当时在柏林举办，Pritlove说，"在那儿，每个社会的小组织都莫名其妙地足够壮大而能维持。“
 
 
 然后到了90年代后期，大会发展巨快，大概超过以往任何时候。Pritlove说，“终于hacking成为很酷的事情，每个年轻人都有自己的电脑。”
 
 
-“'万维网'(world wide web)，'赛博空间'，每件事都完全让人兴奋，” 他补充到，“千禧年来临，未来终将在这里！”
+“万维网(world wide web)，赛博空间，每件事都完全让人兴奋，” 他补充到，“千禧年来临，未来终将在这里！”
 
 
 在整个过程中，一个持续不断的政治脉络贯穿着CCC和大会的发展。从左翼报纸Die Tageszeitung的办公室，到柏林和汉堡的反资本主义占屋，直到今天一个[索马里难民在大会主讲台发表主题演讲](http://www.theguardian.com/technology/2015/dec/29/hamburg-chaos-hacker-conference-refugee-keynote)，政治在塑造俱乐部及其行动中扮演了至关重要的角色。
