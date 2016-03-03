@@ -877,15 +877,18 @@ Well, plz [read this](https://stribika.github.io/2015/01/04/secure-secure-shell.
 The explanation is [here](https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/)
 
 Apache:
+<pre>
 SSLProtocol ALL -SSLv2 -SSLv3
 SSLHonorCipherOrder On
 SSLCipherSuite ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
+</pre>
 
 Nginx:
+<pre>
 ssl_prefer_server_ciphers On;
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
-
+</pre>
 
 --[ 5. Web security
 
