@@ -105,8 +105,7 @@ CCC随之创建了一个“eingetragener Verein (e. V.)” (*译注: [e. V.](htt
 在大会开始的同年，Wau Holland和另一个CCC成员Steffan Wernery，搞了一次'抢银行'。他们利用Bildschirmtext (BTX)的缺陷，这是由[德国联邦邮政](https://en.wikipedia.org/wiki/Deutsche_Bundespost)和电话网络运营的计算机网络，掐掉13万5千德国马克(大概7万5千美元)，存到CCC拥有的银行账户上。
 
 
-
-### 我认为德国是尊重黑客的安全岛
+## 我认为德国是尊重黑客的安全岛
 
 
 起初在网络背后的政府机构[忽略了提出的问题](http://www.spiegel.de/einestages/btx-hack-1984-angriff-der-ccc-hacker-gegen-die-bundespost-a-1002443.html)。因此CCC将hack的细节分享给德国最大的一家广播公司，在媒体一番炒作之后，问题被修复了。最后CCC将现金返还。
@@ -175,8 +174,7 @@ Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏�
 进入权力机构的做法已经受到欢迎。2015年11月，德国内政部长[公开声明](http://www.faz.net/aktuell/wirtschaft/netzwirtschaft/it-gipfel-ich-braeuchte-von-ihnen-mal-eine-krisennummer-13921103.html)，如果一个大规模的互联网相关或赛博事件发生，他将会求助于CCC。
 
 
-###“如今整个活动就是一个操作系统”
-
+## “如今整个活动就是一个操作系统”
 
 
 在00后中期以前，大会很大程度上是与世隔绝的事件。虽然它也吸引德国各地及欧洲的黑客，但在这之外的黑客们大部分并不关注。
