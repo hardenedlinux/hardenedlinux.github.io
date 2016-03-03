@@ -29,6 +29,7 @@ Tim Privlove, CCC的一位资深成员，早期会议的组织者，不认为这
 
 “这实际上不是为了免费。我实际上认为，你不能这么来看它：因为它不是工作，” 在最近的大会上他一边喝着咖啡一边说。“这是他们的活动：他们拥有它。这根植到他们的DNA，如果没有它，他们难以活下去。”
 
+
 ![]( /images/2016-03-02-cccavghc/CCC-hallway.jpg)
 <center><small>CCC hallway. Photo: Joseph Cox</small></center>
 
