@@ -15,7 +15,7 @@ categories: translation
 
 德国各地几十个混沌计算机俱乐部分会([Chaos Computer Club (CCC) chapters](https://www.ccc.de/de/club/erfas))的成员，以及来自世界各地的与会者，屈尊到汉堡，喝着黑客汽水(*译注：[club-mate](https://motherboard.vice.com/blog/how-a-german-soda-became-hackers-fuel-of-choice), 含马黛的苏打饮料，称为[黑客汽水](http://www.douban.com/subject/24871269/)*)，进行为期四天的hacking、辩论和演讲。
 
-这就是混沌通讯会议，CCC的年度艺术、政治和安全大会，由一千多强大的志愿大军操办。
+这就是混沌通讯会议，CCC的年度艺术、政治和安全大会，由一千多强大的志愿者大军操办。
 
 
 <center>***</center>
@@ -58,16 +58,16 @@ Tim Privlove, CCC的一位资深成员，早期会议的组织者，不认为这
 “一个供职于德国军方的人参加了CCC，大概不想告诉任何人，他们可能不愿出现在台面上，” Neumann说。
 
 
-在黑帽，美国的一个主要黑客大会上，国家安全局长Keith Alexander发表了[2013年的主题演讲](https://www.youtube.com/watch?v=4Sg4AtcW0LU)
+在黑帽，美国的一个主要黑客大会上，国家安全局长Keith Alexander发表了[2013年的主题演讲](https://www.youtube.com/watch?v=4Sg4AtcW0LU)。
 
 
 这显然，从来不会发生在混沌通讯大会上。
 
 
-“当我离开时，会有这一天，” CCC的主席，被称为“dodger”，告诉我。“我们尽可能避开那些为情报业或类似事情工作的人。”
+“当我离开时，会有这一天，” CCC的主席，被称为“dodger”，告诉我。“我们尽可能避开那些为情报机构或类似事情工作的人。”
 
 
-但是，当对待军方以外或情报机关时，灰色地带出现了。如果CCC发布一个总名单反对邀请供职于那些领域的人，“那么我们就不会有任何揭弊者，”比如爱德华·斯诺登，dodger说。
+但是，当对待前军方或情报机构雇员时，灰色地带出现了。如果CCC发布一个总名单反对邀请供职于那些领域的人，“那么我们就不会有任何揭弊者，”比如爱德华·斯诺登，dodger说。
 
 
 “这很难办。”
