@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "PaX 早期设计文档概述"
-date:   2016-03-09 11:09:08
 summary: PaX 项目的目标是研究各种针对软件开发缺陷的防御机制，这些缺陷可以让攻击者针对被攻击任务所在的地址空间行任意读/写。这类缺陷还包括其他各种形式的（基于栈或堆的）缓冲区溢出漏洞、用户提供的格式化字符串漏洞，等等。
 categories: system-security
 ---
@@ -54,3 +53,5 @@ mmap/mprotect 的限制主要是独立于架构的，只有处理特殊情况时
 ASLR 同样是独立于架构的，只有一种特例，那就是不同地址的可随机化位在不同架构中是有区别的。其文档按照随机化区域拆分，所以 RANDKSTACK 和 RANDUSTACK 分别描述了 kernerl 和用户栈的特性。 RANDMMAP 和 RANDEXEC 的内容分别是关于随机化区域用于 ELF 库和可执行性的。实现 SEGMEXEC 和 RANDEXEC 的基础结构是 vma mirroring，在文档 VMMIRROR 中描述。
 
 由于一些应用程序需要执行 PaX 所禁止的行为（实时生成代码）或需要做出 PaX 环境下不再正确的假设 （例如，在地址空间中固定了或至少预先描述出此地址），我们提供了一个工具叫做 "chpax"，它可以帮助终端用户针对各种 PaX 特性基于其可执性进行细致的控制。
+
+> Shawn注：目前(2016年3月）Hardenedlinux社区推荐使用paxctl-ng（而不是chpax和paxctl）来给二进制可执行程序打PaX flags，paxctl-ng是属于elfix项目的一个工具，在很长一段时间里都elfix都只有Gentoo才有人打包，而paxctl-ng支持XT_PAX的特性在安全运维中很多人都会使用到，目前Hardenedlinux社区有一名maintainer做[elfix for Debian packaging](https://github.com/hardenedlinux/elfix-deb/tree/master/debian)的工作。
