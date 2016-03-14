@@ -7,6 +7,7 @@ categories: translation
 
 原文地址：[Chaos Communication Congress: A Very German Hacking Conference](http://motherboard.vice.com/read/chaos-communication-congress-a-very-german-hacking-conference)
 
+
 译者：lifematrix[<stevenliucx@gmail.com>]
 
 
@@ -65,7 +66,7 @@ Tim Privlove, CCC的一位资深成员，早期会议的组织者，不认为这
 这显然，从来不会发生在混沌通讯大会上。
 
 
-“当我离开时，会有这一天，” CCC的主席，被称为“dodger”，告诉我。“我们尽可能避开那些为情报业或类似事情工作的人。”
+“当我离开时，会有这一天，” CCC的主席，他叫“dodger”，告诉我。“我们尽可能避开那些为情报业或类似事情工作的人。”
 
 
 但是，当对待军方以外或情报机关时，灰色地带出现了。如果CCC发布一个总名单反对邀请供职于那些领域的人，“那么我们就不会有任何揭弊者，”比如爱德华·斯诺登，dodger说。
@@ -175,7 +176,7 @@ Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏�
 进入权力机构的做法已经受到欢迎。2015年11月，德国内政部长[公开声明](http://www.faz.net/aktuell/wirtschaft/netzwirtschaft/it-gipfel-ich-braeuchte-von-ihnen-mal-eine-krisennummer-13921103.html)，如果一个大规模的互联网相关或赛博事件发生，他将会求助于CCC。
 
 
-## “如今整个活动就是一个操作系统”
+##  “如今整个活动就是一个操作系统”
 
 
 在00后中期以前，大会很大程度上是与世隔绝的事件。虽然它也吸引德国各地及欧洲的黑客，但在这之外的黑客们大部分并不关注。
