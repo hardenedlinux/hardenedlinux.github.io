@@ -88,10 +88,11 @@ VM_EXEC 的），所以只留给了我们4种良好状态：
 映射。为了让这些程序在 MPROTECT 下工作，使用的方法是扩充 mmap() 界面
 并且允许将 VM_MAY* 置于特定状态。下面的例子演示了程序是如何使用此方法
 的：
-
+<pre>
 - mmap(..., PROT_READ | PROT_WRITE | PROT_MAYREAD | PROT_MAYEXEC, ...)
 - 在以上区域生成代码
 - mprotect(..., PROT_READ | PROT_EXEC)
+</pre>
 
 注意，初始 mmap() 调用从来不会请求和允许 PROT_EXEC ，因此程序的设计者
 必须显式调用 mprotect()，这样就可以避免意外地违反 MPROTECT 规则。
