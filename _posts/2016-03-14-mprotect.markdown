@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "mprotect 早期设计文档"
+title:  "MPROTECT早期设计文档"
 summary: MPROTECT 的目标是防止在任务的地址空间引入新的可执行代码。通过限制 mmap() 和 mprotect() 界面可以达到此目的。
 categories: system-security
 ---
