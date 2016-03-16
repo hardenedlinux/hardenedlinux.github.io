@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "混沌通讯会议：一场很德国的黑客大会"
+title: "CCC(混沌通讯会议)：一场很德国的黑客大会"
 summary: "哑剧艺术家懒洋洋地躺在铺着地毯的楼梯上，几百张桌子，上面凌乱地堆满笔记本电脑，延伸到不同的几个大厅。一个穿得整整>齐齐的人，脸朝下趴在一间侧屋的床垫上，昨晚一整夜疯狂地敲击键盘，已让他心力憔悴。"
 categories: translation
 ---
@@ -16,7 +16,7 @@ categories: translation
 
 德国各地几十个混沌计算机俱乐部分会([Chaos Computer Club (CCC) chapters](https://www.ccc.de/de/club/erfas))的成员，以及来自世界各地的与会者，屈尊到汉堡，喝着黑客汽水(*译注：[club-mate](https://motherboard.vice.com/blog/how-a-german-soda-became-hackers-fuel-of-choice), 含马黛的苏打饮料，称为[黑客汽水](http://www.douban.com/subject/24871269/)*)，进行为期四天的hacking、辩论和演讲。
 
-这就是混沌通讯会议，CCC的年度艺术、政治和安全大会，由一千多强大的志愿大军操办。
+这就是混沌通讯会议，CCC的年度艺术、政治和安全大会，由一千多强大的志愿者大军操办。
 
 
 <center>***</center>
@@ -66,10 +66,10 @@ Tim Privlove, CCC的一位资深成员，早期会议的组织者，不认为这
 这显然，从来不会发生在混沌通讯大会上。
 
 
-“当我离开时，会有这一天，” CCC的主席，他叫“dodger”，告诉我。“我们尽可能避开那些为情报业或类似事情工作的人。”
+“当我离开时，会有这一天，” CCC的主席，他叫“dodger”，告诉我。“我们尽可能避开那些为情报机构或类似事情工作的人。”
 
 
-但是，当对待军方以外或情报机关时，灰色地带出现了。如果CCC发布一个总名单反对邀请供职于那些领域的人，“那么我们就不会有任何揭弊者，”比如爱德华·斯诺登，dodger说。
+但是，当对待前军方或情报机构雇员时，灰色地带出现了。如果CCC发布一个总名单反对邀请供职于那些领域的人，“那么我们就不会有任何揭弊者，”比如爱德华·斯诺登，dodger说。
 
 
 “这很难办。”
@@ -147,13 +147,13 @@ CCC随之创建了一个“eingetragener Verein (e. V.)” (*译注: [e. V.](htt
 <center><small>CCC hackerspace. Photo: Joseph Cox</small></center>
 
 
-Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏林墙倒塌，让首都成为一个“疯狂”的地方，聚会当时在柏林举办，Pritlove说，“在那儿，每个社会的小组织都莫名其妙地足够壮大而能维持。”
+Pritlove解释说，大会在汉堡和柏林之间迁移了数次。1989年柏林墙倒塌，让首都成为一个”疯狂"的地方，聚会当时在柏林举办，Pritlove说，"在那儿，每个社会的小组织都莫名其妙地足够壮大而能维持。“
 
 
 然后到了90年代后期，大会发展巨快，大概超过以往任何时候。Pritlove说，“终于hacking成为很酷的事情，每个年轻人都有自己的电脑。”
 
 
-“'万维网'(world wide web)，'赛博空间'，每件事都完全让人兴奋，” 他补充到，“千禧年来临，未来终将在这里！”
+“万维网(world wide web)，赛博空间，每件事都完全让人兴奋，” 他补充到，“千禧年来临，未来终将在这里！”
 
 
 在整个过程中，一个持续不断的政治脉络贯穿着CCC和大会的发展。从左翼报纸Die Tageszeitung的办公室，到柏林和汉堡的反资本主义占屋，直到今天一个[索马里难民在大会主讲台发表主题演讲](http://www.theguardian.com/technology/2015/dec/29/hamburg-chaos-hacker-conference-refugee-keynote)，政治在塑造俱乐部及其行动中扮演了至关重要的角色。
