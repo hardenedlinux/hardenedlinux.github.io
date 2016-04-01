@@ -10,7 +10,7 @@ by citypw and an anonymous dude
 
 "As long as there is technology, there will be hackers. As long as there are hackers, there will be PHRACK magazine." --- The Circle of Lost Hackers on Phrack issue 64
 
-As long as there is bugs, there will be vulnerablities. As long as there are vulnerablities, there will be regular/stable/weaponized exploits. Bug hunting is one of most important issue that we've been fighting for decades in FLOSS community. Addr/thread sanitizers are very powerful weapons for bug hunters to build their own [Fuzzing platform](http://nullcon.net/website/archives/ppt/goa-15/analyzing-chrome-crash-reports-at-scale-by-abhishek-arya.pdf) or can be integrated into the regression testing. In either ways, FLOSS community can get benefit from it;-)
+As long as there are bugs, there will be vulnerablities. As long as there are vulnerablities, there will be regular/stable/weaponized exploits. Bug hunting is one of most important issue that we've been fighting for decades in FLOSS community. Addr/thread sanitizers are very powerful weapons for bug hunters to build their own [Fuzzing platform](http://nullcon.net/website/archives/ppt/goa-15/analyzing-chrome-crash-reports-at-scale-by-abhishek-arya.pdf) or can be integrated into the regression testing. In either ways, FLOSS community can get benefit from it;-)
 
 We are inspired by the [work of Hanno Böck](https://fosdem.org/2016/schedule/event/csafecode/).
 
