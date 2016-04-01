@@ -4,11 +4,15 @@ title: Contribution
 permalink: /about2/
 ---
 
-h4rdenedzer0's projects:
+FLOSS projects from h4rdenedzer0 and other contributors:
 
 * [PaX for Android](http://hardenedlinux.org/system-security/2015/05/11/Grsecurity-for-Nexus-7-2013.html)
 * [STIG-4-Debian](http://hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html)
 * Reproducible build for PaX/Grsecurity( WIP)
+* [Hardenedlinux profiles](https://github.com/hardenedlinux/hardenedlinux_profiles)
+* [pax-bites](https://github.com/hardenedlinux/pax-bites)
+* [Offensive PoC](https://github.com/hardenedlinux/offensive_poc)
+* [elfix for Debian package](https://github.com/hardenedlinux/elfix-deb)
 
 
 Content contributors:
@@ -20,10 +24,13 @@ Content contributors:
 * happy-dw
 * samson-w
 * [Pray3r](https://github.com/Pray3r)
+* [cheese](https://github.com/cheese)
+* [lifematrix](https://github.com/lifematrix)
+* [wnereiz](https://github.com/wnereiz)
 
 Donation:
 
-* citypw, 8,000 RMB, 480 EU
+* citypw, 8,000 RMB, 580 EU, 700 USD
 * [tomcat](http://www.songhaoyun.com/), logo design
 
 Hardware donation:

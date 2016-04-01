@@ -26,4 +26,9 @@ btw: Some members of the h4rdenedzer0 are also contributors for [DNFWAH ezine](h
 
 btw: h4rdenedzer0部分成员也是电子杂志[DNFWAH ezine](https://github.com/citypw/DNFWAH)的贡献者。
 
-Contact us: ##hardenedlinux on FreeNode
+IRC channel: 
+##hardenedlinux on FreeNode
+
+Jabber Group Chat:
+Room: hardenedlinux
+Server: conference.dukgo.com
