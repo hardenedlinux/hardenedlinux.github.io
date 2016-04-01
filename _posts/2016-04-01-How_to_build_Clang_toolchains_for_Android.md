@@ -4,7 +4,7 @@ Build the Clang Toolchains for Android
 The following process is used to build the Clang that is used by both the
 Android platfrom and the NDK. And this process is done in the AOSP tree.
 
-Both Linux and Windows toolchains are built on Linux machines. Windows host
+Both GNU/Linux and Windows toolchains are built on GNU/Linux machines. Windows host
 binaries are built with mingw.
 
 My developing environment is **Linux Mint 17.3**
