@@ -510,7 +510,7 @@ CFLAGS="-march=native  -O2 -pipe -fsanitize=address"
 CXXFLAGS="-march=native  -O2 -pipe -fsanitize=address"
 {% endhighlight %}   
 
-HINT:Address sanitizer and kernel address sanitizer are incompatible with thread sanitizer. If you want to use thread sanitizer, you can build another system to enble -fsanitize=thread separately.
+HINT:Address sanitizer and kernel address sanitizer are incompatible with thread sanitizer. If you want to use thread sanitizer, you can build another system to enable -fsanitize=thread separately.
 
 Clear global variable to avoid **configure** error
 {% highlight html %}
