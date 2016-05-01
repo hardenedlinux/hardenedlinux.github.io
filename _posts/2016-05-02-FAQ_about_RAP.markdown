@@ -5,7 +5,7 @@ summary: PaX/Grsecurity正式公布了针对Linux内核4.5里的新特性：RAP�
 categories: system-security
 ---
 
-**原文：[关于RAP的FAQ](https://grsecurity.net/rap_faq.php)
+**原文：[关于RAP的FAQ](https://grsecurity.net/rap_faq.php)**
 
 作者：The PaX team and Spender
 
