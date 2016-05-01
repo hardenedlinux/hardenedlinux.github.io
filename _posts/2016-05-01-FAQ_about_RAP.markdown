@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "关于RAP的FAQ"
-summary: PaX/Grsecurity正式公布了针对Linux内核4.5里的新特性：RAP。RAP是一种在Linux内核层面上的CFI（控制流完整性）的实现，致力于完
-全消灭代码重用攻击这种漏洞利用的方式，RAP的发布是系统安全的又一里程碑，这意味着自2003年PaX team谈"未来"至今，只剩下data-only attack并未完全解决
+summary: PaX/Grsecurity正式公布了针对Linux内核4.5里的新特性：RAP。RAP是一种在Linux内核层面上的CFI（控制流完整性）的实现，致力于完全消灭代码重用攻击这种漏洞利用的方式，RAP的发布是系统安全的又一里程碑，这意味着自2003年PaX team谈"未来"至今，只剩下data-only attack并未完全解决
 categories: system-security
 ---
 
