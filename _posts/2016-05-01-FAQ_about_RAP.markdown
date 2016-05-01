@@ -65,7 +65,7 @@ RAP的基于类型hash的决定性防御在处理共享库上比其他CFI实现�
 RAP可以逐渐的引入更大的codebase。它是可能只使用函数的类型hash而不需要在调用和转跳的地方插入验证检查的代码。这样的话，在库依赖里的函数指针原型和调用（RAP会在编译时检测））之间的不匹配不会需要在应用程序成功运行前去修复。当然，简介控制流在发生在那些未修复的库不会受RAP的决定性类型hash防护。
 
 
-### RAP如何处理JIT（即使编译）？
+### RAP如何处理JIT（即时编译）？
 
 现有的JIT引擎在设计时并没有考虑安全。在运行时最安全的生成代码是通过强制把使用代码从创建代码中分离。这可以通过把JIT引擎分离进入单独的进程，这个工作[SDCG](http://wenke.gtisc.gatech.edu/papers/sdcg.pdf)已经完成。更进一步，JIT引擎需要修改可以让RAP生成可用hash和保证JIT编码不会允许攻击者有控制8个JIT输出连续bytes的余地，这样不会被利用成合法RAP hash。为一个C++ virtual call伪造RAP hash，攻击者需要控制16个连续的byte。被现代JIT实现使用的constant-blinding技术足以胜任。
 
