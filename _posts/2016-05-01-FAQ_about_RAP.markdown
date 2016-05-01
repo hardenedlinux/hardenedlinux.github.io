@@ -12,7 +12,7 @@ categories: system-security
 译者：citypw( Shawn C)
 
 
-> Shawn: 2016年4月28日下午三点，PaX/Grsecurity正式公布了针对Linux内核4.5里的新特性：RAP。RAP是一种在Linux内核层面上的CFI（控制流完整性）的实现，致力于完全消灭代码重用攻击这种漏洞利用的方式，RAP的发布是系统安全的又一里程碑，这意味着自2003年PaX team谈“未来”至今，只剩下data-only attack并未完全解决，从技术选型，研究，开发和测试发布，PaX team一共历经5年左右的时间，[RAP第一次亮相是去年的H2HC](https://pax.grsecurity.net/docs/PaXTeam-H2HC15-RAP-RIP-ROP.pdf)，这次公开发布的版本虽然只支持x86_64，没有经过连接时优化，编译时的静态分析以及返回地址保护等重要feature，但足以适应于大部分的场景，公开的版本是基于GPLv2自由软件许可证发布的。另外PaX/Grsecurity的下一个稳定版选为4.4，3.14的稳定版会一直维护到2017年年底。
+> Shawn: 2016年4月28日下午三点，PaX/Grsecurity正式公布了针对Linux内核4.5里的新特性：RAP。RAP是一种在Linux内核层面上的CFI（控制流完整性）的实现，致力于完全消灭代码重用攻击这种漏洞利用的方式，RAP的发布是系统安全领域的又一里程碑，这意味着自[2003年PaX team谈“未来”](http://hardenedlinux.org/system-security/2015/05/23/archeological_hacking_on_pax.html)至今，只剩下data-only attack并未完全解决，从技术选型，研究，开发和测试发布，PaX team一共历经5年左右的时间，[RAP第一次亮相是去年的H2HC](https://pax.grsecurity.net/docs/PaXTeam-H2HC15-RAP-RIP-ROP.pdf)，这次公开发布的版本虽然只支持x86_64，没有经过连接时优化，编译时的静态分析以及返回地址保护等重要feature，但足以适应于大部分的场景，公开的版本是基于GPLv2自由软件许可证发布的。另外PaX/Grsecurity的下一个稳定版选为4.4，3.14的稳定版会一直维护到2017年年底。
 
 
 
