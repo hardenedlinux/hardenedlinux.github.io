@@ -1,6 +1,6 @@
 ---
 layout: about3
-title: Index
+title: Content
 permalink: /about3/
 ---
 
