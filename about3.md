@@ -5,7 +5,7 @@ permalink: /about3/
 ---
 
 ### [PaX/Grsecurity](https://grsecurity.net/)相关
---------------------------------------------------------------
+
 * [PaX/Grsecurity for Nexus 7 2013](http://hardenedlinux.org/system-security/2015/05/11/Grsecurity-for-Nexus-7-2013.html), May 11 2015
 * [PaX的技术考古之旅](http://hardenedlinux.org/system-security/2015/05/23/archeological_hacking_on_pax.html), May 23 2015
 * [PAGEEXEC的最早设计文档](http://hardenedlinux.org/system-security/2015/05/25/pageexec-old.html), May 25 2015
@@ -17,7 +17,7 @@ permalink: /about3/
 
 
 ### Secops/安全运维
---------------------------------------------------------------
+
 * [Debian GNU/Linux security checklist and hardening](http://hardenedlinux.org/system-security/2015/06/09/debian-security-chklist.html), June 9 2015
 * [STIG-4-Debian](http://hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html), June 19 2015
 * [社区最佳实践：基于PaX/Grsecurity & STIG & Sheild针对es的Docker场景化加固](http://hardenedlinux.org/system-security/2015/09/06/hardening-es-in-docker-with-grsec.html), Sept 6 2015
@@ -26,12 +26,12 @@ permalink: /about3/
 
 
 ### Compiler/编译器相关
---------------------------------------------------------------
+
 * [How to build Clang toolchains for Android](http://hardenedlinux.org/toolchains/2016/04/01/How_to_build_Clang_toolchains_for_Android.html), Apr 1 2016
 
 
 ### Kernel security/内核安全相关
---------------------------------------------------------------
+
 * [漏洞利用"BadIRET"分析(CVE-2014-9322, Linux内核提权)](http://hardenedlinux.org/system-security/2015/07/05/badiret-analysis.html), July 5 2015
 * [后续故事：数字军火级别的"BadIRET"漏洞利用(CVE-2014-9322)](http://hardenedlinux.org/system-security/2015/07/05/badiret-exp.html), July 5 2015
 * [Bypassing SMEP Using vDSO Overwrites(使用vDSO重写来绕过SMEP防护)](http://hardenedlinux.org/translation/2015/11/25/Translation-Bypassing-SMEP-Using-vDSO-Overwrites.html), Nov 25 2015
@@ -40,12 +40,12 @@ permalink: /about3/
 
 
 ### Crypto engineering/密码工程相关
---------------------------------------------------------------
+
 * [SSL/TLS部署最佳实践v1.4](http://hardenedlinux.org/cryptography/2015/07/28/ssl-tls-deployment-1.4.html), July 28 2015
 
 
 ### 其他类
---------------------------------------------------------------
+
 * [Brad Spengler( Pax Team/grsecurity)访谈, 2010年1月1日](http://hardenedlinux.org/system-security/2015/05/17/grsec-interview.html), May 17 2015
 * [Timeline of compulsory routers](http://hardenedlinux.org/translation/2015/10/03/Translation-Timeline-of-compulsory-routers.html)
 * [黑客与英雄们：双国战记](http://hardenedlinux.org/translation/2016/02/12/Hackers-and-heroes-a-tale-of-two-countries.html)
