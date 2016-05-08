@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "How to build Clang toolchains for Android"
+summary: The following process is used to build the Clang that is used by both the Android platfrom and the NDK. And this process is done in the AOSP tree.
+categories: toolchains
+---
+
+by zet
+
 Build the Clang Toolchains for Android
 ======================================
 
