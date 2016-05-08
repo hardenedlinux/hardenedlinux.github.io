@@ -49,6 +49,9 @@
         <li class="nav-about" role="presentation">
 	    <a href="http://www.hardenedlinux.org/about2">Contribution</a>
 	</li>
+        <li class="nav-about" role="presentation">
+	    <a href="http://www.hardenedlinux.org/about3">Content</a>
+	</li>
     </ul>
 </header>
  
@@ -59,11 +62,51 @@
     
     <article class="post tag-text tag-formatting">
         <header class="post-header">
-	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2016/01/20/cve-2015-8088-analysis.html">CVE-2015-8088: 华为智能手机HiFi驱动堆溢出</h2>
-	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2016/01/20/cve-2015-8088-analysis.html">Posted on <time datetime="2016-01-20">20 January 2016</time></a>
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2016/05/01/FAQ_about_RAP.html">关于RAP的FAQ</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2016/05/01/FAQ_about_RAP.html">Posted on <time datetime="2016-05-01">01 May 2016</time></a>
 	</header>
 	<section class="post-excerpt">
-	    <p>在华为Mate 7手机中，/dev/hifi_misc 模块允许在用户态下修改内核态的内存数据，它可能导致系统崩溃或者权限提升。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2016/01/20/cve-2015-8088-analysis.html">&hellip;</a></p>
+	    <p>PaX/Grsecurity正式公布了针对Linux内核4.5里的新特性：RAP。RAP是一种在Linux内核层面上的CFI（控制流完整性）的实现，致力于完全消灭代码重用攻击这种漏洞利用的方式，RAP的发布是系统安全的又一里程碑，这意味着自2003年PaX team谈"未来"至今，只剩下data-only attack并未完全解决<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2016/05/01/FAQ_about_RAP.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2016/04/01/A-T-KA-Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html">(A/T/KT) - Sanitized GNU/Linux: a new way of bug hunter in FLOSS Community</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2016/04/01/A-T-KA-Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html">Posted on <time datetime="2016-04-01">01 April 2016</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p><a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2016/04/01/A-T-KA-Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2016/04/01/x_Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html">(A/T/KT) - Sanitized GNU/Linux: a new way of bug hunter in FLOSS Community</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2016/04/01/x_Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html">Posted on <time datetime="2016-04-01">01 April 2016</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>As long as there is bugs, there will be vulnerablities. As long as there are vulnerablities, there will be regular/stable/weaponized exploits. Bug hunting is one of most important issues that we've been fighting for decades in FLOSS community. Addr/thread sanitizers are very powerful weapons for bug hunters to build their own Fuzzing platform] or can be integrated into the regression testing. In either ways, FLOSS community can get benefit from it;-)<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2016/04/01/x_Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2016/03/14/mprotect.html">MPROTECT早期设计文档</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2016/03/14/mprotect.html">Posted on <time datetime="2016-03-14">14 March 2016</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>MPROTECT 的目标是防止在任务的地址空间引入新的可执行代码。通过限制 mmap() 和 mprotect() 界面可以达到此目的。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2016/03/14/mprotect.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2016/03/09/pax.html">PaX 早期设计文档概述</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2016/03/09/pax.html">Posted on <time datetime="2016-03-09">09 March 2016</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>PaX 项目的目标是研究各种针对软件开发缺陷的防御机制，这些缺陷可以让攻击者针对被攻击任务所在的地址空间行任意读/写。这类缺陷还包括其他各种形式的（基于栈或堆的）缓冲区溢出漏洞、用户提供的格式化字符串漏洞，等等。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2016/03/09/pax.html">&hellip;</a></p>
 	</section>
     </article>
     
@@ -84,6 +127,16 @@
 	</header>
 	<section class="post-excerpt">
 	    <p>We just celebrated another new year a couple of days ago, which means it's 2016 already. A another new year usually just brings us to another fight. FOSS is still our fortress, as always.<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2016/01/10/hardening-your-desktop-linux-mint-with-grsec.html">&hellip;</a></p>
+	</section>
+    </article>
+    
+    <article class="post tag-text tag-formatting">
+        <header class="post-header">
+	    <h2 class="post-title"><a href="http://www.hardenedlinux.org/system-security/2015/12/12/cve-2015-8088-analysis.html">CVE-2015-8088: 华为智能手机HiFi驱动堆溢出</h2>
+	    <a class="post-meta" href="http://www.hardenedlinux.org/system-security/2015/12/12/cve-2015-8088-analysis.html">Posted on <time datetime="2015-12-12">12 December 2015</time></a>
+	</header>
+	<section class="post-excerpt">
+	    <p>在华为Mate 7手机中，/dev/hifi_misc 模块允许在用户态下修改内核态的内存数据，它可能导致系统崩溃或者权限提升。<a class="excerpt-suffix" href="http://www.hardenedlinux.org/system-security/2015/12/12/cve-2015-8088-analysis.html">&hellip;</a></p>
 	</section>
     </article>
     
