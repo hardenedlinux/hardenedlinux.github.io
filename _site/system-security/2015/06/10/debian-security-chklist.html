@@ -902,15 +902,19 @@ AllowGroups, AllowUsers, DenyUsers, DenyGroups
 
 <p>The explanation is <a href="https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/">here</a></p>
 
-<p>Apache:
+<p>Apache:</p>
+<pre>
 SSLProtocol ALL -SSLv2 -SSLv3
 SSLHonorCipherOrder On
-SSLCipherSuite ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS</p>
+SSLCipherSuite ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
+</pre>
 
-<p>Nginx:
+<p>Nginx:</p>
+<pre>
 ssl_prefer_server_ciphers On;
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS</p>
+ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
+</pre>
 
 <p>–[ 5. Web security</p>
 
