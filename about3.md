@@ -38,7 +38,7 @@ permalink: /about3/
 * [CVE-2015-8088: 华为智能手机HiFi驱动堆溢出](http://hardenedlinux.org/system-security/2015/12/12/cve-2015-8088-analysis.html), Dec 12 2015
 * [An Introduction to Linux Kernel Exploitation](http://hardenedlinux.org/system-security/2016/01/19/an-introduction-to-linux-kernel-exploitation.html), Jan 19 2016
 * [Linux内核自防护项目的初始文档](http://hardenedlinux.org/system-security/2016/05/23/kernel_self_protection.html), May 23 2016
-* [NX(No-eXecute)的实现分析](http://hardenedlinux.org/gnulinux-security/2016/05/31/NX-analysis.html), June 1 2016
+* [NX(No-eXecute)的实现分析](http://hardenedlinux.org/gnulinux-security/2016/06/01/NX-analysis.html), June 1 2016
 
 ### Crypto engineering/密码工程相关
 
