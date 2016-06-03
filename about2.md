@@ -31,6 +31,7 @@ Donation:
 
 * citypw, 8,000 RMB, 580 EU, 700 USD
 * [tomcat](http://www.songhaoyun.com/), logo design
+* face, 5,000 RMB for 200 T-shirts
 
 Hardware donation:
 
