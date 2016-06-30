@@ -1,11 +1,11 @@
 ---
-layout:
-title:
-data:
+layout:         post
+title:          PIC and PIE analysis
+data:           2016-06-30
 auther:         zet
-mail:           
-summary:
-categories:
+mail:           zet@tya.email
+summary:        现代的linux/ELF系统可以随机化shared library的加载地址,这种技术叫做: Address Space Layout Randomization或者ASLR. shared library肯定是PIC,也就是说可以被加载在任意地址,而且可以在各个kernel的进程之间共享已经加载入RAM的代码段.加载地址的随:机化使依赖固定地址的攻击(比如buffer overflow)变得难以进行.
+categories:     GNULinux-Security
 ---
 
 #Position Independent Code(PIC) and Position Independent Executable(PIE)
@@ -19,7 +19,7 @@ primary memory, executes properly regardless of its absolute address.
 --[Wikipedia](https://en.wikipedia.org/wiki/Position-independent_code)
 
 现代的linux/ELF系统可以随机化shared library的加载地址,这种技术叫做: Address
-Space Layout Randomization或者ASLR. shared library肯定是PIC,也就是说可以被记载
+Space Layout Randomization或者ASLR. shared library肯定是PIC,也就是说可以被加载
 在任意地址,而且可以在各个kernel的进程之间共享已经加载入RAM的代码段.加载地址的随
 机化使依赖固定地址的攻击(比如buffer overflow)变得难以进行.
 
@@ -110,12 +110,12 @@ cancel_option (int opt_idx, int next_opt_idx, int orig_next_opt_idx)
 
 但是在ld社区见过另外一种说法:
 
-```
--fpic与-fpie的差别很细微,当使用-fpie时编译器知道当前的编译会生成一个PIC模式的
+>-fpic与-fpie的差别很细微,当使用-fpie时编译器知道当前的编译会生成一个PIC模式的
 main executable(也就是有main入口的可执行文件),这样对于内部定义的global符号,就不
 要考虑全局符号介入(global symbol interpose)的问题,对于这样的globals直接产生
 PC-relative方式的代码而不需要通过GOT/PLT.
-```
+--Ian Lance Taylor
+
 但是据我对gcc源代码的阅读以及测试,并没有发现四个参数有什么不同. 一个有趣的思考
 就是当gcc编译main executable时是知道的, 那么也就是说指定-fpic时也知道这是一个
 main executable,那么-fpic与-fpie就肯定是没有区别的.(TODO)这里下一个版本的文章会
@@ -132,13 +132,13 @@ main executable,那么-fpic与-fpie就肯定是没有区别的.(TODO)这里下�
 
 ###ld options
 
--shared, -pie
+ -shared, -pie
 
 因为这两个选项是对linker起作用,所以对最后生成的elf(main executable/library)文件
 的影响,取决于是否指定了-fpic/-fPIC/-fpie/-fPIE(对应于load-time relocation和PIC
 模式的object)这些参数.
 
-*处理load-time relocation的object
+**处理load-time relocation的object**
 
 这两个参数有很多相似的地方,-shared和-pie都指导ld处理load-time relocation的代码.
 这种代码对引用的符号的relocation type只有三种: R_386_32/R_386_PC32/
@@ -171,7 +171,7 @@ String dump of section '.interp':
 是根据这个section来找到dynamic linker的,因为pie和shared都是需要重定位的代码,没
 有这个section就找不到dynamic linker也就是解决不了重定位当然不可以执行了.
 
-*处理PIC模式的object
+**处理PIC模式的object**
 
 PIC模式的object和-shared/-pie配合是manual给出的标准调用.只不过-shared生成了
 shared library而且-pie生成了PIC模式的PIE.
@@ -208,7 +208,7 @@ int main() {
         return 42;
 }
 ```
-load-time relocation模式的PIE
+**load-time relocation模式的PIE**
 ```bash
 zet@fuck-GFW ~/dust/lib/test $gcc -m32 -pie -o pie test.c
 
@@ -261,7 +261,7 @@ printf in section .text of /lib/i386-linux-gnu/libc.so.6
 载入进程空间之后的起始地址有关系也跟当面的main executable加载入kernel时分配的地
 址有关系.这就是典型的load-time relocation.会改变代码段的值.
 
-PIC模式的PIE
+**PIC模式的PIE**
 
 ```bash
 zet@fuck-GFW ~/dust/lib/test $gcc -m32 -fpic -pie -o pie test.c
