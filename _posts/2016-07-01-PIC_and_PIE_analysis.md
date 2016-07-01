@@ -10,12 +10,9 @@ categories:     system-security
 
 > Shawn: 现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
 
-<<<<<<< HEAD
-
 # Position Independent Code(PIC) and Position Independent Executable(PIE)
 =======
 #Position Independent Code(PIC) and Position Independent Executable(PIE)
->>>>>>> 1df6e31bb4ee1c68dd16c3790ec7c07a42851373
 @(mitgation)[PIC|PIE|gcc|binutils]
 
 ## 导引
