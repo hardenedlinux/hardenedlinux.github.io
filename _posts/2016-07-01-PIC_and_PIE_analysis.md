@@ -4,9 +4,12 @@ title:          PIC/PIE分析
 data:           2016-07-01
 auther:         zet
 mail:           zet@tya.email
-summary:        现代的linux/ELF系统可以随机化shared library的加载地址,这种技术叫做: Address Space Layout Randomization或者ASLR. shared library肯定是PIC,也就是说可以被加载在任意地址,而且可以在各个kernel的进程之间共享已经加载入RAM的代码段.加载地址的随:机化使依赖固定地址的攻击(比如buffer overflow)变得难以进行.
-categories:     GNULinux-Security
+summary:		现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
+categories:     system-security
 ---
+
+> Shawn: 现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
+
 <<<<<<< HEAD
 
 # Position Independent Code(PIC) and Position Independent Executable(PIE)
@@ -22,9 +25,9 @@ executable (PIE) is a body of machine code that, being placed somewhere in the
 primary memory, executes properly regardless of its absolute address.
 --[Wikipedia](https://en.wikipedia.org/wiki/Position-independent_code)
 
-现代的linux/ELF系统可以随机化shared library的加载地址,这种技术叫做: Address
+现代的GNU/Linux以及ELF系统可以随机化shared library的加载地址,这种技术叫做: Address
 Space Layout Randomization或者ASLR. shared library肯定是PIC,也就是说可以被加载
-在任意地址,而且可以在各个kernel的进程之间共享已经加载入RAM的代码段.加载地址的随
+在任意地址,而且可以在各个进程之间共享已经加载入RAM的代码段.加载地址的随
 机化使依赖固定地址的攻击(比如buffer overflow)变得难以进行.
 
 尽管可以随机化shared library的加载地址,但是ELF可执行文件在由linker处理的时候被
@@ -148,7 +151,7 @@ main executable,那么-fpic与-fpie就肯定是没有区别的.(TODO)这里下�
 这种代码对引用的符号的relocation type只有三种: R_386_32/R_386_PC32/
 R_386_RELATIVE,这三种类型的重定位目标都可以位于.text(代码段).这样如果linker解决
 了重定位的问题,那么这个.text里面的数据已经经过了修改,那么这个.text就不可能在多
-个GNU Linux运行的进程之间共享,相对于shared library来说这样对整个系统的RAM很浪
+个GNU/Linux运行的进程之间共享,相对于shared library来说这样对整个系统的RAM很浪
 费.但是相应地相对于shared library有一个优点,那就是因为启动快,因为基本上动态连接
 器不需要reslove什么符号,而且代码中R_386_32/R_386_RELATIVE方式的重定位目标已经被
 修改成了绝对地址,相对于需要运行时全部做间接调用的shared library来说少了很多个指
