@@ -1,7 +1,7 @@
 ---
 layout:         post
-title:          PIC and PIE analysis
-data:           2016-06-30
+title:          PIC/PIE分析
+data:           2016-07-01
 auther:         zet
 mail:           zet@tya.email
 summary:        现代的linux/ELF系统可以随机化shared library的加载地址,这种技术叫做: Address Space Layout Randomization或者ASLR. shared library肯定是PIC,也就是说可以被加载在任意地址,而且可以在各个kernel的进程之间共享已经加载入RAM的代码段.加载地址的随:机化使依赖固定地址的攻击(比如buffer overflow)变得难以进行.
