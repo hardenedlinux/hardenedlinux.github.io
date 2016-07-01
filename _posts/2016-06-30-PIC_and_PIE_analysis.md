@@ -8,10 +8,10 @@ summary:        现代的linux/ELF系统可以随机化shared library的加载�
 categories:     GNULinux-Security
 ---
 
-#Position Independent Code(PIC) and Position Independent Executable(PIE)
+# Position Independent Code(PIC) and Position Independent Executable(PIE)
 @(mitgation)[PIC|PIE|gcc|binutils]
 
-##导引
+## 导引
 
 > In computing, position-independent code (PIC) or position-independent 
 executable (PIE) is a body of machine code that, being placed somewhere in the
@@ -44,7 +44,7 @@ linux kernel.现在通用的ELF 1.2标准出版于1995/05,ASLR在linux kernel里
 是从2.6.12. 由此可见要想测试本文描述的原理需要的平台软件版本根本不需要太新.后
 面可能会有x86_64版本的补充.*
 
-##生成PIC/PIE的gcc/ld参数分析
+## 生成PIC/PIE的gcc/ld参数分析
 
 分析参数之前需要注意另外一个问题,解决应用程序可以在可变地址执行的两种模式:
 
@@ -55,7 +55,7 @@ linux kernel.现在通用的ELF 1.2标准出版于1995/05,ASLR在linux kernel里
 
 与PIC/PIE相关的参数主要有以下6个.
 
-###gcc code generation options
+### gcc code generation options
 
   -fpic, -fPIC, -fpie, -fPIE
 
@@ -130,7 +130,7 @@ main executable,那么-fpic与-fpie就肯定是没有区别的.(TODO)这里下�
 是DT_NEEDED的元素组成当前elf的依赖链,这样所有涉及到的elf及其依赖链会形成一个图.
 连接器按照依赖的满足性(当依赖elf全部已经遍历时就可以遍历本elf)来遍历图.
 
-###ld options
+### ld options
 
  -shared, -pie
 
@@ -302,7 +302,7 @@ section相对于.text来说很小.所以如果kernel有多个进程执行同一�
 么这些多个进程之间是可以共享同一份在RAM里的.text的,这就是shared library为什么节
 省系统RAM的原因.
 
-##总结
+## 总结
 
 对上面的描述做一个总结:
 
