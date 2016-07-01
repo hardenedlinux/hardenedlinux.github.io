@@ -41,7 +41,7 @@ CPU操作的时候由硬件来做是否可以执行的检查.
 
 [TOC]
 
-##NX在gcc/binutils里面的实现
+## NX在gcc/binutils里面的实现
 
 在gcc/ld里面有NX相关的选择,gcc/ld都是-z execstack/noexecstack,在gcc 6.1 manual里
 跟-z相关的内容如下:
@@ -94,7 +94,7 @@ test.c -quiet -dumpbase test.c "-mtune=generic" "-march=x86-64" -auxbase test
 的ELF文件产生怎样的影响,最后将会分析这样的影响是如何导致stack被执行在kernel里捕
 获的.
 
-###NX在gcc里的处理
+### NX在gcc里的处理
 
 由上面的**gcc -###**输出可知道**gcc**只是一个外壳管理程序,严格来说是一个
 **driver**,根据传入的参数来控制各个**compile/assemble/link**过程.在**gcc**实现里
@@ -524,7 +524,7 @@ give_switch (int switchnum, int omit_first_word) {
 }
 {% endhighlight %}
 
-###NX在ld里面的处理
+### NX在ld里面的处理
 
 下面将会分析*linker*遇到*-z execstack*时进行怎样的处理.对生成的ELF文件产生怎样的
 影响.
@@ -688,7 +688,7 @@ map_sections_to_segments() {
 }
 {% endhighlight %}
 
-###NX在kernel里的捕获
+### NX在kernel里的捕获
 上面已经介绍了*gcc/ld*里对*-z execstack*的处理,总共的影响就是在ELF文件里对应的
 *program header*里置相关的位.下面将会描述在ELF文件里这样的置位前提下,如果违反了
 访问规则,*kernel*如何捕获非法访问.
@@ -805,19 +805,20 @@ access_error(unsigned long error_code, struct vm_area_struct *vma)
 	return 0;
 }
 {% endhighlight %}
-###NX软件实现小结
+
+### NX软件实现小结
 总结一下前面的内容,就是当调用*gcc -z execstack test.c*时,gcc将参数打包处理传给ld,
 由于参数的影响,ld会在生成的ELF文件stack对应的program header里置位p_flags的PF_X值,
 当ELF文件执行时,由于RAM需要分配就会触发page fault,然后处理do_page_fault()函数里
 调用access_error()以捕获到stack的执行权限错误.
 
 
-##NX在kernel CPU里的实现:
+## NX在kernel CPU里的实现:
 
 NX在CPU里面的实现跟硬件有很大的关系.所以下面的描述先从硬件相关的寄存器开始描述,
 然后进行kernel层面的描述.
 
-###NX相关的寄存器
+### NX相关的寄存器
 
 >Intel® 64 and IA-32 Architectures Developer's Manual - System Programming Guide
 >
@@ -852,7 +853,7 @@ CPUID.80000001H的处理器IA32_EFER.NXE不能被设置为1.
 CPUID.80000001H:EDX.NX [bit 20]是否为1,如果是1进行IA32_EFER.NXE的置位使能,然后按
 照需在PAE/PTE里使能第63位(XD).
 
-###NX在kernel里的实现
+### NX在kernel里的实现
 
 
 {% highlight html %}
