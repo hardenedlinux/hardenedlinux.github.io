@@ -15,10 +15,10 @@ Github 提交者：david-a-wheeler, altonius, kfogel, dankohn, NilsEnevoldsen
 
 许可证：MIT 或 CC-BY-3.0+
 
-# Best Practices Criteria for Free/Libre and Open Source Software (FLOSS) (version 0.8.0)
+# 自由/开源软件(FLOSS)的最佳实践标准 (版本 0.8.0)
 
 
-## Introduction
+## 简介
 
 This is a set of best practices
 for Free/Libre and Open Source Software (FLOSS) projects.
@@ -28,6 +28,11 @@ achieved a Core Infrastructure Initiative (CII) badge.
 Projects can do this, at no cost,
 by using a web application (BadgeApp)
 to explain how they meet these practices and their detailed criteria.
+
+本文提供一系列自由/开源软件 (FLOSS) 项目的最佳实践方法。
+参照这些最佳实践标准的项目可以进行自认证, 以获得核心基础设施倡议(CII)徽章。
+要做到这点无需任何费用，您的项目可以使用 Web 应用（BadgeApp)
+来证明其如何符合这些实践标准以及其详细情况。
 
 There is no set of practices that can guarantee that software
 will never have defects or vulnerabilities;
