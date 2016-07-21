@@ -46,12 +46,22 @@ which can both help find otherwise hard-to-find technical vulnerabilities
 and help build trust and a desire for repeated interaction among developers
 from different organizations.
 
+没有一个实践标准可以保证软件从不出现缺陷或漏洞；甚至形式化方法在规范或假设错误的情况下都会失败。
+也没有任何实践可以保证一个项目可以支撑健康和运作良好的社区。
+然而，遵循最佳实践可以帮助改进项目的成果。
+例如，一些实践标准要求在发布之前进行多人审查，这可以帮助找到其他情况下难以发现的漏洞，同时可以帮助建立信任，以及满足不同组织的开发者之间的重复合作的要求。
+
 These best practices have been created to:
+这些最佳实践标准用来：
 
 1. encourage projects to follow best practices,
 2. help new projects discover what those practices are, and
 3. help users know which projects are following best practices
    (so users can prefer such projects).
+
+1. 鼓励项目遵循最佳实践。
+2. 帮助新的项目发现这些最佳实践是什么，还有
+3. 帮助用户了解哪些项目遵循了最佳实践（这样用户可以选择此类项目）。
 
 We are currently focused on identifying best practices
 that well-run projects typically already follow.
