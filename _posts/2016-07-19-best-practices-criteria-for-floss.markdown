@@ -52,7 +52,7 @@ from different organizations.
 例如，一些实践标准要求在发布之前进行多人审查，这可以帮助找到其他情况下难以发现的漏洞，同时可以帮助建立信任，以及满足不同组织的开发者之间的重复合作的要求。
 
 These best practices have been created to:
-这些最佳实践标准用来：
+这些最佳实践标准可以用来：
 
 1. encourage projects to follow best practices,
 2. help new projects discover what those practices are, and
@@ -70,6 +70,10 @@ We are capturing other practices so that we can create
 The best practices, and the more detailed criteria
 specifically defining them, are inspired by a variety of sources.
 See the separate "[background](./background.md)" page for more information.
+我们当前集中精力识别那些现已良好运行的典型的项目所遵从的最佳实践标准。
+我们也在关注其他的实践标准，今后会创建[更多的徽章](https://github.com/linuxfoundation/cii-best-practices-badge/blob/master/doc/other.md)。
+最佳实践标准，以及为其定义的更详细的标准，受到各种信息来源的启发。
+更多信息请参见单独的"[背景](https://github.com/linuxfoundation/cii-best-practices-badge/blob/master/doc/background.md)"页面。
 
 We expect that these practices and their detailed criteria will be updated,
 even after badges are released.
@@ -79,11 +83,17 @@ We expect it will be easy to update the information,
 so this relatively short badge life should not be a barrier.
 We plan to add new criteria but mark them as "future" criteria, so that
 projects can add that information and maintain their badge.
+我们期待这些实践以及其详细的标准可以被更新，甚至是在徽章发布之后。
+这样，标准（以及徽章）可以有一年的标识时间，并会在一年或两年之后失效。
+我们期待更新信息会非常容易，这样相对短期的徽章生命周期不应成为屏障。
+我们计划添加此信息并维护其徽章。
 
 Feedback is *very* welcome via the
 [GitHub site as issues or pull requests](https://github.com/linuxfoundation/cii-best-practices-badge).
 There is also a
 [mailing list for general discussion](https://lists.coreinfrastructure.org/mailman/listinfo/cii-badges).
+*非常*欢迎通过[在 GitHub 网站上发布问题(issues)或提交申请(pull requests)](https://github.com/linuxfoundation/cii-best-practices-badge)来给我们反馈。
+这里还有一个[讨论一般话题的邮件列表](https://lists.coreinfrastructure.org/mailman/listinfo/cii-badges)
 
 Below are the current criteria, along with and where to get more information.
 The key words "MUST", "MUST NOT",
@@ -91,16 +101,23 @@ The key words "MUST", "MUST NOT",
 in this document are to be interpreted as described in
 [RFC 2119](https://tools.ietf.org/html/rfc2119).
 The additional term SUGGESTED is added, as follows:
+以下是当前的标准，以及如何获取更多的信息。
+在此文档中的关键词“必须”，“一定不能”，”应当“，“不应当”，和“可以”的解释依据
+[RFC 2119](https://tools.ietf.org/html/rfc2119).
+增加了附加术语“建议的”，定义如下：
 
 - The term MUST is an absolute requirement, and MUST NOT
   is an absolute prohibition.
+- 术语“必须的”是绝对要求做的，而“一定不能”是表示绝对禁止。
 - The term SHOULD indicates a criterion that should be implemented, but
   valid reasons may exist to not do so in particular circumstances.
   The full implications must be considered,
   understood, and carefully weighed before choosing a different course.
+- 术语“应该“指一个标准应当被实现，但是如果存在有效的原因，则在特定的情景下可以不这样去做。在选择不同的方式之前，必须考虑，理解，并谨慎权衡完全 full implications。
 - The term SUGGESTED is used instead of SHOULD when the criterion must
   be considered, but valid reasons
   to not do so are even more common than for SHOULD.
+- “建议的“用来作为”应当“的替代术语，此术语用于必须考虑标准，但不这又做的有效原因比“应当”更为普遍的时候。
 - Often a criterion is stated as something that SHOULD be done, or is
   SUGGESTED, because it may be difficult to implement or the costs
   to do so may be high.
