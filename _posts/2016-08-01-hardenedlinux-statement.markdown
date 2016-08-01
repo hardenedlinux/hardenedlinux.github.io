@@ -22,7 +22,7 @@ categories: announcement
 
 ### Announcement
 
-* HardenedLinux is a FLOSS community focus only FLOSS security and we have nothing to do with any commcercial organizations. [h4rdenedzer0](http://hardenedlinux.org/about/) team and other [contributors](http://hardenedlinux.org/about2/) have their own day job and we've been contributing to HardenedLinux in our night job time. We encourage commcercial organizations contribute FLOSS projects.
+* HardenedLinux is a FLOSS community focus only FLOSS security and we have nothing to do with **any** commcercial organizations. [h4rdenedzer0](http://hardenedlinux.org/about/) team and other [contributors](http://hardenedlinux.org/about2/) have their own day job and we've been contributing to HardenedLinux in our night job time. We encourage commcercial organizations contribute FLOSS projects.
 
 * h4rdenedzer0 is the credit for those long-term contributor. Anyone who has not any activities in HardenedLinux community or other FLOSS security project more than 6 months, will be treated as quit h4rdenedzer0 team automatically.
 
