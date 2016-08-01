@@ -16,7 +16,7 @@ categories: announcement
 
 * 大部分的情况HardenedLinux社区并不需要金钱上的捐赠，你可以直接捐赠给更需要的社区比如：PaX/Grsecurity, FSF, FSFE, EFF, SFC, GnuPG, Tor, etc....
 
-* 经过和PaX team/spender协商，我们决定将停止在邮件列表中免费提供PaX/Grsecurity stable patch，如果有需要者请直接联系 contact@grsecurity.net | 上帝的归上帝，凯撒的归凯撒
+* 经过和PaX team/spender协商，我们决定将停止在邮件列表中免费提供PaX/Grsecurity stable patch，如果有需要者请直接联系 contact@grsecurity.net || 上帝的归上帝，凯撒的归凯撒
 
 ### Announcement
 
@@ -26,4 +26,4 @@ categories: announcement
 
 * We don't need money donation generally. You can donate to those allies of FLOSS community, including: PaX/Grsecurity, FSF, FSFE, EFF, SFC, GnuPG, Tor, etc...
 
-* As we discussed with PaX team/Spender, we will stop provide PaX/Grsecurity stable patch in HardenedLinux's mailinglist. If you need it, plz send mail to contact@grsecurity.net | Give therefore to the emperor the things that are the emperor's;and to God the things that are God's
+* As we discussed with PaX team/Spender, we will stop provide PaX/Grsecurity stable patch in HardenedLinux's mailinglist. If you need it, plz send mail to contact@grsecurity.net || Give therefore to the emperor the things that are the emperor's;and to God the things that are God's
