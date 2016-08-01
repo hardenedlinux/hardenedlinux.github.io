@@ -20,264 +20,156 @@ Github 提交者：david-a-wheeler, altonius, kfogel, dankohn, NilsEnevoldsen
 
 ## 简介
 
-This is a set of best practices
-for Free/Libre and Open Source Software (FLOSS) projects.
-Projects that follow these best practices
-will be able to voluntarily self-certify and show that they've
-achieved a Core Infrastructure Initiative (CII) badge.
-Projects can do this, at no cost,
-by using a web application (BadgeApp)
-to explain how they meet these practices and their detailed criteria.
-
 本文提供一系列自由/开源软件 (FLOSS) 项目的最佳实践方法。
-参照这些最佳实践标准的项目可以进行自认证, 以获得核心基础设施倡议(CII)徽章。
+参照这些最佳实践标准的项目可以进行自认证, 以获得核心基础设施促进会(CII)徽章。
 要做到这点无需任何费用，您的项目可以使用 Web 应用（BadgeApp)
 来证明其如何符合这些实践标准以及其详细情况。
 
-There is no set of practices that can guarantee that software
-will never have defects or vulnerabilities;
-even formal methods can fail if the specifications or assumptions are wrong.
-Nor is there any set of practices that can guarantee that a project will
-sustain a healthy and well-functioning development community.
-However, following best practices can help improve the results
-of projects.
-For example, some practices enable multi-person review before release,
-which can both help find otherwise hard-to-find technical vulnerabilities
-and help build trust and a desire for repeated interaction among developers
-from different organizations.
-
-没有一个实践标准可以保证软件从不出现缺陷或漏洞；甚至形式化方法在规范或假设错误的情况下都会失败。
+任何实践标准都无法保证软件从不出现缺陷或漏洞；甚至形式化方法在规范或假设错误的情况下都会失败。
 也没有任何实践可以保证一个项目可以支撑健康和运作良好的社区。
 然而，遵循最佳实践可以帮助改进项目的成果。
 例如，一些实践标准要求在发布之前进行多人审查，这可以帮助找到其他情况下难以发现的漏洞，同时可以帮助建立信任，以及满足不同组织的开发者之间的重复合作的要求。
 
-These best practices have been created to:
 这些最佳实践标准可以用来：
-
-1. encourage projects to follow best practices,
-2. help new projects discover what those practices are, and
-3. help users know which projects are following best practices
-   (so users can prefer such projects).
 
 1. 鼓励项目遵循最佳实践。
 2. 帮助新的项目发现这些最佳实践是什么，还有
 3. 帮助用户了解哪些项目遵循了最佳实践（这样用户可以选择此类项目）。
 
-We are currently focused on identifying best practices
-that well-run projects typically already follow.
-We are capturing other practices so that we can create
-[more advanced badges](./other.md) later.
-The best practices, and the more detailed criteria
-specifically defining them, are inspired by a variety of sources.
-See the separate "[background](./background.md)" page for more information.
-我们当前集中精力识别那些现已良好运行的典型的项目所遵从的最佳实践标准。
-我们也在关注其他的实践标准，今后会创建[更多的徽章](https://github.com/linuxfoundation/cii-best-practices-badge/blob/master/doc/other.md)。
+我们当前集中精力识别那些现已良好运行的典型项目所遵从的最佳实践标准。
+我们也在关注其他的实践标准，今后会创建[更高级的徽章](https://github.com/linuxfoundation/cii-best-practices-badge/blob/master/doc/other.md)。
 最佳实践标准，以及为其定义的更详细的标准，受到各种信息来源的启发。
 更多信息请参见单独的"[背景](https://github.com/linuxfoundation/cii-best-practices-badge/blob/master/doc/background.md)"页面。
 
-We expect that these practices and their detailed criteria will be updated,
-even after badges are released.
-Thus, criteria (and badges) probably will have a year identifier
-and will phase out after a year or two.
-We expect it will be easy to update the information,
-so this relatively short badge life should not be a barrier.
-We plan to add new criteria but mark them as "future" criteria, so that
-projects can add that information and maintain their badge.
-我们期待这些实践以及其详细的标准可以被更新，甚至是在徽章发布之后。
+我们期待可以更新这些实践以及其详细的标准，甚至是在徽章发布之后。
 这样，标准（以及徽章）可以有一年的标识时间，并会在一年或两年之后失效。
-我们期待更新信息会非常容易，这样相对短期的徽章生命周期不应成为屏障。
+我们期待更新信息会非常容易，这样相对短的徽章生命周期就不会成为屏障。
 我们计划添加此信息并维护其徽章。
 
-Feedback is *very* welcome via the
-[GitHub site as issues or pull requests](https://github.com/linuxfoundation/cii-best-practices-badge).
-There is also a
-[mailing list for general discussion](https://lists.coreinfrastructure.org/mailman/listinfo/cii-badges).
-*非常*欢迎通过[在 GitHub 网站上发布问题(issues)或提交申请(pull requests)](https://github.com/linuxfoundation/cii-best-practices-badge)来给我们反馈。
-这里还有一个[讨论一般话题的邮件列表](https://lists.coreinfrastructure.org/mailman/listinfo/cii-badges)
+*非常*欢迎通过[在 GitHub 网站上发布问题(issues)或提交申请(pull requests)](https://github.com/linuxfoundation/cii-best-practices-badge)来向我们反馈。
+这里还有一个[讨论一般性话题的邮件列表](https://lists.coreinfrastructure.org/mailman/listinfo/cii-badges)
 
-Below are the current criteria, along with and where to get more information.
-The key words "MUST", "MUST NOT",
-"SHOULD", "SHOULD NOT", and "MAY"
-in this document are to be interpreted as described in
-[RFC 2119](https://tools.ietf.org/html/rfc2119).
-The additional term SUGGESTED is added, as follows:
 以下是当前的标准，以及如何获取更多的信息。
 在此文档中的关键词“必须”，“一定不能”，”应当“，“不应当”，和“可以”的解释依据
 [RFC 2119](https://tools.ietf.org/html/rfc2119).
 增加了附加术语“建议的”，定义如下：
 
-- The term MUST is an absolute requirement, and MUST NOT
-  is an absolute prohibition.
 - 术语“必须的”是绝对要求做的，而“一定不能”是表示绝对禁止。
-- The term SHOULD indicates a criterion that should be implemented, but
-  valid reasons may exist to not do so in particular circumstances.
-  The full implications must be considered,
-  understood, and carefully weighed before choosing a different course.
-- 术语“应该“指一个标准应当被实现，但是如果存在有效的原因，则在特定的情景下可以不这样去做。在选择不同的方式之前，必须考虑，理解，并谨慎权衡完全 full implications。
-- The term SUGGESTED is used instead of SHOULD when the criterion must
-  be considered, but valid reasons
-  to not do so are even more common than for SHOULD.
-- “建议的“用来作为”应当“的替代术语，此术语用于必须考虑标准，但不这又做的有效原因比“应当”更为普遍的时候。
-- Often a criterion is stated as something that SHOULD be done, or is
-  SUGGESTED, because it may be difficult to implement or the costs
-  to do so may be high.
-- The term MAY provides one way something can be done, e.g.,
-  to make it clear that the described implementation is acceptable.
-- To obtain a badge, all MUST and MUST NOT criteria must be met, all
-  SHOULD criteria must be met OR the rationale for
-  not implementing the criterion must be documented, and
-  all SUGGESTED criteria have to be considered (rated as met or unmet).
-  In some cases a URL may be required as part of the criterion's justification.
-- The text "(Future criterion)" marks criteria that are not currently
-  required, but may be required in the future.
+- 术语“应当“指一个标准应被实现，但是如果存在有效的原因，则在特定的情景下可以不这样去做。在选择不同的方式之前，必须考虑，理解，并谨慎权衡所有相牵连的方方面面。
+- “建议的“用来作为”应当“的替代术语，此术语用于必须考虑此标准，但不这样做的有效原因比“应当”更为普遍的时候。
+- 作为一个标准而言，通常来说都会被置于“应当”或“建议"的状态，因为也许此标准实现起来很困难，或者花费的成本很高。
+- 术语“可以”提供了完成某工作的一种方式，例如，澄清所描述的实现方法是可接受的。
+- 要获得徽章，须要满足所有“必须”和“一定不能”的标准。
+满足所有"应当“的标准，或者如果无法实现此标准，必须将其理论依据记录在文档中。
+而所有“建议的”标准必须被考虑（评估为符合或不符合）。
+在某些情况下，也许需要添加 URL 作为此标准的解释说明的一部分。
+- 文字“（未来的标准）”标记了那些当前并不需要的标准，但这些标准可能在将来会是必须的。
 
-We assume that you are already familiar with
-software development and running a FLOSS project;
-if not, see introductory materials such as
+我们假设您已经熟悉了软件开发方式并正在运行着一个 FLOSS 项目；
+如果没有，参见介绍材料如
 [*Producing Open Source Software* by Karl Fogel](http://producingoss.com/).
 
 
-## Current criteria: Best Practices for FLOSS
+## 当前标准：FLOSS 的最佳实践
 
-Here are the current criteria.  Note that:
+以下为当前的标准。请注意：
 
-* Text inside square brackets is the short name of the criterion.
-* In a few cases rationale is also included.
-* We expect that there will be a few other fields for the
-  project name, description, project URL, repository URL (which may be the
-  same as the project URL), and license(s).
-* In some cases N/A ("not applicable") may be an appropriate and permitted
-  response.
+* 方括号内的文字是标准的短命名。
+* 在少数情况下理论依据也被包含在内。
+* 我们期待另外有少数其他字段来说明项目名称，项目描述，项目 URL，软件仓库 URL （也许与项目 URL 相同），和许可证。
+* 在一些情况下，可以并允许使用 N/A（“不适用”）。
 
-We intend to try to automatically test and fill in information
-if the project follows standard conventions and
-is hosted on a site (e.g., GitHub) with decent API support.
+如果此项目遵循标准约定，并架设在支持可被接受的 API 的网站上（如 GitHub），我们则会尝试自动测试并填写相关信息。
 
-### Basics
+### 基础部分
 
-*Project website*
+*项目网站*
 
-- <a name="homepage_url"></a>The project MUST have a public website
-  with a stable URL.
-  (The badging application enforces this by requiring a URL to
-  create a badge entry.)
-  <sup>[<a href="#homepage_url">homepage_url</a>]</sup>
+- <a name="homepage_url"></a>项目“必须“存在一个具有稳定 URL 的公开网站。（徽章程序强制需求此 URL 来创建徽章条目） <sup>[<a href="#homepage_url">homepage_url</a>]</sup>
 
-*Basic project website content*
+*基本项目网站内容*
 
-- <a name="description_good"></a>The project website MUST succinctly
-  describe what the software does (what problem does it solve?).
-  This MUST be in language that potential users can understand
-  (e.g., it uses minimal jargon).
+- <a name="description_good"></a>项目网站“必须“简洁地描述软件是用来做什么的（软件解决了什么问题？）。
+  “必须“使用潜在用户所能理解的语言（例如，最少限度使用专业术语）。
   <sup>[<a href="#description_good">description_good</a>]</sup>
-- <a name="interact"></a>The project website MUST provide information on how to:
-  - obtain,
-  - provide feedback (as bug reports or enhancements),
-  - and contribute to the software.
+- <a name="interact"></a>项目网站“必须“提供以下内容：
+  - 如何获取软件，
+  - 如何进行反馈（如 bug 报告或改进措施），
+  - 如何向软件做贡献。
   <sup>[<a href="#interact">interact</a>]</sup>
-- <a name="contribution"></a>The information on how to contribute MUST
-  explain the contribution process (e.g., are pull requests used?)
-  We presume that
-  <a href="https://guides.github.com/activities/contributing-to-open-source/">projects on GitHub use issues and pull requests</a>
-  unless otherwise noted.
+- <a name="contribution"></a>如何进行贡献的相关信息“必须“给出针对贡献流程的解释（例如，是否使用提交申请(pull requests)？）
+  除非另外注明，我们假设<a href="https://guides.github.com/activities/contributing-to-open-source/">在 GitHub 上的项目使用问题(issues) 和 提交申请(pull request)</a>
   <sup>[<a href="#contribution">contribution</a>]</sup>
-- <a name="contribution_requirements"></a>The information on how to contribute
-  SHOULD include the requirements for acceptable contributions
-  (e.g., a reference to any required coding standard).
+- <a name="contribution_requirements"></a>如何贡献的相关信息“应当“包含可接受的贡献的具体要求（例如，关于所要求的一切代码规范的参考信息）。
   <sup>[<a href="#contribution_requirements">contribution_requirements</a>]</sup>
 
-*FLOSS license*
+*FLOSS 许可证*
 
-- <a name="floss_license"></a> The software MUST be licensed as FLOSS.
-  FLOSS is software released in a way that meets the
-  [Open Source Definition](https://opensource.org/osd-annotated) or
-  [Free Software Definition](http://www.gnu.org/philosophy/free-sw.en.html).
-  Examples of such licenses include the
-  [CC0](http://creativecommons.org/publicdomain/zero/1.0/),
-  [MIT](https://opensource.org/licenses/MIT),
-  [BSD 2-clause](https://opensource.org/licenses/BSD-2-Clause),
-  [BSD 3-clause revised](https://opensource.org/licenses/BSD-3-Clause),
-  [Apache 2.0](https://opensource.org/licenses/Apache-2.0),
-  [Lesser GNU General Public License (LGPL)](https://opensource.org/licenses/lgpl-license) (any version),
-  and the [GNU General Public License (GPL)](https://opensource.org/licenses/gpl-license) (any version).
-  For our purposes, this means that the license MUST be:
-    - [an approved license by the Open Source Initiative (OSI)](https://opensource.org/licenses), or
-    - [a free license as approved by the Free Software Foundation (FSF)](https://www.gnu.org/licenses/license-list.html), or
-    - [a free license acceptable to Debian main](https://www.debian.org/legal/licenses/), or
-    - [a "good" license according to Fedora](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing).
-
+- <a name="floss_license"></a> 软件“必须”使用 FLOSS 许可证。
+  FLOSS 的软件发布方式要满足：
+  [开放源代码定义](https://opensource.org/osd-annotated) 或
+  [自由软件定义](http://www.gnu.org/philosophy/free-sw.en.html).
+  这些许可证包括例如
+  [CC0](http://creativecommons.org/publicdomain/zero/1.0/)、
+  [MIT](https://opensource.org/licenses/MIT)、
+  [BSD 2-clause](https://opensource.org/licenses/BSD-2-Clause)、
+  [BSD 3-clause revised](https://opensource.org/licenses/BSD-3-Clause)、
+  [Apache 2.0](https://opensource.org/licenses/Apache-2.0)、
+  [Lesser GNU General Public License (LGPL)](https://opensource.org/licenses/lgpl-license) (所有版本)、
+  以及 [GNU General Public License (GPL)](https://opensource.org/licenses/gpl-license) (所有版本)。
+  基于我们的目的，这些许可证“必须”是被：
+    - [开放源代码促进会(OSI)所批准的许可证](https://opensource.org/licenses)，或
+    - [自由软件基金会(FSF)所批准的自由许可证](https://www.gnu.org/licenses/license-list.html)，或
+    - [可被 Debian main 接受的自由许可证](https://www.debian.org/legal/licenses/)，或
+    - [Fedora 所定义的“good”的许可证](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing).
   <sup>[<a href="#floss_license">floss_license</a>]</sup>
-- <a name="floss_license_osi"></a> It is SUGGESTED that any required license(s) be
-  [approved by the Open Source Initiative (OSI)](https://opensource.org/licenses).
-  The OSI uses a rigorous license approval
-  process to determine which licenses are OSS.
+- <a name="floss_license_osi"></a> “建议”使用所有被[开放源代码促进会 (OSI) 所批准的](https://opensource.org/licenses)许可证。
+  OSI 使用严格的证书批准流程来决定哪些证书是 OSS 的。
   <sup>[<a href="#floss_license_osi">floss_license_osi</a>]</sup>
-- <a name="license_location"></a>The project MUST post license(s) in a standard
-  location (e.g., as a top-level file named LICENSE or COPYING).
-  License filenames MAY be followed by an extension such as ".txt" or ".md"
+- <a name="license_location"></a>项目“必须”将许可证发布在标准的位置（例如，最上层的名为 LICENSE 或 COPYING 的文件）。
+  证书文件名“可以“加上扩展名，诸如“.txt“或“.md“
   <sup>[<a href="#license_location">license_location</a>]</sup>
-- The software MAY also be licensed other ways
-  (e.g., "GPLv2 or proprietary" is acceptable).
-- *Rationale*: These criteria are designed for FLOSS projects, so we need to
-  ensure that they're only used where they apply.
-  Some projects may be mistakenly considered FLOSS even though they are not
-  (e.g., they might not have any license, in which case the defaults of the
-  country's legal system apply, or they might use a non-FLOSS license).
-  Unusual licenses can cause long-term problems for FLOSS projects and are
-  more difficult for tools to handle.
-  We expect that [more advanced badges](./other.md) would set a higher bar
-  (e.g., that it *must* be released under an OSI-approved license).
+- 软件也“可以”以其他方式使用许可证（例如，“GPLv2 或私有许可“也是可接受的）。
+- *理论依据*: 这些标准是为 FLOSS 项目而设计的，所以我们要确保仅在 FLOSS 项目上使用。
+  一些项目被错误的认为是 FLOSS ，然而它们并不是（例如，项目没有任何许可证，这种情况下将默认遵循本国的法律系统，或者这些项目也许会使用非 FLOSS 许可证）。
+  非普遍性许可证可能会导致 FLOSS 项目产生长远的问题，而且会在使用工具处理方面更加困难。
+  我们期待发布[更高级的徽章](./other.md)，这样可以带来更高的标准
+  (例如，*"必须"* 使用OSI 所批准的证书发布软件）。
 
-*Documentation*
+*文档*
 
-- <a name="documentation_basics"></a>The project MUST provide basic
-  documentation for the software in some media (such as text or video)
-  that includes:
-  - how to install it,
-  - how to start it,
-  - how to use it (possibly with a tutorial using examples), and
-  - how to use it securely (e.g., what to do and what not to do)
-    if that is an appropriate topic for the software.
+- <a name="documentation_basics"></a>项目“必须”以某种媒介（如文本或视频）为软件提供基本的文档。文档中应包括：
+  - 如何安装，
+  - 如何启动，
+  - 如何使用（可以带有实例教程），以及
+  - 如何安全地使用软件（例如，要做什么，不要做什么），前提是这对软件来说是个适当的话题。 
 
-  The security documentation need not be long.
+  安全相关的文档不必太长。
   <sup>[<a href="#documentation_basics">documentation_basics</a>]</sup>
-- <a name="documentation_interface"></a>The project MUST include reference
-  documentation that describes its interface.
+- <a name="documentation_interface"></a>项目“必须”包含描述其界面的参考文档。
   <sup>[<a href="#documentation_interface">documentation_interface</a>]</sup>
-- The project MAY use hypertext links to non-project material as documentation.
+- 项目“可以”使用超文本链接指向非项目的材料作为其文档。
 
 
-*Other*
+*其他*
 
-- <a name="sites_https"></a>The project sites
-  (website, repository, and download URLs)
-  MUST support HTTPS using TLS.
-  You can get free certificates from
-  [Let's Encrypt](https://letsencrypt.org/).
+- <a name="sites_https"></a>项目网站（网站，软件仓库，以及下载链接）“必须”支持使用 TLS 的 HTTPS 连接方式。你可以从 [Let's Encrypt](https://letsencrypt.org/) 免费获得证书。
   <sup>[<a href="#sites_https">sites_https</a>]</sup>
-- <a name="discussion"></a>The project MUST have one or more mechanisms
-  for discussion (including proposed changes and issues) that are:
-    - searchable,
-    - allow messages and topics to be addressed by URL,
-    - enable new people to participate in some of the discussions, and
-    - do not require client-side installation of proprietary software.
+- <a name="discussion"></a>项目“必须”具有一个或多个讨论的机制（包括计划变更和问题），此机制要求：
+    - 可搜索，
+    - 允许消息和主题通过 URL 访问，
+    - 允许新人参与某些讨论，以及
+    - 不须要在客户端安装私有软件。
 
-  Examples of acceptable mechanisms include
-  GitHub issue and pull request discussions, Bugzilla, Mantis, and Trac.
-  Asynchronous discussion mechanisms (like IRC) are acceptable if
-  they meet these criteria; make sure there is a URL-addressable
-  archiving mechanism.
-  Proprietary Javascript, while discouraged, is permitted.
+  可接受的机制包括例如
+  GitHub 问题(issue) 和 提交申请(pull request)的讨论、Bugzilla、Mantis，以及 Trac。
+  异步讨论机制（如 IRC）是可接受的，前提是要满足如下标准；确保具有可通过 URL 访问的存档机制。
+  我们不鼓励使用私有的 Javascript，但却是允许的。
   <sup>[<a href="#discussion">discussion</a>]</sup>
-- <a name="english"></a>The project SHOULD
-  include documentation in English and be able
-  to accept bug reports and comments about code in English.
-  English is currently the <a
-  href="https://en.wikipedia.org/wiki/Lingua_franca">lingua franca</a>
-  of computer technology; supporting English increases the number
-  of different potential developers and reviewers worldwide.
-  A project can meet this criterion even if its core developers'
-  primary language is not English.
+- <a name="english"></a>项目“应当”包括英文文档，并且可以接受英文的 缺陷(bug)报告和评论。
+  英语是当前计算机技术领域的<a
+  href="https://en.wikipedia.org/wiki/Lingua_franca">通用语</a>；支持英语可以在全世界范围内增加不同的潜在开发者和评论者。
+  项目是能够满足此条件的 —— 即便其核心开发者所使用的主要语言不是英语。
   <sup>[<a href="#english">english</a>]</sup>
 
 ### Change control
