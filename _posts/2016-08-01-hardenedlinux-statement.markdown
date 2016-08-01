@@ -8,7 +8,7 @@ categories: announcement
 ---
 
 
-###声明：
+### 声明
 
 * HardenedLinux是一个致力于自由软件安全性的自由软件社区，和**任何**商业机构没半毛钱的关系，包括[h4rdenedzer0](http://hardenedlinux.org/about/)在内的所有[贡献者](http://hardenedlinux.org/about2/)都有各自的dayjob，在大部分情况下贡献者都是以nightjob的时间完成的，但我们鼓励商业机构贡献自由软件项目。
 
@@ -18,7 +18,7 @@ categories: announcement
 
 * 经过和PaX team/spender协商，我们决定将停止在邮件列表中免费提供PaX/Grsecurity stable patch，如果有需要者请直接联系 contact@grsecurity.net | 上帝的归上帝，凯撒的归凯撒
 
-###Announcement
+### Announcement
 
 * HardenedLinux is a FLOSS community focus only FLOSS security and we have nothing to do with any commcercial organizations. h4rdenedzer0 team and other contributors have their own day job and we've been contributing to HardenedLinux in our night job time. We encourage commcercial organizations contribute FLOSS projects.
 
