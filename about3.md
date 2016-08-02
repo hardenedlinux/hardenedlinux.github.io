@@ -4,6 +4,10 @@ title: Content
 permalink: /about3/
 ---
 
+### HardenedLinux's announcement:
+
+* [声明：HardenedLinux社区与任何商业机构无关](http://hardenedlinux.org/announcement/2016/08/01/hardenedlinux-statement.html)
+
 ### [PaX/Grsecurity](https://grsecurity.net/)相关
 
 * [PaX/Grsecurity for Nexus 7 2013](http://hardenedlinux.org/system-security/2015/05/11/Grsecurity-for-Nexus-7-2013.html), May 11 2015
@@ -28,7 +32,9 @@ permalink: /about3/
 ### Compiler/编译器相关
 
 * [How to build Clang toolchains for Android](http://hardenedlinux.org/toolchains/2016/04/01/How_to_build_Clang_toolchains_for_Android.html), Apr 1 2016
-
+* [NX(No-eXecute)的实现分析](http://hardenedlinux.org/gnulinux-security/2016/06/01/NX-analysis.html), June 1 2016
+* [PIC/PIE分析](http://hardenedlinux.org/system-security/2016/07/01/PIC_and_PIE_analysis.html), July 1 2016
+* [Reproducible builds for PaX/Grsecurity](http://hardenedlinux.org/system-security/2016/08/01/reproducbile-builds-for-pax-grsecurity.html), Aug 1 2016
 
 ### Kernel security/内核安全相关
 
@@ -38,7 +44,6 @@ permalink: /about3/
 * [CVE-2015-8088: 华为智能手机HiFi驱动堆溢出](http://hardenedlinux.org/system-security/2015/12/12/cve-2015-8088-analysis.html), Dec 12 2015
 * [An Introduction to Linux Kernel Exploitation](http://hardenedlinux.org/system-security/2016/01/19/an-introduction-to-linux-kernel-exploitation.html), Jan 19 2016
 * [Linux内核自防护项目的初始文档](http://hardenedlinux.org/system-security/2016/05/23/kernel_self_protection.html), May 23 2016
-* [NX(No-eXecute)的实现分析](http://hardenedlinux.org/gnulinux-security/2016/06/01/NX-analysis.html), June 1 2016
 
 ### Crypto engineering/密码工程相关
 

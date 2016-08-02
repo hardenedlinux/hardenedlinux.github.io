@@ -13,7 +13,7 @@ FLOSS projects from h4rdenedzer0 and other contributors:
 * [pax-bites](https://github.com/hardenedlinux/pax-bites)
 * [Offensive PoC](https://github.com/hardenedlinux/offensive_poc)
 * [elfix for Debian package](https://github.com/hardenedlinux/elfix-deb)
-
+* [Debian GNU/Linux: best practice profiles](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles)( WIP)
 
 Content contributors:
 
