@@ -11,9 +11,11 @@ FLOSS projects from h4rdenedzer0 and other contributors:
 * [Reproducible build for PaX/Grsecurity](https://github.com/hardenedlinux/grsecurity-reproducible-build)
 * [Hardenedlinux profiles](https://github.com/hardenedlinux/hardenedlinux_profiles)
 * [pax-bites](https://github.com/hardenedlinux/pax-bites)
-* [Offensive PoC](https://github.com/hardenedlinux/offensive_poc)
+* [Offensive PoC](https://github.com/hardenedlinux/offensive_poc)( WIP)
 * [elfix for Debian package](https://github.com/hardenedlinux/elfix-deb)
 * [Debian GNU/Linux: best practice profiles](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles)( WIP)
+* [Community QA](https://github.com/hardenedlinux/community-QA)( WIP)
+
 
 Content contributors:
 
