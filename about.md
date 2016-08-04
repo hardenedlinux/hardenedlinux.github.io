@@ -8,9 +8,8 @@ Team: h4rdenedzer0
 
 * citypw
 * n3o4po11o
-* digitalplus
-* Pray3r
 * zet
+* icenowy
 * [wnereiz](https://github.com/wnereiz)
 
 [Contributors](http://www.hardenedlinux.org/about2)
