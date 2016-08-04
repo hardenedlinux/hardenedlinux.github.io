@@ -17,7 +17,7 @@ FLOSS projects from h4rdenedzer0 and other contributors:
 
 Content contributors:
 
-* [h4rdenedzer0](http://hardenedlinux.org/about/)
+* *[h4rdenedzer0](http://hardenedlinux.org/about/)* Team
 * [Ciphergateway](https://twitter.com/ciphergateway)
 * [Tom Li](https://biergaizi.info/)
 * [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
@@ -25,7 +25,6 @@ Content contributors:
 * samson-w
 * [cheese](https://github.com/cheese)
 * [lifematrix](https://github.com/lifematrix)
-* [wnereiz](https://github.com/wnereiz)
 
 Donation:
 

@@ -11,6 +11,7 @@ Team: h4rdenedzer0
 * digitalplus
 * Pray3r
 * zet
+* [wnereiz](https://github.com/wnereiz)
 
 [Contributors](http://www.hardenedlinux.org/about2)
 
