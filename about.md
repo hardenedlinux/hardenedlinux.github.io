@@ -10,6 +10,7 @@ Team: h4rdenedzer0
 * n3o4po11o
 * zet
 * icenowy
+* [wnereiz](https://github.com/wnereiz)
 
 [Contributors](http://www.hardenedlinux.org/about2)
 

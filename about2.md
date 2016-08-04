@@ -27,7 +27,6 @@ Content contributors:
 * samson-w
 * [cheese](https://github.com/cheese)
 * [lifematrix](https://github.com/lifematrix)
-* [wnereiz](https://github.com/wnereiz)
 * [pray3r](https://github.com/Pray3r)
 
 Donation:
