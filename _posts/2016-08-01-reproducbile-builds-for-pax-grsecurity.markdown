@@ -15,6 +15,7 @@ A series of scripts are created to do reproducible builds for Linux kernel with 
 Thanks to:
 
 - PaX/Grsecurity
+- Mempo project
 - Debian GNU/Linux Community
 - Shawn C[a.k.a "Citypw"]
 - Linux From Scratch
