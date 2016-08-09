@@ -641,7 +641,7 @@ kernel.kptr_restrict=1
 
 ** dmesg info can be read by root-only:
 <pre>
-kernel.kptr_restrict=1
+kernel.dmesg_restrict=1
 /proc/sys/kernel/dmesg_restrict
 </pre>
 
