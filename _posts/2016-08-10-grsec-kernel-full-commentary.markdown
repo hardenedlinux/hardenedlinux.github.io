@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  面向桌面的 PaX/Grsecurity 内核配置注释与评论
+title:  "面向桌面的 PaX/Grsecurity 内核配置注释与评论"
 date:   September 6, 2015 10:42 PM
-summary: PaX/Grsecurity 内核配置的一些 note。
+summary: PaX/Grsecurity 内核配置的一些 note
+
 categories: system-security
 ---
 
