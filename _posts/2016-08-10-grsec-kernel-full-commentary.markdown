@@ -9,6 +9,8 @@ categories: system-security
 面向桌面的 PaX/Grsecurity 内核配置注释与评论
 ==============================================
 
+原文地址： https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/grsec-kernel-full-commentary.md
+
 作者：
 
 - Tom Li <biergaizi@members.fsf.org>
