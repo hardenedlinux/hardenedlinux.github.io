@@ -1,22 +1,19 @@
 ---
 layout: post
 title:  "面向桌面的 PaX/Grsecurity 内核配置注释与评论"
-date:   September 6, 2015 10:42 PM
+date:   2016-08-10
 summary: PaX/Grsecurity 内核配置的一些 note
 
 categories: system-security
 ---
 
-面向桌面的 PaX/Grsecurity 内核配置注释与评论
-==============================================
-
-原文地址： https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/grsec-kernel-full-commentary.md
+**原文：[面向桌面的 PaX/Grsecurity 内核配置注释与评论](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/grsec-kernel-full-commentary.md)**
 
 作者：
 
 - Tom Li <biergaizi@members.fsf.org>
 - Icenowy Zheng <icenowy@aosc.xyz>
-- citypw <citypw@gmail.com>
+- Shawn C <citypw@gmail.com>
 
 **注意：不要盲目听信“建议”！适合的才是最好的！**
 
