@@ -24,10 +24,11 @@ Content contributors:
 * [Tom Li](https://biergaizi.info/)
 * [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
 * happy-dw
-* samson-w
+* [samson-w](https://github.com/Samson-W)
 * [cheese](https://github.com/cheese)
 * [lifematrix](https://github.com/lifematrix)
 * [pray3r](https://github.com/Pray3r)
+* [deepin](https://www.deepin.com)
 
 Donation:
 
