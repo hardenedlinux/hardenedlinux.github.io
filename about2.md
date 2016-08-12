@@ -17,18 +17,22 @@ FLOSS projects from h4rdenedzer0 and other contributors:
 * [Community QA](https://github.com/hardenedlinux/community-QA)( WIP)
 * [PaX/Grsecurity新手教程](https://github.com/hardenedlinux/grsecurity-101-tutorials)( WIP)
 
-Content contributors:
+Project maintainers:
 
 * **[h4rdenedzer0](http://hardenedlinux.org/about/)** Team
-* [Ciphergateway](https://twitter.com/ciphergateway)
 * [Tom Li](https://biergaizi.info/)
-* [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
-* happy-dw
 * [samson-w](https://github.com/Samson-W)
 * [cheese](https://github.com/cheese)
-* [lifematrix](https://github.com/lifematrix)
+* [TYA infotech](http://tya.company/)
+* [Deep Linux](https://www.deepin.com)
+
+Content/article contributors:
+* [Ciphergateway](https://twitter.com/ciphergateway)
+* happy-dw
+* [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
 * [pray3r](https://github.com/Pray3r)
-* [deepin](https://www.deepin.com)
+* [lifematrix](https://github.com/lifematrix)
+
 
 Donation:
 
