@@ -19,6 +19,7 @@ permalink: /about3/
 * [MPROTECT早期设计文档](https://hardenedlinux.github.io/system-security/2016/03/14/mprotect.html), Mar 14 2016
 * [关于RAP的FAQ](https://hardenedlinux.github.io/system-security/2016/05/01/FAQ_about_RAP.html), May 1 2016
 * [面向桌面的 PaX/Grsecurity 内核配置注释与评论](https://hardenedlinux.github.io/system-security/2016/08/10/grsec-kernel-full-commentary.html)
+* [Linux kernel mitigation checklist( WIP)](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md)
 
 ### Secops/安全运维
 
@@ -35,6 +36,8 @@ permalink: /about3/
 * [NX(No-eXecute)的实现分析](https://hardenedlinux.github.io/system-security/2016/06/01/NX-analysis.html), June 1 2016
 * [PIC/PIE分析](https://hardenedlinux.github.io/system-security/2016/07/01/PIC_and_PIE_analysis.html), July 1 2016
 * [Reproducible builds for PaX/Grsecurity](https://hardenedlinux.github.io/system-security/2016/08/01/reproducbile-builds-for-pax-grsecurity.html), Aug 1 2016
+* [Build debug environment for the dynamic linker of Glibc](https://hardenedlinux.github.io/toolchains/2016/08/25/build_debug_environment_for_dynamic_linker_of_glibc.html), Aug 25 2016
+
 
 ### Kernel security/内核安全相关
 
