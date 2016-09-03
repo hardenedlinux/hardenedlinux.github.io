@@ -54,7 +54,7 @@ categories: system-security
 
 内核必须永远不能执行用户空间的内存。内核也必须永远不能在没有显式预期的情况下访问用户空间内存。这些规则可以被基于硬件的限制（x86的SMEP/SMAP，ARM的PXN/PAN）或者通过模拟（ARM的内存域）。这种方式阻断了执行和数据不能传递到被控制的用户空间内存里，只能强制攻击在内核内存中进行。
 
-> Shawn: SMEP是2011年在Intel Sandybridge中加入的特性，SMAP是在2014年的Broadwell中加入，ARM的PXN是在armv7中加入，PAN会在armv8.1中加入。遗憾的是，PaX/Grsecurity的KERNEXEC和UDEREF均领先厂商数年。Anyway，最终SMEP/SMAP把兵工厂逼上了Kernel ROP的道路;-)
+> Shawn: SMEP是2012年在Intel Ivybridge中加入的特性，SMAP是在2014年的Broadwell中加入，ARM的PXN是在armv7中加入，PAN会在armv8.1中加入。遗憾的是，PaX/Grsecurity的KERNEXEC和UDEREF均领先厂商数年。Anyway，最终SMEP/SMAP把兵工厂逼上了Kernel ROP的道路;-)
 
 
 ### 减少对系统调用的访问
