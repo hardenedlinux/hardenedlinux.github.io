@@ -33,7 +33,7 @@ globals的值时.然后又看到LLVM/lld里面的R_386_COPY的实现[patch](http
 项的地址.
 
 本文的描述将围绕这两个问题来进行.这两个问题的解决的实现代码位于glibc,所以源代码
-的也来自于glibc.对于如何搭建glibc调试环境详细见我的前一篇[文章](http://embedsec.systems/toolchains/2016/08/25/build_debug_environment_for_dynamic_linker_of_glibc.html).
+的也来自于glibc.对于如何搭建glibc调试环境详细见我的前一篇[文章](http://hardenedlinux.org/toolchains/2016/08/25/build_debug_environment_for_dynamic_linker_of_glibc.html).
 
 ## 01 引申
 
