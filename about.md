@@ -8,7 +8,7 @@ Team: h4rdenedzer0
 
 * citypw
 * n3o4po11o
-* zet
+* [zet](https://github.com/fanfuqiang)
 * icenowy
 * [wnereiz](https://github.com/wnereiz)
 
