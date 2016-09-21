@@ -50,7 +50,8 @@ Paragraph 6
 Two pointers compare equal if and only if both are null pointers, both are 
 pointers to the same object (including a pointer to an object and a subobject at
 its beginning) or function
---[ISO C11 standard]
+>
+>--[ISO C11 standard]
 
 ## 02 示例
 
@@ -292,9 +293,11 @@ application的时候如果发现这个app有一个类型是PT_INTERP的program h
 个header的内容(对于linux来说是ld-linux.so.2也就是动态连接器)的一个很重要的理由.
 
 _GLOBAL_OFFSET_TABLE_[1]/[2]的初始化代码位于:
+
 ```
 glibc-2.23/sysdeps/i386/dl_machine.h
 ```
+
 ```
 /* Set up the loaded object described by L so its unrelocated PLT
    entries will jump to the on-demand fixup code in dl-runtime.c.  */
@@ -323,6 +326,7 @@ elf_machine_runtime_setup (struct link_map *l, int lazy, int profile)
 	}
       //
       // **_GLOBAL_OFFSET_TABLE_[1]的初始化**
+      //
       got[1] = (Elf32_Addr) l;	/* Identify this shared object.  */
 
       /* The got[2] entry contains the address of a function which gets
@@ -347,6 +351,7 @@ elf_machine_runtime_setup (struct link_map *l, int lazy, int profile)
      
         //
         // **_GLOBAL_OFFSET_TABLE_[2]的初始化**
+        //
 	got[2] = (Elf32_Addr) &_dl_runtime_resolve;
     }
 
@@ -354,7 +359,9 @@ elf_machine_runtime_setup (struct link_map *l, int lazy, int profile)
 }
 
 ```
+
 _dl_runtim_reslove的代码是一段跟处理器有关系的汇编.
+
 
 ```
 glibc-2.23/sysdeps/i386/dl-trampoline.S
