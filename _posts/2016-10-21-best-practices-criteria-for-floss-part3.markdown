@@ -23,7 +23,7 @@ Github 提交者：david-a-wheeler, altonius, kfogel, dankohn, NilsEnevoldsen
 
 # 自由/开源软件(FLOSS)的最佳实践标准 (版本 0.8.0)
 
-*接上文:[自由/开源软件(FLOSS)的最佳实践标准（第二部分）](http://hardenedlinux.org/2016/09/07/best-practices-criteria-for-floss-part3.html)* 
+*接上文:[自由/开源软件(FLOSS)的最佳实践标准（第二部分）](http://hardenedlinux.org/2016/09/07/best-practices-criteria-for-floss-part2.html)* 
 
 
 ### 分析
