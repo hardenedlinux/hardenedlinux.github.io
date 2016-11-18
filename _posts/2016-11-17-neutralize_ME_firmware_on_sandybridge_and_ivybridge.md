@@ -1,14 +1,13 @@
 ---
 layout:         post
 title:          Neutralize ME firmware on SandyBridge and IvyBridge platforms
-date            2016-11-17
-auther:         persmule
+date:           2016-11-17
+author:         persmule
 mail:           persmule@tya.email, persmule@gmail.com
 summary:        Record how I "neutralize" the ME firmware on my Thinkpad X220, in order to present its way.
 categories:     Firmware
 ---
 
-# Neutralize ME firmware on SandyBridge and IvyBridge platforms
 
 ## 00 ME: Management Engine
 
@@ -32,7 +31,7 @@ As mentioned above, completely removing the ME is hardly possible on platforms w
 
 Leave minimalist ME function to keep the whole system stable (thus prevent the 30-minute-shutdown [Defective by Design](https://defectivebydesign.org/)), and then remove all remaining function unrelated to this, especially those threatening our freedom, security, and privacy.
 
-ME's sectional and modular design makes it possible. Different ME modules are stored in different partitions in the ME region of the SPI flash, and their signature are verified separately, so it is possible to complete prevent one module being loaded without interfering another.
+ME's sectional and modular design makes it possible. Different ME modules are stored in different partitions in the ME region of the SPI flash, and their signature are verified separately, so it is possible to completely prevent one module being loaded without interfering another.
 
 On sep. 2016, [Trammell Hudson](mailto:hudson@trmm.net) detected that [erasing the first 4kiB page of the ME region did not shutdown his x230 30 minutes later](https://www.coreboot.org/pipermail/coreboot/2016-September/082016.html).
 
@@ -93,7 +92,6 @@ Remove all power supply (AC and battery) of Thinkpad x220, then remove its keybo
 So I am going to use the configuration below to connect the chip to BBB, with [a cheap SOIC-8 clip available in China](https://item.taobao.com/item.htm?id=42797824221) which I have used to program other boards.
 
 ![broken_soic8_clip](/images/deme/broken_soic8_clip.jpg)
-
 ```
 ===  front (display) on your X220 ====
  18              -       - 1
@@ -147,7 +145,7 @@ Then insert the neutralized ME back to the firmware image, still using `ifdtool`
 
 	$ path/to/ifdtool -i ME:intel_me.bin factory_x220.bin
 	
-Unlike `me_cleaner`, `ifdtool` is designed not to modify input file, but generated a new file suffixed with `.new` instead.
+Unlike `me_cleaner`, `ifdtool` is designed not to modify input file, but generates a new file suffixed with `.new` instead.
 
 (In reality, I have not only neutralized the ME, but unlocked write access to all region for main CPU with `$ path/to/ifdtool -u factory_x220_meneuted.bin`, hoping to ease the programming of coreboot later, but after the modified image written back, lenovo's BIOS still locks the SPI flash, making `flashrom(8)` in the OS unable to write (but able to read) the flash.)
 
@@ -165,7 +163,7 @@ The writing procedure is presented with increased verbosity: `flashrom(8)` will 
 
 ## 08 Results.
 
-With ME neutralized, the MEI interface disappears from the PCI bus, and the integrated NIC ceased to work, but will resume to work after a reboot. All other components work just fine, with no 30-minute-shutdown.
+With ME neutralized, the MEI interface disappears from the PCI bus, and the integrated NIC ceases to work, but will resume to work after a reboot. All other components work just fine, with no 30-minute-shutdown.
 
 According to Nicola Corna, the current ME state should have been changed from "normal" to "recovery".
 
