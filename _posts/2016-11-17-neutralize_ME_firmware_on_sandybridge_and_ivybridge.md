@@ -8,6 +8,8 @@ summary:        Record how I "neutralize" the ME firmware on my Thinkpad X220, i
 categories:     Firmware
 ---
 
+Author: persmule
+Mail: persmule@tya.email, persmule@gmail.com
 
 ## 00 ME: Management Engine
 
