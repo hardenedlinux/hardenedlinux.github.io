@@ -122,6 +122,9 @@ Now, try to identify the chip(if detection failed, try to slow down the speed).
 And read the content of the SPI flash if the chip is successfully identified. If `flashrom(8)` feels ambiguity, specify one of its suggested chip model with `-c`.
 
 	root@beaglebone:/dev/shm# /opt/flashrom/flashrom -p linux_spi:dev=/dev/spidev1.0,spispeed=4096 [-c <model>] -r factory_x220.bin
+	root@beaglebone:/dev/shm# /opt/flashrom/flashrom -p linux_spi:dev=/dev/spidev1.0,spispeed=4096 [-c <model>] -r factory_x220.bin.1
+	
+Read chip at least twice, and make sure that all the resulted images are the same (e.g. by checksum), otherwise they cannot be considered reliable.
 	
 The rom image `factory_x220.bin` should be 8MiB large. Copy it to the PC with `scp(1)`.
 
