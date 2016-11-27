@@ -461,8 +461,10 @@ do_spec_1 (const char *spec, int inswitch, const char *soft_matched_part) {
 
 ```
 do_spec_1()->handle_braces()
-{% endhighlight %}
-{% highlight html %}
+
+```
+
+```
 static const char *
 handle_braces (const char *p) {
   // 标记"z}"的起始和结束
@@ -934,9 +936,12 @@ pteval_t __supported_pte_mask __read_mostly = ~0;
 // _PAGE_NX的定义与PAE/PTE的第63位(XD)对应
 #if defined(CONFIG_X86_64) || defined(CONFIG_X86_PAE)
 #define _PAGE_NX	1 << 63
-{% endhighlight %}
+
+```
+
 MMU实现NX的在三层的paging结构中是类似的.下面的描述以PTE为代表来进行.
-{% highlight html %} 
+
+```
 #define mk_pte(page, pgprot)   pfn_pte(page_to_pfn(page), (pgprot))
 // 创建一个能进入PTE的项,对于本文的NX描述来说,这个值肯定是64位的.
 static inline pte_t pfn_pte(unsigned long page_nr, pgprot_t pgprot)
