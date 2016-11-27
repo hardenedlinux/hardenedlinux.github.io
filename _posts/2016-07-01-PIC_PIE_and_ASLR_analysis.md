@@ -12,7 +12,7 @@ categories:     system-security
 
 # Position Independent Code(PIC) and Position Independent Executable(PIE)
 
-@(mitgation)[PIC|PIE|gcc|binutils]
+@(mitgation)[PIC | PIE | gcc | binutils | kernel]
         --[zet](https://github.com/fanfuqiang)
 
 ## 00 导引
