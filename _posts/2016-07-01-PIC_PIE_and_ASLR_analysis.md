@@ -314,8 +314,8 @@ PIE是要配合ASLR来使用的,以达到executable的加载时地址随机化�
 下面先给出去得随机地址的调用链:
 
 ```
-#0 get_random_int() in drivers/char/dandom.c:2062 
-#1 randomize_range() in drivers/char/dandom.c:2113
+#0 get_random_int() in drivers/char/random.c:2062
+#1 randomize_range() in drivers/char/random.c:2113
 #3 arch_randomize_brk() in arch/x86/kernel/process.c:509
 #4 load_elf_binary() in fs/binfmt_elf.c:668
 
