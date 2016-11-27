@@ -10,11 +10,14 @@ categories: system-security
 
 >Shawn: GNU/Linux系统级攻防在历史上曾经停留在用户空间很长的时间，经历了NX/COOKIE/PIE/ASLR/RELRO的进化后后0ldsk00l以及security "researcher"们已经无法通过用户空间触及到“上帝宝藏"(-_root_-)，sgrakkyu和twzi在Phrack Issue 64中的[Attacking the Core](http://phrack.org/archives/issues/64/6.txt)标志着这个领域正式进入了内核层面的对抗，10年过去了，在新的时代性背景下（Android/IoT/TEE），人们意识到安全应该是一个整体（again?WTH），而单纯依赖于内核层面的攻防无法解决很多老问题，传统的mitigation技术再次在某些场景化的方案中受到重视，NX（armv6中是XN）是其中之一，栈的不可执行最早是由PaX team实现的[PAGEEXEC](http://hardenedlinux.org/system-security/2015/05/25/pageexec-old.html)和[SEGEXEC](http://hardenedlinux.org/system-security/2015/05/26/segmexec.html)，后来Intel CPU在硬件上支持NX后Ingo Molnar给出了[硬件NX的第一版实现](http://redhat.com/~mingo/nx-patches/nx-2.6.7-rc2-bk2-AE)给[Fedora的用户尝鲜](http://people.redhat.com/mingo/nx-patches/QuickStart-NX.txt)，后来则进入了Linux mainline。这篇文档详细的分析了GCC/ld/kernel三个层面的NX的工作路线图。Enjoy it!
 
-By zet
 
 # NX(No-eXecute)的实现分析
 
 @(mitigation)[NX|gcc|binutils|kernel]
+        --[zet](https://github.com/fanfuqiang)
+
+## 00 导引
+
 以下的代码分析仅限**linux kernel/gcc/GNU binutils-as/GNU binutils-ld/ELF**.
 
 在计算机安全领域一个很经典的话题就是缓冲区溢出(Buffer Overflow).缓冲区溢出一般时
@@ -34,14 +37,10 @@ CPU操作的时候由硬件来做是否可以执行的检查.
 
 本文的描述描述顺序是先描述NX在gcc/binutils里的实现,然后再描述在kernel里的实现.
 
-<small>*本文的分析对应的**gcc**版本是6.1.0,**binutils**版本是2.26,
-**linux kernel**的版本是4.6*</small>
+*本文的分析对应的**gcc**版本是6.1.0,**binutils**版本是2.26,**linux kernel**的版本是4.6*
 
----------------
 
-[TOC]
-
-## NX在gcc/binutils里面的实现
+## 01 NX在gcc/binutils里面的实现
 
 在gcc/ld里面有NX相关的选择,gcc/ld都是-z execstack/noexecstack,在gcc 6.1 manual里
 跟-z相关的内容如下:
@@ -55,11 +54,12 @@ meanings.
 
 也就是说gcc将参数-z execstack/noexecstack直接传给了ld(linker).
 
-{% highlight html %}
+```
 gcc -### -z execstack test.c
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 Using built-in specs.
 COLLECT_GCC=gcc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
@@ -87,12 +87,12 @@ test.c -quiet -dumpbase test.c "-mtune=generic" "-march=x86-64" -auxbase test
 -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed 
 /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o 
 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
-{% endhighlight %}
-
+```
 
 接下来将会详细描述gcc将-z execstack这一参数怎样传给ld(linker)以及这一参数对生成
 的ELF文件产生怎样的影响,最后将会分析这样的影响是如何导致stack被执行在kernel里捕
 获的.
+
 
 ### NX在gcc里的处理
 
@@ -103,14 +103,14 @@ test.c -quiet -dumpbase test.c "-mtune=generic" "-march=x86-64" -auxbase test
 
 当**gcc**遇到**-z execstack**这样的选项时的处理代码如下:
 
-<small>*在我的机器上gcc的目录是$HOME/github/gcc*
+*在我的机器上gcc的目录是$HOME/github/gcc*
 
-{% highlight html %}
+```
 export $SRC=$HOME/github/gcc
-{% endhighlight %}
 
+```
 
-{% highlight html %}
+```
 // $SRC/gcc/gcc-main.c
 // gcc driver的入口代码
 int
@@ -153,7 +153,8 @@ driver::main (int argc, char **argv)
   final_actions ();
   return get_exit_code ();
 }
-{% endhighlight %}
+
+```
 
 
 由上面的代码注释可知,我们需要研究3个main入口里的函数,下面依次进行分析.由于代码过
@@ -162,22 +163,22 @@ driver::main (int argc, char **argv)
 
 在分析之前需要说清楚另外一个问题,那就是**-z**这个参数的定义问题.
 
-
-{% highlight html %}
+```
 cd $HOME/github/gcc
 mkdir build
 cd build
 ../configure --prefix="$HOME/bin" --disable-nls --enable-languages=c,c++
 make -j8
 make install
-{% endhighlight %}
+
+```
 
 
 编译完成之后,会在*build/gcc*里有两个跟本文的主题有关的文件: 
 **options.c**/**options.h**.这两个文件跟gcc的编译选项处理有很大关系,这两个文件的
 生成是几个*$SRC/gcc*里的*awk*脚本共同作用的结果.
 
-{% highlight html %}
+```
 // Makefile.in
 // 注意这里的输入是$(ALL_OPT_FILES)
 
@@ -207,36 +208,38 @@ ALL_OPT_FILES=$(lang_opt_files) $(extra_opt_files)
 
 // 编译选项配置文件
 lang_opt_files=@lang_opt_files@ $(srcdir)/c-family/c.opt $(srcdir)/common.opt
-{% endhighlight %}
 
+```
 
 由上面的代码可以知道编译选项的生成过程是输入配置文件,然后awk脚本处理配置文件,然
 后输出options.h/options.c
 
-
-{% highlight html %}
+```
 // $SRC/gcc/common.opt里关于-z的内容如下:
 // 注意z底下的三个配置,Driver表示这是一个driver处理的选项(考虑一些debug的配置选
 项),Joined/Separate表示-z与跟-z本身相对于的参数(在本文中当然是指execstack/
 noexecstack)之间需不需要空白符隔开.
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 z   
 Driver Joined Separate
 
-{% endhighlight %}
+```
+
 相应的生成代码是:
 
-{% highlight html %}
+```
 OPT_z = 1251, 		/* -z */
-{% endhighlight %}
+
+```
 
 
 接着进行**gcc**对参数处理的分析
 
 
-{% highlight html %}
+```
 // 处理调用gcc时的参数存入decoded_options数组里
 decode_argv()->decode_cmdline_options_to_array()->decode_cmdline_option()
 
@@ -281,7 +284,8 @@ decode_cmdline_option (const char **argv, unsigned int lang_mask,
     decoded->errors = errors;
     decoded->warn_message = warn_message;
     // 后面的代码会处理别的参数,在本文的例子里就是待编译的文件:test.c
-{% endhighlight %}
+
+```
 
 *gcc*处理完参数之后会进行对输入文件的各种处理.当然在上面的分析中可知输入文件也是
 被处理参数的代码处理的,只不过*decoded->opt_index*表示这就是输入文件.
@@ -293,21 +297,27 @@ decode_cmdline_option (const char **argv, unsigned int lang_mask,
 与本文涉及到的比较重要的语法如下:
 >%a
 处理as的相关调用. 默认的spec文件叫: asm
-%A
+>
+>%A
 处理as相关的调用,默认的spec文件是: asm_final
-%(name) 
+>
+>%(name) 
 类似于宏替换,将之前定义的name在这里展开
-%{S}
+>
+>%{S}
 当选项S给出时,用-S替换S,注意这里的S是元字符
-%{S:X}
+>
+>%{S:X}
 对X进行替换操作,当选项-S给出时
-%{!S:X}
+>
+>%{!S:X}
 对X进行替换操作,当选项-S没有给出时
 
 *gcc driver*对可以调用的子工具的存储在一个统一的数组里.其中*compiler->spec*就是
 相应工具默认的调用参数.
 
-{% highlight html %}
+```
+
 /* The default list of file name suffixes and their compilation specs.  */
 static const struct compiler default_compilers[] =
 {
@@ -363,11 +373,13 @@ static const char *invoke_as =
    %{!S:-o %|.s |\n as %(asm_options) %m.s %A }\
   }";
 #endif
-{% endhighlight %}
+
+```
+
 接着将会是*gcc driver*调用相应的工具程序处理输入源文件.由上面的*spec*可以看到默
 认的*cc1/as*调用以输出汇编代码.
-{% highlight html %}
 
+```
 /* 处理输入源文件,根据相应的工具程序的spec输出汇编代码*/
 void
 driver::do_spec_on_infiles () const
@@ -392,11 +404,12 @@ driver::do_spec_on_infiles () const
 	  }
 	}    
 }
-{% endhighlight %}
+
+```
+
 最后将是*gcc*调用*linker*来处理汇编代码,在这里本文将会研究*-z execstack*的传递过程.
 
-{% highlight html %}
-
+```
 driver::maybe_run_linker() -> do_spec(link_command_spec);
 
 #define link_command_spec LINK_COMMAND_SPEC
@@ -421,13 +434,17 @@ driver::maybe_run_linker() -> do_spec(link_command_spec);
     %{fprofile-arcs|fprofile-generate*|coverage:-lgcov} " SANITIZER_SPEC " \
     %{!nostdlib:%{!nodefaultlibs:%(link_ssp) %(link_gcc_c_sequence)}}\
     %{!nostdlib:%{!nostartfiles:%E}} %{T*}  \n%(post_link) }}}}}}"
-{% endhighlight %}
-接着本文将会分析当遇到*LINK_COMMAND_SPEC*里的*%{z}*时进行的操作.
-{% highlight html %}
-do_spec()->do_spec_2()->do_spec_1()
-{% endhighlight %}
-{% highlight html %}
 
+```
+
+接着本文将会分析当遇到*LINK_COMMAND_SPEC*里的*%{z}*时进行的操作.
+
+```
+do_spec()->do_spec_2()->do_spec_1()
+
+```
+
+```
 static int
 do_spec_1 (const char *spec, int inswitch, const char *soft_matched_part) {
   // 在这里本文关注的spec将会是%{z}
@@ -439,9 +456,10 @@ do_spec_1 (const char *spec, int inswitch, const char *soft_matched_part) {
 		  case '{':
 		    p = handle_braces (p);
 		    break;
-{% endhighlight %}
-{% highlight html %}
 
+```
+
+```
 do_spec_1()->handle_braces()
 {% endhighlight %}
 {% highlight html %}
@@ -475,13 +493,15 @@ handle_braces (const char *p) {
 	break;
     }  
 }
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 do_spec_1()->handle_braces()->process_marked_switches()
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 static inline void
 process_marked_switches (void) {
   int i;
@@ -493,13 +513,15 @@ process_marked_switches (void) {
 	  give_switch (i, 0);
     }
 }
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 do_spec_1()->handle_braces()->process_marked_switches()->give_switch()
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 static void
 give_switch (int switchnum, int omit_first_word) {
   if (!omit_first_word) {
@@ -522,25 +544,26 @@ give_switch (int switchnum, int omit_first_word) {
     }
     // ...
 }
-{% endhighlight %}
+
+```
 
 ### NX在ld里面的处理
 
 下面将会分析*linker*遇到*-z execstack*时进行怎样的处理.对生成的ELF文件产生怎样的
 影响.
 
-
-{% highlight html %}
+```
 在binutils/include/elf/common.h里与execstack/noexecstack相关的定义如下:
 
 #define PF_X		(1 << 0)	/* Segment is executable */
 #define PF_W		(1 << 1)	/* Segment is writable */
 #define PF_R		(1 << 2)	/* Segment is readable */
-{% endhighlight %}
+
+```
 
 由于篇幅所限,下面仅仅分析当*ld*被调用时与*-z execstack*相关的代码.
 
-{% highlight html %}
+```
 	/**
 	bfd_link_info里分别有两个位域: 
 	unsigned int execstack: 1;
@@ -558,13 +581,15 @@ main (int argc, char **argv) {
   ldwrite ();
   // ...
 }
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 main()->parse_args()->ldemul_handle_option()->ld_emulation->handle_option()
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 /** ld_emulation是一个跟架构相关的结构,binutils里面根据后端的不同分开定义是为了
 移植和feature的方便,在项目里是很常见的工程设计.*/
 
@@ -584,13 +609,15 @@ gld${EMULATION_NAME}_handle_option (int optc) {
 	// ...
   }
 }
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 main()->lang_process ()->ldemul_before_allocation()->ld_emulation->before_allocation()
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 // ld_emulation的初始化定义为:
 struct ld_emulation_xfer_struct ld_${EMULATION_NAME}_emulation =
 {
@@ -606,13 +633,15 @@ struct ld_emulation_xfer_struct ld_${EMULATION_NAME}_emulation =
   gld${EMULATION_NAME}_before_allocation,
   //...
 };
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 gld${EMULATION_NAME}_before_allocation()->bfd_elf_size_dynamic_sections()
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 bfd_boolean
 bfd_elf_size_dynamic_sections (bfd *output_bfd,
 			       const char *soname,
@@ -631,20 +660,21 @@ bfd_elf_size_dynamic_sections (bfd *output_bfd,
     elf_tdata (output_bfd)->stack_flags = PF_R | PF_W;
   // ...
 }
-{% endhighlight %}
+
+```
 
 *ld_write()*将会是*linker*的最后一步,正确执行完将会得到一个目标文件(比如说*ELF*
 格式的可执行文件)
 
-{% highlight html %}
+```
 main->ld_write()->bfd_final_link()->bfd_elf_final_link()
 ->_bfd_elf_compute_section_file_positions()
 ->assign_file_positions_except_relocs()->assign_file_positions_for_segments()
 ->map_sections_to_segments()
-{% endhighlight %}
 
+```
 
-{% highlight html %}
+```
 // 这个结构描述section到segment的对应关系
 struct elf_segment_map
 {
@@ -686,7 +716,8 @@ map_sections_to_segments() {
     pm = &m->next;
   }
 }
-{% endhighlight %}
+
+```
 
 ### NX在kernel里的捕获
 上面已经介绍了*gcc/ld*里对*-z execstack*的处理,总共的影响就是在ELF文件里对应的
@@ -695,7 +726,7 @@ map_sections_to_segments() {
 
 一般来说*kernel*执行一个binary的时候会进行下面的代码调用链:
 
-{% highlight html %}
+```
 do_execve()->search_binary_handler()->linux_binfmt.load_binary()
 // elf文件的情况下load_binary()实际是就是调用load_elf_binary()
 static struct linux_binfmt elf_format = {
@@ -705,9 +736,10 @@ static struct linux_binfmt elf_format = {
 	.core_dump	= elf_core_dump,
 	.min_coredump	= ELF_EXEC_PAGESIZE,
 };
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 static int load_elf_binary(struct linux_binprm *bprm, struct pt_regs *regs) {
   int executable_stack = EXSTACK_DEFAULT;
   // bprm->buf里存储的就是elf文件的二进制流,读入elf header
@@ -736,13 +768,14 @@ static int load_elf_binary(struct linux_binprm *bprm, struct pt_regs *regs) {
   retval = setup_arg_pages(bprm, randomize_stack_top(STACK_TOP),
 				 executable_stack);
 
-{% endhighlight %}
+```
 
-{% highlight html %}
+```
 load_elf_binary()->setup_arg_pages()
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 // 处理加载的elf对应的进程的初始stack对应的vm_area_struct
 int setup_arg_pages(struct linux_binprm *bprm,
 		    unsigned long stack_top,
@@ -761,11 +794,13 @@ int setup_arg_pages(struct linux_binprm *bprm,
     	ret = mprotect_fixup(vma, &prev, vma->vm_start, vma->vm_end,
 			vm_flags);
 	// ...
-{% endhighlight %}
+
+```
+
 注意上面建立的*vm_area_struct*只是存在于进程的虚拟地址空间里.并没有映射实际的RAM,
 当这个ELF对*stack*进行访问时就会进入*page fault*,处理代码就是*do_page_fault()*
 
-{% highlight html %}
+```
 void do_page_fault(struct pt_regs *regs, unsigned long error_code) {
 	// 忽略掉跟本文讨论无关的一系列kernel的检查过程
     	// 对于我们刚刚映射的stack VMA来说会执行到这里
@@ -777,13 +812,15 @@ good_area:
 	}
 	// ...
 }
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 do_page_fault()->access_error()
-{% endhighlight %}
 
-{% highlight html %}
+```
+
+```
 static inline int
 access_error(unsigned long error_code, struct vm_area_struct *vma)
 {
@@ -804,7 +841,8 @@ access_error(unsigned long error_code, struct vm_area_struct *vma)
 
 	return 0;
 }
-{% endhighlight %}
+
+```
 
 ### NX软件实现小结
 总结一下前面的内容,就是当调用*gcc -z execstack test.c*时,gcc将参数打包处理传给ld,
@@ -813,7 +851,7 @@ access_error(unsigned long error_code, struct vm_area_struct *vma)
 调用access_error()以捕获到stack的执行权限错误.
 
 
-## NX在kernel CPU里的实现:
+## 02 NX在kernel/CPU里的实现:
 
 NX在CPU里面的实现跟硬件有很大的关系.所以下面的描述先从硬件相关的寄存器开始描述,
 然后进行kernel层面的描述.
@@ -821,8 +859,7 @@ NX在CPU里面的实现跟硬件有很大的关系.所以下面的描述先从�
 ### NX相关的寄存器
 
 >Intel® 64 and IA-32 Architectures Developer's Manual - System Programming Guide
->
-2.2.1  Extended Feature Enable Register(EFER)
+>2.2.1  Extended Feature Enable Register(EFER)
 IA32_EFER MSR提供了一些IA32e模式相关的使能配置位,还有另外一些位是跟page-access权
 限相关的.
 typedef struct IA32_EFER {
@@ -836,7 +873,8 @@ typedef struct IA32_EFER {
 	                                    // 我们感兴趣的这一位,也就是第12位,这一位也叫作NXE
 	long : 0;
 } IA32_EFER;
-IA32_EFER.NXE仅仅对PAE和IA-32e模式起作用(因为只有PAE/IA-32e模式下的paging单元(页
+
+>IA32_EFER.NXE仅仅对PAE和IA-32e模式起作用(因为只有PAE/IA-32e模式下的paging单元(页
 表项/页目录表项)是64位的).如果IA32_EFER.NXE = 1,从某一线性地址处的指令预取将会被
 禁止,即使这一线性地址处的数据访问是允许的.
 
@@ -855,10 +893,9 @@ CPUID.80000001H:EDX.NX [bit 20]是否为1,如果是1进行IA32_EFER.NXE的置位
 
 ### NX在kernel里的实现
 
+// 在arch/x86/mm/Setup_nx.c有如下的代码:
 
-{% highlight html %}
-在arch/x86/mm/Setup_nx.c有如下的代码:
-
+```
 static int disable_nx;
 /*
  * noexec = on|off
@@ -919,6 +956,20 @@ static inline pgprotval_t massage_pgprot(pgprot_t pgprot)
 
 	return protval;
 }
-{% endhighlight %}
+
+```
+
 写入PAT/PTE之后,就是CPU自己的操作了,paging之前CPU会检查相应的置位,以决定是否预取
 指令.
+
+
+## 03 总结
+
+上面我们详细描述了NX在整个系统层的实现细节.在系统安全领域由于stack作为一个可以写
+的存储区所以很容易作为攻击者的目标,stack overflow作为经典而且古老的攻击方式给
+stack植入shellcode然后因为stack的可执行性,让攻击的门槛非常低.后来引入了canary的
+机制,但是canary容易被bypass,真正解决这个问题就是NX的引入,所以NX其实是stack 
+overflow攻击的最重要的解决方案.
+
+*live long and prosper*
+
