@@ -297,15 +297,20 @@ decode_cmdline_option (const char **argv, unsigned int lang_mask,
 与本文涉及到的比较重要的语法如下:
 >%a
 处理as的相关调用. 默认的spec文件叫: asm
-%A
+>
+>%A
 处理as相关的调用,默认的spec文件是: asm_final
-%(name) 
+>
+>%(name) 
 类似于宏替换,将之前定义的name在这里展开
-%{S}
+>
+>%{S}
 当选项S给出时,用-S替换S,注意这里的S是元字符
-%{S:X}
+>
+>%{S:X}
 对X进行替换操作,当选项-S给出时
-%{!S:X}
+>
+>%{!S:X}
 对X进行替换操作,当选项-S没有给出时
 
 *gcc driver*对可以调用的子工具的存储在一个统一的数组里.其中*compiler->spec*就是
