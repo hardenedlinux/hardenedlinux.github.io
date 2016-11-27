@@ -1,21 +1,21 @@
 ---
 layout:         post
-title:          PIC/PIE分析
+title:          PIC/PIE&ASLR分析
 data:           2016-07-01
 auther:         zet
 mail:           zet@tya.email
-summary:		现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
+summary:	现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
 categories:     system-security
 ---
 
 > Shawn: 现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
 
 # Position Independent Code(PIC) and Position Independent Executable(PIE)
-=======
-#Position Independent Code(PIC) and Position Independent Executable(PIE)
-@(mitgation)[PIC|PIE|gcc|binutils]
 
-## 导引
+@(mitgation)[PIC | PIE | gcc | binutils | kernel]
+        --[zet](https://github.com/fanfuqiang)
+
+## 00 导引
 
 > In computing, position-independent code (PIC) or position-independent 
 executable (PIE) is a body of machine code that, being placed somewhere in the
@@ -39,8 +39,8 @@ Space Layout Randomization或者ASLR. shared library肯定是PIC,也就是说可
 
 首先注意一个问题,PIC是通过GOT/PLT/dynamic linker来实现的,后面会有文章来分析
 dynamic linker.本文也不会详细描述GOT以及PLT的实现方式,因为已经有很好这样的分析
-[文章]存在.
-(http://eli.thegreenplace.net/2011/11/03/position-independent-code-pic-in-shared-libraries)
+[文章](http://eli.thegreenplace.net/2011/11/03/position-independent-code-pic-in-shared-libraries)存在.
+
 阅读本文之前建议先了解一些**GOT/PLT**的实现方式.
 
 *出于篇幅以及文章的清晰程度的考虑,本文的描述仅限于i386/ELF32/gcc/gas/GNU ld/
@@ -48,7 +48,7 @@ linux kernel.现在通用的ELF 1.2标准出版于1995/05,ASLR在linux kernel里
 是从2.6.12. 由此可见要想测试本文描述的原理需要的平台软件版本根本不需要太新.后
 面可能会有x86_64版本的补充.*
 
-## 生成PIC/PIE的gcc/ld参数分析
+## 01 生成PIC/PIE的gcc/ld参数分析
 
 分析参数之前需要注意另外一个问题,解决应用程序可以在可变地址执行的两种模式:
 
@@ -306,7 +306,89 @@ section相对于.text来说很小.所以如果GNU Linux有多个进程执行同�
 executable,那么这些多个进程之间是可以共享同一份在RAM里的.text的,这就是shared
 library为什么节省系统RAM的原因.
 
-## 总结
+## 02 ASLR
+
+PIE是要配合ASLR来使用的,以达到executable的加载时地址随机化的需求,加大攻击者难度.
+下面作为一个补充简要描述一下ASLR的实现.
+
+下面先给出去得随机地址的调用链:
+
+```
+#0 get_random_int() in drivers/char/dandom.c:2062 
+#1 randomize_range() in drivers/char/dandom.c:2113
+#3 arch_randomize_brk() in arch/x86/kernel/process.c:509
+#4 load_elf_binary() in fs/binfmt_elf.c:668
+
+```
+
+```
+linux-4.8/fs/binfmt_elf.c
+
+```
+
+当kernel加载运行一个executable时会会经过load_elf_binary()这个函数来进行.
+
+```
+static int load_elf_binary(struct linux_binprm *bprm)
+{
+
+// ...
+//
+
+// 后面的变量值randomize_va_space可以通过/proc/sys/kernel/randomize_va_space来配
+// 置.
+	if (!(current->personality & ADDR_NO_RANDOMIZE) && randomize_va_space)
+		current->flags |= PF_RANDOMIZE;
+//...
+//
+
+	retval = create_elf_tables(bprm, &loc->elf_ex,
+			  load_addr, interp_load_addr);
+	if (retval < 0)
+		goto out;
+	/* N.B. passed_fileno might not be initialized? */
+	current->mm->end_code = end_code;
+	current->mm->start_code = start_code;
+	current->mm->start_data = start_data;
+	current->mm->end_data = end_data;
+	current->mm->start_stack = bprm->p;
+        
+        // 注意下面的判断. 
+        // 
+	if ((current->flags & PF_RANDOMIZE) && (randomize_va_space > 1)) {
+		current->mm->brk = current->mm->start_brk =
+			arch_randomize_brk(current->mm);
+#ifdef compat_brk_randomized
+		current->brk_randomized = 1;
+
+}
+
+// 产生随机数的函数.
+// 根据当前进程的pid和jiffies以及当前的TSC为种子计算出随机数.
+unsigned int get_random_int(void)
+{
+	__u32 *hash;
+	unsigned int ret;
+
+	if (arch_get_random_int(&ret))
+		return ret;
+
+	hash = get_cpu_var(get_random_int_hash);
+
+	hash[0] += current->pid + jiffies + random_get_entropy();
+	md5_transform(hash, random_int_secret);
+	ret = hash[0];
+	put_cpu_var(get_random_int_hash);
+
+	return ret;
+}
+
+```
+
+上面就是linux kernel所实现的ASLR的,配合PIE就可以实现executable的随机化.
+ 
+
+## 03 总结
 
 对上面的描述做一个总结:
 
