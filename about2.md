@@ -27,6 +27,7 @@ Project maintainers:
 * [Deep Linux](https://www.deepin.com)
 
 Content/article contributors:
+
 * [Ciphergateway](https://twitter.com/ciphergateway)
 * happy-dw
 * [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)

@@ -34,9 +34,12 @@ permalink: /about3/
 
 * [How to build Clang toolchains for Android](https://hardenedlinux.github.io/toolchains/2016/04/01/How_to_build_Clang_toolchains_for_Android.html), Apr 1 2016
 * [NX(No-eXecute)的实现分析](https://hardenedlinux.github.io/system-security/2016/06/01/NX-analysis.html), June 1 2016
-* [PIC/PIE分析](https://hardenedlinux.github.io/system-security/2016/07/01/PIC_and_PIE_analysis.html), July 1 2016
+* [PIC/PIE&ASLR分析](https://hardenedlinux.github.io/system-security/2016/07/01/PIC_PIE_and_ASLR_analysis.html), July 1 2016
 * [Reproducible builds for PaX/Grsecurity](https://hardenedlinux.github.io/system-security/2016/08/01/reproducbile-builds-for-pax-grsecurity.html), Aug 1 2016
 * [Build debug environment for the dynamic linker of Glibc](https://hardenedlinux.github.io/toolchains/2016/08/25/build_debug_environment_for_dynamic_linker_of_glibc.html), Aug 25 2016
+* [shared library wrinkle](https://hardenedlinux.github.io/gnu/linux-security/2016/09/21/linker-shared-library-wrinkle.html), Sept 21 2016
+* [RELRO分析](https://hardenedlinux.github.io/2016/11/25/RelRO.html), Nov 25 2016
+* [canary分析](https://hardenedlinux.github.io/2016/11/27/canary.html), Nov 27 2016
 
 
 ### Kernel security/内核安全相关
@@ -47,6 +50,11 @@ permalink: /about3/
 * [CVE-2015-8088: 华为智能手机HiFi驱动堆溢出](https://hardenedlinux.github.io/system-security/2015/12/12/cve-2015-8088-analysis.html), Dec 12 2015
 * [An Introduction to Linux Kernel Exploitation](https://hardenedlinux.github.io/system-security/2016/01/19/an-introduction-to-linux-kernel-exploitation.html), Jan 19 2016
 * [Linux内核自防护项目的初始文档](https://hardenedlinux.github.io/system-security/2016/05/23/kernel_self_protection.html), May 23 2016
+
+
+### Firmware security/固件安全相关
+* [Neutralize ME firmware on SandyBridge and IvyBridge platforms](https://hardenedlinux.github.io/firmware/2016/11/17/neutralize_ME_firmware_on_sandybridge_and_ivybridge.html), Nov 17 2016
+
 
 ### Crypto engineering/密码工程相关
 
@@ -61,3 +69,5 @@ permalink: /about3/
 * [黑客与英雄们：CCC和黑客空间的崛起](https://hardenedlinux.github.io/translation/2016/02/14/Hackers-and-heroes-rise-of-the-ccc-and-hackerspaces.html), Feb 14 2016
 * [CCC(混沌通讯会议)：一场很德国的黑客大会](https://hardenedlinux.github.io/translation/2016/03/02/chaos-communication-congress-a-very-german-hacking-conference.html)
 * [自由/开源软件(FLOSS)的最佳实践标准（第一部分）](https://hardenedlinux.github.io/2016/08/04/best-practices-criteria-for-floss-part1.html)
+* [自由/开源软件(FLOSS)的最佳实践标准（第二部分）](https://hardenedlinux.github.io/2016/09/07/best-practices-criteria-for-floss-part2.html)
+* [自由/开源软件(FLOSS)的最佳实践标准（第三部分）](https://hardenedlinux.github.io/2016/10/21/best-practices-criteria-for-floss-part3.html)
