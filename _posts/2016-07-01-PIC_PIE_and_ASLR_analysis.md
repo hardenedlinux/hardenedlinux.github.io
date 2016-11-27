@@ -4,7 +4,7 @@ title:          PIC/PIE&ASLR分析
 data:           2016-07-01
 auther:         zet
 mail:           zet@tya.email
-summary:		现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
+summary:	现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
 categories:     system-security
 ---
 
@@ -39,8 +39,8 @@ Space Layout Randomization或者ASLR. shared library肯定是PIC,也就是说可
 
 首先注意一个问题,PIC是通过GOT/PLT/dynamic linker来实现的,后面会有文章来分析
 dynamic linker.本文也不会详细描述GOT以及PLT的实现方式,因为已经有很好这样的分析
-[文章]存在.
-(http://eli.thegreenplace.net/2011/11/03/position-independent-code-pic-in-shared-libraries)
+[文章](http://eli.thegreenplace.net/2011/11/03/position-independent-code-pic-in-shared-libraries)存在.
+
 阅读本文之前建议先了解一些**GOT/PLT**的实现方式.
 
 *出于篇幅以及文章的清晰程度的考虑,本文的描述仅限于i386/ELF32/gcc/gas/GNU ld/
