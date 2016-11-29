@@ -168,7 +168,9 @@ The writing procedure is presented with increased verbosity: `flashrom(8)` will 
 
 ## 08 Results.
 
-With ME neutralized, the MEI interface disappears from the PCI bus, and the integrated NIC ceases to work, but will resume to work after a reboot. All other components work just fine, with no 30-minute-shutdown.
+With ME neutralized, the MEI interface disappears from the PCI bus. Most of other components work just fine, with no 30-minute-shutdown.
+
+The NIC doesn't work after a cold boot (it cannot even be recognized as an NIC), but does after a warm boot. (It may be possible to add some code to Coreboot to work around this, but it has not yet been done.)
 
 According to Nicola Corna, the current ME state should have been changed from "normal" to "recovery".
 
