@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Linux kernel mitigation checklist"
-date:   2016-01-10 03:54:45
-summary: We just celebrated another new year a couple of days ago, which means it's 2016 already. A another new year usually just brings us to another fight. FOSS is still our fortress, as always.
+summary: We should treat security as a whole, just like the combination of PaX/Grsecurity features/code hardening build up a defense-in-depth solution for Linux kernel, which is a core infrastructre we are highly rely on. PaX/Grsecurity is a set of security hardening specific patch that brings the linux kernel security into another level. It's a great value to make all FLOSS community getting benefit from it. KSPP( Kernel self protection project)  was started in Nov 2015 after a disclosure about linux kernel security.
 categories: system-security
 ---
 
