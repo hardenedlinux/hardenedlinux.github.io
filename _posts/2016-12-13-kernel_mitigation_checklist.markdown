@@ -83,8 +83,11 @@ This [type of attack](https://lwn.net/Articles/525609/) is aginst variable-lengt
 
 ## [vmalloc kernel stack](https://lwn.net/Articles/692208/)
 Jon Oberheide shared about [kernel stack attack surfaces](https://jon.oberheide.org/blog/2010/11/29/exploiting-stack-overflows-in-the-linux-kernel/) and [kernel stack hijacking](https://jon.oberheide.org/files/infiltrate12-thestackisback.pdf) is still useful to exploit Linux and Android kernel. PaX/Grsecurity moved thread_info off the kernel stack for x86 back in 2011. The GRKERNSEC_KSTACKOVERFLOW( there are some other features including moved thread_info off the stack) was forged in 2014 and the 1st support kernel version is v3.14. Andy Lutomirski( other contributors?) is [trying to implement](http://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1168875.html) the exact what GRKERNSEC_KSTACKOVERFLOW does and this feature merged in v4.9(x64-only) via:
+
 * [fork: Add generic vmalloced stack support](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=ba14a194a434ccc8f733e263ad2ce941e35e5787)
+
 * [dma-api: Teach the "DMA-from-stack" check about vmapped stacks](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b4a0f533e5976cb1a79f31d6152e1d322d79b7f1)
+
 * [x86/mm/64: Enable vmapped stacks (CONFIG_HAVE_ARCH_VMAP_STACK=y)](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=e37e43a497d5a8b7c0cc1736d56986f432c394c9)
 * [x86/mm: Improve stack-overflow #PF handling](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=6271cfdfc0e4731b76921ef02fdd87409d71dfdf)
 * [virtio_console: Stop doing DMA on the stack](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=9472fe7040bba45c6200858cbe40d643cf02bccb)
