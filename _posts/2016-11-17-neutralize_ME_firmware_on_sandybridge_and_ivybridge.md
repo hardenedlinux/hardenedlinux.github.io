@@ -103,7 +103,7 @@ So I am going to use the configuration below to connect the chip to BBB, with [a
 ===  back (palmrest) on your X220 ===
 ```
 
-Unfortunately, the tip of the clip is worn out, insufficient to grab the chip, but fortunately I still have [a SOIC-16 clip with uneven pins](https://item.taobao.com/item.htm?spm=id=528483373690) to [program libreboot to x200](https://libreboot.org/docs/install/x200_external.html#clip), half of whose tip is just sufficient to grab the SOIC-8 chip. Its uneven pins also have enough space for dupont wires to connect.
+Unfortunately, the tip of the clip is worn out, insufficient to grab the chip, but fortunately I still have [a SOIC-16 clip with uneven pins](https://item.taobao.com/item.htm?id=528483373690) to [program libreboot to x200](https://libreboot.org/docs/install/x200_external.html#clip), half of whose tip is just sufficient to grab the SOIC-8 chip. Its uneven pins also have enough space for dupont wires to connect.
 
 ![bbb_with_soic16_clip_and_ttl_cable.jpg](/images/deme/bbb_with_soic16_clip_and_ttl_cable.jpg)
 
