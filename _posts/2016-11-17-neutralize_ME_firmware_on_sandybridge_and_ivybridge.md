@@ -128,57 +128,48 @@ Read chip at least twice, and make sure that all the resulted images are the sam
 	
 The rom image `factory_x220.bin` should be 8MiB large. Copy it to the PC with `scp(1)`.
 
-## 05 Anatomize the vendor BIOS image.
+## 05 Neutralize the ME.
+
+Finally, the despicable ME firmware is on the chopping board. Use Nicola Corna's [me_cleaner](https://github.com/corna/me_cleaner) to neutralize it.
+Note that `me_cleaner` will modify the ME file in place, so make a copy for it to modify is recommended.
+
+	$ cp factory_x220.bin factory_x220_meneuted.bin
+	$ python /path/to/me_cleaner.py factory_x220_meneuted.bin
+
+After the neutralization the ME region contains only the code for the very basic initialization, about 55 kB of compressed code.
+
+## 06 Anatomize the vendor BIOS image.
 
 Coreboot provides `ifdtool` to analyze firmware images with firmware descripter. Its source code is located in `$COREBOOT_SRC/util/ifdtool`, it should be `make(1)` first.
 
-Then `ifdtool` could be used to dissect the vendor BIOS image:
+You can optionally use `ifdtool` to:
 
-	$ path/to/ifdtool -x factory_x220.bin
-	
-After the execution, every region is separated to an individual file.
-
-## 06 Neutralize the ME.
-
-Finally, the despicable ME firmware is on the chopping board. Use Nicola Corna's [me_cleaner](https://github.com/corna/me_cleaner) to neutralize it.
-
-	$ python3 /path/to/me_cleaner.py intel_me.bin
-	
-Note that `me_cleaner` will modify the ME file in place, so make a copy for it to modify is recommended.
-
-Then insert the neutralized ME back to the firmware image, still using `ifdtool`.
-
-	$ path/to/ifdtool -i ME:intel_me.bin factory_x220.bin
-	
-Unlike `me_cleaner`, `ifdtool` is designed not to modify input file, but generates a new file suffixed with `.new` instead.
-
-(In reality, I have not only neutralized the ME, but unlocked write access to all region for main CPU with `$ path/to/ifdtool -u factory_x220_meneuted.bin`, hoping to ease the programming of coreboot later, but after the modified image written back, lenovo's BIOS still locks the SPI flash, making `flashrom(8)` in the OS unable to write (but able to read) the flash.)
+1. Unlock write access to all region for main CPU (with `ifdtool -u factory_x220_meneuted.bin`), hoping to ease the programming of coreboot later. Unfortunately most OEM's BIOS still lock the SPI flash, making `flashrom(8)` in the OS unable to write (but able to read) the flash.
+2. Dissect the BIOS image (with `ifdtool -x factory_x220_meneuted.bin`), and have the neutralized ME region in an individual file for later uses. If you want you can also use `me_cleaner` directly on the ME individual file (`python /path/to/me_cleaner.py flashregion_2_intel_me.bin`).
 
 ## 07 Write the modified image back.
 
 Copy the modified firmware image back to BBB.
 
-	$ scp -C factory_x220.bin.new root@beaglebone.local:/dev/shm
+	$ scp -C factory_x220_meneuted.bin root@beaglebone.local:/dev/shm
 	
 Then connect BBB to the SPI flash like procedure 04, invoke `flashrom(8)` to write the image back.
 
-	root@beaglebone:/dev/shm# /opt/flashrom/flashrom -VVp linux_spi:dev=/dev/spidev1.0,spispeed=4096 [-c <model>] -w factory_x220.bin.new
+	root@beaglebone:/dev/shm# /opt/flashrom/flashrom -VVp linux_spi:dev=/dev/spidev1.0,spispeed=4096 [-c <model>] -w factory_x220_meneuted.bin
 
 The writing procedure is presented with increased verbosity: `flashrom(8)` will read the old content of the chip first, then compare every 4KiB page between the old content and the provided image file, and only write different pages, either by rewriting (EW), by modifying (W) if only (1->0) occurred, or by erasing (E) if target page should only consist of all 1 (FF). Finally, `flashrom(8)` verifies the content just written with the provided image file.
 
 ## 08 Results.
 
-With ME neutralized, the MEI interface disappears from the PCI bus. Most of other components work just fine, with no 30-minute-shutdown.
+With ME neutralized, the MEI interface should disappear from the PCI bus. Most of other components work just fine, with no 30-minute-shutdown.
 
-The NIC doesn't work after a cold boot (it cannot even be recognized as an NIC), but does after a warm boot. (It may be possible to add some code to Coreboot to work around this, but it has not yet been done.)
+Sometimes the MEI interface is still present: you can analyze it with `intelmetool` (`$COREBOOT_SRC/util/intelmetool`, `make(1)` it first), and check its status.
 
-According to Nicola Corna, the current ME state should have been changed from "normal" to "recovery".
+Sometimes the NIC doesn't work after a cold boot (it cannot even be recognized as an NIC), but does after a warm boot. It may be possible to add some code to Coreboot or Linux to work around this, but it has not yet been done.
 
-## 09 Future.
+## 09 Readings.
 
-[According to Trammell Hudson](https://www.coreboot.org/pipermail/coreboot/2016-September/082049.html), the content of FTPR partition of ME could be further cleansed, while me_cleaner leaves an unmodified FTPR.
+[How does me_cleaner work?](https://github.com/corna/me_cleaner/wiki/How-does-it-work%3F)
 
-## 10 Readings.
-
-[Igor Skochinsky's slide about ME](https://recon.cx/2014/slides/Recon%202014%20Skochinsky.pdf)
+[Current me_cleaner status](https://github.com/corna/me_cleaner/wiki/me_cleaner-status)
 
