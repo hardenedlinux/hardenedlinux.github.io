@@ -16,6 +16,8 @@ FLOSS projects from h4rdenedzer0 and other contributors:
 * [Debian GNU/Linux: best practice profiles](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles)( WIP)
 * [Community QA](https://github.com/hardenedlinux/community-QA)( WIP)
 * [PaX/Grsecurity新手教程](https://github.com/hardenedlinux/grsecurity-101-tutorials)( WIP)
+* [Firmware anatomy](https://github.com/hardenedlinux/firmware-anatomy)( WIP)
+* [Embedded-IOT profile](https://github.com/hardenedlinux/embedded-iot_profile)( WIP)
 
 Project maintainers:
 
@@ -24,7 +26,6 @@ Project maintainers:
 * [samson-w](https://github.com/Samson-W)
 * [cheese](https://github.com/cheese)
 * [TYA infotech](http://tya.company/)
-* [Deep Linux](https://www.deepin.com)
 
 Content/article contributors:
 

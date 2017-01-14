@@ -71,3 +71,4 @@ permalink: /about3/
 * [自由/开源软件(FLOSS)的最佳实践标准（第一部分）](https://hardenedlinux.github.io/2016/08/04/best-practices-criteria-for-floss-part1.html)
 * [自由/开源软件(FLOSS)的最佳实践标准（第二部分）](https://hardenedlinux.github.io/2016/09/07/best-practices-criteria-for-floss-part2.html)
 * [自由/开源软件(FLOSS)的最佳实践标准（第三部分）](https://hardenedlinux.github.io/2016/10/21/best-practices-criteria-for-floss-part3.html)
+* [33C3: Works for Me](https://hardenedlinux.github.io/translation/2017/01/03/33c3-works-for-me.html)
