@@ -9,7 +9,7 @@ categories:     Firmware
 ---
 
 Author: persmule   
-Mail: persmule@tya.email, persmule@gmail.com
+Mail: persmule@gmail.com
 
 ## 00 ME: Management Engine
 
@@ -77,7 +77,11 @@ GbE                   rw
 
 `flashrom(8)`, a flash programming tool whose project cooperates with coreboot, is able to operate the on-board SPI flash containing the boot firmware via its `internal` driver. Unfortunately, on most platforms with ME, like the example above, the ME region is usually readable only for ME hardware, not the main CPU, which prevents us from using `flashrom(8)` with internal programmer to even read the whole content of the vendor firmware. In order to research the boot firmware, we need an external programmer.
 
-There are a lot of external programmers usable to `flashrom(8)` available in China, from cheap [ch341a_spi](https://detail.tmall.com/item.htm?id=529520547183), to more professional [buspirate_spi](http://dangerousprototypes.com/docs/Bus_Pirate). According to my experience, those dedicated external programmers are feasible to program solitary SPI flash chips, but not feasible for [in-system programming](https://www.flashrom.org/ISP), because their electrical current to program chips may be too small, as other components on circuit may disperse the current, and dispersed current is not enough to program, even detect the chip.
+There are a lot of external programmers usable to `flashrom(8)` available in China, from cheap [ch341a_spi](https://item.taobao.com/item.htm?id=538019904115), to more professional [buspirate_spi](http://dangerousprototypes.com/docs/Bus_Pirate). According to my experience, those dedicated external programmers are feasible to program solitary SPI flash chips, but not feasible for [in-system programming](https://www.flashrom.org/ISP), because their electrical current to program chips may be too small, as other components on circuit may disperse the current, and dispersed current is not enough to program, even detect the chip.
+
+(Update: Recent tests proves that `ch341a_spi` is stable enough to do in-system programming on most newer boards with faster SPI chips, for it has difficulty to adjust its speed to fit slower SPI chips. `ch341a_spi` could be operated with `flashrom(8)` on your PC, and is far faster than buspirate_spi.)
+
+![ch341a_with_pomona5250](/images/deme/ch341a_with_pomona5250.jpg)
 
 Fortunately, the SPI bus available on some ARM development boards is usually powerful enough, so I use a [BeagleBone Black (BBB) rev.c](http://beagleboard.org/black) as my external in-system programmer:
 
@@ -119,6 +123,11 @@ Now, try to identify the chip(if detection failed, try to slow down the speed).
 
 	root@beaglebone:/dev/shm# /opt/flashrom/flashrom -p linux_spi:dev=/dev/spidev1.0,spispeed=4096
 	
+If you use ch341a_spi, you could use `$ /usr/sbin/flashrom -p ch341a_spi` on your host, provided that `flashrom(8)` is available on the host and ch341a devices are already registered to udev, allowing regular users in group `plugdev` to operate (for ch341a_spi support is based on `libusb`):
+
+	$ cat /etc/udev/rules.d/70-ch341a-spi.rules 
+	SUBSYSTEM=="usb", ATTR{idVendor}=="1a86", ATTR{idProduct}=="5512", MODE="0664", GROUP="plugdev"
+	
 And read the content of the SPI flash if the chip is successfully identified. If `flashrom(8)` feels ambiguity, specify one of its suggested chip model with `-c`.
 
 	root@beaglebone:/dev/shm# /opt/flashrom/flashrom -p linux_spi:dev=/dev/spidev1.0,spispeed=4096 [-c <model>] -r factory_x220.bin
@@ -130,8 +139,8 @@ The rom image `factory_x220.bin` should be 8MiB large. Copy it to the PC with `s
 
 ## 05 Neutralize the ME.
 
-Finally, the despicable ME firmware is on the chopping board. Use Nicola Corna's [me_cleaner](https://github.com/corna/me_cleaner) to neutralize it.
-Note that `me_cleaner` will modify the ME file in place, so make a copy for it to modify is recommended.
+Finally, the BIOS image with despicable ME firmware inside is on the chopping board. Use Nicola Corna's [me_cleaner](https://github.com/corna/me_cleaner) to neutralize it.
+Note that `me_cleaner` will modify the operated file in place, so make a copy for it to modify is recommended.
 
 	$ cp factory_x220.bin factory_x220_meneuted.bin
 	$ python /path/to/me_cleaner.py factory_x220_meneuted.bin
@@ -145,7 +154,7 @@ Coreboot provides `ifdtool` to analyze firmware images with firmware descripter.
 You can optionally use `ifdtool` to:
 
 1. Unlock write access to all region for main CPU (with `ifdtool -u factory_x220_meneuted.bin`), hoping to ease the programming of coreboot later. Unfortunately most OEM's BIOS still lock the SPI flash, making `flashrom(8)` in the OS unable to write (but able to read) the flash.
-2. Dissect the BIOS image (with `ifdtool -x factory_x220_meneuted.bin`), and have the neutralized ME region in an individual file for later uses. If you want you can also use `me_cleaner` directly on the ME individual file (`python /path/to/me_cleaner.py flashregion_2_intel_me.bin`).
+2. Dissect the BIOS image (with `ifdtool -x factory_x220_meneuted.bin`), and have the neutralized ME region in an individual file for later uses (e.g. integrate it to the coreboot image you build). If you want you can also use `me_cleaner` directly on the individual ME file (`python /path/to/me_cleaner.py flashregion_2_intel_me.bin`).
 
 ## 07 Write the modified image back.
 
