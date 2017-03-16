@@ -11,38 +11,11 @@ categories: system-security
 
 Free software community has been facing the big threats from firmware level for a long time. Those free software implementation of firmware, such as Libreboot/Coreboot is still hard to apply to diverse x86 hardware. The situation we have isn't optimistic according to the threat model.
 
-
-<pre>
-+--------------------------------------------------------------------------------------+
-|  Level  |  Threat: e.g:                   |  Defense gate                            |
-+----------------------------------------------------------------------------------------+
-| Ring 3  | compromised program with setuid     | Compiler mitigation                    |
-+----------------------------------------------------------------------------------------+
-| Ring 0  | root priv esclation                 | PaX/Grsecurity                         |
-+----------------------------------------------------------------------------------------+
-| Ring -1 | virtual machine escape              | PaX/Grsecurity + Situational hardening |
-+----------------------------------------------------------------------------------------+
-| Ring -2 | bypass sig verify/SMM arbitrary RWX | Secure boot + Situational hardening    |
-+----------------------------------------------------------------------------------------+
-| Ring -3 | Rootkit friendly ME                 | Kill it? Or you better run /(-)\       |
-+----------------------------------------------------------------------------------------+
-</pre>
-
+![Threat model](/images/threat_model.png)
 
 We've been losing software freedom because ME, which is the most powerful demon from Ring -3 world. Since it's more likely an invincible enemy even Intel haven't disable SPI by adding a similar feature into the same physical package of processor( because it'd be harmful to OEM's interest?) yet and we'd still have some chances( illusion?) to build our defense for Ring -2 and above world. We are going to make UEFI Secure Boot, bootloader( Grub2), linux kernel and kernel modules on the chain of trust by signing/verify at each level. There are less than 5% of machines( let's say 100 servers...damn, how long can we neutralize the ME for 100 machines and finish the bunch of regression test due to reduce the risk of business impact) are running *critical/important* production systems. We should do the hardening by its situation.
 
-<pre>
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-|  Level    |  Digtial asset need to be protected        |  Solution                                                                         |
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-| Critical  | Private key, key mgt server, etc           | Neutralized ME + free/libre firmware + Secure/verified                            | 
-|           |                                            | boot + reproducible builds for PaX/Grsecurity                                     |
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-| Important | Asset could possibly cause business impact | Neutralized ME + Secure/verified + boot + reproducible builds for PaX/Grsecurity  |
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-| Normal    | blah-blah-blah!                            | Original ME + Secure/verified + boot + reproducible builds for PaX/Grsecurity     |
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-</pre>
+![trade-off](/images/trade-off.png)
 
 ### Demon from RING -3: a parallel world along side of x86
 Do you really understand what/why we're doing( is wrong?) all of this to protect our digital asset and privacy( is not a joke today?). Fortunately, we're getting closer to the current goal. First thing first, Intel ME can't be 100% disabled but we can restrict the power of Intel ME by minizing its functions. Plz follow [the instruction](https://hardenedlinux.github.io/firmware/2016/11/17/neutralize_ME_firmware_on_sandybridge_and_ivybridge.html). We've been testing on [some machines](https://github.com/hardenedlinux/hardenedlinux_profiles/tree/master/coreboot) and[ me_cleaner](https://github.com/corna/me_cleaner/) is done well. Hope more free software hackers and security research will join us to tearing [Intel ME](https://github.com/hardenedlinux/firmware-anatomy/blob/master/hack_ME/me_info.md) apart. Btw, hope [AMD will be more friendly](https://www.reddit.com/r/Amd/comments/5x4hxu/we_are_amd_creators_of_athlon_radeon_and_other/dekwva9/) to FLOSS community?
