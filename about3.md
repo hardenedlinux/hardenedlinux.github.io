@@ -28,7 +28,7 @@ permalink: /about3/
 * [社区最佳实践：基于PaX/Grsecurity & STIG & Sheild针对es的Docker场景化加固](https://hardenedlinux.github.io/system-security/2015/09/06/hardening-es-in-docker-with-grsec.html), Sept 6 2015
 * [Hardening your desktop: Linux Mint with PaX/Grsecurity](https://hardenedlinux.github.io/system-security/2016/01/10/hardening-your-desktop-linux-mint-with-grsec.html), Jan 10 2015
 * [(A/T/KT) - Sanitized GNU/Linux: a new way of bug hunter in FLOSS Community](https://hardenedlinux.github.io/system-security/2016/04/01/x_Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html), Apr 1 2016
-
+* [Mission impossible: Hardening the x86 based core infrastructures](https://hardenedlinux.github.io/system-security/2017/03/17/debian_hardened_boot.html), Mar 17 2017
 
 ### Compiler/编译器相关
 
