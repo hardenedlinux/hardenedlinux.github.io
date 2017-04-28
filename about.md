@@ -12,7 +12,7 @@ Team: h4rdenedzer0
 * icenowy
 * [wnereiz](https://github.com/wnereiz)
 
-[Contributors](http://www.hardenedlinux.org/about2)
+[Contributors](https://hardenedlinux.github.io/about2)
 
 
 The h4rdenedzer0 team was formed in 2014 and is a group of free software enthusiasts, anarchists, cyber security researchers. The massive medias would love to hear any stories from offsensive side. Who the hell cares the other side of fence?
