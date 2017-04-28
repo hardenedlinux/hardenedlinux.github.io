@@ -2,7 +2,7 @@
 layout: post
 title:  "HardenedLinux: The way to the Ark"
 date:   2017-04-29 02:08:45
-summary: 
+summary: PaX/Grsecurity no longer provides the public access to test patch in Apr 26 2017. In the FAQ of the announcement, PaX team and Spender listed a couple of reasons why they do this. As some people already know, it's not the whole story.
 
 categories: announcement
 ---
