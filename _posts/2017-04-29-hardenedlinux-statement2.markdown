@@ -27,7 +27,7 @@ We've been sharing some of our works on security practices ( [STIG-4-Debian](htt
 Last but not least, we'd sincerely like to thank PaX team, Spender and other contributors of PaX/Grsecurity for the past 16 years. Because of 0ldsk00l hackers like them, this world has become a better place.
 
 
-## 方舟之伤
+## 方舟之役
 
 PaX/Grsecurity的test patch于2017年4月26日[关闭公开下载](https://grsecurity.net/passing_the_baton.php)。在PaX team和Spender在[公告FAQ](https://grsecurity.net/passing_the_baton_faq.php)中罗列的一些为什么这么做的理由。一些人已经知道这并不是故事的全部。h4rdenedzer0经过内部讨论后，我们坚信Linux基金会是导致商业用户，个人用户和社区用户失去访问test patch的权利的罪魁祸首。以下是我们为什么支持PaX team和Spender决定的理由：
 
