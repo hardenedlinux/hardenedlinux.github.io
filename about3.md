@@ -7,6 +7,7 @@ permalink: /about3/
 ### HardenedLinux's announcement:
 
 * [声明：HardenedLinux社区与任何商业机构无关](https://hardenedlinux.github.io/announcement/2016/08/01/hardenedlinux-statement.html)
+* [HardenedLinux: The way to the Ark](https://hardenedlinux.github.io/announcement/2017/04/29/hardenedlinux-statement2.html)
 
 ### [PaX/Grsecurity](https://grsecurity.net/)相关
 
@@ -20,6 +21,7 @@ permalink: /about3/
 * [关于RAP的FAQ](https://hardenedlinux.github.io/system-security/2016/05/01/FAQ_about_RAP.html), May 1 2016
 * [面向桌面的 PaX/Grsecurity 内核配置注释与评论](https://hardenedlinux.github.io/system-security/2016/08/10/grsec-kernel-full-commentary.html)
 * [Linux kernel mitigation checklist( WIP)](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md)
+* [The Unseen Benefits of a Security Mindset(自Grsecurity的blog)](https://hardenedlinux.github.io/system-security/2017/04/10/unseen-benefits-security-mindset.html), Apr 10 2017
 
 ### Secops/安全运维
 
