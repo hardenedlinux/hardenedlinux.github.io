@@ -24,7 +24,6 @@ To make it worse, Linux foundation has been doing [marketing and PR](https://for
 
 * One more quote from the [interview with Spender](https://www.theregister.co.uk/2017/04/26/grsecurity_linux_kernel_freeloaders/):"There are many commentators and complainers today, especially when it involves free software, and very few people dedicating half of their life to creating useful original work. When those efforts suddenly get co-opted by companies using misleading marketing and essentially corporate-funded plagiarism, it's not conducive to the desire to create and publish new work. So we're refocusing our efforts back to those who respect and value our time.". The FLOSS world has been losing real hackers like [Jonathan Zdziarski](https://www.zdziarski.com/blog/?p=6296), PaX team and Spender. The world is a evil place not because of too many bad people, but because of what we called "good people" who don't do anything about it.
 
-* 来自最近Spender访谈的引用：“当涉及自由软件时，太多的评论家和抱怨者，太少的能花费大半生时间专注于原创的工作。当这些原创的工作被大公司抄袭并且用于误导市场宣传，只会越来越少的人愿意持续工作和分享。所以我们重新专注于那些尊重我们时间的人。”。自由软件世界持续的失去像[Jonathan Zdziarski](https://www.zdziarski.com/blog/?p=6296), PaX team和Spender这样的真正的黑客。这个世界之所以邪恶并不是因为有太多坏人，而是有太多被我们称为“好人”的群体的不作为。
 
 We've been sharing some of our works on security practices ( [STIG-4-Debian](https://github.com/hardenedlinux/STIG-4-Debian), [Debian GNU/Linux profiles](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles), etc) for servers running in data center. PaX/Grsecurity is the corner stone to most of our solutions. Evidences have revealed that PaX/Grsecurity can defeat multiple public exploits w/o any patch fixes in critical scenarios for a long run. With PaX/Grsecurity, for the 1st time we believe that we can build the defense based on [free/libre & open source software/firmware solution](https://github.com/hardenedlinux/hardenedlinux_profiles/blob/master/slide/hardening_the_core.pdf) to prevent many threats from Ring 3/0/-1/-2/-3. HardenedLinux is going to continue develop solutions of defense based on PaX/Grsecurity. From our point of view, we see no other option. Please remember this date: Apr 26 2017. This is the day we lost our Ark.
 
@@ -44,6 +43,9 @@ PaX/Grsecurity的test patch于2017年4月26日[关闭公开下载](https://grsec
 * PaX/Grsecurity在支持自由软件社区很长的时间里，我们中的大多数人并没有把安全和隐私当回事。作为一名自由软件/固件/硬件的支持者，请问问自己：当PaX/Grsecurity需要帮忙时你在哪里？或许这样会打消因为没有免费的test patch而抱怨的想法。正如大胡子RMS所说的我们的未来取决于我们当前的哲学观。
 
 * 如果你是一名安全顾问，我们希望你能学习真相然后向你的客户建议真正意义上的安全防护方案而不是自欺欺人的把戏。
+
+* 来自最近Spender访谈的引用：“当涉及自由软件时，太多的评论家和抱怨者，太少的能花费大半生时间专注于原创的工作。当这些原创的工作被大公司抄袭并且用于误导性的市场宣传，只会越来越少的人愿意持续工作和分享。所以我们重新专注于那些尊重我们时间的人。”。自由软件世界持续的失去像[Jonathan Zdziarski](https://www.zdziarski.com/blog/?p=6296), PaX team和Spender这样真正的黑客。这个世界之所以邪恶并不是因为有太多坏人，而是因为太多被我们称为“好人”的群体的不作为。
+
 
 我们在过去的一段时间里也分享了一些关于运行在数据中心里的服务器的最佳实践（[STIG-4-Debian](https://github.com/hardenedlinux/STIG-4-Debian), [Debian GNU/Linux profiles](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles), etc）。PaX/Grsecurity是我们方案的房角石。不少证据显示PaX/Grsecurity可以在极端场景下持续常时间不打补丁防御住公开的漏洞利用。有了PaX/Grsecurity，我们第一次坚信基于[自由软件和固件的防御方案](https://github.com/hardenedlinux/hardenedlinux_profiles/blob/master/slide/hardening_the_core.pdf)可以对抗来自Ring 3/0/-1/-2/-3的威胁。HardenedLinux会继续开发基于PaX/Grsecurity的防御方案。从我们的观点来看，真的没有其他可选方案。请记住这个日子：2017年4月26日。这是我们失去方舟的日子。
 
