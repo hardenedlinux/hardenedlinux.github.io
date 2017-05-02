@@ -22,6 +22,8 @@ To make it worse, Linux foundation has been doing [marketing and PR](https://for
 
 * If you are a security consultant, we wish you learn the truth and advise your customers about security in real sense instead of the cargo-cult drugs, which has gone too much for this small world.
 
+* KSPP becomes the burden of PaX/Grsecurity. We basically [share the same view](http://openwall.com/lists/kernel-hardening/2017/05/01/5) with Mathias Krause. We want the practical defense solution instead of wishful thinking in another decade.
+
 * One more quote from the [interview with Spender](https://www.theregister.co.uk/2017/04/26/grsecurity_linux_kernel_freeloaders/):"There are many commentators and complainers today, especially when it involves free software, and very few people dedicating half of their life to creating useful original work. When those efforts suddenly get co-opted by companies using misleading marketing and essentially corporate-funded plagiarism, it's not conducive to the desire to create and publish new work. So we're refocusing our efforts back to those who respect and value our time.". The FLOSS world has been losing real hackers like [Jonathan Zdziarski](https://www.zdziarski.com/blog/?p=6296), PaX team and Spender. The world is a evil place not because of too many bad people, but because of what we called "good people" who don't do anything about it.
 
 
@@ -43,6 +45,8 @@ PaX/Grsecurity的test patch于2017年4月26日[关闭公开下载](https://grsec
 * PaX/Grsecurity在支持自由软件社区很长的时间里，我们中的大多数人并没有把安全和隐私当回事。作为一名自由软件/固件/硬件的支持者，请问问自己：当PaX/Grsecurity需要帮忙时你在哪里？或许这样会打消因为没有免费的test patch而抱怨的想法。正如大胡子RMS所说的我们的未来取决于我们当前的哲学观。
 
 * 如果你是一名安全顾问，我们希望你能学习真相然后向你的客户建议真正意义上的安全防护方案而不是自欺欺人的把戏。
+
+* KSPP逐渐成为PaX/Grsecurity的负担，我们[赞同Mathias Krause的观点](http://openwall.com/lists/kernel-hardening/2017/05/01/5)。我们想要实际的防御方案而不是长期的不切实际的幻想。
 
 * 来自最近Spender访谈的引用：“当涉及自由软件时，太多的评论家和抱怨者，太少的能花费大半生时间专注于原创的工作。当这些原创的工作被大公司抄袭并且用于误导性的市场宣传，只会越来越少的人愿意持续工作和分享。所以我们重新专注于那些尊重我们时间的人。”。自由软件世界持续的失去像[Jonathan Zdziarski](https://www.zdziarski.com/blog/?p=6296), PaX team和Spender这样真正的黑客。这个世界之所以邪恶并不是因为有太多坏人，而是因为太多被我们称为“好人”的群体的不作为。
 
