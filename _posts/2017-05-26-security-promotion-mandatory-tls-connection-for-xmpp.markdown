@@ -2,7 +2,7 @@
 layout: post
 title:  "Security Promotion - Mandatory TLS Connection for XMPP"
 date:   2017-05-26 14:56:25
-summary: 虽然依据 RFC7590 “传输层安全协议（TLS）在可扩展消息及表示协议（XMPP）中的使用“，TLS 已成为 XMPP 的推荐连接方式，但其并非是强制的。尽管 XMPP 社区已于2014年达成了切换至强制加密的共识，但仍有一些 XMPP 的服务提供商在支持 TLS 的同时支持非加密连接，以作为备用连接方式。…… xmpp.jp 曾使用此方式处理通信连接。我们在年初曾尝试联系其管理员，请求将服务切换到强制 TLS 模式……
+summary: Although, according to RFC7590 "Use of Transport Layer Security (TLS) in the Extensible Messaging and Presence Protocol (XMPP)", TLS was recommended for XMPP connection. But it is not mandatory. Despite the consensus to switch XMPP on mandatory encryption reached by XMPP communities on 2014, there are still some XMPP service providers support non-encrypted connection as a fallback along with TLS.
 
 categories: security-promotion
 ---
@@ -46,6 +46,7 @@ We will engage in more promotion actions in future to keep improving
 the security of free software related services by finding potential
 weakness, and then trying to get connection with service providers.
 
+## 中文版
 ## 安全促进行动：XMPP 服务的强制 TLS 连接
 
 虽然依据  [RFC7590](https://tools.ietf.org/html/rfc7590) “传输层安全协议
