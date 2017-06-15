@@ -7,7 +7,7 @@ categories: system-security
 
 by Shawn C[ a.k.a "citypw"]
 
-## 云基础架构安全之固件安全合规
+## 云基础架构之固件安全合规
 
 固件作为IT核心基础架构的一部分，由于对于大多数用户“不可见”的特性长期在安全方面受到忽视，但[固件层面的攻防](https://github.com/hardenedlinux/firmware-anatomy/blob/master/hack_ME/firmware_security.md)一直都没有停过，Attacking the Core中的"Core"不断的向更底层转移，这个术语早已经不是[2007年语境下所指的操作系统内核](http://phrack.org/archives/issues/64/6.txt)，以x86为例，[RING 0](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_vuln_exp.md)是操作系统内核，[RING -1](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/virt_security.md)是VMM/Hypervisor，RING -2是UEFI/SMM，[RING -3](https://github.com/hardenedlinux/firmware-anatomy/blob/master/hack_ME/me_info.md)则是Intel ME/AMD PSP，越往下风险越高防御难度越大。随着公有云/私有云的兴起，核心基础架构（固件，操作系统内核，虚拟化，编译器，网络协议栈，密码工程，etc）级别的防护面临更大的挑战，从安全防御（攻击也一样）的视角看，从Research（研究）到Engineering（工程化）到Operation（运维）的链条的构建是现代数据中心的必要条件，继NIST于2011年和2014年NIST（美国国家标准技术研究所）发布了[SP 800-147（BIOS防护指南）](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)和[SP 800-147B（服务器BIOS防护指南）](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-147B.pdf)后，2017年5月30日发布了[SP 800-193（平台固件抗性指南）](http://csrc.nist.gov/publications/PubsDrafts.html#SP-800-193)的草案，SP 800-193是建立在SP 800-147/147B的基础上，虽然并未就攻防进化中的细节针对性的对固件安全的设计和实现提出强制性要求（NIST的一贯风格），但对于安全工程师，数据中心的管理人员以及硬件采购以及个人用户还是提供了一个参考，SP 800-193对于固件安全合规也有促进作用，本文对于SP 800-193草案所提到的部分内容进行探讨。
 
@@ -22,7 +22,7 @@ SP 800-193对于防护，检测，恢复和抗性提出了明确的要求：
 
 * 1), 2)的要求Verified boot可以基本满足
 * 3)要求完整性校验，可以使用基于TPMv1.2/2.0的measured boot完成
-* 4)要求所有的固件信任链条更新，检测以及恢复都必须实现并且存放在非易失存储设备中，推荐平台厂商维护一个从固件启动到OS的防御，HardenedLinux社区的hardenedboot方案可以满足
+* 4)要求所有的固件信任链条更新，检测以及恢复都必须实现并且存放在非易失存储设备中，推荐平台厂商维护一个从固件启动到OS的防御，HardenedLinux社区的[基于hardenedboot方案](https://hardenedlinux.github.io/system-security/2017/03/17/debian_hardened_boot.html)可以满足
 * 5)要求运行OS的主CPU无法干涉RoT和CoT，这一点可行实现的前提是RING 0到RING -2的链条不被攻陷
 * 6)要求软件从主CPU到平台固件的信息传递是不可信任的，在SP 800-147B中规定了如果不使用Service processor更新固件则不应该在实现上提供相关操作的权限，如果做不到则无法满足6)，对于这一点所有基于Intel ME的code module（包括AMT）都是巨大的风险
 * 7)要求CoT的链条或许暂时性的扩展到从非易失性存储读取信息，所以在使用前必须由上一级的CoT进行密码学的验证
