@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "云基础架构安全之固件安全合规"
+title: "云基础架构之固件安全合规"
 summary: 经过数年的发展，数据中心，移动端（Android）以及嵌入式系统（IoT？）已经高度依赖于自由软件/固件/硬件，过去 12 年的基础架构层面的攻防对抗来中，Attacking the Core 的那个 Core 早已从内核转移到了 Hypervisor 之后又转移到了 EFI/SMM 最后 Intel ME 成为了新的 Core。但在某种程度上讲，内核依然是一把基路伯之剑，它的一举一动依然会影响到更底层恶魔的行为
 categories: system-security
 ---
@@ -9,7 +9,7 @@ by Shawn C[ a.k.a "citypw"]
 
 ## 云基础架构安全之固件安全合规
 
-固件作为IT基础架构的一部分，由于对于大多数用户“不可见”的特性长期在安全方面受到忽视，但[固件层面的攻防](https://github.com/hardenedlinux/firmware-anatomy/blob/master/hack_ME/firmware_security.md)一直都没有停过，Attacking the Core中的"Core"不断的向更底层转移，这个术语早已经不是[2007年语境下所指的操作系统内核](http://phrack.org/archives/issues/64/6.txt)，以x86为例，[RING 0](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_vuln_exp.md)是操作系统内核，[RING -1](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/virt_security.md)是VMM/Hypervisor，RING -2是UEFI/SMM，[RING -3](https://github.com/hardenedlinux/firmware-anatomy/blob/master/hack_ME/me_info.md)则是Intel ME/AMD PSP，越往下风险越高防御难度越大。随着公有云/私有云的兴起，基础架构（固件，操作系统内核，虚拟化，编译器，网络协议栈，密码工程，etc）级别的防护面临更大的挑战，从安全防御（攻击也一样）的视角看，从Research（研究）到Engineering（工程化）到Operation（运维）的链条的构建是现代数据中心的必要条件，继NIST于2011年和2014年NIST（美国国家标准技术研究所）发布了[SP 800-147（BIOS防护指南）](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)和[SP 800-147B（服务器BIOS防护指南）](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-147B.pdf)后，2017年5月30日发布了[SP 800-193（平台固件抗性指南）](http://csrc.nist.gov/publications/PubsDrafts.html#SP-800-193)的草案，SP 800-193是建立在SP 800-147/147B的基础上，虽然并未就攻防进化中的细节针对性的对固件安全的设计和实现提出强制性要求（NIST的一贯风格），但对于安全工程师，数据中心的管理人员以及硬件采购以及个人用户还是提供了一个参考，SP 800-193对于固件安全合规也有促进作用，本文对于SP 800-193草案所提到的部分内容进行探讨。
+固件作为IT核心基础架构的一部分，由于对于大多数用户“不可见”的特性长期在安全方面受到忽视，但[固件层面的攻防](https://github.com/hardenedlinux/firmware-anatomy/blob/master/hack_ME/firmware_security.md)一直都没有停过，Attacking the Core中的"Core"不断的向更底层转移，这个术语早已经不是[2007年语境下所指的操作系统内核](http://phrack.org/archives/issues/64/6.txt)，以x86为例，[RING 0](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_vuln_exp.md)是操作系统内核，[RING -1](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/virt_security.md)是VMM/Hypervisor，RING -2是UEFI/SMM，[RING -3](https://github.com/hardenedlinux/firmware-anatomy/blob/master/hack_ME/me_info.md)则是Intel ME/AMD PSP，越往下风险越高防御难度越大。随着公有云/私有云的兴起，核心基础架构（固件，操作系统内核，虚拟化，编译器，网络协议栈，密码工程，etc）级别的防护面临更大的挑战，从安全防御（攻击也一样）的视角看，从Research（研究）到Engineering（工程化）到Operation（运维）的链条的构建是现代数据中心的必要条件，继NIST于2011年和2014年NIST（美国国家标准技术研究所）发布了[SP 800-147（BIOS防护指南）](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)和[SP 800-147B（服务器BIOS防护指南）](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-147B.pdf)后，2017年5月30日发布了[SP 800-193（平台固件抗性指南）](http://csrc.nist.gov/publications/PubsDrafts.html#SP-800-193)的草案，SP 800-193是建立在SP 800-147/147B的基础上，虽然并未就攻防进化中的细节针对性的对固件安全的设计和实现提出强制性要求（NIST的一贯风格），但对于安全工程师，数据中心的管理人员以及硬件采购以及个人用户还是提供了一个参考，SP 800-193对于固件安全合规也有促进作用，本文对于SP 800-193草案所提到的部分内容进行探讨。
 
 SP 800-193对于防护，检测，恢复和抗性提出了明确的要求：
 
