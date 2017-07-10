@@ -7,7 +7,7 @@ categories: system-security
 
 By citypw
 
-# PaX/Grsecurity --> KSPP --> AOSP kernel: Linux kernel mitigation checklist( update: Feb 28 2017)
+# PaX/Grsecurity --> KSPP --> AOSP kernel: Linux kernel mitigation checklist( Jul 10 2017)
 
 We should treat security as a whole, just like the combination of PaX/Grsecurity features/code hardening build up a defense-in-depth solution for Linux kernel, which is a core infrastructre we are highly rely on. [PaX/Grsecurity](http://grsecurity.net/) is a set of security hardening specific patch that brings the linux kernel security into another level. It's a great value to make all FLOSS community getting benefit from it. [KSPP( Kernel self protection project)](http://kernsec.org/wiki/index.php/Kernel_Self_Protection_Project) was started in Nov 2015 after [a disclosure](http://www.washingtonpost.com/sf/business/2015/11/05/net-of-insecurity-the-kernel-of-the-argument/) about linux kernel security. This is the 1st time the public had chance to know that linux kernel security might endanger the mobile platform( Android) and IoT devices. KSSP has been trying to port features/code hardening from PaX/Grsecurity to Linux upstream. Bad guys wouldn't like to see it happen, but it will, a part of it at least;-) KSPP is quite important to Android dev/user community,  because AOSP kernel security is highly rely on how KSPP goes. [Tor community started a secure Android ROM project](https://blog.torproject.org/blog/mission-improbable-hardening-android-security-and-privacy) is called [Mission Improbable](https://github.com/mikeperry-tor/mission-improbable/blob/master/README.md) based on CopperheadOS lately, which is a good starting point. KSPP matters to our security and privacy is inevitable. I'd like to see more features of PaX/Grsecurity lands in vanilla linux and AOSP kernel and more importantly, give PaX/Grsecurity the credits they deserved.
 
@@ -40,7 +40,7 @@ Before you dive into the devils, plz go get a cup of cofee or green tea and thin
 * [GCC plugins infrastructure, CYC_COMPLEXITY, SANCOV](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=f716a85cd6045c994011268223706642cff7e485), merged in v4.8
 * PAX_LATENT_ENTROPY is trying extract more entropy on [those functions](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=0766f788eb727e2e330d55d30545db65bcf2623f) marked by __latent_entropy gcc attribute at boot time, which is very helpful to embedded system. Now it's called ["latent_entropy" plugin](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=38addce8b600ca335dc86fa3d48c890f1c6fa1f4) merged in v4.9.
 * [PAX_STRUCTLEAK](https://pax.grsecurity.net/docs/PaXTeam-H2HC13-PaX-gcc-plugins.pdf) was originally designed to prevent vulns like CVE-2013-2141, to ensure that any structures contains __user attributes will be fully initialized. This feature is ported to vanilla kernel and merged in v4.11, which is called [GCC_PLUGIN_STRUCTLEAK](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=c61f13eaa1ee17728c41370100d2d45c254ce76f).
-* [PAX_RAP](https://grsecurity.net/rap_faq.php), the strongest CFI implementation so far. The 1st public RAP version was merged in PaX/Grsecurity 4.5.x's test patch. It's x86_64 only for now. But it can be ported to other architectures. [RAP might utilize the advantage of hardware based implementation](https://forums.grsecurity.net/viewtopic.php?f=7&t=4490&sid=160fe4e25b39c590fbc2aeae4c37415c), such as Intel's CET, ARMv8.3's [pointer authentication](https://community.arm.com/groups/processors/blog/2016/10/27/armv8-a-architecture-2016-additions), etc.
+* [PAX_RAP](https://grsecurity.net/rap_faq.php), the strongest CFI implementation so far. The 1st public RAP version was merged in PaX/Grsecurity 4.5.x's test patch. It's x86_64 only for now. But it can be ported to other architectures. [RAP might utilize the advantage of hardware based implementation](https://forums.grsecurity.net/viewtopic.php?f=7&t=4490&sid=160fe4e25b39c590fbc2aeae4c37415c), such as Intel's CET( pretty similar to BIGBRO's [Land-here proposal](https://github.com/iadgov/Control-Flow-Integrity)), ARMv8.3's [pointer authentication](https://community.arm.com/groups/processors/blog/2016/10/27/armv8-a-architecture-2016-additions)( can't support kernel CFI in recent patch), etc. CFI research is one thing while a good engineering of kernel CFI implementation is another. You'd have to fix more issues than expected. Although there are some design/implementation( e.g: [kCFI](https://github.com/kcfi/docs), etc) other than PaX's RAP. But it will be a long way to make them production-ready. PaX's RAP is still the only production-ready kernel CFI solution( update: June 2017).
 
 ## [PAX_REFCOUNT](https://forums.grsecurity.net/viewtopic.php?f=7&t=4173) 
 
@@ -121,9 +121,14 @@ arm64 also [moved thread_info off the stack in v4.10](http://git.kernel.org/cgit
 ## [GRKERNSEC_PERF_HARDEN](https://lwn.net/Articles/695978/)
 PERF is a fuc*ing serious attack surface. We can't bear it running by default in production system. Ben Hutchings [proposed a patch](https://lkml.org/lkml/2016/1/11/587) from PaX/Grsecurity to linux kernel but it rejected by kernel maintainer. Fortunately, Jeff Vander Stoep [merged it into AOSP kernel](https://android-review.googlesource.com/#/c/234573/).
 
+## single/per-task stack canary entropy
+Linux kernel has been using weak entropy on stack canary for years and it has been [fixed( copy+paste from PaX/Grsecurity) and merged in v4.12](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5ea30e4e58040cfd6434c2f33dc3ea76e2c15b05), while PaX/Grsecurity solved it since 2011.
+
+## heap/stack gap protection
+[An old problem](https://grsecurity.net/an_ancient_kernel_hole_is_not_closed.php) has been weaponized and named as ["Stack Clash"](https://www.qualys.com/2017/06/19/stack-clash/stack-clash.txt) from excellent security research by Qualys. Linux mainline kernel [had a fix](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1be7107fbe18eed3e319a6c3e83c78254b693acb) which copy+paste some code from PaX/Grsecurity written in 2010. All in all, [PaX/Grsecurity mitigate this whole exploit vector](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/notes/stack_clash.md) since 2010.
+
 
 Write-up about KSPP:
-
 * [security things in Linux v4.3](https://outflux.net/blog/archives/2016/09/26/security-things-in-linux-v4-3/)
 * [security things in Linux v4.4](https://outflux.net/blog/archives/2016/09/27/security-things-in-linux-v4-4/)
 * [security things in Linux v4.5](https://outflux.net/blog/archives/2016/09/28/security-things-in-linux-v4-5/)
@@ -133,3 +138,4 @@ Write-up about KSPP:
 * [security things in Linux v4.9](https://outflux.net/blog/archives/2016/12/12/security-things-in-linux-v4-9/)
 * [security things in Linux v4.10](https://outflux.net/blog/archives/2017/02/27/security-things-in-linux-v4-10/)
 * [security things in Linux v4.11](https://outflux.net/blog/archives/2017/05/02/security-things-in-linux-v4-11/)
+* [security things in Linux v4.12](https://outflux.net/blog/archives/2017/07/10/security-things-in-linux-v4-12/)
