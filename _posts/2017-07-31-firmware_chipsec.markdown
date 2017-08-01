@@ -69,7 +69,7 @@ chipsec_main -i -n -m tools.uefi.whitelist -a check,efi_lenovo.json,/fw-content/
 
 [coreboot](https://www.coreboot.org/)是一个自由开源实现的固件，可以支持多种平台，我们使用过的平台主要是[x86](https://github.com/hardenedlinux/hardenedlinux_profiles/tree/master/coreboot)和[RISC-V](https://github.com/hardenedlinux/embedded-iot_profile/tree/master/docs/riscv)，由于coreboot社区的哲学是用户在享受自由（“超级开发者”模式？）的同时也必须注意所带来的安全风险，所以coreboot并不会默认在启动时开启包括写保护在内的安全特性：
 
-![](https://pbs.twimg.com/media/DGEaPmEUQAAuP8u.jpg:large)
+![cb-chipsec](/images/cb-chipsec.png)
 
 从安全评估的角度，在评估coreboot时并不应该使用和传统UEFI实现一样的方法，因为一些差异显而易见，比如coreboot并没有EFI runtime的特性以及涉及SMM的代码量比UEFI实现小很多，但即使如此，开源只是代表具有可审计性，开源并不直接影响安全防护能力，[coreboot也是一样](https://recon.cx/2017/montreal/resources/slides/RECON-MTL-2017-DiggingIntoTheCoreOfBoot.pdf)，对于固件基线的防护特性在coreboot上有一些是可以在运行时开启，而另一些则需要修改代码。对于前者，借助于CHIPSEC框架可以轻松的完成设置：
 <pre>
