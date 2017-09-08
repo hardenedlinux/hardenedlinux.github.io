@@ -9,8 +9,10 @@ Team: h4rdenedzer0
 * citypw
 * n3o4po11o
 * [zet](https://github.com/fanfuqiang)
-* icenowy
+* [samson](https://github.com/Samson-W)
 * [wnereiz](https://github.com/wnereiz)
+* [Bins94](https://github.com/Bins94)
+* [wxjstz](https://github.com/wxjstz)
 
 [Contributors](https://hardenedlinux.github.io/about2)
 
