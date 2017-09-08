@@ -7,6 +7,7 @@ permalink: /about/
 Team: h4rdenedzer0
 
 * citypw
+* [persmule](https://github.com/persmule/)
 * n3o4po11o
 * [zet](https://github.com/fanfuqiang)
 * [samson](https://github.com/Samson-W)
