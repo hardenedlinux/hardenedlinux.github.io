@@ -35,4 +35,4 @@ IRC channel:
 
 Jabber Group Chat:
 Room: hardenedlinux
-Server: conference.dukgo.com
+Server: chat.yax.im
