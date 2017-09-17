@@ -42,6 +42,8 @@ Donation:
 * [tomcat](http://www.songhaoyun.com/), logo design
 * face, 5,000 RMB for 200 T-shirts
 
+* Hoodies & Sweatshirts 2017: face( 2,000 RMB), zet( 2,000 RMB), citypw( 5,000 RMB), jun_test( 3,000 RMB)
+
 Hardware donation:
 
 * Ciphergateway, Rasperry Pi II
