@@ -24,11 +24,12 @@ Project maintainers:
 * **[h4rdenedzer0](http://hardenedlinux.org/about/)** Team
 * [Tom Li](https://biergaizi.info/)
 * [samson-w](https://github.com/Samson-W)
-* [cheese](https://github.com/cheese)
 * [TYA infotech](http://tya.company/)
 
 Content/article contributors:
 
+* Jeremy Huang, (jeremyhcw@gmail.com)
+* [cheese](https://github.com/cheese)
 * [Ciphergateway](https://twitter.com/ciphergateway)
 * happy-dw
 * [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
