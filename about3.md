@@ -9,6 +9,7 @@ permalink: /about3/
 * [声明：HardenedLinux社区与任何商业机构无关](https://hardenedlinux.github.io/announcement/2016/08/01/hardenedlinux-statement.html)
 * [HardenedLinux: The way to the Ark](https://hardenedlinux.github.io/announcement/2017/04/29/hardenedlinux-statement2.html)
 
+
 ### [PaX/Grsecurity](https://grsecurity.net/)相关
 
 * [PaX/Grsecurity for Nexus 7 2013](https://hardenedlinux.github.io/system-security/2015/05/11/Grsecurity-for-Nexus-7-2013.html), May 11 2015
@@ -23,6 +24,7 @@ permalink: /about3/
 * [Linux kernel mitigation checklist( WIP)](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md)
 * [The Unseen Benefits of a Security Mindset(自Grsecurity的blog)](https://hardenedlinux.github.io/system-security/2017/04/10/unseen-benefits-security-mindset.html), Apr 10 2017
 
+
 ### Secops/安全运维
 
 * [Debian GNU/Linux security checklist and hardening](https://hardenedlinux.github.io/system-security/2015/06/09/debian-security-chklist.html), June 9 2015
@@ -31,6 +33,7 @@ permalink: /about3/
 * [Hardening your desktop: Linux Mint with PaX/Grsecurity](https://hardenedlinux.github.io/system-security/2016/01/10/hardening-your-desktop-linux-mint-with-grsec.html), Jan 10 2015
 * [(A/T/KT) - Sanitized GNU/Linux: a new way of bug hunter in FLOSS Community](https://hardenedlinux.github.io/system-security/2016/04/01/x_Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html), Apr 1 2016
 * [Mission impossible: Hardening the x86 based core infrastructures](https://hardenedlinux.github.io/system-security/2017/03/17/debian_hardened_boot.html), Mar 17 2017
+
 
 ### Compiler/编译器相关
 
@@ -42,6 +45,7 @@ permalink: /about3/
 * [shared library wrinkle](https://hardenedlinux.github.io/gnu/linux-security/2016/09/21/linker-shared-library-wrinkle.html), Sept 21 2016
 * [RELRO分析](https://hardenedlinux.github.io/2016/11/25/RelRO.html), Nov 25 2016
 * [canary分析](https://hardenedlinux.github.io/2016/11/27/canary.html), Nov 27 2016
+* [ARMv8.3-A PA在GCC里的相关实现](https://hardenedlinux.github.io/gnu/toolchains/security/2017/06/13/ARM_PA.html), Jun 2017
 
 
 ### Kernel security/内核安全相关
@@ -52,11 +56,14 @@ permalink: /about3/
 * [CVE-2015-8088: 华为智能手机HiFi驱动堆溢出](https://hardenedlinux.github.io/system-security/2015/12/12/cve-2015-8088-analysis.html), Dec 12 2015
 * [An Introduction to Linux Kernel Exploitation](https://hardenedlinux.github.io/system-security/2016/01/19/an-introduction-to-linux-kernel-exploitation.html), Jan 19 2016
 * [Linux内核自防护项目的初始文档](https://hardenedlinux.github.io/system-security/2016/05/23/kernel_self_protection.html), May 23 2016
+* [linux kernel double-free类型漏洞的利用](https://hardenedlinux.github.io/system-security/2017/08/08/exploit_linux_kernel_double-free_flaws.html), Aug 8 2017
+* [Exploiting on CVE-2016-6787](https://hardenedlinux.github.io/system-security/2017/10/16/Exploiting-on-CVE-2016-6787.html), Oct 16 2017
 
 
 ### Firmware security/固件安全相关
 * [Neutralize ME firmware on SandyBridge and IvyBridge platforms](https://hardenedlinux.github.io/firmware/2016/11/17/neutralize_ME_firmware_on_sandybridge_and_ivybridge.html), Nov 17 2016
-
+* [云基础架构之固件安全合规](https://hardenedlinux.github.io/system-security/2017/06/15/firmware_compliance.html), Jun 15 2017
+* [云基础架构之CHIPSEC固件安全基线](https://hardenedlinux.github.io/system-security/2017/07/31/firmware_chipsec.html), Jul 31 2017
 
 ### Crypto engineering/密码工程相关
 
