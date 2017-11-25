@@ -34,5 +34,8 @@ IRC channel:
 ##hardenedlinux on FreeNode
 
 Jabber Group Chat:
+
 Room: hardenedlinux
 Server: chat.yax.im
+
+[Mailinglist](https://groups.google.com/forum/#!forum/hardenedlinux)
