@@ -12,7 +12,7 @@ by zerons, Shawn
 
 # 对Linux Kernel 4.14.0的SLAB_FREELIST_HARDENED加固实现的部分分析
 
-在之前的文档[linux kernel double-free类型漏洞的利用](https://github.com/snorez/blog/blob/master/linux%20kernel%20double-free%E7%B1%BB%E5%9E%8B%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%88%A9%E7%94%A8.md)中提到了SLUB的一个特性(FILO), 在slub中实现了一个单向链表, 每个节点的下一个元素保存在这个节点指向的内存的一个偏移处(kmem_cache->offset). 在double free环境中, 导致这个链表出现一个环, 于是后续的申请能得到指向同一个空间的两个对象.
+在之前的文档[linux kernel double-free类型漏洞的利用](https://github.com/snorez/blog/blob/master/linux%20kernel%20double-free%E7%B1%BB%E5%9E%8B%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%88%A9%E7%94%A8.md)中提到了SLUB的一个特性后进先出(LIFO), 在slub中实现了一个单向链表, 每个节点的下一个元素保存在这个节点指向的内存的一个偏移处(kmem_cache->offset). 在double free环境中, 导致这个链表出现一个环, 于是后续的申请能得到指向同一个空间的两个对象.
 
 本文会介绍一种由补丁引起的另外一种可利用的思路(只适用一种场景).
 
