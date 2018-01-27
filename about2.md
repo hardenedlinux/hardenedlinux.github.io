@@ -36,6 +36,7 @@ Content/article contributors:
 * [pray3r](https://github.com/Pray3r)
 * [lifematrix](https://github.com/lifematrix)
 
+Other( Donor/HardenedCore/etc):
 
 Donation:
 
@@ -48,3 +49,9 @@ Donation:
 Hardware donation:
 
 * Ciphergateway, Rasperry Pi II
+
+
+HardenedCore:
+
+* [citypw](https://github.com/citypw)
+* [madsys](https://github.com/madsys)

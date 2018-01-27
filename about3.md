@@ -58,6 +58,7 @@ permalink: /about3/
 * [Linux内核自防护项目的初始文档](https://hardenedlinux.github.io/system-security/2016/05/23/kernel_self_protection.html), May 23 2016
 * [linux kernel double-free类型漏洞的利用](https://hardenedlinux.github.io/system-security/2017/08/08/exploit_linux_kernel_double-free_flaws.html), Aug 8 2017
 * [Exploiting on CVE-2016-6787](https://hardenedlinux.github.io/system-security/2017/10/16/Exploiting-on-CVE-2016-6787.html), Oct 16 2017
+* [Linux kernel 4.14 SLAB_FREELIST_HARDENED 简单分析](https://hardenedlinux.github.io/system-security/2017/12/02/linux_kernel_4.14%E7%9A%84SLAB_FREELIST_HARDENED%E7%9A%84%E7%AE%80%E8%A6%81%E5%88%86%E6%9E%90.html), Dec 2 2017
 
 
 ### Firmware security/固件安全相关
