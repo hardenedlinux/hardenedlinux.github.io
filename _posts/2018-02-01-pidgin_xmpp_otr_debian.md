@@ -186,6 +186,8 @@ and send it to your trustful friends, in order for them to trust you.
 -----END PGP SIGNATURE-----
 ```
 
+有一个问题是某些客户端会对消息排版（如 Pidgin 会用 html 排版），而这会破坏 clear-sign 的一致性。一个有效的解决方法是用`gpg --store -a`将 clear-sign 的文本编码成不怕排版的 radix-64 形式，用`gpg -d`即可还原。该命令默认会对输入作透明的压缩，故比压缩再 base64 的“传统”做法操作更简便。
+
 ### 关于问答和共享秘密的身份认证
 pidgin的otr插件默认支持问答和共享秘密方式（这两种方法的本质其实是一样的）的身份认证。其核心思想是在你和对方两个人之间得出一份只有你们二人知道的秘密，然后使用otr插件的问答或共享秘密功能向对方询问和共享秘密有关的问题，如果对方的答案和你预设的相同，则对方的公钥会被自动标记为可信。对方不会得到你预设的答案，你也不会收到对方的回答，双方通过[特定的算法](https://en.wikipedia.org/wiki/Socialist_millionaires)保证在判断两个值是否相等的同时不会向包括对方在内的其他实体泄露值本身。
 
