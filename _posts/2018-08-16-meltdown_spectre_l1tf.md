@@ -1,9 +1,10 @@
 ---
-layout: post
-title: L1TF: nightmare never goes away
-summary: Meltdown, Spectre variants, L1TF. This is the year of side channel party for x86.
-categories: system-security
+layout:         post
+title:          L1TF: nightmares never goes away
+summary:        Meltdown, Spectre variants, L1TF. This is the year of side channel party for x86.
+categories:     system-security
 ---
+
 
 by Shawn C[ a.k.a "citypw"]
 
