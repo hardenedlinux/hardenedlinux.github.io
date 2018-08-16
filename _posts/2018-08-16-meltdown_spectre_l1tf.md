@@ -78,7 +78,7 @@ L1TF is a new beast can perform side channel attack in Intel CPU by triggering u
 | CVE-2018-3620                      | OS/SMM        | malicious user is able to gain the priviledge user's data or priviledged user is able to gain the data from SMRAM |
 | CVE-2018-3615                      | SGX           | Enclave is able to launch the attack to the other enclaves |
 
-The current mitigation is a new MSR( IA32_FLUSH_CMD, 0x10B) introduced by Intel. OS/SMM/VMM/SGX can utilize it to flush L1 cache only at runtime which avoid the performance hit. Btw, cloud vendors can isolate the vCORE for each VM by utilizing the CPU affinity. It seems only [GCP has done it](https://cloud.google.com/blog/products/gcp/protecting-against-the-new-l1tf-speculative-vulnerabilities) before the full disclosure according to the public info. 
+The current mitigation is a new MSR( IA32_FLUSH_CMD, 0x10B) introduced by Intel. OS/SMM/VMM/SGX can utilize it to flush L1 cache only at runtime which avoid the performance hit. Btw, cloud vendors can isolate the vCORE for each VM by utilizing the CPU affinity. It seems only [GCP has done it](https://cloud.google.com/blog/products/gcp/protecting-against-the-new-l1tf-speculative-vulnerabilities) before the full disclosure according to the public info. [AWS](https://aws.amazon.com/cn/security/security-bulletins/AWS-2018-019/) provides [dedicated instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html) and plz noted that the default policy is shared hardware.
 
 
 ## Defensive side in cy..b.errr..
