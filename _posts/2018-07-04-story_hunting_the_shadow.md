@@ -11,7 +11,7 @@ categories: system-security
 For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places. --- Ephesians 6:12
 
 
-![](/images/hunting_the_shadow.jpg)
+![hunting_the_shadow](/images/hunting_the_shadow.jpg)
 
 
 ## 初章：先知降临
