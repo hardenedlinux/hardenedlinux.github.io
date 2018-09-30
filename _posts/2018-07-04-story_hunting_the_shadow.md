@@ -11,6 +11,9 @@ categories: system-security
 For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places. --- Ephesians 6:12
 
 
+![](/images/hunting_the_shadow.jpg)
+
+
 ## 初章：先知降临
 
 自科技之神创世以来，自由软件/固件/硬件社区有非常多的敌人，而Intel ME则是最隐秘的敌人之一，[Intel ME( Management Engine)](https://github.com/hardenedlinux/firmware-anatomy/blob/master/hack_ME/me_info.md)是x86的平台芯片组(PCH)中的一个独立运行且完整的软硬件系统，自2006年加入x86芯片组（AMT 2.0）以来就备受质疑，2009年的Blackhat会议上ITL( Invisible Things Lab)的Rafal Wojtczuk和Alexander Tereshkin公开[展示了通过向特定DMA内存注入的AMT/ME漏洞](https://www.blackhat.com/presentations/bh-usa-09/TERESHKIN/BHUSA09-Tereshkin-Ring3Rootkit-SLIDES.pdf)，这是第一次揭露Ring -3 rootkit的可能，这是Intel还在大力推TPM/TXT的年代，ITL就已经从攻防的角度带给了安全社区一个在技术评估中非常重要的信息，在Ring 0以下层级的安全研究方面，ITL是先知一般的存在，多年来他们的持续不断的发现为后来的自由固件社区提供了重要的参考。
