@@ -10,6 +10,7 @@ categories: system-security
 
 For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places. --- Ephesians 6:12
 
+### [原画](https://github.com/hardenedlinux/Hardenedlinux_design)：猎杀暗影远征军 - The Fellowship of Libre firmware: Hunting the Shadow
 
 ![hunting_the_shadow](/images/hunting_the_shadow.jpg)
 
