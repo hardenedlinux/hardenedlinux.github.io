@@ -23,7 +23,7 @@ Project maintainers:
 
 * **[h4rdenedzer0](http://hardenedlinux.org/about/)** Team
 * [Tom Li](https://biergaizi.info/)
-* [samson-w](https://github.com/Samson-W)
+* [nadebula](https://github.com/nadebula)
 * [TYA infotech](http://tya.company/)
 
 Content/article contributors:

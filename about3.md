@@ -59,16 +59,21 @@ permalink: /about3/
 * [linux kernel double-free类型漏洞的利用](https://hardenedlinux.github.io/system-security/2017/08/08/exploit_linux_kernel_double-free_flaws.html), Aug 8 2017
 * [Exploiting on CVE-2016-6787](https://hardenedlinux.github.io/system-security/2017/10/16/Exploiting-on-CVE-2016-6787.html), Oct 16 2017
 * [Linux kernel 4.14 SLAB_FREELIST_HARDENED 简单分析](https://hardenedlinux.github.io/system-security/2017/12/02/linux_kernel_4.14%E7%9A%84SLAB_FREELIST_HARDENED%E7%9A%84%E7%AE%80%E8%A6%81%E5%88%86%E6%9E%90.html), Dec 2 2017
+* [Nightmares( Meltdown/Spectre/L1TF) never goes away](https://hardenedlinux.github.io/system-security/2018/08/16/meltdown_spectre_l1tf.html), Aug 16 2018
 
 
 ### Firmware security/固件安全相关
 * [Neutralize ME firmware on SandyBridge and IvyBridge platforms](https://hardenedlinux.github.io/firmware/2016/11/17/neutralize_ME_firmware_on_sandybridge_and_ivybridge.html), Nov 17 2016
 * [云基础架构之固件安全合规](https://hardenedlinux.github.io/system-security/2017/06/15/firmware_compliance.html), Jun 15 2017
 * [云基础架构之CHIPSEC固件安全基线](https://hardenedlinux.github.io/system-security/2017/07/31/firmware_chipsec.html), Jul 31 2017
+* [隐蔽战争纪元之猎杀暗影：固件自由战争之阻击"Ring -3"世界的恶魔](https://hardenedlinux.github.io/system-security/2018/07/04/story_hunting_the_shadow.html), July 4 2018
+* [用于企业系统管理员和蓝队的平台固件安全防御](https://hardenedlinux.github.io/system-security/2018/10/03/platform_firmware_security_defense.html), Oct 3 2018
+
 
 ### Crypto engineering/密码工程相关
 
 * [SSL/TLS部署最佳实践v1.4](https://hardenedlinux.github.io/cryptography/2015/07/28/ssl-tls-deployment-1.4.html), July 28 2015
+* [Debian/Ubuntu用户使用基于XMPP即时通信协议的OTR保护隐私的标准化部署流程](https://hardenedlinux.github.io/cryptography/2018/02/01/pidgin_xmpp_otr_debian.html), Feb 1 2018
 
 
 ### 其他类
