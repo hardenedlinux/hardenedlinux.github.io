@@ -36,7 +36,9 @@ categories:
 SRCINV是source code investigation的缩写, 是根据经验, 对源码审计工作的代码体现.
 
 源码(或二进制代码)是提供给研究人员查看的, 也是提供给编译器(或解释器或执行单元)的,
+
 该框架从编译器编译源码文件的中间信息, 提取解析该项目的所有源码信息提供给研究人员使用.
+
 由于通常的gcc插件, 看到的是当前编译单元的信息, 无法看到整个项目. 所以我们将整个项目的
 每个编译单元的信息提取出来再进行整合, 便于从全局角度去观察整个项目.
 
@@ -44,8 +46,11 @@ SRCINV是source code investigation的缩写, 是根据经验, 对源码审计工
 中可能存在的代码问题, 并提供一定程度的验证样本生成和代码补丁生成等功能.
 
 对于每个项目, 使用一个struct src结构记录所有生成的索引信息, 包含
+
 sibuf(用于表示编译文件的索引信息)链表,
+
 resfile(用于表示提取的结果文件)链表,
+
 sinodes(用于表示非局部变量/函数/类型, 分两大种类:名称索引, 位置索引. 对于文件
 变量(static)/文件函数/有位置信息的类型, 使用位置索引; 对于全局变量/全局函数/没有位
 置信息但是有名称的类型, 使用名称索引; 对于没有位置也没有名称的类型, 记录在sibuf中)
@@ -186,7 +191,8 @@ sinodes(用于表示非局部变量/函数/类型, 分两大种类:名称索引,
 	list_plugin显示当前可供使用的plugin. 显示的信息包含:
 	序号	引用计数	是否加载	plugin名称	plugin路径
 ```
-更多的指令详细用法(https://github.com/snorez/srcinv/tree/master/doc/commands.md)
+更多的指令详细用法, 请参考项目仓库doc/commands.md文件.
+
 框架的使用分为三个阶段, 信息收集, 信息解析, 信息使用. 下面将依次介绍.
 
 
@@ -209,6 +215,7 @@ sinodes(用于表示非局部变量/函数/类型, 分两大种类:名称索引,
 ```
 然后GCC对GIMPLE中间表示进行处理, 这些过程叫pass. 包括从高级GIMPLE转换成低级GIMPLE(框
 架使用的), IPA处理, GIMPLE优化, 最终由GIMPLE转换成RTL等.
+
 Pass根据处理的对象及功能的不同, 分为四大类: GIMPLE_PASS, RTL_PASS, SIMPLE_IPA_PASS,
 IPA_PASS. 其中GIMPLE_PASS以GIMPLE中间表示为处理对象, RTL_PASS的处理对象为RTL中间表示,
 SIMPLE_IPA_PASS和IPA_PASS处理对象也是GIMPLE中间表示, 但功能主要是过程间分析(IPA,
@@ -229,6 +236,7 @@ Inter-Procedural Analysis). 例如如下几个PASS(新版本GCC有些pass可能�
 ```
 对源码中每个定义的函数, 会先执行一遍all_lowering_passes中的处理过程, 也就是说, 在处理
 到cfg pass的时候, 有些函数并未进行lower处理.
+
 更多的GCC插件信息, 可以参考refs[1] refs[3], 或者查询GCC源码.
 
 当前实现的针对c源码文件的信息提取, 是gcc插件, 在加载时会检测当前编译的文件名称, 匹
@@ -345,11 +353,15 @@ DECL_CONTEXT为空或者为TRANSLATION_UNIT_DECL时, 表示该变量为函数外
 PHASE1后半部分, 提取每个文件的基础信息: 有哪些定义了的函数, 非局部变量, 类型.
 
 函数分TYPE_FUNC_GLOBAL和TYPE_FUNC_STATIC,
+
 非局部变量分TYPE_VAR_GLOBAL和TYPE_VAR_STATIC,
+
 类型分TYPE_TYPE_LOC和TYPE_TYPE_NAME.
 
 如果类型为TYPE_FUNC_GLOBAL/TYPE_VAR_GLOBAL/TYPE_TYPE_NAME, 为名称索引
+
 如果类型为TYPE_FUNC_STATIC/TYPE_VAR_STATIC/TYPE_TYPE_LOC, 为位置索引
+
 如果类型为TYPE_NONE, 该节点为tree_type_non_common, 放入sibuf->type_nodes中.
 
 首先查询当前sinodes中, 是否有重复的节点, 如果存在, 为位置索引时则进行下次循环, 为名
@@ -363,7 +375,9 @@ PHASE1后半部分, 提取每个文件的基础信息: 有哪些定义了的函�
 PHASE2, 获取每个sinode节点的详细信息.
 
 对于类型, 需要获取该类型指向的类型, 或者类型的大小, 类型的成员等信息.
+
 对于变量, 当前只获取了变量是什么类型.
+
 对于函数, 首先获取返回值类型, 然后处理参数列表(以var_node_list表示), 然后获取函数体(
 以code_path表示).
 
@@ -397,6 +411,7 @@ PHASE3暂时还未通过linux kernel 4.14.x的vmlinux的resfile检测, 存在一
 
 ##### 4.5 - 间接调用1
 PHASE4, 处理被标记了的函数, 即表示该函数存在除直接调用之外的引用情形.
+
 如果引用语句为GIMPLE_ASSIGN(赋值语句), 获取左值的var_node, 添加possible_value.
 
 
@@ -405,7 +420,9 @@ PHASE4, 处理被标记了的函数, 即表示该函数存在除直接调用之�
 PHASE5, 处理GIMPLE_CALL语句的第二个参数为VAR_DECL/PARM_DECL的情形.
 
 如果为VAR_DECL情形, 获取变量的var_node, 查看possible_value_list, 添加调用关系;
+
 然后查看该变量的use_at_list, 检测对其的赋值, 然后递归跟踪.
+
 例如:
 ```
 	static void test_func0(void);
@@ -443,6 +460,7 @@ PHASE5, 处理GIMPLE_CALL语句的第二个参数为VAR_DECL/PARM_DECL的情形.
 所以编写的框架plugin处理的对象也是lower GIMPLE语句.
 
 这里以未初始化变量引用的某种情形进行简单说明
+
 例如如下代码:
 ```
 	static void test_func(int flag)
@@ -461,6 +479,7 @@ PHASE5, 处理GIMPLE_CALL语句的第二个参数为VAR_DECL/PARM_DECL的情形.
 	}
 ```
 plugins/uninit.cc显示了如何检测这种形式的问题.
+
 该plugin会对所有的函数依次进行检测, 首先, 调用utils__gen_code_path获取该函数所有可能的执行流, 然后:
 ```
 	获取该函数使用的一个局部变量(不包含函数内的static变量)
@@ -492,7 +511,7 @@ plugins/uninit.cc显示了如何检测这种形式的问题.
 
 
 ### 7 - 引用
-  [0] [项目地址](https://github.com/snorez/srcinv/)
+  [0] [项目地址, 仓库会在后续创建](https://github.com/snorez/srcinv/)
 
   [1] [GNU Compiler Collection Internals](https://gcc.gnu.org/onlinedocs/gcc-6.4.0/gccint.pdf)
 
