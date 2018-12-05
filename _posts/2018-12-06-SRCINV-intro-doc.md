@@ -186,7 +186,7 @@ sinodes(用于表示非局部变量/函数/类型, 分两大种类:名称索引,
 	list_plugin显示当前可供使用的plugin. 显示的信息包含:
 	序号	引用计数	是否加载	plugin名称	plugin路径
 ```
-更多的指令详细用法(https://github.com/snorez/srcinv/tree/master/doc/commands.md)
+更多的指令详细用法, 请参考项目仓库doc/commands.md文件.
 框架的使用分为三个阶段, 信息收集, 信息解析, 信息使用. 下面将依次介绍.
 
 
@@ -492,7 +492,7 @@ plugins/uninit.cc显示了如何检测这种形式的问题.
 
 
 ### 7 - 引用
-  [0] [项目地址](https://github.com/snorez/srcinv/)
+  [0] [项目地址, 仓库会在后续创建](https://github.com/snorez/srcinv/)
 
   [1] [GNU Compiler Collection Internals](https://gcc.gnu.org/onlinedocs/gcc-6.4.0/gccint.pdf)
 
