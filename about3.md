@@ -46,6 +46,7 @@ permalink: /about3/
 * [RELRO分析](https://hardenedlinux.github.io/2016/11/25/RelRO.html), Nov 25 2016
 * [canary分析](https://hardenedlinux.github.io/2016/11/27/canary.html), Nov 27 2016
 * [ARMv8.3-A PA在GCC里的相关实现](https://hardenedlinux.github.io/gnu/toolchains/security/2017/06/13/ARM_PA.html), Jun 2017
+* [SRCINV-源码审计系统的简要介绍](https://hardenedlinux.github.io/2018/12/06/SRCINV-intro-doc.html), Dec 2018
 
 
 ### Kernel security/内核安全相关
@@ -68,6 +69,10 @@ permalink: /about3/
 * [云基础架构之CHIPSEC固件安全基线](https://hardenedlinux.github.io/system-security/2017/07/31/firmware_chipsec.html), Jul 31 2017
 * [隐蔽战争纪元之猎杀暗影：固件自由战争之阻击"Ring -3"世界的恶魔](https://hardenedlinux.github.io/system-security/2018/07/04/story_hunting_the_shadow.html), July 4 2018
 * [用于企业系统管理员和蓝队的平台固件安全防御](https://hardenedlinux.github.io/system-security/2018/10/03/platform_firmware_security_defense.html), Oct 3 2018
+* [NIST SP 800-147: BIOS固件保护指南](https://hardenedlinux.github.io/system-security/2018/10/31/NIST-SP-800-147.html), Oct 31 2018
+* [NIST SP 800-147B: 服务器BIOS保护指南](https://hardenedlinux.github.io/system-security/2018/11/06/NIST-SP-800-147B.html), Nov 6 2018
+* [NIST SP 800-155: BIOS 完整性测定指南](https://hardenedlinux.github.io/system-security/2018/11/19/NIST-SP-800-155.html), Nov 19 2018
+* [NIST SP 800-193: BIOS 平台固件弹性指南](https://hardenedlinux.github.io/system-security/2018/12/12/NIST-SP-800-193.html), Dec 12 2018
 
 
 ### Crypto engineering/密码工程相关
