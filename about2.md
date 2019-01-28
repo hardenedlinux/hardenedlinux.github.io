@@ -11,13 +11,16 @@ FLOSS projects from h4rdenedzer0 and other contributors:
 * [Reproducible build for PaX/Grsecurity](https://github.com/hardenedlinux/grsecurity-reproducible-build)
 * [Hardenedlinux profiles](https://github.com/hardenedlinux/hardenedlinux_profiles)
 * [pax-bites](https://github.com/hardenedlinux/pax-bites)
-* [Offensive PoC](https://github.com/hardenedlinux/offensive_poc)( WIP)
+* [Offensive PoC](https://github.com/hardenedlinux/offensive_poc)
 * [elfix for Debian package](https://github.com/hardenedlinux/elfix-deb)
-* [Debian GNU/Linux: best practice profiles](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles)( WIP)
-* [Community QA](https://github.com/hardenedlinux/community-QA)( WIP)
-* [PaX/Grsecurity新手教程](https://github.com/hardenedlinux/grsecurity-101-tutorials)( WIP)
-* [Firmware anatomy](https://github.com/hardenedlinux/firmware-anatomy)( WIP)
-* [Embedded-IOT profile](https://github.com/hardenedlinux/embedded-iot_profile)( WIP)
+* [Debian GNU/Linux: best practice profiles](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles)
+* [Community QA](https://github.com/hardenedlinux/community-QA)
+* [PaX/Grsecurity新手教程](https://github.com/hardenedlinux/grsecurity-101-tutorials)
+* [Firmware anatomy](https://github.com/hardenedlinux/firmware-anatomy)
+* [Embedded-IOT profile](https://github.com/hardenedlinux/embedded-iot_profile)
+* [harbian-qa](https://github.com/hardenedlinux/harbian-qa)
+* [harbian-audit](https://github.com/hardenedlinux/harbian-audit)
+
 
 Project maintainers:
 
