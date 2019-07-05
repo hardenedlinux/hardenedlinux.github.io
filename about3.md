@@ -69,16 +69,21 @@ permalink: /about3/
 * [云基础架构之CHIPSEC固件安全基线](https://hardenedlinux.github.io/system-security/2017/07/31/firmware_chipsec.html), Jul 31 2017
 * [隐蔽战争纪元之猎杀暗影：固件自由战争之阻击"Ring -3"世界的恶魔](https://hardenedlinux.github.io/system-security/2018/07/04/story_hunting_the_shadow.html), July 4 2018
 * [用于企业系统管理员和蓝队的平台固件安全防御](https://hardenedlinux.github.io/system-security/2018/10/03/platform_firmware_security_defense.html), Oct 3 2018
-* [NIST SP 800-147: BIOS固件保护指南](https://hardenedlinux.github.io/system-security/2018/10/31/NIST-SP-800-147.html), Oct 31 2018
-* [NIST SP 800-147B: 服务器BIOS保护指南](https://hardenedlinux.github.io/system-security/2018/11/06/NIST-SP-800-147B.html), Nov 6 2018
-* [NIST SP 800-155: BIOS 完整性测定指南](https://hardenedlinux.github.io/system-security/2018/11/19/NIST-SP-800-155.html), Nov 19 2018
-* [NIST SP 800-193: BIOS 平台固件弹性指南](https://hardenedlinux.github.io/system-security/2018/12/12/NIST-SP-800-193.html), Dec 12 2018
 
 
 ### Crypto engineering/密码工程相关
 
 * [SSL/TLS部署最佳实践v1.4](https://hardenedlinux.github.io/cryptography/2015/07/28/ssl-tls-deployment-1.4.html), July 28 2015
 * [Debian/Ubuntu用户使用基于XMPP即时通信协议的OTR保护隐私的标准化部署流程](https://hardenedlinux.github.io/cryptography/2018/02/01/pidgin_xmpp_otr_debian.html), Feb 1 2018
+
+
+### NIST文档
+* [NIST SP 800-147: BIOS固件保护指南](https://hardenedlinux.github.io/system-security/2018/10/31/NIST-SP-800-147.html), Oct 31 2018
+* [NIST SP 800-147B: 服务器BIOS保护指南](https://hardenedlinux.github.io/system-security/2018/11/06/NIST-SP-800-147B.html), Nov 6 2018
+* [NIST SP 800-155: BIOS 完整性测定指南](https://hardenedlinux.github.io/system-security/2018/11/19/NIST-SP-800-155.html), Nov 19 2018
+* [NIST SP 800-193: BIOS 平台固件弹性指南](https://hardenedlinux.github.io/system-security/2018/12/12/NIST-SP-800-193.html), Dec 12 2018
+* [NIST SP 800-125A: 基于服务器的虚拟机监视器平台的安全性建议](https://hardenedlinux.github.io/system-security/2019/04/09/NIST-SP-800-125A.html), Apr 9 2019
+* [NIST IR 8176: 用于 Linux 应用容器部署的安全性担保要求](https://hardenedlinux.github.io/system-security/2019/04/25/NIST-IR-8176.html)), Apr 25 2019
 
 
 ### 其他类

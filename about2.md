@@ -28,7 +28,6 @@ Project maintainers:
 * [Tom Li](https://biergaizi.info/)
 * [GTrunSec](https://github.com/GTrunSec)
 * [nadebula](https://github.com/nadebula)
-* [TYA infotech](http://tya.company/)
 
 Content/article contributors:
 
