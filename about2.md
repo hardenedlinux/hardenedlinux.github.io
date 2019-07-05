@@ -6,8 +6,8 @@ permalink: /about2/
 
 FLOSS projects from h4rdenedzer0 and other contributors:
 
-* [PaX for Android](http://hardenedlinux.org/system-security/2015/05/11/Grsecurity-for-Nexus-7-2013.html)
-* [STIG-4-Debian](http://hardenedlinux.org/system-security/2015/06/19/STIG-4-Debian.html)
+* [PaX for Android](https://github.com/hardenedlinux/armv7-nexus7-grsec)
+* [STIG-4-Debian](https://github.com/hardenedlinux/STIG-4-Debian)
 * [Reproducible build for PaX/Grsecurity](https://github.com/hardenedlinux/grsecurity-reproducible-build)
 * [Hardenedlinux profiles](https://github.com/hardenedlinux/hardenedlinux_profiles)
 * [pax-bites](https://github.com/hardenedlinux/pax-bites)
@@ -20,6 +20,13 @@ FLOSS projects from h4rdenedzer0 and other contributors:
 * [Embedded-IOT profile](https://github.com/hardenedlinux/embedded-iot_profile)
 * [harbian-qa](https://github.com/hardenedlinux/harbian-qa)
 * [harbian-audit](https://github.com/hardenedlinux/harbian-audit)
+* [coreboot on HiFive1](https://github.com/hardenedlinux/coreboot4HiFive1)
+* [coreboot on HiFive Unleashed](https://github.com/hardenedlinux/coreboot-HiFiveUnleashed)
+* [RAP-optimizations](https://github.com/hardenedlinux/RAP-optimizations)
+* [LLVMIncTrans](https://github.com/hardenedlinux/LLVMIncTrans)
+* [NSM-data-analysis](https://github.com/hardenedlinux/NSM-data-analysis)
+* [srcinv](https://github.com/hardenedlinux/srcinv)
+* [HardenedLinux's art design](https://github.com/hardenedlinux/Hardenedlinux_design)
 
 
 Project maintainers:
@@ -28,6 +35,7 @@ Project maintainers:
 * [Tom Li](https://biergaizi.info/)
 * [GTrunSec](https://github.com/GTrunSec)
 * [nadebula](https://github.com/nadebula)
+
 
 Content/article contributors:
 
@@ -38,6 +46,7 @@ Content/article contributors:
 * [Lenx Wei](https://www.linkedin.com/pub/tao-wei/26/60/25)
 * [pray3r](https://github.com/Pray3r)
 * [lifematrix](https://github.com/lifematrix)
+
 
 Other( Donor/HardenedCore/etc):
 
