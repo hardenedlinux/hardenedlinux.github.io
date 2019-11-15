@@ -54,7 +54,7 @@ Donation:
 
 * citypw, 8,000 RMB, 580 EU, 700 USD
 * [tomcat](http://www.songhaoyun.com/), logo design
-* face, 5,000 RMB for 200 T-shirts
+* face, 5,000 RMB for 200 T-shirts, 5,000 RMB( Nov 2019)
 
 * Hoodies & Sweatshirts 2017: face( 2,000 RMB), zet( 2,000 RMB), citypw( 5,000 RMB), jun_test( 3,000 RMB)
 
