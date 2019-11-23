@@ -33,8 +33,6 @@ Project maintainers:
 
 * **[h4rdenedzer0](http://hardenedlinux.org/about/)** Team
 * [Tom Li](https://biergaizi.info/)
-* [GTrunSec](https://github.com/GTrunSec)
-* [nadebula](https://github.com/nadebula)
 
 
 Content/article contributors:
