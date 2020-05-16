@@ -54,7 +54,7 @@ Donation:
 * [tomcat](http://www.songhaoyun.com/), logo design
 * face, 5,000 RMB for 200 T-shirts, 5,000 RMB( Nov 2019)
 * waterwave, 1,000 RMB( Nov 2019)
-* Xiang Wang, 2,000 RMB( Nov 2019)
+* Xiang Wang, 2,000 RMB( Nov 2019, 2,000 RMB( May 2020))
 * jun_test, 2,000 RMB( Dec 2019)
 
 * Hoodies & Sweatshirts 2017: face( 2,000 RMB), zet( 2,000 RMB), citypw( 5,000 RMB), jun_test( 3,000 RMB)
