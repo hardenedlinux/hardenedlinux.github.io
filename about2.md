@@ -25,7 +25,6 @@ FLOSS projects from h4rdenedzer0 and other contributors:
 * [RAP-optimizations](https://github.com/hardenedlinux/RAP-optimizations)
 * [LLVMIncTrans](https://github.com/hardenedlinux/LLVMIncTrans)
 * [NSM-data-analysis](https://github.com/hardenedlinux/NSM-data-analysis)
-* [srcinv](https://github.com/hardenedlinux/srcinv)
 * [HardenedLinux's art design](https://github.com/hardenedlinux/Hardenedlinux_design)
 
 
