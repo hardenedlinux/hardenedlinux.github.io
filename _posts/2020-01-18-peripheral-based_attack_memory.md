@@ -1,19 +1,11 @@
 ---
 layout: post
 author: Patrick Stewin
-<<<<<<< HEAD
-title:  "Detecting Peripheral-based Attacks on the Host Memory"
-summary: Patrick Stewin 有关 DAGGER 论文的中译本
-categories: system-security
----
-# 检测针对宿主内存的基于外设的攻击
-=======
 title:  "检测针对宿主内存的基于外设的攻击"
 summary: Patrick Stewin 有关 DAGGER 论文的中译本
 categories: system-security
 ---
 # Detecting Peripheral-based Attacks on the Host Memory
->>>>>>> cc8060157160dbd169ee5c2a4d3c59bad0b26e27
 
 Patrick Stewin
 
