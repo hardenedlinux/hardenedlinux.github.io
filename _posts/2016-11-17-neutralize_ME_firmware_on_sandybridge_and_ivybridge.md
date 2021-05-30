@@ -3,7 +3,7 @@ layout:         post
 title:          Neutralize ME firmware on SandyBridge and IvyBridge platforms
 date:           2016-11-17
 author:         persmule
-mail:           persmule@tya.email, persmule@gmail.com
+mail:           persmule@gmail.com
 summary:        Record how I "neutralize" the ME firmware on my Thinkpad X220, in order to present its way.
 categories:     Firmware
 ---

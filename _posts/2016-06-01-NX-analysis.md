@@ -3,7 +3,6 @@ layout:     post
 title:      NX(No-eXecute)的实现分析
 date:       2016-06-01
 author:     zet
-mail:       zet@tya.email
 summary:    在计算机安全领域一个很经典的话题就是缓冲区溢出(Buffer Overflow).缓冲区溢出一般时候伴随着攻击者的篡改堆栈里保存的返回地址,然后执行注入到stack中的shellcode,攻击者可以发挥想象力仔细编写shellcode进行下一步的攻击,直到完全控制了计算机.这种攻击之所以能够成功主要原因就是因为stack里的shellcode的可执行.所以主要的防御手段(mitigation)就是禁止stack里数据的执行(noexecstack)
 categories: system-security
 ---

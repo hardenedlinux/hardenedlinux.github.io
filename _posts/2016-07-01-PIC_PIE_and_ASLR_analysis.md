@@ -3,7 +3,6 @@ layout:         post
 title:          PIC/PIE&ASLR分析
 data:           2016-07-01
 auther:         zet
-mail:           zet@tya.email
 summary:	现代的GNU/Linux以及ELF系统也是整个GNU/Linux加固体系的一部分，PIE巧妙的借助于PIC配合ASLR实现了一个重要的传统mitigation，这对于GNU/Linux发行版并不是新的事物，但在Mobile/IoT的年代，由于越来越多的攻击平面（比如TEE)的引入，传统的mitigation也在"新"的平台上重新被重视，优化或者重新设计与实现。
 categories:     system-security
 ---

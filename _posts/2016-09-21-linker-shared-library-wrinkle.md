@@ -3,7 +3,7 @@ layout:         post
 title:          shared library wrinkle
 data:           2016-06-30
 auther:         zet
-mail:           zet@tya.email
+mail:           zet@gmail.com
 summary: 
 categories:     GNU Linux-Security
 ---

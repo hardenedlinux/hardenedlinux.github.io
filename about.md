@@ -47,7 +47,7 @@ Other: Please, contact contact[AT]hardenedlinux.org
 contact[AT]hardenedlinux.org
 
 IRC channel: 
-##hardenedlinux on FreeNode
+#hardenedlinux on OFTC
 
 Jabber Group Chat:
 

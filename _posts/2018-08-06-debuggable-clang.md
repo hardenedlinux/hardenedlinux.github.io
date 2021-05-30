@@ -3,7 +3,6 @@ layout:         post
 title:          搭建clang/LLVM的调试开发环境
 data:           2017-08-12
 auther:         zet
-mail:           zet@tya.email
 ---
 
 

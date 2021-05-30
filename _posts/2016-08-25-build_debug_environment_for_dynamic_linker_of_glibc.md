@@ -3,7 +3,7 @@ layout:         post
 title:          Build debug environment for the dynamic linker of Glibc
 data:           2016-08-25
 auther:         zet
-mail:           zet@tya.email
+mail:           zet@gmail.com
 summary:        Describe how to build debug environment for the dynamic linker of Glibc and some analysis detials
 categories:     Toolchains
 ---
