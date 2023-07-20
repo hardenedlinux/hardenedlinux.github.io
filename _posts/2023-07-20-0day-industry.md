@@ -8,7 +8,7 @@ categories: system-security
 
 作者：Maor Shwartz
 
-原文：https://medium.com/@maor_s/update-about-the-0-day-industry-8d8bb49e8dbb
+原文：<https://medium.com/@maor_s/update-about-the-0-day-industry-8d8bb49e8dbb>
 
 译者：Vault Labs
 
@@ -42,7 +42,7 @@ categories: system-security
 
 (3) 提高了漏洞研究的入门门槛
 
-这种方法给漏洞研究者带来了很大的负担，是行业变革的主要推动力。例如 https://twitter.com/jifa/status/1580835350209265664?s=20&t=HmlsJV-5IrNqc_h7lwln_w
+这种方法给漏洞研究者带来了很大的负担，是行业变革的主要推动力。例如 <https://twitter.com/jifa/status/1580835350209265664?s=20&t=HmlsJV-5IrNqc_h7lwln_w>
 
 ## 供应
 
