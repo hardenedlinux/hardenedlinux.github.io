@@ -12,7 +12,7 @@ categories: system-security
 
 译者：Vault Labs
 
-译者序：上一篇文章简单的[介绍了0-day数字军火行业](https://hardenedlinux.github.io/system-security/2023/07/20/0day-industry.html)，这篇<数字军火行业的兴衰及调整 - 趋势与更新>详细的总结了数字军火行业的历史以及现状，我们认为这篇文章不仅可以让公众有机会了解数字军火行业，更重要的是可以给安全工程师，安全分析师，CISO（首席安全官）和其他机构决策者一个参考，在赛博世界中，武器化漏洞利用是攻击者的破局之道，而对于防御的一方来说只有理解了武器化漏洞利用和数字军火行业才能更好的打造属于自身的赛博堡垒，从入行安全到HardenedLinux再到HardenedVault，我们经历了0ldsk00l黑客的“Hacking for fun and profit"到不可避免的”This is cyber, sir!"网络站年代，这些历史或多或少都在这篇文章中有所提及，不论什么时代性的背景，我们都应该谦卑，这样至少在面对The Desert of the Real时降低看花眼的概率。
+译者序：上一篇文章简单的[介绍了0-day数字军火行业](https://hardenedlinux.github.io/system-security/2023/07/20/0day-industry.html)，这篇<数字军火行业的兴衰及调整 - 趋势与更新>详细的总结了数字军火行业的历史以及现状，我们认为这篇文章不仅可以让公众有机会了解数字军火行业，更重要的是可以给安全工程师，安全分析师，CISO（首席安全官）和其他机构决策者一个参考，在赛博世界中，武器化漏洞利用是攻击者的破局之道，而对于防御的一方来说只有理解了武器化漏洞利用和数字军火行业才能更好的打造属于自身的赛博堡垒，从入行安全到 HardenedLinux 再到 HardenedVault，我们经历了 0ldsk00l 黑客的 “Hacking for fun and profit" 到不可避免的 ”This is cyber, sir!" 网络战年代，这些历史或多或少都在这篇文章中有所提及，不论什么时代性的背景，我们都应该谦卑，这样至少在面对 The Desert of the Real 时降低看花眼的概率。
 
 ## 简介
 
@@ -646,53 +646,103 @@ SLA规定了服务期限的条款和条件，包括但不限于：服务质量�
 ## Footnotes
 
 ¹https://www.youtube.com/watch?v=JkQxS1l9IPI&ab_channel=BlackHat
+
 ²https://support.apple.com/guide/security/operating-system-integrity-sec8b776536b/web
+
 ³https://blog.google/technology/safety-security/new-initiatives-to-reduce-the-risk-of-vulnerabilities-and-protect-researchers/
+
 ⁴https://medium.com/@maor_s/update-about-the-0-day-industry-8d8bb49e8dbb
+
 ⁵https://www.wassenaar.org/app/uploads/2019/12/Stand-alone-Munitions-List-2019.pdf
+
 ⁵https://www.wassenaar.org/app/uploads/2019/consolidated/List-of-Dual-Use-Goods-and-Technologies-and-Munitions-List-Corr.pdf
+
 ⁶https://www.reuters.com/investigates/special-report/usa-spying-raven/
+
 ⁶https://www.ft.com/content/11cb394d-a13e-4826-b580-823b9367fedb
+
 ⁷https://home.treasury.gov/news/press-releases/jy1296
+
 ⁷https://www.commerce.gov/news/press-releases/2021/11/commerce-adds-nso-group-and-other-foreign-companies-entity-list
-⁷https://www.haaretz.com/israel-news/security-aviation/2023-01-16/ty-article/.premium/greek-authorities-fine-intellexa-chief-over-spyware-scandal/00000185-bab3-deab-ad97-fafbd8ae0000 //
+
+⁷https://www.haaretz.com/israel-news/security-aviation/2023-01-16/ty-article/.premium/greek-authorities-fine-intellexa-chief-over-spyware-scandal/00000185-bab3-deab-ad97-fafbd8ae0000
+
 ⁷https://www.dpa.gr/sites/default/files/2023-01/2_2023%20anonym.pdf
+
 ⁷https://amp.dw.com/en/german-prosecutors-investigate-spyware-maker-finfisher/a-50293812
+
 ⁷https://www.al-monitor.com/originals/2022/02/israel-freezes-spyware-exports
+
 ⁷https://www.timesofisrael.com/defense-ministry-said-to-freeze-export-licenses-for-israeli-cyberattack-tech/
+
 ⁷https://www.apple.com/newsroom/pdfs/Apple_v_NSO_Complaint_112321.pdf
+
 ⁷https://www.theregister.com/2023/03/21/meta_employee_spyware/
+
 ⁷https://www.haaretz.com/israel-news/security-aviation/2023-03-08/ty-article/.premium/israel-firm-nfv-systems-illegally-selling-classified-spy-tech/00000186-bceb-d2e9-a7df-bdef014c0000
+
 ⁷https://www.whitehouse.gov/briefing-room/presidential-actions/2023/03/27/executive-order-on-prohibition-on-use-by-the-united-states-government-of-commercial-spyware-that-poses-risks-to-national-security/
+
 ⁷https://www.dw.com/en/germany-charges-executives-for-selling-spyware-to-turkey/a-65701848
+
 ⁷https://www.ft.com/content/11cb394d-a13e-4826-b580-823b9367fedb
+
 ⁷https://www.timesofisrael.com/report-israel-nixed-quadreams-spyware-deal-with-morocco-leading-to-firms-closure/
+
 ⁷https://www.reuters.com/technology/facebook-can-pursue-malware-lawsuit-against-israels-nso-group-us-appeals-court-2021-11-08/
+
 ⁷https://www.wassenaar.org/app/uploads/2019/12/WA-DOC-19-PUB-002-Public-Docs-Vol-II-2019-List-of-DU-Goods-and-Technologies-and-Munitions-List-Dec-19.pdf
-⁸https://english.almayadeen.net/news/technology/pegasus-nemesis:-meet-quadream-another-israeli-spyware-compa //
+
+⁸https://english.almayadeen.net/news/technology/pegasus-nemesis:-meet-quadream-another-israeli-spyware-compa
+
 ⁸https://www.reuters.com/technology/exclusive-iphone-flaw-exploited-by-second-israeli-spy-firm-sources-2022-02-03/
+
 ⁸https://www.amnesty.org/en/latest/press-release/2021/07/the-pegasus-project/
+
 ⁸https://www.businesstimes.com.sg/startups-tech/technology/spyware-trade-grows-amid-claims-activists-amazon-boss-targeted
+
 ⁸https://www.forbes.com/sites/thomasbrewster/2016/09/29/wintego-whatsapp-encryption-surveillance-exploits/?sh=bb4d0581aa95
+
 ⁹https://www.latimes.com/business/technology/story/2020-01-27/spyware-booming-business-jeff-bezos
+
 ¹⁰https://www.theguardian.com/technology/2023/apr/11/canadian-security-experts-warn-over-spyware-threat-to-rival-pegasus-citizen-lab
+
 ¹¹https://news.sina.com.cn/c/2023-04-27/doc-imyruepi4556974.shtml?cre=tianyi&tr=181#/
+
 ¹¹https://cn.chinadaily.com.cn/a/202304/27/WS6449c3aaa310537989371d7c.html
+
 ¹²https://exportctrl.mod.gov.il/About/Pages/AllMessages.aspx?ItemId=242
+
 ¹³https://metacpc.org/wp-content/uploads/2022/12/predator.pdf
+
 ¹⁴https://www.vice.com/en/article/n7wbnd/hacking-team-is-dead
+
 ¹⁴https://www.bloomberg.com/news/articles/2022-03-28/spyware-vendor-finfisher-claims-insolvency-amid-investigation
+
 ¹⁴https://www.ecchr.eu/en/case/surveillance-software-germany-turkey-finfisher/
+
 ¹⁴https://www.forbes.com/sites/thomasbrewster/2021/07/29/paragon-is-an-nso-competitor-and-an-american-funded-israeli-surveillance-startup-that-hacks-encrypted-apps-like-whatsapp-and-signal/?sh=222a3c8f153b
+
 ¹⁴https://intelligencecommunitynews.com/l3-completes-acquisition-of-azimuth-security-and-linchpin-labs/
+
 ¹⁵https://www.moodys.com/research/Moodys-downgrades-NSO-to-B3-with-negative-outlook--PR_446947
+
 ¹⁵https://www.aljazeera.com/economy/2021/12/14/nso-group-explores-shut-down-of-its-pegasus-spyware-unit-sale
+
 ¹⁵https://www.bloomberg.com/news/articles/2022-11-04/israel-s-nso-takes-drastic-measures-to-survive-spyware-scandal?leadSource=uverify%20wall
+
 ¹⁶https://www.washingtonpost.com/national-security/2022/07/10/nso-spyware-l3harris-talks-ended/
+
 ¹⁶https://seekingalpha.com/news/3855689-l3harris-reportedly-drops-bid-for-israeli-spyware-following-us-concerns
+
 ¹⁶https://www.technologyreview.com/2022/06/27/1054884/the-hacking-industry-faces-the-end-of-an-era/
+
 ¹⁷https://www.haaretz.com/israel-news/security-aviation/2023-04-16/ty-article/.premium/offensive-israeli-cyber-firm-quadream-closes-and-fires-all-employees/00000187-8b5c-d484-adef-ebdc048c0000
+
 ¹⁷https://www.calcalist.co.il/calcalistech/article/rjdbgg3fn
+
 ¹⁷https://www.timesofisrael.com/report-israel-nixed-quadreams-spyware-deal-with-morocco-leading-to-firms-closure/
+
 ¹⁸First Updates to the New Theoretical Framework of Technology Start-up Lifecycle Stages by Jakub Ulč, Miroslav Mandel
+
 ¹⁹https://www.immunityinc.com/downloads/skylar_cansecwest09.pdf
