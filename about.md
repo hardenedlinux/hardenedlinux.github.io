@@ -17,6 +17,7 @@ Team: h4rdenedzer0
 * [nadebula](https://github.com/nadebula)
 * [GTrunSec](https://github.com/GTrunSec)
 * zerons
+* [Wei](https://gitlab.com/we3i)
 
 [Contributors](https://hardenedlinux.github.io/about2)
 

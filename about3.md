@@ -33,6 +33,7 @@ permalink: /about3/
 * [Hardening your desktop: Linux Mint with PaX/Grsecurity](https://hardenedlinux.github.io/system-security/2016/01/10/hardening-your-desktop-linux-mint-with-grsec.html), Jan 10 2015
 * [(A/T/KT) - Sanitized GNU/Linux: a new way of bug hunter in FLOSS Community](https://hardenedlinux.github.io/system-security/2016/04/01/x_Sanitized-GNU-Linux-a-new-way-of-bug-hunter-in-FLOSS-Community.html), Apr 1 2016
 * [Mission impossible: Hardening the x86 based core infrastructures](https://hardenedlinux.github.io/system-security/2017/03/17/debian_hardened_boot.html), Mar 17 2017
+* [GNU/Linux Sandboxing - A Brief Review](https://hardenedlinux.github.io/system-security/2024/08/20/Linux-sandbox-solutions.html), Aug 20, 2024
 
 
 ### Compiler/编译器相关
